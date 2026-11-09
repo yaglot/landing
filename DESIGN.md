@@ -1,4 +1,4 @@
-# YakYak Design System
+# Yaglot Design System
 
 > Warm parchment canvas, terracotta accent, Noto typography, approachable human tone.
 
@@ -6,7 +6,7 @@
 
 ## 1. Visual Identity
 
-YakYak's visual identity is warm, editorial, and approachable — a literary salon reimagined for language learning. The parchment-toned canvas (`#f5f4ed`) evokes paper rather than a digital surface. The terracotta accent anchors the brand with earthy warmth. The three monkeys (see/hear/speak) serve as the core visual motif. Chunky Duolingo-style shadows keep the tone playful rather than serious.
+Yaglot's visual identity is warm, editorial, and approachable — a literary salon reimagined for language learning. The parchment-toned canvas (`#f5f4ed`) evokes paper rather than a digital surface. The terracotta accent anchors the brand with earthy warmth. The three monkeys (see/hear/speak) serve as the core visual motif. Chunky Duolingo-style shadows keep the tone playful rather than serious.
 
 **Key characteristics:**
 - Warm parchment canvas (`#f5f4ed`) — never pure white
@@ -145,7 +145,7 @@ No sharp corners — softness is core to the identity.
 | `--elev-chunky` | `0 4px 0 0 var(--border-soft)` | Duolingo-style chunky shadow |
 | `--elev-chunky-accent` | `0 4px 0 0 color-mix(...)` | Chunky shadow in accent colour |
 
-The chunky bottom shadows on buttons and interactive elements are the signature YakYak flourish — they create a playful, tactile press-down effect on click (`translateY(3px)` + shadow reduction).
+The chunky bottom shadows on buttons and interactive elements are the signature Yaglot flourish — they create a playful, tactile press-down effect on click (`translateY(3px)` + shadow reduction).
 
 ---
 
