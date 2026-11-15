@@ -194,7 +194,7 @@
         <a href="#top" class="logo-link" id="logo-link">
           <img src="images/logo_company.png" alt="Yaglot" class="logo-img" height="72">
         </a>
-        <a href="#waitlist" class="btn btn-primary">Join Waitlist</a>
+        <a href="#waitlist" class="btn btn-primary">Join the waitlist</a>
       </nav>
     </div>
   </header>
@@ -306,7 +306,7 @@
           <div class="postcard-lines" aria-hidden="true"></div>
           <form id="waitlist-form-main" class="waitlist-inline">
             <input type="email" name="email" placeholder="you@example.com" required>
-            <button type="submit" class="btn-notify">Join Waitlist</button>
+            <button type="submit" class="btn-notify">Join the waitlist</button>
           </form>
           <p class="privacy">We respect your privacy and will never spam you.</p>
         </div>
@@ -388,7 +388,7 @@
         const email = waitlistForm.querySelector('input[type="email"]')?.value;
         if (!email) {
           btn.disabled = false;
-          btn.textContent = 'Join Waitlist';
+          btn.textContent = 'Join the waitlist';
           return;
         }
 
