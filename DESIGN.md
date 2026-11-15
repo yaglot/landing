@@ -2,6 +2,27 @@
 
 > Warm parchment canvas, terracotta accent, Noto typography, approachable human tone.
 
+
+## 0. Hand-drawn redesign (November 2026)
+
+The site now uses a hand-drawn, felt-tip doodle style. Where this section and the older sections below disagree, this section wins.
+
+**Illustrations** (`images/illustrations/`, all SVG, made with rough.js)
+- Wobbly brown ink outlines (`#3a2f2a`) with scribbled hachure fills over flat colour, on cream paper
+- Illustration palette: sky `#d6eaf5`, sea `#a9d2e6`, leaf green `#8cc084`, deep green `#5a9a5f`, sunny yellow `#f6c453`, persimmon `#d9573b`, orange `#ef9a4a`, sand ground `#eadcbc`, navy night `#2d3561`
+- Taiwan scenes: hero panorama (mountains, temple, high-speed train, Taipei 101), Taiwan map with sightseeing spots, night market with sky lanterns, Kenting beach sandcastle
+- Cartoon people in side-on, active poses (walking, pointing, kneeling, lifting), not stick figures
+- Doodle star, bell and three monkeys replace the emoji GIFs; the monkeys are layered (face, expression, hands) and animated with CSS to match the original emoji
+- Taipei 101 appears in the hero only
+
+**Surfaces and shapes**
+- Hero background sky `#d6eaf5`; paper `#fffaf0`; sand section `#efe7d6`
+- Cards and buttons: 2px ink border, wobbly radius (`18px 22px 16px 24px / 22px 16px 24px 18px`), chunky ink shadow (`0 5px 0 0` ink), slight tilt (no more than 0.5° on text cards)
+- Wavy SVG edges between sections; squiggle under headings; postcard-style waitlist with stamp
+- Banner: soft sand stripes (`#eadcbc` / `#e2d1ab`), warm grey text `#57534e`, terracotta pulsing dot; not sticky below 520px
+
+**Phrase cards**: dark-outlined cards floating in the hero sky band (desktop) or grouped above the picture (below 1024px); characters in terracotta, pinyin in teal `#1f6e78`.
+
 ---
 
 ## 1. Visual Identity
@@ -10,7 +31,7 @@ Yaglot's visual identity is warm, editorial, and approachable — a literary sal
 
 **Key characteristics:**
 - Warm parchment canvas (`#f5f4ed`) — never pure white
-- Terracotta brand accent (`#c96442`) — earthy, un-tech
+- Terracotta brand accent (`#b85c38`), also the logo and name colour — earthy, un-tech
 - Noto Serif for headings, Noto Sans for body and UI
 - Three monkeys motif (see, hear, speak)
 - Chunky bottom shadows on interactive elements (Duolingo-inspired)
@@ -43,10 +64,10 @@ All values are hex. Every neutral carries a warm yellow-brown undertone — no c
 
 | Token | Value | Usage |
 |---|---|---|
-| `--accent` | `#c96442` | Primary CTA, key brand moments |
+| `--accent` | `#b85c38` | Primary CTA, key brand moments |
 | `--accent-on` | `#faf9f5` | Text on terracotta backgrounds |
-| `--accent-hover` | `#a34e32` | Hover state for accent |
-| `--accent-active` | `#8a3f28` | Active/pressed state |
+| `--accent-hover` | `#9b4d2f` | Hover state for accent |
+| `--accent-active` | `#833f26` | Active/pressed state |
 | `--danger` | `#b53333` | Error states (warm red) |
 
 ### Borders
@@ -154,7 +175,7 @@ The chunky bottom shadows on buttons and interactive elements are the signature 
 ### Buttons
 
 **Primary CTA:**
-- Background: `--accent` (#c96442)
+- Background: `--accent` (#b85c38)
 - Text: `--accent-on` (#faf9f5)
 - Radius: `--radius-md` (12px)
 - Weight: 700
@@ -189,7 +210,7 @@ The chunky bottom shadows on buttons and interactive elements are the signature 
 ### Forms
 
 - Input radius: 12px
-- Focus ring: `3px rgba(201,100,66,0.2)`
+- Focus ring: `3px rgba(184,92,56,0.2)`
 - Font: `--font-body`
 - Submit button: same style as primary CTA
 - Mobile: form stacks vertically
