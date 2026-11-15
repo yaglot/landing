@@ -10,10 +10,15 @@ The site now uses a hand-drawn, felt-tip doodle style. Where this section and th
 **Illustrations** (`images/illustrations/`, all SVG, made with rough.js)
 - Wobbly brown ink outlines (`#3a2f2a`) with scribbled hachure fills over flat colour, on cream paper
 - Illustration palette: sky `#d6eaf5`, sea `#a9d2e6`, leaf green `#8cc084`, deep green `#5a9a5f`, sunny yellow `#f6c453`, persimmon `#d9573b`, orange `#ef9a4a`, sand ground `#eadcbc`, navy night `#2d3561`
-- Taiwan scenes: hero panorama (mountains, temple, high-speed train, Taipei 101), Taiwan map with sightseeing spots, night market with sky lanterns, Kenting beach sandcastle
-- Cartoon people in side-on, active poses (walking, pointing, kneeling, lifting), not stick figures
+- Taiwan scenes:
+  - Hero panorama: mountains, temple with lanterns, high-speed train, Taipei 101, two hikers, a parked light-blue scooter centred under the temple (clear of the railway)
+  - Taiwan map: compass with 'N', heart on Miaoli, Taipei 101, Jiufen lanterns, Turtle Island, Taoyuan Airport plane, Gaomei wind turbines, Taroko Gorge, Sun Moon Lake, Alishan train, Tainan temple, Lotus Pond pagodas, Taitung balloon, Kenting lighthouse, plus Penghu, Green Island and Orchid Island
+  - Night market (waitlist postcard): sky lanterns, moon, three stalls with food at realistic sizes (地瓜球, 珍珠奶茶, 臭豆腐)
+  - Kenting beach (construction page): sandcastle, palms with ringed trunks, red-and-white striped umbrella, lighthouse on a complete hill, starfish and shell; shown in full on phones (not cropped)
+- Cartoon people in side-on, active poses (walking, pointing, kneeling, lifting), not stick figures; every person looks different (hair, clothes, skin tone, age), never repeated across pictures
 - Doodle star, bell and three monkeys replace the emoji GIFs; the monkeys are layered (face, expression, hands) and animated with CSS to match the original emoji
-- Taipei 101 appears in the hero only
+- Taipei 101 appears only in the hero and as a landmark on the map
+- Drawings must not touch or overlap other lines or picture edges at any screen size
 
 **Surfaces and shapes**
 - Hero background sky `#d6eaf5`; paper `#fffaf0`; sand section `#efe7d6`
@@ -22,6 +27,18 @@ The site now uses a hand-drawn, felt-tip doodle style. Where this section and th
 - Banner: soft sand stripes (`#eadcbc` / `#e2d1ab`), warm grey text `#57534e`, terracotta pulsing dot; not sticky below 520px
 
 **Phrase cards**: dark-outlined cards floating in the hero sky band (desktop) or grouped above the picture (below 1024px); characters in terracotta, pinyin in olive `#5f7146`.
+- Desktop: the hero picture height follows the screen width (`max(420px, 29vw + 215px)`) so the cards always sit just above the mountains
+- Below 1024px: cards grouped with 30px between rows and 24px between cards, 44px space above; picture shown at 9:4
+
+**Text and small details**
+- Hero subtitle 26px (20px on phones); doodle star 42px (32px on phones); bell beside the waitlist heading 50px (40px on phones)
+- Buttons read 'Join the waitlist' (sentence case)
+- Footer headings light terracotta `#e8a387` (link hover the same) on near-black
+- Footer copyright year fills in automatically
+
+**Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
+- Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
+- Pages live at yaglot.com and yaglot.com/construction (construction.html); 404.html forwards old addresses
 
 ---
 
