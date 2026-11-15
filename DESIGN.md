@@ -3,7 +3,7 @@
 > Warm parchment canvas, terracotta accent, Noto typography, approachable human tone.
 
 
-## 0. Hand-drawn redesign (November 2026)
+## 0. Doodle redesign (November 2026)
 
 The site now uses a hand-drawn, felt-tip doodle style. Where this section and the older sections below disagree, this section wins.
 
