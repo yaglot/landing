@@ -10,7 +10,7 @@ Yaglot's visual identity is warm, editorial, and approachable — a literary sal
 
 **Key characteristics:**
 - Warm parchment canvas (`#f5f4ed`) — never pure white
-- Terracotta brand accent (`#b5562f`), also the logo and name colour — earthy, un-tech
+- Terracotta brand accent (`#b85c38`), also the logo and name colour — earthy, un-tech
 - Noto Serif for headings, Noto Sans for body and UI
 - Three monkeys motif (see, hear, speak)
 - Chunky bottom shadows on interactive elements (Duolingo-inspired)
@@ -43,10 +43,10 @@ All values are hex. Every neutral carries a warm yellow-brown undertone — no c
 
 | Token | Value | Usage |
 |---|---|---|
-| `--accent` | `#b5562f` | Primary CTA, key brand moments |
+| `--accent` | `#b85c38` | Primary CTA, key brand moments |
 | `--accent-on` | `#faf9f5` | Text on terracotta backgrounds |
-| `--accent-hover` | `#96462a` | Hover state for accent |
-| `--accent-active` | `#7d3a22` | Active/pressed state |
+| `--accent-hover` | `#9b4d2f` | Hover state for accent |
+| `--accent-active` | `#833f26` | Active/pressed state |
 | `--danger` | `#b53333` | Error states (warm red) |
 
 ### Borders
@@ -154,7 +154,7 @@ The chunky bottom shadows on buttons and interactive elements are the signature 
 ### Buttons
 
 **Primary CTA:**
-- Background: `--accent` (#b5562f)
+- Background: `--accent` (#b85c38)
 - Text: `--accent-on` (#faf9f5)
 - Radius: `--radius-md` (12px)
 - Weight: 700
@@ -189,7 +189,7 @@ The chunky bottom shadows on buttons and interactive elements are the signature 
 ### Forms
 
 - Input radius: 12px
-- Focus ring: `3px rgba(181,86,47,0.2)`
+- Focus ring: `3px rgba(184,92,56,0.2)`
 - Font: `--font-body`
 - Submit button: same style as primary CTA
 - Mobile: form stacks vertically
