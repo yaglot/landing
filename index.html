@@ -11,604 +11,181 @@
   <meta property="og:image" content="https://yaglot.com/images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Mono:wght@400&family=Noto+Sans+SC:wght@400&family=Noto+Sans+TC:wght@400&family=Noto+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="images/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Sans+SC:wght@400&family=Noto+Sans+TC:wght@400&family=Noto+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #f5f4ed;
-      --surface: #faf9f5;
-      --surface-warm: #e8e6dc;
-      --fg: #141413;
-      --fg-2: #3d3d3a;
-      --muted: #5e5d59;
-      --meta: #87867f;
-      --border: #f0eee6;
-      --border-soft: #e8e6dc;
-      --accent: #b85c38;
-      --accent-on: #faf9f5;
-      --accent-hover: #9b4d2f;
-      --accent-active: #833f26;
-      --danger: #b53333;
-
-      --font-display: 'Noto Serif', serif;
-      --font-weight-display: 500;
-      --font-body: 'Noto Sans', sans-serif;
-      --font-weight-body: 400;
-      --font-mono: 'Noto Sans Mono', monospace;
-
-      --text-xs: 10px;
-      --text-sm: 14px;
-      --text-base: 16px;
-      --text-lg: 20px;
-      --text-xl: 25px;
-      --text-2xl: 32px;
-      --text-3xl: 52px;
-      --text-4xl: 64px;
-
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-
-      --elev-flat: none;
-      --elev-ring: 0 0 0 1px var(--border);
-      --elev-raised: rgba(0, 0, 0, 0.05) 0px 4px 24px;
-      --elev-chunky: 0 4px 0 0 var(--border-soft);
-      --elev-chunky-accent: 0 4px 0 0 color-mix(in oklab, var(--accent), black 8%);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    html, body {
-      background: var(--bg);
-      color: var(--fg);
-      font-family: var(--font-body);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body {
-      overflow-x: hidden;
-    }
-
-    /* Typography */
-    h1 {
-      font-family: var(--font-display);
-      font-weight: var(--font-weight-display);
-      font-size: var(--text-4xl);
-      line-height: 1.10;
-      letter-spacing: normal;
-    }
-    h2 {
-      font-family: var(--font-display);
-      font-weight: var(--font-weight-display);
-      font-size: var(--text-3xl);
-      line-height: 1.20;
-    }
-    h3 {
-      font-family: var(--font-display);
-      font-weight: var(--font-weight-display);
-      font-size: var(--text-2xl);
-      line-height: 1.10;
-    }
-    p {
-      font-size: var(--text-base);
-      line-height: 1.60;
-      color: var(--muted);
-    }
-    .lead {
-      font-family: var(--font-body);
-      font-size: var(--text-lg);
-      line-height: 1.60;
-      color: var(--fg);
-    }
-    a {
-      color: var(--accent);
-      text-decoration: underline;
-      transition: color 0.2s;
-    }
-    a:hover {
-      color: var(--fg-2);
-    }
-
-    /* Spacing */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    section {
-      padding: 96px 0;
-      background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
-    }
-    section.dark {
-      background: var(--fg);
-      color: var(--surface);
-    }
-    section.dark p {
-      color: var(--surface);
-    }
-    section.dark h2 {
-      color: var(--surface);
-    }
-    section.dark h3 {
-      color: var(--surface);
-    }
-
-    /* Banner */
-    .stealth-banner {
-      background: #8b8c7a;
-      color: #fff;
-      text-align: center;
-      padding: 10px 16px;
-      font-size: 14px;
-      letter-spacing: 0.02em;
-      position: sticky;
-      top: 0;
-      z-index: 200;
-    }
-    .stealth-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--accent-on);
-      display: inline-block;
-      margin-right: 4px;
-      animation: stealth-pulse 2s ease-in-out infinite;
-    }
-    @keyframes stealth-pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    /* Navigation */
-    header {
-      position: sticky;
-      top: 41px;
-      z-index: 100;
-      background: rgba(245, 244, 237, 0.95);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      padding: 24px 0;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 32px;
-    }
-    .logo-link {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      transition: transform 0.2s;
-    }
-    .logo-link:hover {
-      transform: translateY(3px);
-    }
-    .logo-img {
-      height: 72px;
-      width: auto;
-      display: block;
-    }
-    nav .links {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-    }
-    nav .links a {
-      font-size: var(--text-base);
-      border: none;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    nav .links a:hover {
-      color: var(--accent);
-    }
-    @media (max-width: 768px) {
-      nav .links {
-        display: none;
+      :root {
+        --bg: #f5f4ed; --surface: #faf9f5; --sand: #efe7d6; --sky: #fffaf0;
+        --fg: #141413; --ink: #3a2f2a; --muted: #5e5d59; --meta: #87867f;
+        --border: #f0eee6; --accent: #b85c38; --accent-on: #faf9f5; --accent-hover: #9b4d2f; --accent-active: #833f26;
+        --tint-clay: #fbe0d6; --tint-sage: #dcedf6; --tint-gold: #fbecc4;
+        --font-display: 'Noto Serif', serif; --font-body: 'Noto Sans', sans-serif;
+        --wobble: 18px 22px 16px 24px / 22px 16px 24px 18px;
+        --wobble-lg: 28px 34px 24px 36px / 34px 24px 36px 28px;
+        --chunky: 0 6px 0 0 #dccfb6;
+        --chunky-accent: 0 4px 0 0 color-mix(in oklab, var(--accent), black 8%);
       }
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      padding: 14px 28px;
-      border-radius: var(--radius-md);
-      font-weight: 700;
-      font-size: var(--text-base);
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-      font-family: var(--font-body);
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: var(--accent-on);
-      box-shadow: var(--elev-chunky-accent);
-      border-bottom: 2px solid rgba(0,0,0,0.1);
-    }
-    .btn-primary:hover {
-      color: var(--accent-on);
-      transform: translateY(3px);
-      box-shadow: 0 2px 0 0 var(--accent-hover);
-    }
-    .btn-primary:active {
-      background: var(--accent-active);
-      color: var(--accent-on);
-      transform: translateY(4px);
-      box-shadow: none;
-    }
-
-    /* Hero */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-      min-height: 70vh;
-    }
-    .hero-content h1 {
-      margin-bottom: 32px;
-      color: var(--fg);
-    }
-    .hero-content .lead {
-      font-size: var(--text-lg);
-      margin-bottom: 40px;
-      color: var(--muted);
-    }
-    .hero-content .lead picture img {
-      vertical-align: middle;
-      animation: hero-pop 2s ease-in-out infinite;
-    }
-    @keyframes hero-pop {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-    }
-    .hero-cta {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 60px;
-      flex-wrap: wrap;
-    }
-    .hero-visual {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 420px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--elev-raised);
-    }
-    .hero-visual-content {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
-    }
-    .char-card {
-      position: absolute;
-      background: var(--bg);
-      border-radius: var(--radius-md);
-      padding: 20px;
-      border: 1px solid var(--border);
-      box-shadow: var(--elev-ring);
-    }
-    .char-card-1 {
-      width: 150px;
-      top: 8%;
-      left: 8%;
-      animation: float 6s ease-in-out infinite;
-    }
-    .char-card-2 {
-      width: 200px;
-      top: 12%;
-      right: 10%;
-      animation: float 5.5s ease-in-out infinite 0.3s;
-    }
-    .char-card-3 {
-      width: 260px;
-      bottom: 10%;
-      left: 20%;
-      animation: float 5s ease-in-out infinite 0.6s;
-    }
-    .char-card-4 {
-      width: 160px;
-      bottom: 20%;
-      right: 10%;
-      animation: float 5.2s ease-in-out infinite 0.4s;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-    .char-card h4 {
-      font-size: var(--text-sm);
-      margin-bottom: 8px;
-      color: var(--fg);
-      font-family: var(--font-display);
-      font-weight: var(--font-weight-display);
-    }
-    .char-card p {
-      font-size: 16px;
-      color: var(--meta);
-      line-height: 1.5;
-    }
-    .char-label {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      align-items: flex-start;
-      margin-bottom: 12px;
-    }
-    .char-unit {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-    .char-symbol {
-      font-family: 'Noto Sans TC', 'Noto Sans SC', sans-serif;
-      font-size: 44px;
-      font-weight: 400;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .char-pinyin {
-      font-family: var(--font-body);
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--muted);
-      line-height: 1;
-    }
-    @media (max-width: 1024px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 60px;
-        min-height: auto;
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+      h1, h2, h3 { font-family: var(--font-display); font-weight: 500; }
+      h1 { font-size: 64px; line-height: 1.1; }
+      h2 { font-size: 52px; line-height: 1.2; }
+      h3 { font-size: 28px; line-height: 1.15; }
+      p { font-size: 16px; line-height: 1.6; color: var(--muted); }
+      .lead { font-size: 20px; line-height: 1.6; color: var(--muted); }
+      a { color: var(--accent); }
+      .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+      .squiggle { display: block; width: 120px; height: 14px; margin: 14px auto 0; color: var(--accent); }
+      .squiggle.left { margin-left: 0; }
+      .wave { display: block; width: 100%; height: 72px; }
+  
+      /* Banner + header */
+      .stealth-banner { background: repeating-linear-gradient(-45deg, #eadcbc 0 7px, #e2d1ab 7px 9px); color: #57534e; text-align: center; padding: 10px 16px; font-size: 14px; font-weight: 500; line-height: 21px; letter-spacing: 0.02em; position: sticky; top: 0; z-index: 200; }
+      .stealth-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 1.5px solid var(--ink); display: inline-block; margin-right: 6px; vertical-align: -1px; animation: stealth-pulse 2s ease-in-out infinite; }
+      @keyframes stealth-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+      @media (max-width: 520px) { .stealth-banner { position: static; font-size: 12.5px; padding: 8px 12px; line-height: 19px; text-wrap: balance; } header { top: 0 !important; } }
+      header { position: sticky; top: 41px; z-index: 100; background: rgba(255, 250, 240, 0.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 2px dashed #e2d3b8; padding: 20px 0; }
+      nav { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+      .logo-link { display: flex; align-items: center; text-decoration: none; transition: transform 0.2s; }
+      .logo-link:hover { transform: rotate(-2deg) translateY(2px); }
+      .logo-img { height: 72px; width: auto; display: block; }
+      .btn { display: inline-block; padding: 14px 28px; border-radius: var(--wobble); font-weight: 700; font-size: 16px; border: 2px solid var(--ink); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, background 0.2s; text-decoration: none; font-family: var(--font-body); white-space: nowrap; }
+      .btn-primary { background: var(--accent); color: var(--accent-on); box-shadow: 0 5px 0 0 var(--ink); }
+      .btn-primary:hover { color: var(--accent-on); transform: translateY(3px); box-shadow: 0 2px 0 0 var(--ink); }
+      .btn-primary:active { background: var(--accent-active); transform: translateY(5px); box-shadow: none; }
+  
+      /* Hero */
+      .hero { background: #d6eaf5; padding: 80px 0 0; text-align: center; position: relative; }
+      .hero-text { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+      .hero h1 { color: var(--fg); max-width: 1040px; margin: 0 auto 28px; font-size: clamp(34px, 5vw, 66px); text-wrap: balance; }
+      .hero .lead { font-size: 18px; max-width: 48ch; margin: 0 auto; text-wrap: balance; }
+      .hero .lead picture img { vertical-align: middle; animation: hero-pop 2s ease-in-out infinite; }
+      @keyframes hero-pop { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+      .hero-cta { margin-top: 36px; }
+      .scene { position: relative; margin-top: 40px; height: clamp(420px, 46vw, 680px); }
+      .scene-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% bottom; display: block; }
+      .cards { position: absolute; inset: 0; max-width: 1280px; margin: 0 auto; pointer-events: none; }
+      .char-card { position: absolute; pointer-events: auto; background: var(--surface); border: 2px solid var(--ink); border-radius: var(--wobble); padding: 18px 20px 16px; box-shadow: 0 6px 0 0 rgba(58, 47, 42, 0.85); }
+      .char-card-1 { top: 6%; left: 5%; rotate: -3deg; animation: float 6s ease-in-out infinite; }
+      .char-card-2 { top: 7%; right: 6%; rotate: 2.5deg; animation: float 5.5s ease-in-out infinite 0.3s; }
+      .char-card-3 { top: 3%; left: 30%; rotate: -1deg; animation: float 5s ease-in-out infinite 0.6s; }
+      @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+      .char-label { display: flex; gap: 14px; justify-content: center; align-items: flex-start; margin-bottom: 10px; }
+      .char-unit { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+      .char-symbol { font-family: 'Noto Sans TC', 'Noto Sans SC', sans-serif; font-size: 36px; color: var(--accent); line-height: 1; }
+      .char-pinyin { font-size: 16px; font-weight: 500; color: #1f6e78; line-height: 1; }
+      .char-mean { font-size: 16px; margin: 0; color: var(--muted); text-align: center; }
+  
+      /* Focus */
+      .focus { background: var(--bg); padding: 72px 0 96px; }
+      .focus-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 72px; align-items: center; }
+      .focus-map { width: 100%; max-width: 480px; height: auto; display: block; margin: 0 auto; }
+      .focus h2 { margin-bottom: 4px; }
+      .focus .lead { font-size: 18px; margin-top: 24px; }
+  
+      /* Features */
+      .features-sec { background: var(--sand); padding: 24px 0 64px; }
+      .features-sec h2 { text-align: center; }
+      .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px 36px; margin-top: 64px; align-items: start; }
+      .feature-card { background: var(--surface); border: 2px solid var(--ink); border-radius: var(--wobble-lg); padding: 32px 28px; box-shadow: var(--chunky), 0 0 0 0 transparent; transition: transform 0.25s, box-shadow 0.25s; }
+      .feature-card:nth-child(3n+1) { rotate: -0.5deg; }
+      .feature-card:nth-child(3n+2) { rotate: 0.4deg; }
+      .feature-card:nth-child(3n) { rotate: -0.2deg; }
+      .feature-card:hover { transform: translateY(-6px); box-shadow: 0 12px 0 0 #dccfb6; }
+      .feature-icon { width: 76px; height: 76px; display: flex; align-items: center; justify-content: center; border-radius: 46% 54% 42% 58% / 55% 44% 56% 45%; margin-bottom: 22px; color: var(--accent); line-height: 0; }
+      .feature-card:nth-child(3n+1) .feature-icon { background: var(--tint-clay); }
+      .feature-card:nth-child(3n+2) .feature-icon { background: var(--tint-sage); }
+      .feature-card:nth-child(3n) .feature-icon { background: var(--tint-gold); }
+      .feature-icon svg { width: 40px; height: 40px; }
+      .feature-card h3 { margin-bottom: 14px; font-size: 24px; text-wrap: balance; }
+      .feature-card p { font-size: 15.5px; line-height: 1.7; color: #5a5048; }
+      .feature-icon svg[viewBox="0 0 24 24"] { stroke-width: 2; }
+  
+      /* Waitlist postcard */
+      .waitlist-sec { background: var(--bg); padding: 24px 0 112px; scroll-margin-top: 140px; }
+      .postcard { position: relative; display: grid; grid-template-columns: 1fr 1fr; background: var(--surface); border: 2px solid var(--ink); border-radius: var(--wobble-lg); box-shadow: 0 8px 0 0 rgba(58, 47, 42, 0.85); overflow: hidden; rotate: -0.5deg; }
+      .postcard-art { width: 100%; height: 100%; min-height: 360px; object-fit: cover; object-position: 50% 60%; background: #2d3561; display: block; border-right: 2px dashed #d8c9ad; }
+      .postcard-body { padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+      .stamp { position: absolute; top: 22px; right: 22px; width: 64px; height: 76px; border: 2px dashed var(--accent); border-radius: 6px; display: flex; align-items: center; justify-content: center; rotate: 6deg; color: var(--accent); }
+      .postcard h2 { font-size: 36px; line-height: 1.2; margin: 0 0 8px; padding-right: 80px; text-wrap: balance; }
+      .postcard h2 .bell-animate { width: 40px; height: 40px; vertical-align: -6px; margin-left: 6px; }
+      .bell-animate { animation: bell-ring 2s ease-in-out infinite; flex-shrink: 0; }
+      @keyframes bell-ring { 0%, 100% { transform: rotate(0deg); } 10%, 30% { transform: rotate(12deg); } 20% { transform: rotate(-8deg); } }
+      .postcard-lines { height: 2px; background: repeating-linear-gradient(90deg, #d8c9ad 0 10px, transparent 10px 18px); margin: 20px 0 4px; }
+      .waitlist-inline { display: flex; gap: 12px; margin-top: 24px; }
+      .waitlist-inline input { flex: 1; min-width: 0; padding: 14px 18px; border: 2px solid var(--ink); border-radius: var(--wobble); font-family: var(--font-body); font-size: 16px; height: 54px; background: #fff; color: var(--fg); outline: none; transition: box-shadow 0.2s; }
+      .waitlist-inline input:focus { box-shadow: 0 0 0 4px rgba(184, 92, 56, 0.25); }
+      .btn-notify { height: 54px; padding: 0 24px; background: var(--accent); color: var(--accent-on); border: 2px solid var(--ink); border-radius: var(--wobble); font-family: var(--font-body); font-size: 16px; font-weight: 700; cursor: pointer; white-space: nowrap; box-shadow: 0 5px 0 0 var(--ink); transition: transform 0.15s, box-shadow 0.15s, background 0.2s; }
+      .btn-notify:hover { transform: translateY(3px); box-shadow: 0 2px 0 0 var(--ink); }
+      .btn-notify:active { background: var(--accent-active); transform: translateY(5px); box-shadow: none; }
+      .privacy { font-size: 15px; color: var(--meta); margin-top: 22px; }
+  
+      /* Footer */
+      .footer-wave { display: block; width: 100%; height: 72px; background: var(--bg); }
+      footer { background: var(--fg); color: var(--surface); padding: 24px 0 30px; }
+      footer .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
+      footer h4 { font-size: 16px; margin-bottom: 16px; font-family: var(--font-display); font-weight: 500; color: #f6c453; }
+      footer ul { list-style: none; }
+      footer ul li { margin-bottom: 12px; }
+      footer ul li a { font-size: 14px; color: #b0aea5; text-decoration: none; }
+      footer ul li a:hover { color: #CAAD5F; }
+      .footer-bottom { border-top: 1px dashed #3d3d3a; padding-top: 24px; text-align: center; }
+      .footer-bottom p { font-size: 14px; color: #87867f; }
+  
+      @media (max-width: 1024px) {
+        .focus-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+        .squiggle.left { margin-left: auto; }
+        .postcard { grid-template-columns: 1fr; }
+        .postcard-art { min-height: 0; height: 260px; border-right: none; border-bottom: 2px dashed #d8c9ad; }
       }
-      .hero-visual {
-        height: 320px;
+      @media (max-width: 1023px) {
+        .scene { display: flex; flex-direction: column; height: auto; margin-top: 0; }
+        .cards { position: static; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 12px; padding: 28px 12px 16px; max-width: none; }
+        .char-card { position: static; padding: 10px 12px 9px; animation-name: float-sm; }
+        .char-symbol { font-size: 26px; }
+        .char-pinyin { font-size: 13px; }
+        .char-mean { font-size: 14px; }
+        .char-label { gap: 10px; margin-bottom: 6px; }
+        .scene-art { position: static; width: 100%; height: auto; aspect-ratio: 4 / 3; object-position: 55% bottom; }
+        .cards { order: -1; }
+        @keyframes float-sm { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
       }
-    }
-
-    /* Features */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 48px;
-      margin-top: 60px;
-    }
-    .feature-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      transition: all 0.3s;
-      box-shadow: var(--elev-flat);
-    }
-    .feature-card:hover {
-      border-color: var(--accent);
-      box-shadow: var(--elev-raised);
-      transform: translateY(-4px);
-    }
-    .feature-icon {
-      margin-bottom: 20px;
-      color: var(--accent);
-      line-height: 0;
-    }
-    .feature-card h3 {
-      margin-bottom: 16px;
-    }
-    .feature-card p {
-      font-size: 16px;
-      line-height: 1.60;
-    }
-
-    /* Waitlist */
-    .waitlist-content {
-      margin: 0 auto;
-    }
-    .waitlist-content h2 {
-      text-align: center;
-      margin-bottom: 12px;
-      color: var(--fg);
-    }
-    .waitlist-form-wrap {
-      max-width: 640px;
-      margin: 0 auto;
-    }
-    .bell-animate {
-      animation: bell-ring 2s ease-in-out infinite;
-    }
-    @keyframes bell-ring {
-      0%, 100% { transform: rotate(0deg); }
-      10%, 30% { transform: rotate(12deg); }
-      20% { transform: rotate(-8deg); }
-    }
-    .waitlist-inline {
-      display: flex;
-      gap: 12px;
-      margin-top: 32px;
-    }
-    .waitlist-inline input {
-      flex: 1;
-      padding: 14px 20px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      font-family: var(--font-body);
-      font-size: 16px;
-      background: var(--surface);
-      color: var(--fg);
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .waitlist-inline input:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(184, 92, 56, 0.2);
-    }
-    .btn-notify {
-      padding: 14px 28px;
-      background: var(--accent);
-      color: var(--accent-on);
-      border: none;
-      border-radius: var(--radius-md);
-      font-family: var(--font-body);
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      white-space: nowrap;
-      box-shadow: var(--elev-chunky-accent);
-      transition: background 0.2s, transform 0.15s;
-      border-bottom: 2px solid rgba(0,0,0,0.1);
-    }
-    .btn-notify:hover {
-      color: var(--accent-on);
-      transform: translateY(3px);
-      box-shadow: 0 2px 0 0 var(--accent-hover);
-    }
-    .btn-notify:active {
-      background: var(--accent-active);
-      color: var(--accent-on);
-      transform: translateY(3px);
-      box-shadow: none;
-    }
-    @media (max-width: 600px) {
-      .waitlist-inline {
-        flex-direction: column;
-        max-width: 100%;
+      @media (max-width: 768px) {
+        h1 { font-size: 40px; }
+        .focus .lead { text-align: left; }
+        .waitlist-inline input { flex: none; width: 100%; }
+        footer .footer-content { grid-template-columns: 1fr 1fr; }
+        h2 { font-size: 34px; }
+        .postcard h2 { font-size: 28px; }
+        .container { padding: 0 16px; }
+        .logo-img { height: 44px; }
+        header { top: 41px; padding: 14px 0; }
+        .btn { padding: 10px 16px; }
+        .hero { padding-top: 56px; }
+        .focus { padding: 48px 0 72px; }
+        .features-sec { padding-bottom: 80px; }
+        .features { grid-template-columns: 1fr; margin-top: 40px; }
+        .feature-card { padding: 28px 24px; }
+        .postcard-body { padding: 36px 22px 32px; }
+        .stamp { width: 48px; height: 58px; top: 14px; right: 14px; }
+        .waitlist-inline { flex-direction: column; }
+        .btn-notify { width: 100%; }
+        .waitlist-sec { padding-bottom: 80px; }
       }
-      .btn-notify {
-        width: 100%;
-      }
-    }
-
-    /* Footer */
-    footer {
-      background: var(--fg);
-      color: var(--surface);
-      padding: 30px 0 30px;
-      border-top: 1px solid var(--fg-2);
-    }
-    footer .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-bottom: 30px;
-    }
-    footer h4 {
-      font-size: var(--text-base);
-      margin-bottom: 16px;
-      font-family: var(--font-display);
-      font-weight: var(--font-weight-display);
-    }
-    footer p {
-      font-size: 14px;
-      color: #b0aea5;
-      line-height: 1.60;
-    }
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    footer a:hover {
-      color: #e0a07f;
-    }
-    footer ul {
-      list-style: none;
-    }
-    footer ul li {
-      margin-bottom: 12px;
-    }
-    footer ul li a,
-    footer ul li span {
-      font-size: 14px;
-      color: #b0aea5;
-      text-decoration: none;
-    }
-    footer ul li a:hover {
-      color: #CAAD5F;
-    }
-    footer ul li span {
-      cursor: default;
-    }
-    .footer-bottom {
-      border-top: 1px solid var(--fg-2);
-      padding-top: 24px;
-      text-align: center;
-      font-size: 14px;
-      color: #87867f;
-    }
-    @media (max-width: 768px) {
-      section {
-        padding: 60px 0;
-      }
-      .container {
-        padding: 0 16px;
-      }
-      nav .links {
-        display: none;
-      }
-      .hero {
-        padding: 80px 0;
-      }
-      .hero-cta {
-        flex-direction: column;
-      }
-      .btn {
-        display: block;
-        text-align: center;
-      }
-      .hero-visual {
-        height: 280px;
-      }
-      .char-card-1 {
-        width: 140px;
-        top: 10%;
-        left: 5%;
-      }
-      .char-card-2 {
-        width: 120px;
-        bottom: 5%;
-        right: 0%;
-      }
-      .char-card-3 {
-        width: 120px;
-        bottom: 5%;
-        left: 5%;
-      }
-      .char-card-4 {
-        width: 90px;
-        top: 5%;
-        right: 5%;
-        bottom: auto;
-      }
-    }
-
-
-</style>
+  </style>
 </head>
 <body>
-  <!-- Banner -->
+<div id="top">
   <div class="stealth-banner">
     <span class="stealth-dot"></span>
     We are currently operating in stealth mode. Coming soon!
   </div>
 
-  <!-- Navigation -->
   <header>
     <div class="container">
       <nav>
-        <a href="/" class="logo-link" id="logo-link">
+        <a href="#top" class="logo-link" id="logo-link">
           <img src="images/logo_company.png" alt="Yaglot" class="logo-img" height="72">
         </a>
         <a href="#waitlist" class="btn btn-primary">Join Waitlist</a>
@@ -616,150 +193,123 @@
     </div>
   </header>
 
+  <main>
   <!-- Hero -->
-  <section>
-    <div class="container">
-      <div class="hero">
-        <div class="hero-content">
-           <h1>The future of language learning starts here with Yaglot!</h1>
-           <div class="lead">We're transforming the way you learn languages <picture><img src="images/star.gif" alt="🤩" width="32" height="32"></picture></div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-visual-content">
-            <div class="char-card char-card-1">
-              <div class="char-label">
-                <div class="char-unit">
-                  <div class="char-symbol">你</div>
-                  <div class="char-pinyin">nǐ</div>
-                </div>
-                <div class="char-unit">
-                  <div class="char-symbol">好</div>
-                  <div class="char-pinyin">hǎo</div>
-                </div>
-              </div>
-              <p style="font-size: 16px; margin: 0; color: var(--muted); text-align: center;">Hello</p>
-            </div>
-
-            <div class="char-card char-card-2">
-              <div class="char-label">
-                <div class="char-unit">
-                  <div class="char-symbol">下</div>
-                   <div class="char-pinyin">xià</div>
-                </div>
-                <div class="char-unit">
-                  <div class="char-symbol">雨</div>
-                  <div class="char-pinyin">yǔ</div>
-                </div>
-                <div class="char-unit">
-                  <div class="char-symbol">了</div>
-                  <div class="char-pinyin">le</div>
-                </div>
-              </div>
-              <p style="font-size: 16px; margin: 0; color: var(--muted); text-align: center;">It's raining!</p>
-            </div>
-
-            <div class="char-card char-card-3">
-              <div class="char-label">
-                <div class="char-unit">
-                  <div class="char-symbol">吃</div>
-                  <div class="char-pinyin">chī</div>
-                </div>
-                <div class="char-unit">
-                  <div class="char-symbol">飽</div>
-                  <div class="char-pinyin">bǎo</div>
-                </div>
-                <div class="char-unit">
-                  <div class="char-symbol">了</div>
-                  <div class="char-pinyin">le</div>
-                </div>
-                <div class="char-unit">
-                  <div class="char-symbol">沒</div>
-                  <div class="char-pinyin">méi</div>
-                </div>
-              </div>
-              <p style="font-size: 16px; margin: 0; color: var(--muted); text-align: center;">Have you eaten yet?</p>
-            </div>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>The future of language learning starts here with Yaglot!</h1>
+      <div class="lead">We're transforming the way you learn languages <picture><img src="images/illustrations/star.svg" alt="" width="32" height="32"></picture></div>
+    </div>
+    <div class="scene">
+      <img class="scene-art" src="images/illustrations/hero.svg" alt="" aria-hidden="true">
+      <div class="cards">
+        <div class="char-card char-card-1">
+          <div class="char-label">
+            <div class="char-unit"><div class="char-symbol">你</div><div class="char-pinyin">nǐ</div></div>
+            <div class="char-unit"><div class="char-symbol">好</div><div class="char-pinyin">hǎo</div></div>
           </div>
+          <p class="char-mean">Hello</p>
+        </div>
+        <div class="char-card char-card-3">
+          <div class="char-label">
+            <div class="char-unit"><div class="char-symbol">吃</div><div class="char-pinyin">chī</div></div>
+            <div class="char-unit"><div class="char-symbol">飽</div><div class="char-pinyin">bǎo</div></div>
+            <div class="char-unit"><div class="char-symbol">了</div><div class="char-pinyin">le</div></div>
+            <div class="char-unit"><div class="char-symbol">沒</div><div class="char-pinyin">méi</div></div>
+          </div>
+          <p class="char-mean">Have you eaten yet?</p>
+        </div>
+        <div class="char-card char-card-2">
+          <div class="char-label">
+            <div class="char-unit"><div class="char-symbol">下</div><div class="char-pinyin">xià</div></div>
+            <div class="char-unit"><div class="char-symbol">雨</div><div class="char-pinyin">yǔ</div></div>
+            <div class="char-unit"><div class="char-symbol">了</div><div class="char-pinyin">le</div></div>
+          </div>
+          <p class="char-mean">It's raining!</p>
         </div>
       </div>
     </div>
+    <svg class="wave" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true" style="background: #eadcbc;"><path d="M0 36 C 160 6 320 64 520 34 S 880 4 1060 36 S 1340 62 1440 28 V72 H0 Z" fill="#f5f4ed"></path></svg>
   </section>
 
   <!-- Focus -->
-  <section id="product-focus">
-    <div class="container">
-      <div style="max-width: 720px; margin: 0 auto; text-align: center;">
-        <h2 style="margin-bottom: 20px;">Starting with Mandarin</h2>
-        <p class="lead" style="font-size: 18px; color: var(--muted);">Developed by Yaglot, our debut product is designed specifically to help English speakers learn Mandarin. Both Traditional and Simplified Chinese versions are set to launch soon. Next, we'll expand our mission to help Mandarin speakers learn English, with support for more languages on the way.</p>
+  <section class="focus" id="product-focus">
+    <div class="container focus-grid">
+      <img class="focus-map" src="images/illustrations/taiwan-map.svg" alt="" aria-hidden="true">
+      <div>
+        <h2>Starting with Mandarin</h2>
+        <svg class="squiggle left" viewBox="0 0 120 14" fill="none" aria-hidden="true"><path d="M2 9 q 9 -8 18 0 t 18 0 t 18 0 t 18 0 t 18 0 t 18 0" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>
+        <p class="lead">Developed by Yaglot, our debut product is designed specifically to help English speakers learn Mandarin. Both Traditional and Simplified Chinese versions are set to launch soon. Next, we'll expand our mission to help Mandarin speakers learn English, with support for more languages on the way.</p>
       </div>
     </div>
   </section>
 
   <!-- Features -->
-  <section id="features">
+  <svg class="wave" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true" style="background: #f5f4ed;"><path d="M0 40 C 200 70 380 10 600 38 S 980 70 1180 34 S 1380 20 1440 40 V72 H0 Z" fill="#efe7d6"></path></svg>
+  <section class="features-sec" id="features">
     <div class="container">
-          <div style="max-width:640px;margin:0 auto;"><h2 style="text-align: center; margin-bottom: 60px;">What makes us different</h2></div>
+      <h2>What makes us different</h2>
+      <svg class="squiggle" viewBox="0 0 120 14" fill="none" aria-hidden="true"><path d="M2 9 q 9 -8 18 0 t 18 0 t 18 0 t 18 0 t 18 0 t 18 0" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>
       <div class="features">
-         <div class="feature-card">
-           <div class="feature-icon" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="20"/><circle cx="24" cy="24" r="12"/><circle cx="24" cy="24" r="4" fill="currentColor"/></svg></div>
-           <h3>Tailored guidance</h3>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="20"></circle><circle cx="24" cy="24" r="12"></circle><circle cx="24" cy="24" r="4" fill="currentColor"></circle></svg></div>
+          <h3>Tailored guidance</h3>
           <p>We adapt as you learn, and that is what sets us apart. Our feedback keeps you focused on what matters most, helping you strengthen your skills and build on your progress. Focus on the areas that need extra attention, so every step of your learning journey truly counts.</p>
         </div>
         <div class="feature-card">
-           <div class="feature-icon" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="14"/><path d="M30 30l14 14"/></svg></div>
-             <h3>Fascinating fun facts</h3>
-            <p>Did you know that to say 'I am busy' in Mandarin, you literally say 'I very busy' [wǒ hěn máng]? Even though it doesn't mean you are extra busy, that little word 'very' is still required. Insights like this reveal the hidden patterns of the language, making it much easier to understand.</p>
+          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="14"></circle><path d="M30 30l14 14"></path></svg></div>
+          <h3>Fascinating fun facts</h3>
+          <p>Did you know that to say 'I am busy' in Mandarin, you literally say 'I very busy' [wǒ hěn máng]? Even though it doesn't mean you are extra busy, that little word 'very' is still required. Insights like this reveal the hidden patterns of the language, making it much easier to understand.</p>
         </div>
-         <div class="feature-card">
-<div class="feature-icon" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><path d="m9 20 3-6 3 6"/><path d="m6 8 6 2 6-2"/><path d="M12 10v4"/></svg></div>
-            <h3>Real-world skills</h3>
-            <p>The focus is entirely on the language you actually need for daily life. You will learn how to navigate social situations and connect with locals confidently. Every lesson provides meaningful skills you can put into practice straight away.</p>
-          </div>
-            <div class="feature-card">
-<div class="feature-icon" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8c0-2.76-2.46-5-5.5-5S2 5.24 2 8h2l1-1 1 1h4"/><path d="M13 7.14A5.82 5.82 0 0 1 16.5 6c3.04 0 5.5 2.24 5.5 5h-3l-1-1-1 1h-3"/><path d="M5.89 9.71c-2.15 2.15-2.3 5.47-.35 7.43l4.24-4.25.7-.7.71-.71 2.12-2.12c-1.95-1.96-5.27-1.8-7.42.35"/><path d="M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14"/></svg></div>
-                    <h3>Encouraging approach</h3>
-                <p>Learning a language is more than just memorising words and rules. It is about unlocking a new way to think and express yourself. This supportive method guides you step by step, keeping you motivated to explore the language and culture in a scientific yet fun way.</p>
-             </div>
-           <div class="feature-card">
-               <div class="feature-icon" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="20"/><ellipse cx="24" cy="24" rx="10" ry="20"/><path d="M4 24h40"/></svg></div>
-               <h3>Open to everyone</h3>
-              <p>Language learning should be accessible to everyone. The entire programme is designed from the ground up to be inclusive, welcoming and straightforward. Complex ideas are broken down into simple, clear explanations that you can easily follow and feel confident.</p>
-            </div>
-          <div class="feature-card">
-            <div class="feature-icon" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4c-10 0-14 8-14 14 0 6 4 10 7 14h14c3-4 7-8 7-14 0-6-4-14-14-14z"/><path d="M18 36h12v4H18z"/><path d="M22 26v-2c0-2.5 1-4 2-4s2 1.5 2 4v2"/></svg></div>
-            <h3>Made by super brains</h3>
-            <p>The programme is built by experts with PhDs who study how speech works in our brains and the world around us. Combining this science with a deep understanding of where students struggle, they ensure all the activities help you learn naturally just like you did as a child!</p>
-          </div>
-       </div>
-     </div>
-   </section>
-
-  <!-- Waitlist -->
-  <section id="waitlist" style="scroll-margin-top: 80px;">
-    <div class="container">
-      <div class="waitlist-content">
-        <h2 style="margin:0 0 12px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:nowrap;">
-          <span>Get early access at an exclusive price</span>
-          <img src="images/bell.gif" alt="🔔" width="52" height="52" class="bell-animate" style="flex-shrink:0;">
-        </h2>
-
-        <div class="waitlist-form-wrap">
-          <form id="waitlist-form-main" class="waitlist-inline">
-            <input
-              type="email"
-              name="email"
-              placeholder="you@example.com"
-              required
-            />
-            <button type="submit" class="btn-notify">Join Waitlist</button>
-          </form>
-           <p style="font-size: 16px; color: var(--meta); margin-top: 28px; text-align: center;">We respect your privacy and will never spam you.</p>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"></circle><path d="m9 20 3-6 3 6"></path><path d="m6 8 6 2 6-2"></path><path d="M12 10v4"></path></svg></div>
+          <h3>Real-world skills</h3>
+          <p>The focus is entirely on the language you actually need for daily life. You will learn how to navigate social situations and connect with locals confidently. Every lesson provides meaningful skills you can put into practice straight away.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8c0-2.76-2.46-5-5.5-5S2 5.24 2 8h2l1-1 1 1h4"></path><path d="M13 7.14A5.82 5.82 0 0 1 16.5 6c3.04 0 5.5 2.24 5.5 5h-3l-1-1-1 1h-3"></path><path d="M5.89 9.71c-2.15 2.15-2.3 5.47-.35 7.43l4.24-4.25.7-.7.71-.71 2.12-2.12c-1.95-1.96-5.27-1.8-7.42.35"></path><path d="M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14"></path></svg></div>
+          <h3>Encouraging approach</h3>
+          <p>Learning a language is more than just memorising words and rules. It is about unlocking a new way to think and express yourself. This supportive method guides you step by step, keeping you motivated to explore the language and culture in a scientific yet fun way.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="20"></circle><ellipse cx="24" cy="24" rx="10" ry="20"></ellipse><path d="M4 24h40"></path></svg></div>
+          <h3>Open to everyone</h3>
+          <p>Language learning should be accessible to everyone. The entire programme is designed from the ground up to be inclusive, welcoming and straightforward. Complex ideas are broken down into simple, clear explanations that you can easily follow and feel confident.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4c-10 0-14 8-14 14 0 6 4 10 7 14h14c3-4 7-8 7-14 0-6-4-14-14-14z"></path><path d="M18 36h12v4H18z"></path><path d="M22 26v-2c0-2.5 1-4 2-4s2 1.5 2 4v2"></path></svg></div>
+          <h3>Made by super brains</h3>
+          <p>The programme is built by experts with PhDs who study how speech works in our brains and the world around us. Combining this science with a deep understanding of where students struggle, they ensure all the activities help you learn naturally just like you did as a child!</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Waitlist -->
+  <svg class="wave" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true" style="background: #efe7d6;"><path d="M0 30 C 220 64 420 6 660 34 S 1060 66 1260 30 S 1400 24 1440 34 V72 H0 Z" fill="#f5f4ed"></path></svg>
+  <section class="waitlist-sec" id="waitlist">
+    <div class="container">
+      <div class="postcard">
+        <img class="postcard-art" src="images/illustrations/night-market.svg" alt="" aria-hidden="true">
+        <div class="postcard-body">
+          <div class="stamp" aria-hidden="true"><svg width="30" height="28" viewBox="0 0 30 28" fill="currentColor"><path d="M15 27 C 6 20 1 15 1 9 C 1 4 5 1 9 1 C 12 1 14 3 15 5 C 16 3 18 1 21 1 C 25 1 29 4 29 9 C 29 15 24 20 15 27 Z"></path></svg></div>
+          <h2>
+            <span>Get early access at an exclusive price</span>
+            <img src="images/illustrations/bell.svg" alt="" width="48" height="48" class="bell-animate">
+          </h2>
+          <div class="postcard-lines" aria-hidden="true"></div>
+          <form id="waitlist-form-main" class="waitlist-inline">
+            <input type="email" name="email" placeholder="you@example.com" required>
+            <button type="submit" class="btn-notify">Join Waitlist</button>
+          </form>
+          <p class="privacy">We respect your privacy and will never spam you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <svg class="footer-wave" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 180 10 380 66 600 36 S 1000 8 1200 38 S 1380 56 1440 30 V72 H0 Z" fill="#141413"></path></svg>
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -784,10 +334,10 @@
           </ul>
         </div>
         <div>
-           <h4>Help</h4>
+          <h4>Help</h4>
           <ul>
-             <li><a href="construction/index.html">FAQs</a></li>
-             <li><a href="construction/index.html">Research</a></li>
+            <li><a href="construction/index.html">FAQs</a></li>
+            <li><a href="construction/index.html">Research</a></li>
             <li><a href="construction/index.html">Terms</a></li>
             <li><a href="construction/index.html">Privacy</a></li>
             <li><a href="construction/index.html">Contact us</a></li>
@@ -805,10 +355,11 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Yaglot. All rights reserved.</p>
+        <p>© 2026 Yaglot. All rights reserved.</p>
       </div>
     </div>
   </footer>
+</div>
 
   <script>
     // Logo click scrolls to top smoothly
