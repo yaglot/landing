@@ -21,7 +21,7 @@ The site now uses a hand-drawn, felt-tip doodle style. Where this section and th
 - Wavy SVG edges between sections; squiggle under headings; postcard-style waitlist with stamp
 - Banner: soft sand stripes (`#eadcbc` / `#e2d1ab`), warm grey text `#57534e`, terracotta pulsing dot; not sticky below 520px
 
-**Phrase cards**: dark-outlined cards floating in the hero sky band (desktop) or grouped above the picture (below 1024px); characters in terracotta, pinyin in teal `#1f6e78`.
+**Phrase cards**: dark-outlined cards floating in the hero sky band (desktop) or grouped above the picture (below 1024px); characters in terracotta, pinyin in olive `#5f7146`.
 
 ---
 
