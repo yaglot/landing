@@ -368,10 +368,11 @@
 </div>
 
   <script>
-    // Logo click scrolls to top smoothly
+    // Logo click scrolls to top smoothly and clears any #waitlist from the address
     document.getElementById('logo-link').addEventListener('click', function(e) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     });
 
     // Handle waitlist form submission
