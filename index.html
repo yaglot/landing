@@ -146,13 +146,13 @@
       }
       @media (max-width: 1023px) {
         .scene { display: flex; flex-direction: column; height: auto; margin-top: 0; }
-        .cards { position: static; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px 24px; padding: 28px 12px 16px; max-width: none; }
+        .cards { position: static; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px 24px; padding: 28px 12px 0; max-width: none; }
         .char-card { position: static; padding: 10px 12px 9px; animation-name: float-sm; }
         .char-symbol { font-size: 26px; }
         .char-pinyin { font-size: 13px; }
         .char-mean { font-size: 14px; }
         .char-label { gap: 10px; margin-bottom: 6px; }
-        .scene-art { position: static; width: 100%; height: auto; aspect-ratio: 16 / 9; object-position: 50% bottom; }
+        .scene-art { position: static; width: 100%; height: auto; aspect-ratio: 9 / 4; object-position: 50% bottom; }
         .cards { order: -1; }
         @keyframes float-sm { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
       }
