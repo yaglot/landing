@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yaglot</title>
+  <meta name="robots" content="noindex">
+  <script>
+    // Old addresses such as /construction/ and /construction/index.html now live at /construction
+    location.replace(location.pathname.indexOf('/construction') === 0 ? '/construction' : '/');
+  </script>
+</head>
+<body>
+  <p><a href="/">Go to the Yaglot home page</a></p>
+</body>
+</html>
