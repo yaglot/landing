@@ -39,7 +39,9 @@ The site now uses a hand-drawn, felt-tip doodle style. Where this section and th
 **Logo**
 - Oracle bone tree symbol (甲骨文) beside the name 'Yaglot' in Noto Serif Bold (700), both terracotta `#b85c38`
 - The symbol's lines are 1.3 × thicker than the original drawing so it holds its own next to the bold name
-- Files: `images/logo_company.png` (header), `images/logo.png` (square symbol, also the social preview picture), favicons and app icons in the site root, and variants in `images/brand/`
+- Icon shape: a terracotta circle with the cream symbol, used for the browser tab icons (`favicon.ico`, `favicon.svg`, `favicon-96x96.png`) and the social preview picture (`images/logo.png`, circle centred on cream so wide previews don't cut it)
+- Phone home-screen and app icons (`apple-touch-icon.png`, `web-app-manifest-*.png`) stay full squares, because phones cut them into their own rounded or circle shape
+- Files: `images/logo_company.png` (header) and variants in `images/brand/`
 
 **Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
 - Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
