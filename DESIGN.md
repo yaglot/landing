@@ -41,7 +41,7 @@ The site now uses a hand-drawn, felt-tip doodle style. Where this section and th
 - The symbol's lines are 1.3 × thicker than the original drawing so it holds its own next to the bold name
 - Icon shape: a terracotta circle with the cream symbol, used for the browser tab icons (`favicon.ico`, `favicon.svg`, `favicon-96x96.png`) and `images/brand/yaglot_circle.png` (the circle on a transparent background)
 - Phone home-screen and app icons (`apple-touch-icon.png`, `web-app-manifest-*.png`) stay full squares, because phones cut them into their own rounded or circle shape
-- Social preview picture: `images/social_preview.png`, the circle centred on cream (not transparent, because some apps show transparent areas as black; the circle is small enough that wide previews don't cut it)
+- Social preview picture: `images/brand/yaglot_circle.png` (the same circle logo; no separate preview file)
 - The eight logo files, all in `images/brand/` (names use underscores, `_`):
   - `yaglot_name_with_symbol.png`: terracotta symbol and name, transparent (the header logo)
   - `yaglot_circle.png`: the circle on its own, transparent
