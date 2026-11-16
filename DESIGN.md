@@ -51,6 +51,7 @@ The site now uses a hand-drawn, felt-tip doodle style. Where this section and th
   - `yaglot_name.png`: terracotta name only, transparent
   - `yaglot_symbol.png`: terracotta symbol only, transparent
   - `yaglot_symbol_cream.png`: cream symbol only, transparent (for dark backgrounds)
+- Only these eight are logos. Any logo file added, changed, renamed or removed must be reported to the founder, with the updated files, so their local logo folder stays in step
 
 **Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
 - Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
