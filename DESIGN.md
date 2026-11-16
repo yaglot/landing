@@ -36,6 +36,11 @@ The site now uses a hand-drawn, felt-tip doodle style. Where this section and th
 - Footer headings light terracotta `#e8a387` (link hover the same) on near-black
 - Footer copyright year fills in automatically
 
+**Logo**
+- Oracle bone tree symbol (甲骨文) beside the name 'Yaglot' in Noto Serif Bold (700), both terracotta `#b85c38`
+- The symbol's lines are 1.3 × thicker than the original drawing so it holds its own next to the bold name
+- Files: `images/logo_company.png` (header), `images/logo.png` (square symbol, also the social preview picture), favicons and app icons in the site root, and variants in `images/brand/`
+
 **Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
 - Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
 - Pages live at yaglot.com and yaglot.com/construction (construction.html); 404.html forwards old addresses
