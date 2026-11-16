@@ -5,7 +5,7 @@
 
 ## 0. Doodle redesign (November 2026)
 
-The site now uses a hand-drawn, felt-tip doodle style. Where this section and the older sections below disagree, this section wins.
+The site uses a hand-drawn, felt-tip doodle style. This section is the summary; sections 1 to 11 give the details. All of them describe the live site.
 
 **Illustrations** (`images/illustrations/`, all SVG, made with rough.js)
 - Wobbly brown ink outlines (`#3a2f2a`) with scribbled hachure fills over flat colour, on cream paper
@@ -16,7 +16,7 @@ The site now uses a hand-drawn, felt-tip doodle style. Where this section and th
   - Night market (waitlist postcard): sky lanterns, moon, three stalls with food at realistic sizes (地瓜球, 珍珠奶茶, 臭豆腐)
   - Kenting beach (construction page): sandcastle, palms with ringed trunks, red-and-white striped umbrella, lighthouse on a complete hill, starfish and shell; shown in full on phones (not cropped)
 - Cartoon people in side-on, active poses (walking, pointing, kneeling, lifting), not stick figures; every person looks different (hair, clothes, skin tone, age), never repeated across pictures
-- Doodle star, bell and three monkeys replace the emoji GIFs; the monkeys are layered (face, expression, hands) and animated with CSS to match the original emoji
+- Doodle star, bell and three monkeys (no emoji GIFs); the monkeys are layered (face, expression, hands) and animated with CSS to match the original emoji
 - Taipei 101 appears only in the hero and as a landmark on the map
 - Drawings must not touch or overlap other lines or picture edges at any screen size
 
@@ -41,7 +41,7 @@ The site now uses a hand-drawn, felt-tip doodle style. Where this section and th
 - The symbol's lines are 1.3 × thicker than the original drawing so it holds its own next to the bold name
 - Icon shape: a terracotta circle with the cream symbol, used for the browser tab icons (`favicon.ico`, `favicon.svg`, `favicon-96x96.png`) and `images/brand/yaglot_circle.png` (the circle on a transparent background)
 - Phone home-screen and app icons (`apple-touch-icon.png`, `web-app-manifest-*.png`) stay full squares, because phones cut them into their own rounded or circle shape
-- Social preview picture: `images/brand/yaglot_circle.png` (the same circle logo; no separate preview file)
+- Social preview picture: `images/social_preview.png` (1200 × 630): the logo and 'Languages, reimagined!' above the hero scene; not a logo file
 - The nine logo files, all in `images/brand/` (names use underscores, `_`):
   - `yaglot_name_with_symbol.png`: terracotta symbol and name, transparent (the header logo)
   - `yaglot_circle.png`: the circle on its own, transparent
@@ -60,201 +60,163 @@ The site now uses a hand-drawn, felt-tip doodle style. Where this section and th
 
 ---
 
-## 1. Visual Identity
+## 1. Visual identity
 
-Yaglot's visual identity is warm, editorial, and approachable — a literary salon reimagined for language learning. The parchment-toned canvas (`#f5f4ed`) evokes paper rather than a digital surface. The terracotta accent anchors the brand with earthy warmth. The three monkeys (see/hear/speak) serve as the core visual motif. Chunky Duolingo-style shadows keep the tone playful rather than serious.
+Warm, playful and hand-made: a sketchbook of Taiwan. Felt-tip doodle scenes sit behind clean, flat interactive elements (buttons, cards, form) with dark ink outlines, so the whole site feels like one drawn page.
 
-**Key characteristics:**
-- Warm parchment canvas (`#f5f4ed`) — never pure white
-- Terracotta brand accent (`#b85c38`), also the logo and name colour — earthy, un-tech
-- Noto Serif for headings, Noto Sans for body and UI
-- Three monkeys motif (see, hear, speak)
-- Chunky bottom shadows on interactive elements (Duolingo-inspired)
-- Sticky nav, blur backdrop
+**Key characteristics**
+- Cream and parchment surfaces, never pure white page backgrounds
+- Terracotta (`#b85c38`) for the brand, buttons and Chinese characters
+- Dark brown ink (`#3a2f2a`) outlines on cards, buttons and drawings
+- Noto Serif for headings, Noto Sans for body text and UI
+- Chunky ink shadows that press down on click
+- Wobbly, slightly uneven corners and small tilts
+- Three monkeys (see, hear, speak) on the construction page
 
 ---
 
-## 2. Colour Palette
+## 2. Colour palette
 
-All values are hex. Every neutral carries a warm yellow-brown undertone — no cool blue-grays.
+All values are hex. Neutrals are warm (yellow-brown undertone), never cool grey.
 
-### Surface and background
-
-| Token | Value | Usage |
-|---|---|---|
-| `--bg` | `#f5f4ed` | Page canvas (warm parchment) |
-| `--surface` | `#faf9f5` | Cards, elevated containers |
-| `--surface-warm` | `#e8e6dc` | Button backgrounds, interactive surfaces |
-
-### Foreground and text
+### Surfaces
 
 | Token | Value | Usage |
 |---|---|---|
-| `--fg` | `#141413` | Primary text (warm near-black) |
-| `--fg-2` | `#3d3d3a` | Dark links, emphasised secondary text |
-| `--muted` | `#5e5d59` | Secondary body text (olive-gray) |
-| `--meta` | `#87867f` | Tertiary text, footnotes, metadata |
+| `--bg` | `#f5f4ed` | Page background (parchment) |
+| `--surface` | `#faf9f5` | Cards, postcard, phrase cards |
+| `--sand` | `#efe7d6` | Features section background |
+| `--sky` | `#fffaf0` | Cream paper; header background |
+| Hero sky | `#d6eaf5` | Hero section background |
 
-### Accent and semantic
-
-| Token | Value | Usage |
-|---|---|---|
-| `--accent` | `#b85c38` | Primary CTA, key brand moments |
-| `--accent-on` | `#faf9f5` | Text on terracotta backgrounds |
-| `--accent-hover` | `#9b4d2f` | Hover state for accent |
-| `--accent-active` | `#833f26` | Active/pressed state |
-| `--danger` | `#b53333` | Error states (warm red) |
-
-### Borders
+### Text and ink
 
 | Token | Value | Usage |
 |---|---|---|
-| `--border` | `#f0eee6` | Standard light-theme border |
-| `--border-soft` | `#e8e6dc` | Section dividers, emphasised borders |
+| `--fg` | `#141413` | Headings and main text; footer background |
+| `--ink` | `#3a2f2a` | Outlines and shadows |
+| `--muted` | `#5e5d59` | Body paragraphs |
+| `--meta` | `#87867f` | Small print (privacy note, copyright) |
+| Pinyin | `#5f7146` | Pinyin under Chinese characters (olive) |
+| Footer links | `#b0aea5` | Footer link text; headings and hover `#e8a387` |
+
+### Accent
+
+| Token | Value | Usage |
+|---|---|---|
+| `--accent` | `#b85c38` | Buttons, links, characters, logo |
+| `--accent-on` | `#faf9f5` | Text on terracotta |
+| `--accent-hover` | `#9b4d2f` | Hover |
+| `--accent-active` | `#833f26` | Pressed |
+
+### Icon tints (feature cards)
+
+`--tint-clay` `#fbe0d6`, `--tint-sage` `#dcedf6`, `--tint-gold` `#fbecc4`, used in turn behind the feature icons.
+
+### Borders and dividers
+
+- Header bottom: `2px dashed #e2d3b8`
+- Postcard dividers: `#d8c9ad` dashes
+- Footer divider: `1px dashed #3d3d3a`
 
 ---
 
 ## 3. Typography
 
-### Font families
+### Fonts
 
-| Token | Font | Weight loaded | Usage |
-|---|---|---|---|
-| `--font-display` | Noto Serif | 400, 500, 600, 700 | All headings |
-| `--font-body` | Noto Sans | 400, 700 | Body text, UI, buttons, forms |
-| `--font-mono` | Noto Sans Mono | 400 | Code |
-| Chinese TC | Noto Sans TC | 400 | Traditional Chinese characters |
-| Chinese SC | Noto Sans SC | 400 | Simplified Chinese characters |
-
-### Weight defaults
-
-- Headings: **500** (`--font-weight-display: 500`)
-- Body: **400** (`--font-weight-body: 400`)
-
-### Type scale
-
-| Token | Size | Usage |
+| Font | Weights loaded | Usage |
 |---|---|---|
-| `--text-xs` | 10px | *(unused — reserved)* |
-| `--text-sm` | 14px | Labels, metadata, footnotes, captions |
-| `--text-base` | 16px | Body text, buttons, nav links |
-| `--text-lg` | 20px | Lead paragraphs, feature descriptions |
-| `--text-xl` | 25px | *(unused — reserved)* |
-| `--text-2xl` | 32px | h3, card titles |
-| `--text-3xl` | 52px | h2, section titles |
-| `--text-4xl` | 64px | h1, hero headline |
+| Noto Serif | 400, 500, 600, 700 | Headings (500); logo name (700, in the image files) |
+| Noto Sans | 400, 500, 700 | Body, buttons, forms, banner |
+| Noto Sans TC / SC | 400 | Chinese characters |
 
-### Line heights
+### Sizes
 
-- Headings: `1.10–1.20` (tight)
-- Body: `1.60` (relaxed, book-like)
+| Element | Computer | Phone (768px and below) |
+|---|---|---|
+| Hero heading | `clamp(34px, 5vw, 66px)` | same |
+| h2 section titles | 52px | 34px |
+| Waitlist heading | 36px | 28px |
+| Feature card titles | 24px | 24px |
+| Hero subtitle | 26px | 20px |
+| Body text | 16px (feature cards 15.5px) | same |
+| Chinese characters (phrase cards) | 36px | 26px below 1024px |
+| Pinyin | 16px | 13px below 1024px |
+| Banner | 14px | 12.5px at 520px and below |
 
 ### Principles
 
-- Serif for authority (headings), sans for utility (body/UI)
-- Single weight (500) for all headings — consistent voice
-- Relaxed body leading (`1.60`) for literary reading feel
-- Chinese characters use Noto Sans TC/SC at 400 weight, 44px in hero cards
+- Headings at weight 500, tight line height (1.1 to 1.2)
+- Body line height 1.6 (feature cards 1.7)
+- Long headings use balanced wrapping so lines stay even
 
 ---
 
 ## 4. Spacing
 
-Base unit: **8px**.
-
-| Token | Value |
-|---|---|
-| `--space-1` | 4px |
-| `--space-2` | 8px |
-| `--space-3` | 12px |
-| `--space-4` | 16px |
-| `--space-5` | 20px |
-| `--space-6` | 24px |
-| `--space-8` | 32px |
-| `--space-12` | 48px |
-
-Section vertical spacing: `96px` on desktop, `60px` on tablet, `48px` on phone.
-
-Container max-width: `1200px`, centred. Gutter: `24px` desktop, `16px` tablet, `12px` phone.
+- Container: max width 1200px, centred; side padding 24px (16px on phones)
+- Sections: hero 80px top (56px on phones); focus 72px / 96px; features 24px / 64px; waitlist 24px / 112px (80px on phones)
+- Spacing should always look comfortable on phones and computers; check both after any change
 
 ---
 
-## 5. Border radius
+## 5. Corners
 
 | Token | Value | Usage |
 |---|---|---|
-| `--radius-sm` | 8px | Standard buttons, cards |
-| `--radius-md` | 12px | Primary buttons, inputs, nav |
-| `--radius-lg` | 16px | Featured containers, hero visuals |
+| `--wobble` | `18px 22px 16px 24px / 22px 16px 24px 18px` | Buttons, inputs, phrase cards |
+| `--wobble-lg` | `28px 34px 24px 36px / 34px 24px 36px 28px` | Feature cards, postcard |
 
-No sharp corners — softness is core to the identity.
+Uneven corners keep the hand-drawn feel; no sharp corners.
 
 ---
 
-## 6. Elevation and shadows
+## 6. Shadows
 
 | Token | Value | Usage |
 |---|---|---|
-| `--elev-flat` | `none` | Default state |
-| `--elev-ring` | `0 0 0 1px var(--border)` | Border-like halo for interactive cards |
-| `--elev-raised` | `rgba(0,0,0,0.05) 0px 4px 24px` | Whisper-soft elevation |
-| `--elev-chunky` | `0 4px 0 0 var(--border-soft)` | Duolingo-style chunky shadow |
-| `--elev-chunky-accent` | `0 4px 0 0 color-mix(...)` | Chunky shadow in accent colour |
+| Button | `0 5px 0 0 var(--ink)` | Primary buttons and the waitlist button |
+| Phrase cards | `0 6px 0 0 rgba(58,47,42,0.85)` | Hero cards |
+| `--chunky` | `0 6px 0 0 #dccfb6` | Feature cards (12px on hover) |
+| Postcard | `0 8px 0 0 rgba(58,47,42,0.85)` | Waitlist postcard |
 
-The chunky bottom shadows on buttons and interactive elements are the signature Yaglot flourish — they create a playful, tactile press-down effect on click (`translateY(3px)` + shadow reduction).
+Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (`translateY(5px)`, no shadow).
 
 ---
 
 ## 7. Components
 
 ### Buttons
+- Terracotta background, cream text, 2px ink border, `--wobble` corners, weight 700, 16px
+- Text: 'Join the waitlist'
 
-**Primary CTA:**
-- Background: `--accent` (#b85c38)
-- Text: `--accent-on` (#faf9f5)
-- Radius: `--radius-md` (12px)
-- Weight: 700
-- Shadow: `--elev-chunky-accent`
-- Hover: `translateY(3px)`, shadow shrinks
-- Active: `translateY(4px)`, shadow removed
+### Phrase cards (hero)
+- Surface background, 2px ink border, `--wobble`, small tilt, float animation
+- Chinese characters in terracotta, pinyin in olive, meaning in muted text
 
-### Cards
+### Feature cards
+- Surface background, 2px ink border, `--wobble-lg`, padding 32px 28px, tilts of -0.5°, 0.4° and -0.2°
+- Icon in a blob-shaped tinted circle; lifts 6px on hover
 
-**Feature card:**
-- Background: `--surface` (#faf9f5)
-- Border: `1px solid --border`
-- Radius: `--radius-lg` (16px)
-- Padding: 40px
-- Shadow: none (flat) on default
-- Hover: accent border, raised shadow, `translateY(-4px)`
+### Header
+- Sticky under the banner, cream frosted background (`rgba(255,250,240,0.94)` + blur), dashed bottom border
+- Logo left (72px tall, 44px on phones), button right; the logo tilts slightly on hover and takes you back to the top
 
-**Character card (hero):**
-- Background: `--bg` (#f5f4ed)
-- Border: `1px solid --border`
-- Radius: `--radius-md` (12px)
-- Padding: 20px
-- Shadow: `--elev-ring`
-- Float animation infinite
-
-### Navigation
-
-- Sticky top nav with frosted background (`rgba(245,244,237,0.95)` + `backdrop-filter: blur`)
-- Logo: left, CTA button: right
-- Links hidden on mobile (< 768px)
-
-### Forms
-
-- Input radius: 12px
-- Focus ring: `3px rgba(184,92,56,0.2)`
-- Font: `--font-body`
-- Submit button: same style as primary CTA
-- Mobile: form stacks vertically
+### Waitlist postcard
+- Two halves: night-market picture and form; stacks on screens 1024px and below
+- Dashed stamp with the bell, dashed postcard lines
+- Email box: 2px ink border, `--wobble`, white, 54px tall, terracotta focus ring; spoken label 'Email address' for screen readers
+- Sends to the Google Sheet through Google Apps Script; shows 'Sending…' then a thank-you message
 
 ### Stealth banner
+- Sand stripes, warm grey text, blinking terracotta dot
+- Sticky above 760px wide; scrolls away at 760px and below
 
-- Background: `#8b8c7a` (olive)
-- Sticky at top, pulsing dot indicator
-- Font: 14px
+### Footer
+- Near-black background, wavy top edge
+- Four columns (two on phones): headings light terracotta, links warm silver
+- LinkedIn opens linkedin.com/company/yaglot; other links go to the construction page until those pages exist
 
 ---
 
@@ -262,64 +224,65 @@ The chunky bottom shadows on buttons and interactive elements are the signature 
 
 | Component | Selector | Key classes |
 |---|---|---|
-| Button primary | `button, .btn.btn-primary` | `.btn`, `.btn-primary` |
-| Feature card | `.feature-card` | — |
-| Character card | `.char-card` | `.char-card-1` through `.char-card-4` |
-| Character unit | `.char-unit` | `.char-symbol`, `.char-pinyin` |
-| Hero | `.hero` | `.hero-content`, `.hero-visual`, `.hero-visual-content` |
-| Navigation | `header nav` | `.logo-link`, `.links` |
-| Waitlist form | `#waitlist-form-main` | `.waitlist-inline`, `.btn-notify` |
-| Stealth banner | `.stealth-banner` | `.stealth-dot` |
-| Footer | `footer` | `.footer-content`, `.footer-bottom` |
+| Banner | `.stealth-banner` | `.stealth-dot` |
+| Header | `header nav` | `.logo-link`, `.logo-img`, `.btn-primary` |
+| Hero | `.hero` | `.hero-text`, `.lead`, `.scene`, `.scene-art`, `.cards` |
+| Phrase card | `.char-card` | `.char-card-1` to `-3`, `.char-unit`, `.char-symbol`, `.char-pinyin`, `.char-mean` |
+| Focus (map) | `.focus` | `.focus-grid`, `.focus-map` |
+| Features | `.features-sec` | `.features`, `.feature-card`, `.feature-icon` |
+| Waitlist | `.waitlist-sec` | `.postcard`, `.postcard-art`, `.postcard-body`, `.stamp`, `.waitlist-inline`, `.btn-notify` |
+| Footer | `footer` | `.footer-wave`, `.footer-content`, `.footer-bottom`, `.copyright-year` |
+| Construction page | `.uc-wrap` | `.uc-art`, `.uc-heading`, `.uc-desc`, `.uc-bar`, `.uc-monkeys`, `.monkey`, `.uc-back` |
 
 ---
 
 ## 9. Responsive breakpoints
 
-| Name | Width | Key changes |
-|---|---|---|
-| Phone | < 480px | Stacked layout, reduced padding, 28px heading |
-| Tablet | < 768px | Single column hero, hidden nav links, 60px section padding |
-| Desktop | < 1024px | Hero collapses to single column (if not already) |
-| Wide | 1200px+ | Full layout, max container width |
+| Width | Key changes |
+|---|---|
+| 1024px and above | Phrase cards float in the hero sky; map beside text; postcard side by side |
+| Below 1024px | Phrase cards grouped above the hero picture (picture at 9:4); map above text; postcard stacked |
+| 768px and below | Smaller text sizes, one-column feature cards, full-width button, two-column footer, 44px logo |
+| 760px and below | Banner no longer sticky |
+| 520px and below | Smaller banner text |
+| 360px | Smallest checked width; no sideways scrolling at any size |
 
 ---
 
 ## 10. Motion and animation
 
-| Animation | Duration | Element |
+| Animation | Timing | Element |
 |---|---|---|
-| Hero card float | 5–6s ease-in-out | `.char-card-*` |
-| Bell ring | 2s ease-in-out infinite | `.bell-animate` |
-| Star pop | 2s ease-in-out infinite | Hero star gif |
-| Hover lift | 0.3s | `.feature-card` |
-| Button press | 0.15s | `.btn-primary` |
-| Page load (construction) | 0.6s ease | `.uc-heading`, `.uc-desc` |
+| Float | 5 to 6s, staggered | Phrase cards (smaller movement below 1024px) |
+| Star pop | 2s | Doodle star in the hero subtitle |
+| Bell ring | 2s | Bell beside the waitlist heading |
+| Banner dot blink | 2s | `.stealth-dot` |
+| Feature card lift | 0.25s | `.feature-card` hover |
+| Button press | 0.15s | Buttons |
+| Monkeys | about 2.2s each, plus a gentle bob | Construction page: hands cover eyes, ears and mouth like the emoji |
+| Progress bar and slide-in | 4s / 0.6s | Construction page |
 
 ---
 
-## 11. Core layout patterns
+## 11. Page layout (home)
 
-### Section alternation
-Light sections (`--surface` to `--bg` gradient) alternating with dark sections (`--fg` background, white text) creates chapter-like reading rhythm.
+1. Banner and sticky header
+2. Hero: heading, subtitle with star, button, phrase cards and Taiwan panorama
+3. Wavy edge, then focus section: Taiwan map beside text
+4. Features on sand: six feature cards
+5. Waitlist postcard
+6. Wavy edge, then footer
 
-### Hero layout
-Two-column grid (1fr 1fr) on desktop. Left column: headline + lead + CTA. Right column: floating character cards in a relative container. On tablet/phone: single column, hero visual below text.
-
-### Features grid
-Auto-fit grid with minimum 320px columns, `48px` gap. Cards hover to accent border with lift.
-
-### Footer grid
-Auto-fit grid with minimum 250px columns. Dark background (`--fg`), warm silver text (`#b0aea5`). Four columns: About, Products, Help, Social.
+The construction page uses the same banner, header and footer around the Kenting beach picture, the three monkeys, a progress bar and a link back to the home page.
 
 ---
 
 ## 12. Content guidelines
 
 - **Voice**: Warm, encouraging, straightforward. Good for a secondary school student to understand.
-- **Tone**: Approachable and human — not cold or techy.
+- **Tone**: Approachable and human, not cold or techy.
 - **Dashes**: Do NOT use m-dashes (—). Use single dash or rephrase.
 - **Quotes**: Single quotation marks for quotes, double for quotes within quotes.
 - **Oxford commas**: Do NOT use.
-- **Placeholders**: Short honest placeholders (—, grey block, labelled stub) instead of invented metrics ("10× faster").
+- **Placeholders**: Short honest placeholders (a dash, a grey block or a labelled stub) instead of invented metrics ("10× faster").
 - **Avoid**: Lorem ipsum, generic emoji icon rows, left-border accent cards, purple gradients, warm beige page washes not justified by brand.
