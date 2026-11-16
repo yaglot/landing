@@ -42,12 +42,15 @@ The site now uses a hand-drawn, felt-tip doodle style. Where this section and th
 - Icon shape: a terracotta circle with the cream symbol, used for the browser tab icons (`favicon.ico`, `favicon.svg`, `favicon-96x96.png`) and `images/logo.png` (the circle on a transparent background)
 - Phone home-screen and app icons (`apple-touch-icon.png`, `web-app-manifest-*.png`) stay full squares, because phones cut them into their own rounded or circle shape
 - Social preview picture: `images/social_preview.png`, the circle centred on cream (not transparent, because some apps show transparent areas as black; the circle is small enough that wide previews don't cut it)
-- The five logo files (names use underscores, `_`):
+- The eight logo files (names use underscores, `_`):
   - `images/logo_company.png`: symbol and name, transparent (the header logo)
   - `images/logo.png`: the circle on its own, transparent
   - `images/brand/yaglot_circle_and_name.png`: circle and name, transparent
   - `images/brand/yaglot_symbol_and_name_on_terracotta.png`: cream symbol and name on terracotta
   - `images/brand/yaglot_on_terracotta.png`: cream name on terracotta
+  - `images/brand/yaglot.png`: terracotta name only, transparent
+  - `images/brand/yaglot_symbol_only.png`: terracotta symbol only, transparent
+  - `images/brand/yaglot_symbol_only_cream.png`: cream symbol only, transparent (for dark backgrounds)
 
 **Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
 - Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
