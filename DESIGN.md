@@ -41,6 +41,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 - The symbol's lines are 1.3 × thicker than the original drawing so it holds its own next to the bold name
 - Icon shape: a terracotta circle with the cream symbol, used for the browser tab icons (`favicon.ico`, `favicon.svg`, `favicon-96x96.png`) and `images/brand/yaglot_circle.png` (the circle on a transparent background)
 - Phone home-screen and app icons (`apple-touch-icon.png`, `web-app-manifest-*.png`) stay full squares, because phones cut them into their own rounded or circle shape
+- Icon links (in `index.html`, `construction.html` and `site.webmanifest`) end in a version tag, currently `?v=2`. Raise the number whenever an icon file changes, so browsers fetch the new icons instead of showing their saved copies
 - Social preview picture: `images/social_preview.png` (1200 × 630): the logo and 'Languages, reimagined!' above the hero scene; not a logo file
 - The nine logo files, all in `images/brand/` (names use underscores, `_`):
   - `yaglot_name_with_symbol.png`: terracotta symbol and name, transparent (the header logo)
