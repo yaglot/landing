@@ -42,7 +42,7 @@ The site now uses a hand-drawn, felt-tip doodle style. Where this section and th
 - Icon shape: a terracotta circle with the cream symbol, used for the browser tab icons (`favicon.ico`, `favicon.svg`, `favicon-96x96.png`) and `images/brand/yaglot_circle.png` (the circle on a transparent background)
 - Phone home-screen and app icons (`apple-touch-icon.png`, `web-app-manifest-*.png`) stay full squares, because phones cut them into their own rounded or circle shape
 - Social preview picture: `images/brand/yaglot_circle.png` (the same circle logo; no separate preview file)
-- The eight logo files, all in `images/brand/` (names use underscores, `_`):
+- The nine logo files, all in `images/brand/` (names use underscores, `_`):
   - `yaglot_name_with_symbol.png`: terracotta symbol and name, transparent (the header logo)
   - `yaglot_circle.png`: the circle on its own, transparent
   - `yaglot_circle_with_name.png`: circle and terracotta name, transparent
@@ -51,7 +51,8 @@ The site now uses a hand-drawn, felt-tip doodle style. Where this section and th
   - `yaglot_name.png`: terracotta name only, transparent
   - `yaglot_symbol.png`: terracotta symbol only, transparent
   - `yaglot_symbol_cream.png`: cream symbol only, transparent (for dark backgrounds)
-- Only these eight are logos. Any logo file added, changed, renamed or removed must be reported to the founder, with the updated files, so their local logo folder stays in step
+  - `yaglot_logo.png`: cream symbol on a full terracotta square, no transparency (use for LinkedIn and other social media profile pictures; apps show transparent areas as white or black)
+- Only these nine are logos. Any logo file added, changed, renamed or removed must be reported to the founder, with the updated files, so their local logo folder stays in step
 
 **Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
 - Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
