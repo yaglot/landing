@@ -276,7 +276,7 @@ Each component has one job and behaves the same wherever it appears.
 | Word counter | text-body | text-body-lg | text-body-lg | Right-aligned under Message. Reads '0 / 500 words' |
 | FAQ card | 59px closed | As computer | 66px closed, 16px apart | Whole question row opens it |
 | Back link | 46px to tap | As computer | 50px to tap | text-body-lg bold in link colour |
-| Footer link | 44px to tap, LinkedIn icon too | As phone | 22px tall | Two columns on phone, four on tablet and computer |
+| Footer link | 44px to tap, social icons too | As phone | 22px tall | Two columns on phone, four on tablet and computer |
 
 ### Buttons
 
@@ -417,7 +417,7 @@ Contrast is how much text stands out from its background. Small text needs 4.5 t
 
 ### Non-text contrast
 
-Borders, icons and focus outlines need 3 to 1 against what is next to them (WCAG 1.4.11, approximate). Ink borders measure 10.5 to 13 to 1 and the LinkedIn square 3.2 to 1. The accent-active outline passes on light backgrounds (6.3 to 7.5 to 1) but is only 2.4 to 1 on the footer, so the footer uses accent-on (16.3 to 1).
+Borders, icons and focus outlines need 3 to 1 against what is next to them (WCAG 1.4.11, approximate). Ink borders measure 10.5 to 13 to 1 and the LinkedIn square 3.2 to 1. The social icons are brand logos, recognised by their white glyphs (21 to 1 on black). The accent-active outline passes on light backgrounds (6.3 to 7.5 to 1) but is only 2.4 to 1 on the footer, so the footer uses accent-on (16.3 to 1).
 
 ### Focus, keyboard and targets
 
@@ -437,7 +437,7 @@ Borders, icons and focus outlines need 3 to 1 against what is next to them (WCAG
 
 - **Page titles (2.4.2).** Each tab names its page.
 - **Headings and landmarks (1.3.1).** One h1, then h2 and h3 in order, inside `header`, `nav`, `main` and `footer`. Footer headings are h2, styled as small ochre headings. The banner is a region landmark named 'Announcement'.
-- **Link text (2.4.4).** Each link says where it goes. The '←' is hidden from screen readers. The LinkedIn and ico.org.uk links say '(opens in a new tab)'.
+- **Link text (2.4.4).** Each link says where it goes. The '←' is hidden from screen readers. The social and ico.org.uk links say '(opens in a new tab)'.
 - **Alternative text (1.1.1).** Pictures that carry meaning get a short description. Doodles get `alt=""`. The Taiwan map gets one short sentence.
 - **Language (3.1.1 and 3.1.2).** Pages have `lang="en"`. Chinese characters have `lang="zh-Hant-TW"` and pinyin `lang="zh-Latn-pinyin"`, so screen readers pronounce them.
 
@@ -744,6 +744,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - **Products:** Yaglot Pro, Yaglot Max, For schools, For businesses
   - **Help:** Contact us, FAQs, Privacy, Terms
   - **Follow us:** each network's own official logo, drawn to its official proportions (34px); LinkedIn's blue 'in' square (`#0A66C2`, small rounded corners, white 'in' filling the square as in LinkedIn's own logo) only for now (linkedin.com/company/yaglot)
+  - **Follow us (18 November 2026):** three rows of icons: Threads, TikTok and X (all black); Instagram and YouTube; LinkedIn and Facebook. Handles: Instagram, Threads and X @yaglotlabs; Facebook, YouTube and TikTok yaglot. Each a 34px rounded square in its brand style, 10px apart, the same on every screen
 - Links go to the construction page until their pages exist (Our mission, Our team, Careers, Contact us, FAQs, Privacy and Terms go to their pages; Yaglot Pro, Yaglot Max, For schools and For businesses stay on the construction page for now)
 - Our mission page: intro line, 'Why we're here', 'Starting with Mandarin' and 'What we believe': six beliefs in one column, each with the matching home page feature icon in a soft coloured blob (60px, 48px on phone), a 20px serif title and the text beside it; no boxes
 - Our team page: describes the team's research (PhDs in Cognitive Science and Language Science) without names; people are added later
