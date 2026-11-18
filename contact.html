@@ -20,7 +20,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
   <meta name="apple-mobile-web-app-title" content="Yaglot">
   <link rel="manifest" href="/site.webmanifest?v=2">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Sans+SC:wght@400&family=Noto+Sans+TC:wght@400&family=Noto+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+SC:wght@400&family=Noto+Sans+TC:wght@400&family=Noto+Serif:wght@500&display=swap" rel="stylesheet">
   <style>
       :root {
         --bg: #f5f4ed; --surface: #faf9f5; --sand: #efe7d6; --sky: #fffaf0;
@@ -35,6 +35,10 @@
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html { scroll-behavior: smooth; }
+      /* Focused items stop below the sticky banner and header (sticky height plus 12px) */
+      html { scroll-padding-top: 140px; }
+      @media (max-width: 768px) { html { scroll-padding-top: 132px; } }
+      @media (max-width: 760px) { html { scroll-padding-top: 91px; } }
       body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
       h1, h2, h3 { font-family: var(--font-display); font-weight: 500; }
       h1 { font-size: 60px; line-height: 1.1; }
@@ -59,6 +63,8 @@
       header { position: sticky; top: 41px; z-index: 100; background: rgba(255, 250, 240, 0.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 2px dashed #e2d3b8; padding: 6px 0 7px; }
       nav { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
       nav .btn { margin-bottom: 5px; } /* room for the button shadow, so the space above and below looks equal */
+      /* Short screens (under 500px tall, such as 400% zoom or a phone held sideways): the banner and header scroll away */
+      @media (max-height: 500px) { .stealth-banner, header { position: static; } html { scroll-padding-top: 12px; } }
       .logo-link { display: flex; align-items: center; text-decoration: none; transition: transform 0.2s; }
       .logo-link:hover { transform: rotate(-2deg) translateY(2px); }
       .logo-img { height: 72px; width: auto; display: block; }
@@ -86,10 +92,21 @@
         h1 { font-size: 40px; }
         h2 { font-size: 32px; }
         .container { padding: 0 16px; }
-        .logo-img { height: 44px; }
+        .logo-img { height: 52px; }
         footer .footer-content { grid-template-columns: 1fr 1fr; }
         header { top: 41px; padding: 12px 0; }
         .btn { height: 48px; padding: 0 18px; }
+        nav { gap: 16px; }
+        nav .btn { min-width: 0; } /* when space runs out the side padding shrinks evenly, the words stay whole and centred */
+        @media (max-width: 359px) {
+          /* 'Join the waitlist' sits under the logo and the header scrolls away */
+          header { position: static; padding: 12px 0 22px; }
+          nav { flex-direction: column; align-items: flex-start; gap: 17px; }
+          html { scroll-padding-top: 12px; }
+          /* The logo file has a 10px transparent edge at 46px tall, so the button moves in 10px to line up with the drawing.
+             22px of clear space above the drawing, between the drawing and the button, and below the button's shadow */
+          nav .btn { margin-left: 10px; }
+        }
       }
 
       /* Privacy notice */
@@ -129,7 +146,7 @@
       .contact-form .field-error { color: var(--accent-active); font-size: 16px; font-weight: 700; margin: 6px 0 0; }
       .contact-form [aria-invalid="true"] { border-color: var(--accent-active); box-shadow: 0 0 0 4px rgba(131, 63, 38, 0.18); }
       .contact-thanks { text-align: center; padding: 24px 8px; }
-      .contact-thanks h2 { margin: 0 0 8px; color: var(--accent); }
+      .contact-thanks h2 { margin: 0 0 8px; color: var(--fg); }
       .legal .or-email { font-size: 18px; line-height: 1.6; margin-top: 40px; }
       @media (max-width: 768px) {
         .legal .lead-in { font-size: 16px; }
@@ -222,7 +239,7 @@
       h3 { font-size: 24px; }
       @media (max-width: 768px) {
         footer ul li { margin-bottom: 0; }
-        footer ul li a { display: inline-block; padding: 9px 0; }
+        footer ul li a { display: inline-block; padding: 9px 0; min-height: 44px; }
         footer h4 { margin-bottom: 7px; }
         footer .footer-social a { padding: 5px; margin: -5px; }
         .contact-form input, .contact-form select { height: 48px; }
@@ -238,16 +255,94 @@
       .contact-form input, .contact-form select { padding-top: 0; padding-bottom: 0; } /* fixed-height boxes: no vertical padding, so text is never cut off */
       .contact-form .word-count { font-size: 16px; color: var(--muted); margin: 6px 0 0; padding-right: 20px; text-align: right; }
       .contact-form .word-count.over { color: var(--accent-active); font-weight: 700; }
+      @media (max-width: 374px) { .logo-img { height: 46px; } }
+      /* While sending, the button reads 'Sending…' and stays still with its normal colour, shadow and an arrow cursor */
+      /* aria-disabled, not disabled, so the button keeps focus while sending */
+      .btn-olive[aria-disabled="true"], .btn-olive[aria-disabled="true"]:hover, .btn-olive[aria-disabled="true"]:active { cursor: default; transform: none; background: #5f7146; box-shadow: 0 5px 0 0 var(--ink); }
+      /* Read by screen readers only */
+      .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+      /* Failure message under the button */
+      .contact-form .form-fail { color: var(--accent-active); font-size: 16px; font-weight: 700; margin: 0; text-wrap: pretty; scroll-margin-bottom: 16px; } /* when it scrolls into view it stops 16px above the screen edge */
+      /* The email address in the failure message is a link and never wraps on its own */
+      .contact-form .form-fail a { color: #9b4d2f; font-weight: 700; text-decoration: none; white-space: nowrap; }
+      .contact-form .form-fail a:hover { text-decoration: underline; }
+      /* The thank-you heading takes focus so it is read out, but is not something to press */
+      .contact-thanks h2:focus { outline: none; }
+
+      /* Final pass (18 November 2026). Phone first: phone values come first, then tablet (769px up) and computer (1024px up) */
+      :root { --link: #9b4d2f; }
+      /* Buttons: text-button, 19px bold, on every button. 48px tall with 16px sides on phone, 52px with 24px from 769px */
+      .btn, .btn-notify, .contact-form .btn { font-size: 19px; font-weight: 700; line-height: 1.2; padding: 0 16px; }
+      @media (min-width: 769px) { .btn, .btn-notify, .contact-form .btn { padding: 0 24px; } }
+      /* Header button on phone: the side padding shrinks evenly when space runs short (the logo is 153px wide, 136px below 375px,
+         16px gap, the words about 149px plus a 2px border each side). If the words still do not fit, as with wider text spacing,
+         they wrap and the button grows taller instead of spilling out. Normal view keeps one line and 48px */
+      @media (max-width: 768px) {
+        nav .btn { height: auto; min-height: 48px; padding: 4px clamp(4px, (100% - 153px - 16px - 155px) / 2, 16px); white-space: normal; text-align: center; }
+      }
+      @media (max-width: 374px) { nav .btn { padding-left: 8px; padding-right: 8px; } }
+      @media (max-width: 359px) { nav .btn { padding-left: 16px; padding-right: 16px; } }
+      /* Links on light backgrounds: link colour, bold, underlined on hover */
+      main a:not(.btn) { color: var(--link); font-weight: 700; text-decoration: none; }
+      main a:not(.btn):hover { text-decoration: underline; }
+      /* Skip link, shown on focus */
+      .skip-link { position: absolute; left: 16px; top: 8px; z-index: 300; background: var(--surface); color: var(--link); font-size: 16px; font-weight: 700; text-decoration: none; padding: 10px 16px; border: 2px solid var(--ink); border-radius: var(--wobble); }
+      .skip-link:not(:focus) { width: 1px; height: 1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+      main:focus { outline: none; }
+      .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+      /* Boxes: 16px inside, placeholder #757575, focus outline only (no glow), accent-active border on error */
+      ::placeholder { color: #757575; opacity: 1; }
+      .waitlist-inline input, .contact-form input, .contact-form select, .contact-form textarea { padding-left: 16px; padding-right: 16px; }
+      .contact-form select { padding-right: 48px; background-position: right 16px center; }
+      .waitlist-inline input:focus, .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus,
+      .waitlist-inline input[aria-invalid="true"], .contact-form [aria-invalid="true"] { box-shadow: none; }
+      .contact-form label { margin-bottom: 8px; }
+      .contact-form label, .contact-form .field-error { padding-left: 18px; } /* lines up with the text in the box: 2px border plus 16px */
+      .contact-form .word-count { padding-right: 18px; }
+      /* Contact on tablet and computer: the form text matches the 18px body */
+      @media (min-width: 769px) {
+        .contact-form label, .contact-form input, .contact-form select, .contact-form textarea, .contact-form .word-count, .contact-form .form-note { font-size: 18px; }
+      }
+      /* Inner pages */
+      .legal { padding: 48px 16px 64px; }
+      @media (min-width: 769px) { .legal { padding: 64px 24px 96px; } }
+      .legal .updated { font-size: 16px; }
+      .legal p, .legal li { max-width: 34em; }
+      .legal .faq p, .legal .values li, .contact-form p { max-width: none; }
+      .legal .belief h3 { font-size: 24px; line-height: 1.25; text-wrap: balance; }
+      .uc-pct { color: var(--accent-active); }
+      /* Thank-you messages: the same layout on both forms */
+      .waitlist-thanks, .contact-thanks { width: 100%; text-align: center; padding: 24px 8px; }
+      .waitlist-thanks h3, .contact-thanks h2 { font-family: var(--font-display); font-weight: 500; font-size: 24px; line-height: 1.25; color: var(--fg); margin: 0 0 8px; }
+      /* Footer: headings are h2 styled as before. Two columns on phone, four from 769px. 44px link tap areas up to 1023px */
+      footer h2 { font-family: var(--font-display); font-weight: 500; font-size: 16px; line-height: 1.6; color: #c8963e; margin-bottom: 16px; }
+      footer .footer-content { grid-template-columns: 1fr 1fr; }
+      @media (min-width: 769px) { footer .footer-content { grid-template-columns: repeat(4, 1fr); } }
+      @media (max-width: 1023px) {
+        footer ul li { margin-bottom: 0; }
+        footer ul li a { display: inline-block; padding: 9px 0; min-height: 44px; }
+        footer h2 { margin-bottom: 7px; }
+        footer .footer-social a { padding: 5px; margin: -5px; }
+      }
+      footer a:focus-visible { outline-color: var(--accent-on); }
+
+      /* Reduced motion: every loop, float, slide-in, progress bar and smooth scroll stops at rest. Kept last so it wins */
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation: none !important; }
+        .m-see-b, .m-hear-b, .m-speak-b { opacity: 0; }
+      }
   </style>
 </head>
 <body>
 <div id="top">
-  <div class="stealth-banner">
+  <div class="stealth-banner" role="region" aria-label="Announcement">
     <span class="stealth-dots" aria-hidden="true"><span class="stealth-dot"></span><span class="stealth-dot sd2"></span><span class="stealth-dot sd3"></span></span>
     We're building our first Mandarin course. Coming soon!
   </div>
 
   <header>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <div class="container">
       <nav>
         <a href="./" class="logo-link">
@@ -259,7 +354,7 @@
   </header>
 
   
-  <main>
+  <main id="main" tabindex="-1">
     <section class="legal">
       <div class="legal-inner">
         <h1>Contact us</h1>
@@ -292,7 +387,8 @@
           <div>
             <label for="cf-message">Message</label>
             <textarea id="cf-message" placeholder="What's on your mind?" name="message" required aria-describedby="cf-message-error cf-message-count"></textarea>
-            <p class="word-count" id="cf-message-count" aria-live="polite">0 / 500 words</p>
+            <p class="word-count" id="cf-message-count">0 / 500 words</p>
+            <p class="visually-hidden" id="cf-message-over" aria-live="polite"></p>
             <p class="field-error" id="cf-message-error" hidden></p>
           </div>
           <div class="trap" aria-hidden="true">
@@ -301,11 +397,13 @@
           </div>
           <p class="form-note">We'll only use your details to reply to you. Read our <a href="privacy">privacy notice</a>.</p>
           <button class="btn btn-primary btn-olive" type="submit">Send message</button>
+          <p class="visually-hidden" id="cf-status" role="status"></p>
+          <p class="form-fail" id="cf-fail" role="alert" hidden></p>
         </form>
 
         <p class="or-email">Or email us at <a href="mailto:hello@yaglot.com">hello@yaglot.com</a>.</p>
 
-        <p class="uc-back"><a href="./">← Back to the home page</a></p>
+        <p class="uc-back"><a href="./"><span aria-hidden="true">←</span> Back to the home page</a></p>
       </div>
     </section>
   </main>
@@ -314,7 +412,7 @@
     <div class="container">
       <div class="footer-content">
         <div>
-          <h4>About us</h4>
+          <h2>About us</h2>
           <ul>
             <li><a href="mission">Our mission</a></li>
             <li><a href="team">Our team</a></li>
@@ -322,7 +420,7 @@
           </ul>
         </div>
         <div>
-          <h4>Products</h4>
+          <h2>Products</h2>
           <ul>
             <li><a href="construction">Yaglot Pro</a></li>
             <li><a href="construction">Yaglot Max</a></li>
@@ -331,7 +429,7 @@
           </ul>
         </div>
         <div>
-          <h4>Help</h4>
+          <h2>Help</h2>
           <ul>
             <li><a href="contact">Contact us</a></li>
             <li><a href="faqs">FAQs</a></li>
@@ -340,9 +438,9 @@
           </ul>
         </div>
         <div>
-          <h4>Follow us</h4>
+          <h2>Follow us</h2>
           <div class="footer-social">
-            <a href="https://www.linkedin.com/company/yaglot" target="_blank" rel="noopener" aria-label="Yaglot on LinkedIn"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="2.6" fill="#0A66C2"/><path fill="#fff" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+            <a href="https://www.linkedin.com/company/yaglot" target="_blank" rel="noopener" aria-label="Yaglot on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="2.6" fill="#0A66C2"/><path fill="#fff" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
           </div>
         </div>
       </div>
@@ -364,15 +462,22 @@
       var MAX_WORDS = 500;
       function countWords(t) { return (t.trim().match(/\S+/g) || []).length; }
       var counter = document.getElementById('cf-message-count');
+      // Screen readers hear the count only when it goes over 500, not after every word
+      var overNote = document.getElementById('cf-message-over');
+      var wasOver = false;
       form.elements['message'].addEventListener('input', function () {
         var n = countWords(this.value);
         counter.textContent = n + ' / ' + MAX_WORDS + ' words';
         counter.classList.toggle('over', n > MAX_WORDS);
+        if (n > MAX_WORDS && !wasOver) overNote.textContent = 'Your message is over 500 words.';
+        if (n <= MAX_WORDS) overNote.textContent = '';
+        wasOver = n > MAX_WORDS;
       });
       // A link such as contact?topic=Working%20with%20us picks that topic for the visitor
       var wanted = new URLSearchParams(location.search).get('topic');
       if (wanted) {
-        Array.prototype.forEach.call(form.elements['topic'].options, function (o) { if (o.text === wanted) form.elements['topic'].value = o.text; });
+        // Capital letters do not matter, so working%20with%20us also picks 'Working with us'
+        Array.prototype.forEach.call(form.elements['topic'].options, function (o) { if (o.text.toLowerCase() === wanted.trim().toLowerCase()) form.elements['topic'].value = o.text; });
       }
       // Clear a box's warning as soon as the visitor starts typing in it
       ['name', 'email', 'message'].forEach(function (k) {
@@ -384,7 +489,8 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         var btn = form.querySelector('button[type="submit"]');
-        if (btn.disabled) return;
+        // While sending the button is aria-disabled (it keeps focus), so further presses do nothing
+        if (btn.getAttribute('aria-disabled') === 'true') return;
         var f = form.elements;
         var name = f['name'].value.trim(), email = f['email'].value.trim(), message = f['message'].value.trim();
         // Show a warning under each box that's missing or wrong, and don't send
@@ -402,30 +508,77 @@
           if (problems[k]) { f[k].setAttribute('aria-invalid', 'true'); if (!first) first = f[k]; }
           else f[k].removeAttribute('aria-invalid');
         });
-        if (first) { first.focus(); return; }
-        btn.disabled = true;
+        // Moving focus to the first box with a problem reads its warning once (through aria-describedby).
+        // The warnings have no role="alert", so nothing is read twice. If the cursor is already there, leave and come back
+        if (first) { if (document.activeElement === first) first.blur(); first.focus(); return; }
+        // Show 'Sending…' on the button and tell screen readers, and hide any earlier failure message
+        var statusBox = document.getElementById('cf-status');
+        var failBox = document.getElementById('cf-fail');
+        failBox.hidden = true;
+        failBox.textContent = '';
+        // Keep the button's width so it does not shrink while 'Sending…' shows
+        btn.style.minWidth = btn.offsetWidth + 'px';
+        btn.setAttribute('aria-disabled', 'true');
         btn.textContent = 'Sending…';
-        // Robots fill the hidden box or send instantly: pretend it worked and send nothing
-        var looksLikeSpam = f['website'].value !== '' || Date.now() - startedAt < 3000;
+        statusBox.textContent = 'Sending…';
+        // Robots fill the hidden box: send nothing and quietly show 'Thank you!'
+        var trapFilled = f['website'].value !== '';
+        // Robots also send within 3 seconds of the page opening. A person who is that quick
+        // (autofill, a pasted message) keeps seeing 'Sending…' until 3 seconds have passed, then it sends as normal
+        var wait = Math.max(0, 3000 - (Date.now() - startedAt));
         var details = new URLSearchParams({
           form: 'contact',
           name: name,
           email: email,
           topic: f['topic'].value,
           message: message,
-          consent: 'privacy-v26.2'
+          consent: 'privacy-v26.3'
         });
-        if (!looksLikeSpam) {
-          fetch('https://script.google.com/macros/s/AKfycbzfAgURxVnNx_jh8BH5Tt2B6gXhl66O7gOMsZhp74ebgQ_dG4Kw8W4I3dPXg3pexwOg9A/exec', {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: details.toString()
-          }).catch(function () {});
-        }
-        setTimeout(function () {
-          form.innerHTML = '<div class="contact-thanks"><h2>Thank you!</h2><p>Your message is on its way. We\'ll reply to you by email.</p></div>';
-        }, 1000);
+        // With 'no-cors' the answer cannot be read, so only a network failure
+        // or no answer within 15 seconds of sending counts as a failed send
+        var controller = window.AbortController ? new AbortController() : null;
+        var timer;
+        var send = new Promise(function (resolve) { setTimeout(resolve, wait); }).then(function () {
+          if (trapFilled) return;
+          return Promise.race([
+            fetch('https://script.google.com/macros/s/AKfycbzfAgURxVnNx_jh8BH5Tt2B6gXhl66O7gOMsZhp74ebgQ_dG4Kw8W4I3dPXg3pexwOg9A/exec', {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: details.toString(),
+              signal: controller ? controller.signal : undefined
+            }),
+            new Promise(function (resolve, reject) {
+              timer = setTimeout(function () {
+                if (controller) controller.abort();
+                reject(new Error('timeout'));
+              }, 15000);
+            })
+          ]);
+        });
+        // Show the result after about one second at the earliest, so 'Sending…' does not flash
+        var atLeastOneSecond = new Promise(function (resolve) { setTimeout(resolve, 1000); });
+        // Wait for both, even when the send fails at once
+        Promise.all([send.then(function () { return true; }, function () { return false; }), atLeastOneSecond]).then(function (results) {
+          clearTimeout(timer);
+          statusBox.textContent = '';
+          if (results[0]) {
+            form.innerHTML = '<div class="contact-thanks"><h2 tabindex="-1">Thank you!</h2><p>Your message is on its way. We\'ll reply to you by email.</p></div>';
+            // Move focus to the heading so screen readers read the thank-you once
+            form.querySelector('h2').focus();
+          } else {
+            // Nothing reached us: keep the form and what was typed, let them try again and say what to do.
+            // Focus stays where it was (the button or the box they pressed Enter in)
+            btn.removeAttribute('aria-disabled');
+            btn.textContent = 'Send message';
+            btn.style.minWidth = '';
+            failBox.innerHTML = 'Something went wrong. Please try again or email us at&nbsp;<a href="mailto:hello@yaglot.com">hello@yaglot.com</a>.';
+            failBox.hidden = false;
+            // On phones the message can sit below the screen: bring it into view, without sliding under reduced motion
+            var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            failBox.scrollIntoView({ block: 'nearest', behavior: still ? 'auto' : 'smooth' });
+          }
+        });
       });
     })();
   </script>
@@ -434,5 +587,6 @@
     // Keep the copyright year current
     document.querySelectorAll('.copyright-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
   </script>
+  <script src="visit.js" defer></script>
 </body>
 </html>
