@@ -1,5 +1,5 @@
-// Counts page visits for yaglot.com: page, device type, where the visitor came from, the campaign
-// name in the link, time on the page, how far down it was scrolled and which FAQs were opened.
+// Counts page visits for yaglot.com: page, device type, where the visitor came from, time on the
+// page, how far down it was scrolled and which FAQs were opened.
 // No cookies, nothing stored on the device and nothing that identifies a person. The visit id is
 // random, made fresh on every page load and kept only in memory, so it only links the visit row to
 // its own later updates.
@@ -72,10 +72,9 @@
   }
 
   var page = location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/').replace(/(.)\/$/, '$1') || '/';
-  var campaign = (new URLSearchParams(location.search).get('utm_campaign') || '').toLowerCase().slice(0, 60);
   var id = randomId();
 
-  send(new URLSearchParams({ form: 'visit', page: page, device: deviceType(), referrer: referrerName(), campaign: campaign, id: id }));
+  send(new URLSearchParams({ form: 'visit', page: page, device: deviceType(), referrer: referrerName(), id: id }));
 
   // Time on the page: only while it is visible
   var visibleMs = 0;
