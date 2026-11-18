@@ -35,6 +35,10 @@
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html { scroll-behavior: smooth; }
+      /* Focused items stop below the sticky banner and header (sticky height plus 12px) */
+      html { scroll-padding-top: 140px; }
+      @media (max-width: 768px) { html { scroll-padding-top: 132px; } }
+      @media (max-width: 760px) { html { scroll-padding-top: 91px; } }
       body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
       h1, h2, h3 { font-family: var(--font-display); font-weight: 500; }
       h1 { font-size: 60px; line-height: 1.1; }

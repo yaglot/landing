@@ -461,21 +461,15 @@ Every place where the site does not yet follow the rules, most serious first. Fo
 
 | Issue | Page and width | Rule | Fix |
 |---|---|---|---|
-| Focused item fully hidden under the sticky banner and header | FAQs and Privacy at 1440. FAQs, Contact, Construction, Team and Careers at 390. '← Back' on all inner pages at 360. Footer links at 200% zoom | Section 9, WCAG 2.4.11 | `scroll-padding-top` 140px from 769px up, 132px at 761 to 768px and 91px at 760px and below. Use the same offset for the header 'Join the waitlist' link |
-| A failed send still shows the success message, because both forms ignore sending errors | Home waitlist, Contact, all widths | Section 8 | Keep the form and what was typed and show the failure message in a `role="alert"` area |
-| A contact form sent within 3 seconds of the page opening (for example with autofill) is treated as a robot. It shows 'Thank you!' but nothing is sent | Contact, all widths | Section 8 | Never show 'Thank you!' when nothing was sent. Show the failure message instead |
 | Button text is 16px, so cream on terracotta (4.0 to 1) fails | 'Join the waitlist' on every page, all widths | Sections 3 and 5, WCAG 1.4.3 | Make every button's text text-button (19px bold), olive buttons too. Heights stay 52px and 48px (founder decision) |
 | Links are terracotta (4.3 to 4.4 to 1), which fails at 16 to 18px | Inner page links, '← Back to the home page', consent lines, FAQ links, all widths | Sections 5 and 7, WCAG 1.4.3 | Use link #9b4d2f, bold, underlined on hover (founder decision) |
 | Page scrolls sideways because the header button sticks out 21px. It also spills by 6px at 390 and 18px at 360 with wider text spacing | All nine pages at 320. All pages at 390 and 360 with text spacing | Sections 2 and 7, WCAG 1.4.10 and 1.4.12 | Below 360px put 'Join the waitlist' on its own line under the logo and let the header scroll away |
 | Footer links are 22px tall and the LinkedIn icon has no tap area beyond its 34px, though tablets are touch screens | All pages at 769 to 1023 | Sections 1, 7 and 9 | Give footer links and the LinkedIn icon the phone's 44px tap areas from 1023px down |
 | Loops ignore reduced motion | Home phrase cards, star and bell. Banner dots on every page. Construction dots, slide-in and progress bar (the rule loses to later styles). Smooth scrolling everywhere | Sections 6 and 9 | Stop every loop completely under reduced motion, with the reduced-motion block last in the styles (founder decision) |
 | Waitlist box has no visible label, only example text that vanishes | Home, all widths | Sections 7 and 9, WCAG 3.3.2 | Add the visible 'Email address' label above the box in text-body bold (founder decision) |
-| 'Sending…' and the thank-you are not announced, and focus falls to the top of the page | Home waitlist, Contact, all widths | Sections 8 and 9, WCAG 4.1.3 | `role="status"` for 'Sending…'. Move focus to the thank-you heading |
-| Contact warnings are not announced when they appear, unlike the waitlist warning | Contact, all widths | Section 9, WCAG 4.1.3 | Add `role="alert"` to each contact warning |
 | Focus outline is 2.4 to 1 on the near-black footer | Footer, all pages | Section 9, WCAG 1.4.11 | Use a 3px accent-on cream outline in the footer (founder decision) |
 | 'ALMOST THERE' is terracotta at 14px (4.4 to 1) | Construction, all widths | Sections 3 and 5, WCAG 1.4.3 | accent-active #833f26 (7.5 to 1), kept at 14px capitals spaced 0.08em |
 | Chinese characters and pinyin are not marked as languages | Home, all widths | Section 9, WCAG 3.1.2 | `lang="zh-Hant-TW"` and `lang="zh-Latn-pinyin"` |
-| The 'Sending…' button still moves down on hover and keeps the hand cursor | Home waitlist, Contact, all widths | Section 7 | Keep it still with its normal colour and shadow and an arrow cursor |
 | Selected boxes get a terracotta glow (4px #b85c38 ring at 25%) | Home waitlist, Contact, all widths | Sections 5 and 7 | Remove the glow and keep only the focus outline |
 | 'You're in!' heading is terracotta | Home, all widths | Section 5 | Make it fg #141413 |
 | Feature cards lift 6px with a bigger shadow on hover, though they cannot be clicked | Home, all widths | Sections 2, 6 and 7 | Remove the lift and shadow change (founder decision) |

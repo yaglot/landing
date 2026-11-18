@@ -35,6 +35,10 @@
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html { scroll-behavior: smooth; }
+      /* Focused items stop below the sticky banner and header (sticky height plus 12px) */
+      html { scroll-padding-top: 140px; }
+      @media (max-width: 768px) { html { scroll-padding-top: 132px; } }
+      @media (max-width: 760px) { html { scroll-padding-top: 91px; } }
       body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
       h1, h2, h3 { font-family: var(--font-display); font-weight: 500; }
       h1 { font-size: 60px; line-height: 1.1; }
@@ -239,6 +243,14 @@
       .contact-form .word-count { font-size: 16px; color: var(--muted); margin: 6px 0 0; padding-right: 20px; text-align: right; }
       .contact-form .word-count.over { color: var(--accent-active); font-weight: 700; }
       @media (max-width: 374px) { .logo-img { height: 46px; } }
+      /* While sending, the button reads 'Sending…' and stays still with its normal colour, shadow and an arrow cursor */
+      .btn-olive:disabled, .btn-olive:disabled:hover, .btn-olive:disabled:active { cursor: default; transform: none; background: #5f7146; box-shadow: 0 5px 0 0 var(--ink); }
+      /* Read by screen readers only */
+      .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+      /* Failure message under the button */
+      .contact-form .form-fail { color: var(--accent-active); font-size: 16px; font-weight: 700; margin: 0; }
+      /* The thank-you heading takes focus so it is read out, but is not something to press */
+      .contact-thanks h2:focus { outline: none; }
   </style>
 </head>
 <body>
@@ -272,12 +284,12 @@
             <div>
               <label for="cf-name">Name</label>
               <input id="cf-name" placeholder="John Doe" name="name" type="text" autocomplete="name" required aria-describedby="cf-name-error">
-              <p class="field-error" id="cf-name-error" hidden></p>
+              <p class="field-error" id="cf-name-error" role="alert" hidden></p>
             </div>
             <div>
               <label for="cf-email">Email</label>
               <input id="cf-email" placeholder="you@example.com" name="email" type="email" autocomplete="email" required aria-describedby="cf-email-error">
-              <p class="field-error" id="cf-email-error" hidden></p>
+              <p class="field-error" id="cf-email-error" role="alert" hidden></p>
             </div>
           </div>
           <div>
@@ -294,7 +306,7 @@
             <label for="cf-message">Message</label>
             <textarea id="cf-message" placeholder="What's on your mind?" name="message" required aria-describedby="cf-message-error cf-message-count"></textarea>
             <p class="word-count" id="cf-message-count" aria-live="polite">0 / 500 words</p>
-            <p class="field-error" id="cf-message-error" hidden></p>
+            <p class="field-error" id="cf-message-error" role="alert" hidden></p>
           </div>
           <div class="trap" aria-hidden="true">
             <label for="cf-website">Leave this empty</label>
@@ -302,6 +314,8 @@
           </div>
           <p class="form-note">We'll only use your details to reply to you. Read our <a href="privacy">privacy notice</a>.</p>
           <button class="btn btn-primary btn-olive" type="submit">Send message</button>
+          <p class="visually-hidden" id="cf-status" role="status"></p>
+          <p class="form-fail" id="cf-fail" role="alert" hidden></p>
         </form>
 
         <p class="or-email">Or email us at <a href="mailto:hello@yaglot.com">hello@yaglot.com</a>.</p>
@@ -404,9 +418,16 @@
           else f[k].removeAttribute('aria-invalid');
         });
         if (first) { first.focus(); return; }
+        // Show 'Sending…' on the button and tell screen readers, and hide any earlier failure message
+        var statusBox = document.getElementById('cf-status');
+        var failBox = document.getElementById('cf-fail');
+        failBox.hidden = true;
+        failBox.textContent = '';
         btn.disabled = true;
         btn.textContent = 'Sending…';
-        // Robots fill the hidden box or send instantly: pretend it worked and send nothing
+        statusBox.textContent = 'Sending…';
+        // Robots fill the hidden box or send within 3 seconds of the page opening. Nothing is sent then,
+        // so the visitor sees the failure message and keeps what they typed, never 'Thank you!'
         var looksLikeSpam = f['website'].value !== '' || Date.now() - startedAt < 3000;
         var details = new URLSearchParams({
           form: 'contact',
@@ -416,17 +437,44 @@
           message: message,
           consent: 'privacy-v26.2'
         });
-        if (!looksLikeSpam) {
+        // With 'no-cors' the answer cannot be read, so only a network failure
+        // or no answer within 15 seconds counts as a failed send
+        var controller = window.AbortController ? new AbortController() : null;
+        var timer;
+        var send = looksLikeSpam ? Promise.reject(new Error('not sent')) : Promise.race([
           fetch('https://script.google.com/macros/s/AKfycbzfAgURxVnNx_jh8BH5Tt2B6gXhl66O7gOMsZhp74ebgQ_dG4Kw8W4I3dPXg3pexwOg9A/exec', {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: details.toString()
-          }).catch(function () {});
-        }
-        setTimeout(function () {
-          form.innerHTML = '<div class="contact-thanks"><h2>Thank you!</h2><p>Your message is on its way. We\'ll reply to you by email.</p></div>';
-        }, 1000);
+            body: details.toString(),
+            signal: controller ? controller.signal : undefined
+          }),
+          new Promise(function (resolve, reject) {
+            timer = setTimeout(function () {
+              if (controller) controller.abort();
+              reject(new Error('timeout'));
+            }, 15000);
+          })
+        ]);
+        // Show the result after about one second at the earliest, so 'Sending…' does not flash
+        var atLeastOneSecond = new Promise(function (resolve) { setTimeout(resolve, 1000); });
+        // Wait for both, even when the send fails at once
+        Promise.all([send.then(function () { return true; }, function () { return false; }), atLeastOneSecond]).then(function (results) {
+          clearTimeout(timer);
+          statusBox.textContent = '';
+          if (results[0]) {
+            form.innerHTML = '<div class="contact-thanks"><h2 tabindex="-1">Thank you!</h2><p>Your message is on its way. We\'ll reply to you by email.</p></div>';
+            // Move focus to the heading so screen readers read the thank-you once
+            form.querySelector('h2').focus();
+          } else {
+            // Nothing reached us: keep the form and what was typed, let them try again and say what to do
+            btn.disabled = false;
+            btn.textContent = 'Send message';
+            failBox.hidden = false;
+            failBox.textContent = 'Something went wrong. Please try again or email us at hello@yaglot.com.';
+            if (document.activeElement === document.body || document.activeElement === btn) btn.focus();
+          }
+        });
       });
     })();
   </script>
