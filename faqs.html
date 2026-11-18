@@ -49,6 +49,10 @@
       .stealth-banner { background: repeating-linear-gradient(-45deg, #eadcbc 0 7px, #e2d1ab 7px 9px); color: #57534e; text-align: center; padding: 10px 16px; font-size: 16px; font-weight: 500; line-height: 21px; letter-spacing: 0.02em; position: sticky; top: 0; z-index: 200; }
       .stealth-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 1.5px solid var(--ink); display: inline-block; margin-right: 6px; vertical-align: -1px; animation: stealth-pulse 2s ease-in-out infinite; }
       @keyframes stealth-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+      .stealth-dots { display: inline-flex; gap: 5px; margin-right: 8px; vertical-align: -1px; }
+      .stealth-dots .stealth-dot { width: 9px; height: 9px; margin: 0; background: #f6c453; animation: stealth-pulse 1.4s ease-in-out infinite; }
+      .stealth-dots .sd2 { background: #ef9a4a; animation-delay: 0.2s; }
+      .stealth-dots .sd3 { background: var(--accent); animation-delay: 0.4s; }
       @media (max-width: 760px) { .stealth-banner { position: static; text-wrap: balance; } header { top: 0 !important; } }
       @media (max-width: 520px) { .stealth-banner { position: static; font-size: 16px; padding: 8px 12px; line-height: 22px; text-wrap: balance; } header { top: 0 !important; } }
       @media (prefers-reduced-motion: reduce) { .uc-heading, .uc-desc, .uc-bar { animation: none; } }
@@ -221,7 +225,7 @@
 <body>
 <div id="top">
   <div class="stealth-banner">
-    <span class="stealth-dot"></span>
+    <span class="stealth-dots" aria-hidden="true"><span class="stealth-dot"></span><span class="stealth-dot sd2"></span><span class="stealth-dot sd3"></span></span>
     We're building our first Mandarin course. Coming soon!
   </div>
 
