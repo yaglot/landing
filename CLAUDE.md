@@ -12,6 +12,7 @@
   - Roles in the same step run at the same time, never one after another.
   - Measure once: one script takes the screenshots and numbers at all widths, and every role reads those instead of measuring again.
   - Each role reads only its own DESIGN.md sections and returns at most 5 findings.
+  - One round for everything: fix all agreed items in a single build pass, never split work into several rounds.
   - One combined fix pass, then one quick re-check. No second full review unless something must be fixed.
   - Founder decisions are never changed without asking.
 - Show changes on the canvas first (computer, tablet and phone boards), then change the site.

@@ -62,6 +62,7 @@ To keep it fast:
 - Roles in the same step work at the same time.
 - Measure once. One script takes the screenshots and numbers at every width and all roles use them.
 - Each role reads only its own sections here and returns at most 5 findings.
+- One round for everything: all agreed fixes go into a single build pass.
 - One combined fix pass, then one quick re-check.
 - Founder decisions are never changed without asking the founder.
 - Changes go on the canvas first (computer, tablet and phone boards), then on the site, then into this file and Design versions.
