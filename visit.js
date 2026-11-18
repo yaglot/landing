@@ -74,7 +74,12 @@
   var page = location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/').replace(/(.)\/$/, '$1') || '/';
   var id = randomId();
 
-  send(new URLSearchParams({ form: 'visit', page: page, device: deviceType(), referrer: referrerName(), id: id }));
+  send(new URLSearchParams({
+    form: 'visit', page: page, device: deviceType(), referrer: referrerName(),
+    region: (Intl.DateTimeFormat().resolvedOptions().timeZone || '').slice(0, 60),
+    language: (navigator.language || '').slice(0, 20),
+    id: id
+  }));
 
   // Time on the page: only while it is visible
   var visibleMs = 0;
