@@ -339,7 +339,7 @@ A visual designer checked every page at 1440, 1024, 768, 390 and 360. Rules that
 - **Contrast:** 'Last updated' is `#6f6e68`. Buttons and links stay brand terracotta `#b85c38` by choice (cream on terracotta measures 4.3:1, just under the WCAG AA 4.5:1; a darker `#a9532f` was tried and turned down)
 - **Keyboard focus:** anything you can tab to (links, buttons, boxes, FAQ questions) shows a 3px dark terracotta outline (`--accent-active`), 3px away from it
 - **Tap targets on phone:** footer links, the LinkedIn icon and '← Back to the home page' are at least about 44px tall to tap, without looking bigger
-- **Form boxes:** contact Name, Email and Topic match the buttons: 52px tall (48px on phone)
+- **Form boxes:** contact Name, Email and Topic match the buttons: 52px tall (48px on phone); all text boxes (waitlist and contact) have 18px of space inside on the left and right, so the text and example text line up the same way
 - **Reading width:** paragraphs and lists on inner pages stop at about 66 characters a line
 - **Intro spacing:** 20px from the squiggle to the intro line (or 'Last updated'), then 40px to the first content on every inner page (12px when a normal paragraph follows, as on Careers)
 - **Waitlist heading:** room for the stamp is 48px (40px on phone), so the heading wraps over fewer lines
