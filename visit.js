@@ -49,7 +49,7 @@
           return parts.length > 1 ? parts[parts.length - 2] : host;
         }
 
-  var url = 'https://script.google.com/macros/s/AKfycbzfAgURxVnNx_jh8BH5Tt2B6gXhl66O7gOMsZhp74ebgQ_dG4Kw8W4I3dPXg3pexwOg9A/exec';
+  var url = 'https://script.google.com/macros/s/AKfycbxpdgMwzmGheJ5_FYKvUatwxpVBFXUQw73wv3AthCnG-nVErawYSsOxXh8_ges5jt53fw/exec';
 
   function send(body) {
     try {
