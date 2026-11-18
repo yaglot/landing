@@ -230,10 +230,10 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - `email`
   - `source`: `landing` (where the form is; other sources may be added later)
   - `device`: `computer`, `tablet` or `phone` (from the browser and screen)
-  - `referrer`: the site the visitor came from (for example `linkedin.com`, `google.com`), the `utm_source` tag if the link has one, or `direct`
+  - `referrer`: where the visitor came from: the link's `utm_source` tag if it has one; `linkedin`, `instagram` or `facebook` when the page is opened inside those apps (their browsers hide the referrer); otherwise the referring site (for example `google.com`); or `direct`
   - `language`: the browser language (for example `en-GB`, `zh-TW`)
   - `region`: the time zone (for example `Europe/London`, `Asia/Taipei`)
-  - `consent`: which privacy wording the visitor saw; `privacy-v1` = 'We respect your privacy and will never spam you.' Raise the number whenever that wording changes
+  - `consent`: which consent wording the visitor saw. Empty until the consent line and privacy notice go live, which will be `privacy-v1`. Raise the number whenever that wording changes
 - Referrer is taken from the first page of the visit (kept for the visit only), so they survive a click from the construction page to the home page
 - Shows 'Sending…' then a thank-you message
 
