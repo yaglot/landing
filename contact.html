@@ -292,7 +292,7 @@
           <div>
             <label for="cf-message">Message</label>
             <textarea id="cf-message" placeholder="What's on your mind?" name="message" required aria-describedby="cf-message-error cf-message-count"></textarea>
-            <p class="word-count" id="cf-message-count" aria-live="polite">0 / 300 words</p>
+            <p class="word-count" id="cf-message-count" aria-live="polite">0 / 500 words</p>
             <p class="field-error" id="cf-message-error" hidden></p>
           </div>
           <div class="trap" aria-hidden="true">
@@ -361,7 +361,7 @@
       if (!form) return;
       var startedAt = Date.now();
       // Word limit for the message, with a counter under the box
-      var MAX_WORDS = 300;
+      var MAX_WORDS = 500;
       function countWords(t) { return (t.trim().match(/\S+/g) || []).length; }
       var counter = document.getElementById('cf-message-count');
       form.elements['message'].addEventListener('input', function () {
@@ -392,7 +392,7 @@
           name: !name ? 'Please enter your name.' : '',
           email: !email ? 'Please enter your email address.'
             : !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) ? 'Please enter a valid email address, like name@example.com.' : '',
-          message: !message ? 'Please write your message.' : countWords(message) > MAX_WORDS ? 'Please keep your message under 300 words.' : ''
+          message: !message ? 'Please write your message.' : countWords(message) > MAX_WORDS ? 'Please keep your message under 500 words.' : ''
         };
         var first = null;
         ['name', 'email', 'message'].forEach(function (k) {
