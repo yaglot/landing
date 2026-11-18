@@ -208,7 +208,8 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 ## 7. Components
 
 ### Buttons
-- Terracotta background, cream text, 2px ink border, `--wobble` corners, weight 700, 16px
+- 'Join the waitlist' buttons: terracotta `#b85c38` background, cream text, 2px ink border, `--wobble` corners, weight 700, 16px
+- Every other button ('Send message', 'Get in touch' and future ones): the same, but olive `#5f7146` (class `btn-olive`; pressed `#45532f`), so 'Join the waitlist' stays the one terracotta action
 - One button size everywhere (header, waitlist, contact form): 52px tall on computer and tablet, 48px on phone; the waitlist email box matches the button height
 - Header: logo 72px tall on computer (44px on phone). Computer has 6px of padding above and 7px below (the logo image has a little transparent space of its own); phone has 12px above and below. The button keeps 5px of room underneath for its shadow. The visible space above and below is equal: 14px on computer, 12px on phone. The bar is 87px tall on computer and 79px on phone
 - Text: 'Join the waitlist'
