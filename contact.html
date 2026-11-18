@@ -118,6 +118,8 @@
       .contact-form .btn { justify-self: start; font-size: 16px; }
       .contact-form .form-note { font-size: 14px; color: var(--muted); margin: 0; }
       .contact-form .form-note a { font-weight: 700; }
+      .contact-form .field-error { color: var(--accent-active); font-size: 14px; font-weight: 700; margin: 6px 0 0; }
+      .contact-form [aria-invalid="true"] { border-color: var(--accent-active); box-shadow: 0 0 0 4px rgba(131, 63, 38, 0.18); }
       .contact-thanks { text-align: center; padding: 24px 8px; }
       .contact-thanks h2 { margin: 0 0 8px; color: var(--accent); }
       .legal .or-email { margin-top: 24px; }
@@ -222,11 +224,13 @@
           <div class="two-up">
             <div>
               <label for="cf-name">Name</label>
-              <input id="cf-name" name="name" type="text" autocomplete="name" required>
+              <input id="cf-name" name="name" type="text" autocomplete="name" required aria-describedby="cf-name-error">
+              <p class="field-error" id="cf-name-error" hidden></p>
             </div>
             <div>
               <label for="cf-email">Email</label>
-              <input id="cf-email" name="email" type="email" autocomplete="email" required>
+              <input id="cf-email" name="email" type="email" autocomplete="email" required aria-describedby="cf-email-error">
+              <p class="field-error" id="cf-email-error" hidden></p>
             </div>
           </div>
           <div>
@@ -241,7 +245,8 @@
           </div>
           <div>
             <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" required></textarea>
+            <textarea id="cf-message" name="message" required aria-describedby="cf-message-error"></textarea>
+            <p class="field-error" id="cf-message-error" hidden></p>
           </div>
           <div class="trap" aria-hidden="true">
             <label for="cf-website">Leave this empty</label>
@@ -308,13 +313,35 @@
       var form = document.getElementById('contact-form');
       if (!form) return;
       var startedAt = Date.now();
+      // Clear a box's warning as soon as the visitor starts typing in it
+      ['name', 'email', 'message'].forEach(function (k) {
+        form.elements[k].addEventListener('input', function () {
+          this.removeAttribute('aria-invalid');
+          document.getElementById('cf-' + k + '-error').hidden = true;
+        });
+      });
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         var btn = form.querySelector('button[type="submit"]');
         if (btn.disabled) return;
         var f = form.elements;
         var name = f['name'].value.trim(), email = f['email'].value.trim(), message = f['message'].value.trim();
-        if (!name || !email || !message || !f['email'].checkValidity()) { form.reportValidity(); return; }
+        // Show a warning under each box that's missing or wrong, and don't send
+        var problems = {
+          name: !name ? 'Please enter your name.' : '',
+          email: !email ? 'Please enter your email address.'
+            : !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) ? 'Please enter a valid email address, like name@example.com.' : '',
+          message: !message ? 'Please write your message.' : ''
+        };
+        var first = null;
+        ['name', 'email', 'message'].forEach(function (k) {
+          var box = document.getElementById('cf-' + k + '-error');
+          box.textContent = problems[k];
+          box.hidden = !problems[k];
+          if (problems[k]) { f[k].setAttribute('aria-invalid', 'true'); if (!first) first = f[k]; }
+          else f[k].removeAttribute('aria-invalid');
+        });
+        if (first) { first.focus(); return; }
         btn.disabled = true;
         btn.textContent = 'Sending…';
         // Robots fill the hidden box or send instantly: pretend it worked and send nothing
