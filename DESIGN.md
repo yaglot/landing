@@ -44,6 +44,16 @@ Every Yaglot page should feel friendly, obvious and consistent.
 
 Check every change at 1440, 1024, 820, 768, 390, 360 and 320px. Also check it at 200% browser zoom.
 
+### Changing the design
+
+Every design change goes through the three design roles, in this order. No change goes live until all three have signed it off.
+
+1. **Visual Designer** checks layout, spacing, type, logo, colour, illustration and motion (sections 2 to 6).
+2. **Experience Designer** checks components, states, page patterns, forms and on-page wording (sections 1, 7 and 8).
+3. **Accessibility Designer** checks the change against WCAG 2.2 AA and runs the testing routine (section 9).
+4. Each designer reviews the other two's work. Disagreements and anything touching a founder decision go to the founder.
+5. The change is shown on the canvas first (computer, tablet and phone boards), then made on the site, then recorded here and in Design versions with a new design version number when a rule's meaning changes.
+
 ### Adding a page
 
 1. Copy the closest inner page (careers.html for a short page, privacy.html for a long one).
