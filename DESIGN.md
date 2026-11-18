@@ -156,7 +156,7 @@ Nine text sizes: 14, 16, 18, 20, 24, 32, 40, 48, 60 (plus the hero subtitle at 2
 
 | Element | Computer | Phone |
 |---|---|---|
-| Logo height | 72 | 44 |
+| Logo height | 60 | 44 |
 | Doodle star beside the subtitle | 42 | 32 |
 | Bell beside the waitlist heading | 50 | 40 |
 | Monkey tiles (all three equal) | 140 | 112 (88 at 480px and below) |
@@ -210,7 +210,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 ### Buttons
 - Terracotta background, cream text, 2px ink border, `--wobble` corners, weight 700, 16px
 - One button size everywhere (header, waitlist, contact form): 52px tall on computer and tablet, 48px on phone; the waitlist email box matches the button height
-- Header: 16px above and below on computer (20px before), so the bar is 106px tall; the logo (72px) sets its height
+- Header: logo 60px tall on computer (44px on phone) with 12px above and below, so the bar is 86px tall on computer and 74px on phone
 - Text: 'Join the waitlist'
 
 ### Phrase cards (hero)
