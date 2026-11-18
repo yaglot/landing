@@ -57,7 +57,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 
 **Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
 - Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
-- Pages live at yaglot.com, yaglot.com/construction (construction.html) and yaglot.com/privacy (privacy.html); 404.html forwards old addresses such as /privacy/ to the right page
+- Pages live at yaglot.com, yaglot.com/construction (construction.html) and yaglot.com/privacy-notice (privacy-notice.html); 404.html forwards old addresses such as /privacy to the right page
 
 ---
 
@@ -235,7 +235,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - `region`: the time zone (for example `Europe/London`, `Asia/Taipei`)
   - `consent`: which consent wording the visitor saw. `privacy-v1` = the line under the button ('By joining, you agree to receive emails from Yaglot about our launch and early access. You can unsubscribe at any time. Read our privacy notice.') together with version 1 of the privacy notice. Raise the number whenever either changes
 - Nothing is stored on the visitor's device (no cookies or browser storage), so no cookie banner is needed
-- Privacy notice page: `privacy.html` at yaglot.com/privacy, linked from the consent line and the footer 'Privacy' link; same banner, header and footer as the construction page
+- Privacy notice page: `privacy-notice.html` at yaglot.com/privacy-notice (old /privacy links forward there), linked from the consent line and the footer 'Privacy' link; same banner, header and footer as the construction page
 - Shows 'Sending…' then a thank-you message
 
 ### Stealth banner
