@@ -250,8 +250,8 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - **Help:** FAQs, Contact us, Privacy, Terms
   - **Follow us:** each network's own coloured logo (34px, rounded square); LinkedIn blue `#0A66C2` only for now (linkedin.com/company/yaglot)
 - Links go to the construction page until their pages exist (Privacy, Terms and Contact us go to their pages)
-- Company details (Yaglot Ltd, England and Wales, company number 17220926, registered office) are on the Terms and Contact pages, which meets the UK requirement; the footer shows only the copyright line
-- Contact page: four cards (Email, LinkedIn, Schools and businesses, Your information) in the doodle card style, then the company details in small print
+- Company details (Yaglot Ltd, England and Wales, company number 17220926, registered office) are on the Terms page, which meets the UK requirement; the footer shows only the copyright line
+- Contact page: intro line and one card with an 'Email us' button (opens the visitor's email app to hello@yaglot.com) and the address written out; no form, so nothing new is collected
 - Add back later: Pricing (when Max has a public price), Investors (when fundraising), more social icons (as each account goes live)
 
 ---
