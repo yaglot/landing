@@ -210,7 +210,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 ### Buttons
 - Terracotta background, cream text, 2px ink border, `--wobble` corners, weight 700, 16px
 - One button size everywhere (header, waitlist, contact form): 52px tall on computer and tablet, 48px on phone; the waitlist email box matches the button height
-- Header: logo 60px tall on computer (44px on phone) with 12px above and below; the button keeps 5px of room underneath for its shadow, so the visible space above and below is equal (about 13px on computer, 12px on phone). The bar is 86px tall on computer and 79px on phone
+- Header: logo 60px tall on computer (44px on phone) with 12px above and below; the button keeps 5px of room underneath for its shadow, so the visible space above and below is equal (14px on computer, with 13px of padding underneath; 12px on phone). The bar is 87px tall on computer and 79px on phone
 - Text: 'Join the waitlist'
 
 ### Phrase cards (hero)
