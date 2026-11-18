@@ -211,7 +211,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 - 'Join the waitlist' buttons: terracotta `#b85c38` background, cream text, 2px ink border, `--wobble` corners, weight 700, 16px
 - Every other button ('Send message', 'Get in touch' and future ones): the same, but olive `#5f7146` (class `btn-olive`; pressed `#45532f`), so 'Join the waitlist' stays the one terracotta action
 - One button size everywhere (header, waitlist, contact form): 52px tall on computer and tablet, 48px on phone; the waitlist email box matches the button height
-- Header: logo 72px tall on computer (44px on phone). Computer has 6px of padding above and 7px below (the logo image has a little transparent space of its own); phone has 12px above and below. The button keeps 5px of room underneath for its shadow. The visible space above and below is equal: 14px on computer, 12px on phone. The bar is 87px tall on computer and 79px on phone
+- Header: logo 72px tall on computer (52px on phone, 46px on screens narrower than 375px). Computer has 6px of padding above and 7px below (the logo image has a little transparent space of its own); phone has 12px above and below. The button keeps 5px of room underneath for its shadow. The visible space above and below is equal: 14px on computer, 12px on phone. The bar is 87px tall on computer and 79px on phone
 - Text: 'Join the waitlist'
 
 ### Phrase cards (hero)
@@ -224,7 +224,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 
 ### Header
 - Sticky under the banner, cream frosted background (`rgba(255,250,240,0.94)` + blur), dashed bottom border
-- Logo left (72px tall, 44px on phones), button right; the logo tilts slightly on hover and takes you back to the top
+- Logo left (72px tall, 52px on phones, 46px under 375px wide), button right; the logo tilts slightly on hover and takes you back to the top
 
 ### Waitlist postcard
 - Two halves: night-market picture and form; stacks on screens 1024px and below
@@ -287,7 +287,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 |---|---|
 | 1024px and above | Phrase cards float in the hero sky; map beside text; postcard side by side |
 | Below 1024px | Phrase cards grouped above the hero picture (picture at 9:4); map above text; postcard stacked |
-| 768px and below | Smaller text sizes, one-column feature cards, full-width button, two-column footer, 44px logo |
+| 768px and below | Smaller text sizes, one-column feature cards, full-width button, two-column footer, 52px logo (46px under 375px) |
 | 760px and below | Banner no longer sticky |
 | 520px and below | Smaller banner text |
 | 360px | Smallest checked width; no sideways scrolling at any size |
