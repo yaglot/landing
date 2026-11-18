@@ -156,7 +156,7 @@ Nine text sizes: 14, 16, 18, 20, 24, 32, 40, 48, 60 (plus the hero subtitle at 2
 
 | Element | Computer | Phone |
 |---|---|---|
-| Logo height | 72 | 44 |
+| Logo height | 72 | 52 (46 under 375px wide) |
 | Doodle star beside the subtitle | 42 | 32 |
 | Bell beside the waitlist heading | 50 | 40 |
 | Monkey tiles (all three equal) | 140 | 112 (88 at 480px and below) |
