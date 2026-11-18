@@ -228,7 +228,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 ### Waitlist postcard
 - Two halves: night-market picture and form; stacks on screens 1024px and below
 - Dashed stamp with the bell, dashed postcard lines
-- Email box: 2px ink border, `--wobble`, white, 54px tall, terracotta focus ring; spoken label 'Email address' for screen readers
+- Email box: 2px ink border, `--wobble`, white, 52px tall (48px on phone), terracotta focus ring; spoken label 'Email address' for screen readers
 - Sends each sign-up to the Google Sheet through Google Apps Script with these fields (no personal data beyond the email):
   - `email`
   - `source`: `landing` (where the form is; other sources may be added later)
@@ -254,7 +254,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - **Help:** Contact us, FAQs, Privacy, Terms
   - **Follow us:** each network's own coloured logo (34px, rounded square); LinkedIn blue `#0A66C2` only for now (linkedin.com/company/yaglot)
 - Links go to the construction page until their pages exist (Our mission, Our team, Careers, Contact us, FAQs, Privacy and Terms go to their pages; Yaglot Pro, Yaglot Max, For schools and For businesses stay on the construction page for now)
-- Our mission page: intro line, 'Why we're here', 'Starting with Mandarin', 'What we believe' (six cards based on the home page feature cards) and a 'Join the waitlist' button
+- Our mission page: intro line, 'Why we're here', 'Starting with Mandarin' and 'What we believe' (six cards based on the home page feature cards)
 - Our team page: describes the team's research (PhDs in Cognitive Science and Language Science) without names; people are added later
 - Careers page: 'We're not hiring right now, but we'd love to hear from you' and a 'Get in touch' button that opens the contact form with 'Working with us' already picked (contact?topic=Working%20with%20us)
 - FAQs page: intro line ('Answers to the questions we hear most. Can't find yours? Contact us.'), then questions in five groups (About Yaglot; Launch and the waitlist; Plans and prices; Schools and businesses; Your privacy). Each question is a card that opens and closes (the same ink border, wobbly corners and chevron as the Topic dropdown); questions 18 bold, answers 18 (16 on phone). Never mention how Max works or any prices. Versions are named faqs-vYY.N (faqs-v26.1 now); record the full wording of every version in the 'Yaglot FAQs versions' document
@@ -330,3 +330,21 @@ The construction page uses the same banner, header and footer around the Kenting
 - **Oxford commas**: Do NOT use.
 - **Placeholders**: Short honest placeholders (a dash, a grey block or a labelled stub) instead of invented metrics ("10× faster").
 - **Avoid**: Lorem ipsum, generic emoji icon rows, left-border accent cards, purple gradients, warm beige page washes not justified by brand.
+
+## Design review (18 November 2026)
+
+A visual designer checked every page at 1440, 1024, 768, 390 and 360. Rules that came out of it:
+
+- **Contrast:** 'Last updated' is `#6f6e68`. Buttons and links stay brand terracotta `#b85c38` by choice (cream on terracotta measures 4.3:1, just under the WCAG AA 4.5:1; a darker `#a9532f` was tried and turned down)
+- **Keyboard focus:** anything you can tab to (links, buttons, boxes, FAQ questions) shows a 3px dark terracotta outline (`--accent-active`), 3px away from it
+- **Tap targets on phone:** footer links, the LinkedIn icon and '← Back to the home page' are at least about 44px tall to tap, without looking bigger
+- **Form boxes:** contact Name, Email and Topic match the buttons: 52px tall (48px on phone)
+- **Reading width:** paragraphs and lists on inner pages stop at about 66 characters a line
+- **Intro spacing:** 20px from the squiggle to the intro line (or 'Last updated'), then 40px to the first content on every inner page (12px when a normal paragraph follows, as on Careers)
+- **Waitlist heading:** room for the stamp is 48px (40px on phone), so the heading wraps over fewer lines
+- **FAQ questions** balance their lines so no word sits alone; FAQ cards turn slightly darker on hover
+- **Mission cards and FAQ cards** both sit 16px under their heading with 16px between cards
+- **Page titles** use line spacing 1.15 everywhere; intro lines 1.65 like the paragraphs; the base h3 size is 24
+- **Tablet edges:** inner page text lines up with the logo at 768
+- **Map section on phone:** heading, squiggle and text are all left-aligned
+
