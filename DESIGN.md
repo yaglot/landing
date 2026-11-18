@@ -156,7 +156,7 @@ Nine text sizes: 14, 16, 18, 20, 24, 32, 40, 48, 60 (plus the hero subtitle at 2
 
 | Element | Computer | Phone |
 |---|---|---|
-| Logo height | 60 | 44 |
+| Logo height | 72 | 44 |
 | Doodle star beside the subtitle | 42 | 32 |
 | Bell beside the waitlist heading | 50 | 40 |
 | Monkey tiles (all three equal) | 140 | 112 (88 at 480px and below) |
@@ -210,7 +210,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 ### Buttons
 - Terracotta background, cream text, 2px ink border, `--wobble` corners, weight 700, 16px
 - One button size everywhere (header, waitlist, contact form): 52px tall on computer and tablet, 48px on phone; the waitlist email box matches the button height
-- Header: logo 60px tall on computer (44px on phone) with 12px above and below; the button keeps 5px of room underneath for its shadow, so the visible space above and below is equal (14px on computer, with 13px of padding underneath; 12px on phone). The bar is 87px tall on computer and 79px on phone
+- Header: logo 72px tall on computer (44px on phone). Computer has 6px of padding above and 7px below (the logo image has a little transparent space of its own); phone has 12px above and below. The button keeps 5px of room underneath for its shadow. The visible space above and below is equal: 14px on computer, 12px on phone. The bar is 87px tall on computer and 79px on phone
 - Text: 'Join the waitlist'
 
 ### Phrase cards (hero)
@@ -223,7 +223,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 
 ### Header
 - Sticky under the banner, cream frosted background (`rgba(255,250,240,0.94)` + blur), dashed bottom border
-- Logo left (60px tall, 44px on phones), button right; the logo tilts slightly on hover and takes you back to the top
+- Logo left (72px tall, 44px on phones), button right; the logo tilts slightly on hover and takes you back to the top
 
 ### Waitlist postcard
 - Two halves: night-market picture and form; stacks on screens 1024px and below
