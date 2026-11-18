@@ -134,22 +134,22 @@ All values are hex. Neutrals are warm (yellow-brown undertone), never cool grey.
 
 ### Sizes
 
-Nine text sizes: 14, 16, 18, 20, 24, 32, 40, 48, 60 (plus the hero subtitle at 26). Headings use fixed steps per screen size so a lower level is never bigger than the one above it.
+Nine text sizes: 14, 16, 18, 20, 24, 32, 40, 48, 60 (plus the hero subtitle at 26). Headings use fixed steps per screen size so a lower level is never bigger than the one above it. Anything people need to read (including the consent line, form notes, warnings and footer links) is at least 16; 14 is only for small labels. The same kind of text uses the same size on every page.
 
 | Role | Computer (1024px+) | Tablet (769 to 1023px) | Phone (768px and below) |
 |---|---|---|---|
-| Main heading (hero and construction page) | 60 | 48 | 40 |
+| Main heading (hero and every page title: construction, privacy, terms, contact) | 60 | 48 | 40 |
 | Section headings | 48 | 40 | 32 |
 | Waitlist heading | 40 | 40 | 32 |
 | Feature card titles | 24 | 24 | 24 |
 | Hero subtitle | 26 | 26 | 20 |
 | Lead text (map section, construction description) | 20 | 20 | 18 |
-| Body text (paragraphs, feature cards, construction email line and back link) | 16 | 16 | 16 |
+| Body text (paragraphs, feature cards, banner, consent line, form notes and warnings, footer links, construction email line and back link) | 16 | 16 | 16 |
 | Buttons, footer headings | 16 | 16 | 16 |
-| Small text (banner, privacy note, 'ALMOST THERE', footer links, copyright) | 14 | 14 | 14 |
+| Small text, only for labels people don't need to read closely ('ALMOST THERE', 'Last updated', copyright) | 14 | 14 | 14 |
 | Chinese characters on phrase cards | 40 | 32 | 32 |
 | Pinyin | 14 | 14 | 14 |
-| Phrase-card meaning | 16 | 14 | 14 |
+| Phrase-card meaning | 16 | 16 | 16 |
 
 ### Visual sizes
 
@@ -237,7 +237,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 - Nothing is stored on the visitor's device (no cookies or browser storage), so no cookie banner is needed
 - Privacy notice page: `privacy.html` at yaglot.com/privacy (the earlier /privacy-notice address forwards there), linked from the consent line and the footer 'Privacy' link; same banner, header and footer as the construction page
 - Shows 'Sending…' then a thank-you message
-- Empty or wrong email is not sent: a warning shows under the box in dark terracotta (`--accent-active`, 14px bold) and the box gets a terracotta outline: 'Please enter your email address.' or 'Please enter a valid email address, like name@example.com.' The warning disappears as soon as the visitor types
+- Empty or wrong email is not sent: a warning shows under the box in dark terracotta (`--accent-active`, 16px bold) and the box gets a terracotta outline: 'Please enter your email address.' or 'Please enter a valid email address, like name@example.com.' The warning disappears as soon as the visitor types
 
 ### Stealth banner
 - Sand stripes, warm grey text, blinking terracotta dot
