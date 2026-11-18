@@ -118,16 +118,16 @@ No sharp corners on anything with a border. Shadows fall straight down, with no 
 
 | Token | Phone | Tablet | Computer | Rule |
 |---|---|---|---|---|
-| radius-wobble | Same | As computer | 18px 22px 16px 24px / 22px 16px 24px 18px | Buttons, boxes, phrase and FAQ cards |
-| radius-wobble-lg | Same | As computer | 28px 34px 24px 36px / 34px 24px 36px 28px | Feature cards, postcard |
-| radius-blob | Same | As computer | 46% 54% 42% 58% / 55% 44% 56% 45% | Icon blobs |
+| radius-wobble | As computer | As computer | 18px 22px 16px 24px / 22px 16px 24px 18px | Buttons, boxes, phrase and FAQ cards |
+| radius-wobble-lg | As computer | As computer | 28px 34px 24px 36px / 34px 24px 36px 28px | Feature cards, postcard |
+| radius-blob | As computer | As computer | 46% 54% 42% 58% / 55% 44% 56% 45% | Icon blobs |
 | radius-pill | 24px once text wraps | As computer | 999px | Progress bar, email pill |
-| radius-small | Same | As computer | 6px | Stamp, social icon |
-| shadow-button | Same | As computer | 0 5px 0 ink | 2px on hover, none when pressed |
-| shadow-card | Same | As computer | 0 4px 0 ink at 85% | FAQ cards |
-| shadow-float | Same | As computer | 0 6px 0 ink at 85% | Phrase cards |
-| shadow-postcard | Same | As computer | 0 8px 0 ink at 85% | Waitlist postcard |
-| shadow-soft | Same | As computer | 0 6px 0 #dccfb6 | Feature cards. No change on hover, because they cannot be clicked |
+| radius-small | As computer | As computer | 6px | Stamp, social icon |
+| shadow-button | As computer | As computer | 0 5px 0 ink | 2px on hover, none when pressed |
+| shadow-card | As computer | As computer | 0 4px 0 ink at 85% | FAQ cards |
+| shadow-float | As computer | As computer | 0 6px 0 ink at 85% | Phrase cards |
+| shadow-postcard | As computer | As computer | 0 8px 0 ink at 85% | Waitlist postcard |
+| shadow-soft | As computer | As computer | 0 6px 0 #dccfb6 | Feature cards. No change on hover, because they cannot be clicked |
 
 ## 3. Typography
 
@@ -233,7 +233,7 @@ Hand-drawn doodles sit behind the page, and flat outlined elements sit on top.
 
 | Token | Phone | Tablet | Computer | Rule |
 |---|---|---|---|---|
-| icon-feature | Same | As computer | 40px in 76px blob | Line 2px |
+| icon-feature | As computer | As computer | 40px in 76px blob | Line 2px |
 | icon-belief | 26px in 48px blob | As computer | 32px in 60px blob | Line 1.6px / 1.3px |
 | icon-social | 34px, 44px tap area | As phone | 34px | Official logo only |
 | doodle-star | 32px | As computer | 42px | Hero subtitle |
@@ -248,13 +248,13 @@ Durations match on every device. Phrase cards float 14px on computer and 8px on 
 
 | Token | Phone | Tablet | Computer | Rule |
 |---|---|---|---|---|
-| motion-press | Same | As computer | 0.15s | Button press |
-| motion-hover | Same | As computer | 0.2s | Colour and background changes |
-| motion-enter | Same | As computer | 0.6s | Slide-in, once |
-| motion-blink | Same | As computer | 1.4s | Banner and 'Reach out' dots, 0.2s apart |
-| motion-loop | Same | As computer | 2 to 3s | Star, bell, monkeys |
-| motion-progress | Same | As computer | 4s | Progress bar, once |
-| motion-float | Same | As computer | 5 to 6s | Phrase cards, staggered |
+| motion-press | As computer | As computer | 0.15s | Button press |
+| motion-hover | As computer | As computer | 0.2s | Colour and background changes |
+| motion-enter | As computer | As computer | 0.6s | Slide-in, once |
+| motion-blink | As computer | As computer | 1.4s | Banner and 'Reach out' dots, 0.2s apart |
+| motion-loop | As computer | As computer | 2 to 3s | Star, bell, monkeys |
+| motion-progress | As computer | As computer | 4s | Progress bar, once |
+| motion-float | As computer | As computer | 5 to 6s | Phrase cards, staggered |
 
 Loops use ease-in-out and single moves use ease. No loop runs faster than 1.4s. Loops run normally, and with reduced motion nothing loops, floats or slides in (section 9).
 
@@ -271,9 +271,9 @@ Each component has one job and behaves the same wherever it appears.
 | Button | 48px tall, 16px side padding (space-4) | As computer | 52px tall, 24px side padding (space-5) | text-button. Form buttons fill the width on phone |
 | Text box and Topic | 48px tall | As computer | 52px tall | Match the button height. 16px inside on the left and right (space-4), no padding top or bottom |
 | Message box | 150px tall | As computer | 150px tall | People can drag it taller |
-| Label | Same | As computer | text-body bold, above the box | Lines up with the text inside the box (18px in, the 2px border plus 16px) |
-| Warning | Same | As computer | text-body bold, accent-active, under the box | One per box |
-| Word counter | Same | As computer | text-body, right-aligned under Message | Reads '0 / 500 words' |
+| Label | As computer | As computer | text-body bold, above the box | Lines up with the text inside the box (18px in, the 2px border plus 16px) |
+| Warning | As computer | As computer | text-body bold, accent-active, under the box | One per box |
+| Word counter | As computer | As computer | text-body, right-aligned under Message | Reads '0 / 500 words' |
 | FAQ card | 59px closed | As computer | 66px closed, 16px apart | Whole question row opens it |
 | Back link | 46px to tap | As computer | 50px to tap | text-body-lg bold in link colour |
 | Footer link | 44px to tap | As phone | 22px tall | Two columns on phone, four on tablet and computer |
