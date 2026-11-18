@@ -67,7 +67,7 @@ Warm, playful and hand-made: a sketchbook of Taiwan. Felt-tip doodle scenes sit 
 
 **Key characteristics**
 - Cream and parchment surfaces, never pure white page backgrounds
-- Terracotta (`#b85c38`) for the brand, buttons and Chinese characters
+- Terracotta (`#b85c38`) for the brand (logo, drawings) and Chinese characters; a slightly darker terracotta (`#a9532f`) for buttons and links so the text is easy to read
 - Dark brown ink (`#3a2f2a`) outlines on cards, buttons and drawings
 - Noto Serif for headings, Noto Sans for body text and UI
 - Chunky ink shadows that press down on click
@@ -105,7 +105,8 @@ All values are hex. Neutrals are warm (yellow-brown undertone), never cool grey.
 
 | Token | Value | Usage |
 |---|---|---|
-| `--accent` | `#b85c38` | Buttons, links, characters, logo |
+| `--accent` | `#b85c38` | Logo, characters, drawings, borders |
+| `--accent-text` | `#a9532f` | Button backgrounds, links, 'ALMOST THERE' (meets the WCAG AA contrast standard; `#b85c38` falls just short) |
 | `--accent-on` | `#faf9f5` | Text on terracotta |
 | `--accent-hover` | `#9b4d2f` | Hover |
 | `--accent-active` | `#833f26` | Pressed |
@@ -228,7 +229,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 ### Waitlist postcard
 - Two halves: night-market picture and form; stacks on screens 1024px and below
 - Dashed stamp with the bell, dashed postcard lines
-- Email box: 2px ink border, `--wobble`, white, 54px tall, terracotta focus ring; spoken label 'Email address' for screen readers
+- Email box: 2px ink border, `--wobble`, white, 52px tall (48px on phone), terracotta focus ring; spoken label 'Email address' for screen readers
 - Sends each sign-up to the Google Sheet through Google Apps Script with these fields (no personal data beyond the email):
   - `email`
   - `source`: `landing` (where the form is; other sources may be added later)
@@ -330,3 +331,21 @@ The construction page uses the same banner, header and footer around the Kenting
 - **Oxford commas**: Do NOT use.
 - **Placeholders**: Short honest placeholders (a dash, a grey block or a labelled stub) instead of invented metrics ("10× faster").
 - **Avoid**: Lorem ipsum, generic emoji icon rows, left-border accent cards, purple gradients, warm beige page washes not justified by brand.
+
+## Design review (18 November 2026)
+
+A visual designer checked every page at 1440, 1024, 768, 390 and 360. Rules that came out of it:
+
+- **Contrast:** all text meets WCAG AA. Buttons and links use `--accent-text` (`#a9532f`); 'Last updated' is `#6f6e68`
+- **Keyboard focus:** anything you can tab to (links, buttons, boxes, FAQ questions) shows a 3px dark terracotta outline (`--accent-active`), 3px away from it
+- **Tap targets on phone:** footer links, the LinkedIn icon and '← Back to the home page' are at least about 44px tall to tap, without looking bigger
+- **Form boxes:** contact Name, Email and Topic match the buttons: 52px tall (48px on phone)
+- **Reading width:** paragraphs and lists on inner pages stop at about 66 characters a line
+- **Intro spacing:** 20px from the squiggle to the intro line (or 'Last updated'), then 40px to the first content on every inner page (12px when a normal paragraph follows, as on Careers)
+- **Waitlist heading:** room for the stamp is 48px (40px on phone), so the heading wraps over fewer lines
+- **FAQ questions** balance their lines so no word sits alone; FAQ cards turn slightly darker on hover
+- **Mission cards and FAQ cards** both sit 16px under their heading with 16px between cards
+- **Page titles** use line spacing 1.15 everywhere; intro lines 1.65 like the paragraphs; the base h3 size is 24
+- **Tablet edges:** inner page text lines up with the logo at 768
+- **Map section on phone:** heading, squiggle and text are all left-aligned
+
