@@ -612,7 +612,7 @@
         btn.textContent = 'Sending…';
         statusBox.textContent = 'Sending…';
 
-        // Which kind of device the visitor signed up on (sent as 'source')
+        // Which kind of device the visitor signed up on (sent as 'device')
         function deviceType() {
           var ua = navigator.userAgent || '';
           var shortSide = Math.min(screen.width, screen.height);
@@ -657,12 +657,11 @@
                 // Details sent with each sign-up (no personal data beyond the email)
         var details = new URLSearchParams({
           email: email,
-          source: 'landing',
           device: deviceType(),
           referrer: referrerName(),
           language: navigator.language || '',
           region: (Intl.DateTimeFormat().resolvedOptions().timeZone) || '',
-          consent: 'privacy-v26.3'
+          consent: 'privacy-v26.4'
         });
 
         // POST to Google Apps Script. With 'no-cors' the answer cannot be read, so only a network
