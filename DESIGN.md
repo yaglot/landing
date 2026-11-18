@@ -248,7 +248,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 - Near-black background, wavy top edge
 - Four columns (two on phones), headings light terracotta, links warm silver:
   - **About us:** Our mission, Our team, Careers
-  - **Products:** Yaglot Pro, Yaglot Max, For schools, For business
+  - **Products:** Yaglot Pro, Yaglot Max, For schools, For businesses
   - **Help:** FAQs, Contact us, Privacy, Terms
   - **Follow us:** each network's own coloured logo (34px, rounded square); LinkedIn blue `#0A66C2` only for now (linkedin.com/company/yaglot)
 - Links go to the construction page until their pages exist (Privacy, Terms and Contact us go to their pages)
