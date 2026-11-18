@@ -226,7 +226,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 - Two halves: night-market picture and form; stacks on screens 1024px and below
 - Dashed stamp with the bell, dashed postcard lines
 - Email box: 2px ink border, `--wobble`, white, 54px tall, terracotta focus ring; spoken label 'Email address' for screen readers
-- Sends to the Google Sheet through Google Apps Script; shows 'Sending…' then a thank-you message
+- Sends the email and a 'source' label to the Google Sheet through Google Apps Script; the label is the visitor's device: `computer`, `tablet` or `phone` (worked out from the browser and screen; no personal data). Shows 'Sending…' then a thank-you message
 
 ### Stealth banner
 - Sand stripes, warm grey text, blinking terracotta dot

@@ -409,12 +409,22 @@
           return;
         }
 
+        // Which kind of device the visitor signed up on (sent as 'source')
+        function deviceType() {
+          var ua = navigator.userAgent || '';
+          var shortSide = Math.min(screen.width, screen.height);
+          var isTablet = /iPad|Tablet/i.test(ua) || (/Android/i.test(ua) && !/Mobile/i.test(ua)) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+          if (isTablet) return 'tablet';
+          if (/Mobi|iPhone|iPod/i.test(ua) || (window.matchMedia('(pointer: coarse)').matches && shortSide < 600)) return 'phone';
+          return 'computer';
+        }
+
         // POST to Google Apps Script
         fetch('https://script.google.com/macros/s/AKfycbzfAgURxVnNx_jh8BH5Tt2B6gXhl66O7gOMsZhp74ebgQ_dG4Kw8W4I3dPXg3pexwOg9A/exec', {
           method: 'POST',
           mode: 'no-cors',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: 'email=' + encodeURIComponent(email) + '&source=landing'
+          body: 'email=' + encodeURIComponent(email) + '&source=' + deviceType()
         }).catch(function() {
           // no-cors mode means we can't read the response — silently succeed
         });
