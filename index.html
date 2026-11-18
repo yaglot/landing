@@ -132,7 +132,8 @@
       .btn-notify { height: 54px; padding: 0 24px; background: var(--accent); color: var(--accent-on); border: 2px solid var(--ink); border-radius: var(--wobble); font-family: var(--font-body); font-size: 16px; font-weight: 700; cursor: pointer; white-space: nowrap; box-shadow: 0 5px 0 0 var(--ink); transition: transform 0.15s, box-shadow 0.15s, background 0.2s; }
       .btn-notify:hover { transform: translateY(3px); box-shadow: 0 2px 0 0 var(--ink); }
       .btn-notify:active { background: var(--accent-active); transform: translateY(5px); box-shadow: none; }
-      .privacy { font-size: 14px; color: var(--meta); margin-top: 22px; }
+      .privacy { font-size: 14px; color: var(--muted); margin-top: 22px; }
+      .privacy a { font-weight: 700; }
   
       /* Footer */
       .footer-wave { display: block; width: 100%; height: 72px; background: var(--bg); }
@@ -324,7 +325,7 @@
             <input type="email" name="email" placeholder="you@example.com" aria-label="Email address" autocomplete="email" required>
             <button type="submit" class="btn-notify">Join the waitlist</button>
           </form>
-          <p class="privacy">We respect your privacy and will never spam you.</p>
+          <p class="privacy">By joining, you agree to receive emails from Yaglot about our launch and early access. You can unsubscribe at any time. Read our <a href="privacy-notice">privacy notice</a>.</p>
         </div>
       </div>
     </div>
@@ -361,7 +362,7 @@
             <li><a href="construction">FAQs</a></li>
             <li><a href="construction">Research</a></li>
             <li><a href="construction">Terms</a></li>
-            <li><a href="construction">Privacy</a></li>
+            <li><a href="privacy-notice">Privacy notice</a></li>
             <li><a href="construction">Contact us</a></li>
           </ul>
         </div>
@@ -419,14 +420,41 @@
           return 'computer';
         }
 
-        // Details sent with each sign-up (no personal data beyond the email)
-        var visit = {};
-        try { visit = JSON.parse(sessionStorage.getItem('yaglotVisit') || '{}'); } catch (err) {}
+        // Where the visitor came from, worked out when they sign up (nothing is stored on their device)
+        function referrerName() {
+          var params = new URLSearchParams(location.search);
+          if (params.get('utm_source')) return params.get('utm_source').toLowerCase();
+          var ua = navigator.userAgent || '';
+          var apps = [
+            [/LinkedInApp/i, 'linkedin'], [/Instagram/i, 'instagram'], [/Barcelona/i, 'threads'],
+            [/MessengerForiOS|Orca-Android/i, 'messenger'], [/FBAN|FBAV|FB_IAB/i, 'facebook'],
+            [/TwitterAndroid|Twitter for/i, 'x'], [/musical_ly|BytedanceWebview|TikTok/i, 'tiktok'],
+            [/Snapchat/i, 'snapchat'], [/Pinterest/i, 'pinterest'], [/ Line\//i, 'line'],
+            [/MicroMessenger/i, 'wechat'], [/Telegram/i, 'telegram'], [/YouTube/i, 'youtube']
+          ];
+          for (var i = 0; i < apps.length; i++) if (apps[i][0].test(ua)) return apps[i][1];
+          if (!document.referrer) return 'direct';
+          var host = new URL(document.referrer).hostname.replace(/^(www|m|l|lm|mobile)\./, '');
+          if (host === location.hostname.replace(/^www\./, '')) return 'direct';
+          var sites = [
+            [/(^|\.)linkedin\.com$|^lnkd\.in$/, 'linkedin'], [/(^|\.)instagram\.com$/, 'instagram'],
+            [/(^|\.)threads\.(net|com)$/, 'threads'], [/(^|\.)facebook\.com$|^fb\.me$/, 'facebook'],
+            [/(^|\.)messenger\.com$/, 'messenger'], [/^(t\.co|x\.com|twitter\.com)$/, 'x'],
+            [/(^|\.)youtube\.com$|^youtu\.be$/, 'youtube'], [/(^|\.)tiktok\.com$/, 'tiktok'],
+            [/(^|\.)reddit\.com$/, 'reddit'], [/(^|\.)pinterest\./, 'pinterest'],
+            [/(^|\.)google\./, 'google'], [/(^|\.)bing\.com$/, 'bing'], [/(^|\.)duckduckgo\.com$/, 'duckduckgo'],
+            [/(^|\.)yahoo\./, 'yahoo'], [/(^|\.)line\.me$/, 'line'], [/(^|\.)whatsapp\.com$/, 'whatsapp']
+          ];
+          for (var j = 0; j < sites.length; j++) if (sites[j][0].test(host)) return sites[j][1];
+          return host;
+        }
+
+                // Details sent with each sign-up (no personal data beyond the email)
         var details = new URLSearchParams({
           email: email,
           source: 'landing',
           device: deviceType(),
-          referrer: visit.referrer || 'direct',
+          referrer: referrerName(),
           language: navigator.language || '',
           region: (Intl.DateTimeFormat().resolvedOptions().timeZone) || '',
           consent: 'privacy-v1'
@@ -458,22 +486,6 @@
   </script>
 
   <script>
-    // Remember where this visit came from (first page of the visit only), for the waitlist sheet
-    (function () {
-      try {
-        if (sessionStorage.getItem('yaglotVisit')) return;
-        var params = new URLSearchParams(location.search);
-        var from = '';
-        if (document.referrer) {
-          var host = new URL(document.referrer).hostname.replace(/^www\./, '');
-          if (host !== location.hostname.replace(/^www\./, '')) from = host;
-        }
-        sessionStorage.setItem('yaglotVisit', JSON.stringify({
-          referrer: params.get('utm_source') || from || 'direct'
-        }));
-      } catch (err) {}
-    })();
-
     // Keep the copyright year current
     document.querySelectorAll('.copyright-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
   </script>
