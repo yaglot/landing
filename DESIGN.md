@@ -244,8 +244,13 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 
 ### Footer
 - Near-black background, wavy top edge
-- Four columns (two on phones): headings light terracotta, links warm silver
-- LinkedIn opens linkedin.com/company/yaglot; other links go to the construction page until those pages exist
+- Four columns (two on phones), headings light terracotta, links warm silver:
+  - **About us:** Our mission, Our team, Careers
+  - **Products:** Yaglot Pro, Yaglot Max, For organisations
+  - **Help:** FAQs, Contact us, Privacy notice, Terms
+  - **Follow us:** round social icons; LinkedIn only for now (linkedin.com/company/yaglot)
+- Links go to the construction page until their pages exist (Privacy notice goes to its page)
+- Add back later: Pricing (when Max has a public price), Investors (when fundraising), more social icons (as each account goes live)
 
 ---
 
