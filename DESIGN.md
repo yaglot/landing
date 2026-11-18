@@ -57,7 +57,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 
 **Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
 - Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
-- Pages live at yaglot.com, yaglot.com/construction (construction.html), yaglot.com/privacy-notice (privacy-notice.html) and yaglot.com/terms (terms.html, terms and conditions); 404.html forwards old addresses such as /privacy to the right page
+- Pages live at yaglot.com, yaglot.com/construction (construction.html), yaglot.com/privacy (privacy.html) and yaglot.com/terms (terms.html, terms and conditions); 404.html forwards old addresses such as /privacy to the right page
 
 ---
 
@@ -235,7 +235,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - `region`: the time zone (for example `Europe/London`, `Asia/Taipei`)
   - `consent`: which consent wording the visitor saw. `privacy-v1` = the line under the button ('By joining, you agree to receive emails from Yaglot about our launch and early access. You can unsubscribe at any time. Read our privacy notice.') together with version 1 of the privacy notice. Raise the number whenever either changes, and record the full wording of every version in the 'Yaglot privacy notice versions' document
 - Nothing is stored on the visitor's device (no cookies or browser storage), so no cookie banner is needed
-- Privacy notice page: `privacy-notice.html` at yaglot.com/privacy-notice (old /privacy links forward there), linked from the consent line and the footer 'Privacy' link; same banner, header and footer as the construction page
+- Privacy notice page: `privacy.html` at yaglot.com/privacy (the earlier /privacy-notice address forwards there), linked from the consent line and the footer 'Privacy' link; same banner, header and footer as the construction page
 - Shows 'Sending…' then a thank-you message
 
 ### Stealth banner
@@ -247,9 +247,9 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 - Four columns (two on phones), headings light terracotta, links warm silver:
   - **About us:** Our mission, Our team, Careers
   - **Products:** Yaglot Pro, Yaglot Max, For organisations
-  - **Help:** FAQs, Contact us, Privacy notice, Terms
+  - **Help:** FAQs, Contact us, Privacy, Terms
   - **Follow us:** each network's own coloured logo (34px, rounded square); LinkedIn blue `#0A66C2` only for now (linkedin.com/company/yaglot)
-- Links go to the construction page until their pages exist (Privacy notice and Terms go to their pages)
+- Links go to the construction page until their pages exist (Privacy and Terms go to their pages)
 - Under the copyright line, in 12.5px: 'Yaglot Ltd is registered in England and Wales, company number 17220926. Registered office: 13 Freeland Park, Wareham Road, Poole, BH16 6FA, United Kingdom.' (required on a UK company's website)
 - Add back later: Pricing (when Max has a public price), Investors (when fundraising), more social icons (as each account goes live)
 
