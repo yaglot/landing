@@ -662,7 +662,7 @@
           referrer: referrerName(),
           language: navigator.language || '',
           region: (Intl.DateTimeFormat().resolvedOptions().timeZone) || '',
-          consent: 'privacy-v26.2'
+          consent: 'privacy-v26.3'
         });
 
         // POST to Google Apps Script. With 'no-cors' the answer cannot be read, so only a network
@@ -720,5 +720,6 @@
     // Keep the copyright year current
     document.querySelectorAll('.copyright-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
   </script>
+  <script src="visit.js" defer></script>
 </body>
 </html>
