@@ -1,5 +1,6 @@
 # Working on yaglot.com
 
+- Yaglot is mobile first. Design and check every change on phone first, then tablet, then computer. Keep everything concise, including reports to the founder, who often reads on a phone.
 - `DESIGN.md` is the single design rulebook. Read it before any change to how the site looks or behaves.
 - 'The team' means these eight roles, defined in `.claude/agents/`. Every design change goes through the team in this order:
   1. **Brief**: Strategy Designer (goal, audience, success measure) and Service Designer (the whole journey: page, forms, Google Sheet, emails), at the same time.
@@ -14,7 +15,7 @@
   - One combined fix pass, then one quick re-check. No second full review unless something must be fixed.
   - Founder decisions are never changed without asking.
 - Show changes on the canvas first (computer, tablet and phone boards), then change the site.
-- Check every change at 1440, 1024, 820, 768, 390, 360 and 320px.
+- Check every change at 390, 360 and 320px first, then 820 and 768px, then 1024 and 1440px.
 - After a change, update DESIGN.md and the 'Design versions' document, and say which documents were updated.
 - This repository is public. Never add confidential product details, prices or patent information.
 - Writing style: British English, single quotation marks, no em dashes, no unnecessary Oxford commas or colons.

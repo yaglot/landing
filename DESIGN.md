@@ -30,19 +30,20 @@ Every Yaglot page should feel friendly, obvious and consistent.
 
 ### Principles
 
-1. **One clear next step.** Each screen asks for one main action. 'Join the waitlist' is the only terracotta button and every other button is olive.
-2. **Plain words.** Write the way a friendly teacher talks, with no jargon.
-3. **Same thing, same look.** A button, link or box looks and behaves the same on every page (Nielsen's 'consistency and standards', approximate).
-4. **Always show what is happening.** Pressing a button gives an instant response, then a clear result (Nielsen's 'visibility of system status', approximate).
-5. **Forgive mistakes.** Check forms only when people press the button, say exactly what to fix and never clear what they typed.
-6. **Easy to tap.** On phones every control is at least 48px tall and on tablets 52px. On both every link has at least 44px to tap (Material 48dp and Apple 44pt, both approximate).
-7. **Drawings decorate, controls act.** Doodles never look clickable. Only controls move or change when hovered or pressed (section 6).
+1. **Phone first.** Yaglot is a mobile-first company. Design every page for the phone first, then let it grow for tablet and computer. Keep words short and every screen easy to use with one thumb.
+2. **One clear next step.** Each screen asks for one main action. 'Join the waitlist' is the only terracotta button and every other button is olive.
+3. **Plain words.** Write the way a friendly teacher talks, with no jargon.
+4. **Same thing, same look.** A button, link or box looks and behaves the same on every page (Nielsen's 'consistency and standards', approximate).
+5. **Always show what is happening.** Pressing a button gives an instant response, then a clear result (Nielsen's 'visibility of system status', approximate).
+6. **Forgive mistakes.** Check forms only when people press the button, say exactly what to fix and never clear what they typed.
+7. **Easy to tap.** On phones every control is at least 48px tall and on tablets 52px. On both every link has at least 44px to tap (Material 48dp and Apple 44pt, both approximate).
+8. **Drawings decorate, controls act.** Doodles never look clickable. Only controls move or change when hovered or pressed (section 6).
 
 ### Screen sizes
 
 'Computer' means 1024px wide and up. 'Phone' means 768px and down. Between the two is 'tablet' (769 to 1023px), such as an iPad held upright (820px). Tablets held sideways (1024px and wider) get the computer layout and an iPad mini held upright (744px) gets the phone layout. Tablet pages stack like a phone but keep computer spacing and control sizes. Headings use the tablet sizes in section 3.
 
-Check every change at 1440, 1024, 820, 768, 390, 360 and 320px. Also check it at 200% browser zoom.
+Check every change on phone first (390, 360 and 320px), then tablet (820 and 768px), then computer (1024 and 1440px). Also check it at 200% browser zoom.
 
 ### Changing the design
 
@@ -77,16 +78,16 @@ To keep it fast:
 
 Every page uses the same three layouts, one spacing scale and a small set of corners and shadows. Values were measured on 18 November 2026 from 1440px to 320px, and tablet values at 1023, 820 and 769px.
 
-| Token | Computer | Tablet | Phone | Rule |
+| Token | Phone | Tablet | Computer | Rule |
 |---|---|---|---|---|
-| bp-computer | 1024px and up | | | Computer rules start at 1024px. Phone and tablet rules stop at 1023px |
+| bp-computer | | | 1024px and up | Computer rules start at 1024px. Phone and tablet rules stop at 1023px |
 | bp-tablet | | 769 to 1023px | | Stacks like a phone with computer spacing, control sizes and side margins. Tablet heading sizes (section 3) |
-| bp-phone | | | 768px and down | Smaller text, one column |
-| Smallest width | | | 320px | No sideways scrolling |
-| width-page | 1200px | As phone | Full width | Centred, includes side margins |
-| width-reading | 720px | As computer | Full width | Inner page column |
-| width-paragraph | 34em (612px) | As computer | 34em (544px) | Caps every paragraph and list at 45 to 75 characters a line |
-| margin-side | 24px | As computer | 16px | Every page, every section |
+| bp-phone | 768px and down | | | Smaller text, one column |
+| Smallest width | 320px | | | No sideways scrolling |
+| width-page | Full width | As phone | 1200px | Centred, includes side margins |
+| width-reading | Full width | As computer | 720px | Inner page column |
+| width-paragraph | 34em (544px) | As computer | 34em (612px) | Caps every paragraph and list at 45 to 75 characters a line |
+| margin-side | 16px | As computer | 24px | Every page, every section |
 
 An iPad held upright (820px) is a tablet. Tablets held sideways (1024px and wider) get the computer layout and an iPad mini held upright (744px) gets the phone layout.
 
@@ -102,50 +103,50 @@ All spacing uses a 4px grid, like Material's 4dp grid (approximate).
 | space-4 to space-8 | 16, 24, 32, 40, 48px | Margins, padding inside boxes and buttons, card padding and gaps |
 | space-9 to space-12 | 64, 80, 96, 112px | Section top and bottom |
 
-| Token | Computer | Tablet | Phone | Rule |
+| Token | Phone | Tablet | Computer | Rule |
 |---|---|---|---|---|
-| section-hero | 80px / 0 | As computer | 56px / 0 | Top / bottom |
-| section-map | 72px / 96px | As computer | 48px / 72px | Top / bottom |
-| section-features | 24px / 64px | As computer | 24px / 80px | Top / bottom |
-| section-waitlist | 24px / 112px | As computer | 24px / 80px | Top / bottom |
-| section-inner | 64px / 96px | As computer | 48px / 64px | Inner pages, top / bottom |
+| section-hero | 56px / 0 | As computer | 80px / 0 | Top / bottom |
+| section-map | 48px / 72px | As computer | 72px / 96px | Top / bottom |
+| section-features | 24px / 80px | As computer | 24px / 64px | Top / bottom |
+| section-waitlist | 24px / 80px | As computer | 24px / 112px | Top / bottom |
+| section-inner | 48px / 64px | As computer | 64px / 96px | Inner pages, top / bottom |
 | gap-cards | 40px | As computer | 40px | Rows and columns of feature cards |
 
 ### Corners and shadows
 
 No sharp corners on anything with a border. Shadows fall straight down, with no blur.
 
-| Token | Computer | Tablet | Phone | Rule |
+| Token | Phone | Tablet | Computer | Rule |
 |---|---|---|---|---|
-| radius-wobble | 18px 22px 16px 24px / 22px 16px 24px 18px | As computer | Same | Buttons, boxes, phrase and FAQ cards |
-| radius-wobble-lg | 28px 34px 24px 36px / 34px 24px 36px 28px | As computer | Same | Feature cards, postcard |
-| radius-blob | 46% 54% 42% 58% / 55% 44% 56% 45% | As computer | Same | Icon blobs |
-| radius-pill | 999px | As computer | 24px once text wraps | Progress bar, email pill |
-| radius-small | 6px | As computer | Same | Stamp, social icon |
-| shadow-button | 0 5px 0 ink | As computer | Same | 2px on hover, none when pressed |
-| shadow-card | 0 4px 0 ink at 85% | As computer | Same | FAQ cards |
-| shadow-float | 0 6px 0 ink at 85% | As computer | Same | Phrase cards |
-| shadow-postcard | 0 8px 0 ink at 85% | As computer | Same | Waitlist postcard |
-| shadow-soft | 0 6px 0 #dccfb6 | As computer | Same | Feature cards. No change on hover, because they cannot be clicked |
+| radius-wobble | Same | As computer | 18px 22px 16px 24px / 22px 16px 24px 18px | Buttons, boxes, phrase and FAQ cards |
+| radius-wobble-lg | Same | As computer | 28px 34px 24px 36px / 34px 24px 36px 28px | Feature cards, postcard |
+| radius-blob | Same | As computer | 46% 54% 42% 58% / 55% 44% 56% 45% | Icon blobs |
+| radius-pill | 24px once text wraps | As computer | 999px | Progress bar, email pill |
+| radius-small | Same | As computer | 6px | Stamp, social icon |
+| shadow-button | Same | As computer | 0 5px 0 ink | 2px on hover, none when pressed |
+| shadow-card | Same | As computer | 0 4px 0 ink at 85% | FAQ cards |
+| shadow-float | Same | As computer | 0 6px 0 ink at 85% | Phrase cards |
+| shadow-postcard | Same | As computer | 0 8px 0 ink at 85% | Waitlist postcard |
+| shadow-soft | Same | As computer | 0 6px 0 #dccfb6 | Feature cards. No change on hover, because they cannot be clicked |
 
 ## 3. Typography
 
 Headings use Noto Serif and everything else uses Noto Sans. Every size comes from one scale.
 
-| Token | Computer | Tablet | Phone | Rule |
+| Token | Phone | Tablet | Computer | Rule |
 |---|---|---|---|---|
-| text-display | 60px / 1.15 | 48px / 1.15 | 40px / 1.15 | One per page (h1) |
-| text-headline | 48px / 1.15 | 40px / 1.15 | 32px / 1.15 | Home section headings |
-| text-postcard | 40px / 1.2 | As computer | 32px / 1.2 | Waitlist heading |
+| text-display | 40px / 1.15 | 48px / 1.15 | 60px / 1.15 | One per page (h1) |
+| text-headline | 32px / 1.15 | 40px / 1.15 | 48px / 1.15 | Home section headings |
+| text-postcard | 32px / 1.2 | As computer | 40px / 1.2 | Waitlist heading |
 | text-title | 24px / 1.25 | As computer | 24px / 1.25 | Inner page headings, card titles |
 | text-title-sm | 20px / 1.3 | As computer | 20px / 1.3 | Mission beliefs |
-| text-subtitle | 26px / 1.6 | As computer | 20px / 1.6 | Hero subtitle only |
-| text-lead | 20px / 1.6 | As computer | 18px / 1.6 | Map section, construction page |
-| text-body-lg | 18px / 1.65 | As computer | 16px / 1.65 | Inner page text and the back link (founder decision) |
+| text-subtitle | 20px / 1.6 | As computer | 26px / 1.6 | Hero subtitle only |
+| text-lead | 18px / 1.6 | As computer | 20px / 1.6 | Map section, construction page |
+| text-body-lg | 16px / 1.65 | As computer | 18px / 1.65 | Inner page text and the back link (founder decision) |
 | text-button | 19px bold / 1.2 | As computer | 19px bold / 1.2 | Every button, terracotta and olive (founder decision) |
 | text-body | 16px / 1.6 | As computer | 16px / 1.6 | Home text, labels, warnings, word counter, footer |
 | text-small | 14px | As computer | 14px | 'Last updated', copyright, pinyin and 'ALMOST THERE' only. 'ALMOST THERE' is accent-active, never terracotta |
-| text-chinese | 40px | As phone | 32px | Phrase cards. Inside sentences, match the sentence |
+| text-chinese | 32px | As phone | 40px | Phrase cards. Inside sentences, match the sentence |
 
 - Weights are 400 for text and 500 for headings, banner and pinyin. Buttons, links, labels, warnings and FAQ questions use 700. Load only those (Noto Serif 500, Noto Sans 400, 500 and 700, Noto Sans TC and SC 400).
 - Chinese uses Noto Sans TC first, then SC.
@@ -162,12 +163,12 @@ The logo is the oracle bone tree symbol beside 'Yaglot' in Noto Serif Bold, both
 
 The nine logo files live in images/brand and are listed in Part B (Logo). The header uses yaglot_name_with_symbol.png (648 by 220px, with 48px of transparent space on every side).
 
-| Token | Computer | Tablet | Phone | Rule |
+| Token | Phone | Tablet | Computer | Rule |
 |---|---|---|---|---|
-| logo-height | 72px | As computer | 52px | 46px below 375px (founder decision) |
-| logo-width | 212px | As computer | 153px | 135px below 375px |
-| logo-visible | 48px | As computer | 35px | Height of the drawing itself (31px below 375px) |
-| logo-clear | 12px | As computer | 9px | A quarter of the visible height, every side. The file's transparent edge covers it |
+| logo-height | 52px | As computer | 72px | 46px below 375px (founder decision) |
+| logo-width | 153px | As computer | 212px | 135px below 375px |
+| logo-visible | 35px | As computer | 48px | Height of the drawing itself (31px below 375px) |
+| logo-clear | 9px | As computer | 12px | A quarter of the visible height, every side. The file's transparent edge covers it |
 | logo-min | 24px visible | As computer | 24px visible | About 36px image height. Smaller, use the circle |
 | icon-min | 16px | As computer | 16px | Circle icon, browser tab |
 
@@ -230,30 +231,30 @@ Hand-drawn doodles sit behind the page, and flat outlined elements sit on top.
 - The illustration palette is sky #d6eaf5, sea #a9d2e6, leaf #8cc084, deep green #5a9a5f, yellow #f6c453, persimmon #d9573b, orange #ef9a4a, sand #eadcbc and night #2d3561.
 - Icons are doodle line icons with round ends, never emoji. Line width is the icon size divided by 20.
 
-| Token | Computer | Tablet | Phone | Rule |
+| Token | Phone | Tablet | Computer | Rule |
 |---|---|---|---|---|
-| icon-feature | 40px in 76px blob | As computer | Same | Line 2px |
-| icon-belief | 32px in 60px blob | As computer | 26px in 48px blob | Line 1.6px / 1.3px |
-| icon-social | 34px | As phone | 34px, 44px tap area | Official logo only |
-| doodle-star | 42px | As computer | 32px | Hero subtitle |
-| doodle-bell | 50px | As computer | 40px | Waitlist heading |
+| icon-feature | Same | As computer | 40px in 76px blob | Line 2px |
+| icon-belief | 26px in 48px blob | As computer | 32px in 60px blob | Line 1.6px / 1.3px |
+| icon-social | 34px, 44px tap area | As phone | 34px | Official logo only |
+| doodle-star | 32px | As computer | 42px | Hero subtitle |
+| doodle-bell | 40px | As computer | 50px | Waitlist heading |
 | banner-dot | 9px | As computer | 9px | Founder decision |
-| squiggle | 120 by 14px | As computer | 96 by 12px | Under headings |
-| wave | 72px tall | As computer | 40px tall | Between sections |
+| squiggle | 96 by 12px | As computer | 120 by 14px | Under headings |
+| wave | 40px tall | As computer | 72px tall | Between sections |
 
 ### Motion
 
 Durations match on every device. Phrase cards float 14px on computer and 8px on tablet and phone.
 
-| Token | Computer | Tablet | Phone | Rule |
+| Token | Phone | Tablet | Computer | Rule |
 |---|---|---|---|---|
-| motion-press | 0.15s | As computer | Same | Button press |
-| motion-hover | 0.2s | As computer | Same | Colour and background changes |
-| motion-enter | 0.6s | As computer | Same | Slide-in, once |
-| motion-blink | 1.4s | As computer | Same | Banner and 'Reach out' dots, 0.2s apart |
-| motion-loop | 2 to 3s | As computer | Same | Star, bell, monkeys |
-| motion-progress | 4s | As computer | Same | Progress bar, once |
-| motion-float | 5 to 6s | As computer | Same | Phrase cards, staggered |
+| motion-press | Same | As computer | 0.15s | Button press |
+| motion-hover | Same | As computer | 0.2s | Colour and background changes |
+| motion-enter | Same | As computer | 0.6s | Slide-in, once |
+| motion-blink | Same | As computer | 1.4s | Banner and 'Reach out' dots, 0.2s apart |
+| motion-loop | Same | As computer | 2 to 3s | Star, bell, monkeys |
+| motion-progress | Same | As computer | 4s | Progress bar, once |
+| motion-float | Same | As computer | 5 to 6s | Phrase cards, staggered |
 
 Loops use ease-in-out and single moves use ease. No loop runs faster than 1.4s. Loops run normally, and with reduced motion nothing loops, floats or slides in (section 9).
 
@@ -263,19 +264,19 @@ Each component has one job and behaves the same wherever it appears.
 
 ### Sizes
 
-| Component | Computer | Tablet | Phone | Rule |
+| Component | Phone | Tablet | Computer | Rule |
 |---|---|---|---|---|
-| Sticky banner | 41px tall, sticks | As computer | 60px, scrolls away | Sticks only above 760px, where it fits on one line. On short screens (500px tall or less, such as 400% zoom or a phone held sideways) it scrolls away |
-| Header | 87px tall | As computer | 79px tall, 152px below 360px | Logo (section 4) on the left links home, 'Join the waitlist' on the right, at least 16px apart on phone. Sticks under the banner. When space runs short the button's side padding shrinks evenly, never its words. Below 360px the button sits under the logo and the header scrolls away. The button lines up with the logo drawing, not the image box (the file has a 10px transparent edge at 46px tall), and there is 22px of clear space above the drawing, between the drawing and the button, and below the button's shadow. On short screens (500px tall or less) the header scrolls away at every width |
-| Button | 52px tall, 24px side padding (space-5) | As computer | 48px tall, 16px side padding (space-4) | text-button. Form buttons fill the width on phone |
-| Text box and Topic | 52px tall | As computer | 48px tall | Match the button height. 16px inside on the left and right (space-4), no padding top or bottom |
+| Sticky banner | 60px, scrolls away | As computer | 41px tall, sticks | Sticks only above 760px, where it fits on one line. On short screens (500px tall or less, such as 400% zoom or a phone held sideways) it scrolls away |
+| Header | 79px tall, 152px below 360px | As computer | 87px tall | Logo (section 4) on the left links home, 'Join the waitlist' on the right, at least 16px apart on phone. Sticks under the banner. When space runs short the button's side padding shrinks evenly, never its words. Below 360px the button sits under the logo and the header scrolls away. The button lines up with the logo drawing, not the image box (the file has a 10px transparent edge at 46px tall), and there is 22px of clear space above the drawing, between the drawing and the button, and below the button's shadow. On short screens (500px tall or less) the header scrolls away at every width |
+| Button | 48px tall, 16px side padding (space-4) | As computer | 52px tall, 24px side padding (space-5) | text-button. Form buttons fill the width on phone |
+| Text box and Topic | 48px tall | As computer | 52px tall | Match the button height. 16px inside on the left and right (space-4), no padding top or bottom |
 | Message box | 150px tall | As computer | 150px tall | People can drag it taller |
-| Label | text-body bold, above the box | As computer | Same | Lines up with the text inside the box (18px in, the 2px border plus 16px) |
-| Warning | text-body bold, accent-active, under the box | As computer | Same | One per box |
-| Word counter | text-body, right-aligned under Message | As computer | Same | Reads '0 / 500 words' |
-| FAQ card | 66px closed, 16px apart | As computer | 59px closed | Whole question row opens it |
-| Back link | 50px to tap | As computer | 46px to tap | text-body-lg bold in link colour |
-| Footer link | 22px tall | As phone | 44px to tap | Two columns on phone, four on tablet and computer |
+| Label | Same | As computer | text-body bold, above the box | Lines up with the text inside the box (18px in, the 2px border plus 16px) |
+| Warning | Same | As computer | text-body bold, accent-active, under the box | One per box |
+| Word counter | Same | As computer | text-body, right-aligned under Message | Reads '0 / 500 words' |
+| FAQ card | 59px closed | As computer | 66px closed, 16px apart | Whole question row opens it |
+| Back link | 46px to tap | As computer | 50px to tap | text-body-lg bold in link colour |
+| Footer link | 44px to tap | As phone | 22px tall | Two columns on phone, four on tablet and computer |
 
 ### Buttons
 
