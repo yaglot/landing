@@ -106,7 +106,7 @@ All values are hex. Neutrals are warm (yellow-brown undertone), never cool grey.
 | Token | Value | Usage |
 |---|---|---|
 | `--accent` | `#b85c38` | Buttons, links, characters, logo |
-| `--accent-on` | `#faf9f5` | Text on terracotta |
+| `--accent-on` | `#f7f0e3` | Button text (a warm cream, slightly creamier than the page cream) |
 | `--accent-hover` | `#9b4d2f` | Hover |
 | `--accent-active` | `#833f26` | Pressed |
 
