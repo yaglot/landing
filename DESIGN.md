@@ -33,7 +33,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 **Text and small details**
 - Hero subtitle 26px (20px on phones); doodle star 42px (32px on phones); bell beside the waitlist heading 50px (40px on phones)
 - Buttons read 'Join the waitlist' (sentence case)
-- Footer headings mustard `#d4a017` (so they don't look like links); link hover light terracotta `#e8a387`; on near-black
+- Footer headings ochre `#c8963e` (so they don't look like links); link hover light terracotta `#e8a387`; on near-black
 - Footer copyright year fills in automatically
 
 **Logo**
@@ -99,7 +99,7 @@ All values are hex. Neutrals are warm (yellow-brown undertone), never cool grey.
 | `--muted` | `#5e5d59` | Body paragraphs, consent line under the waitlist button |
 | `--meta` | `#87867f` | Small print (copyright, privacy page date) |
 | Pinyin | `#5f7146` | Pinyin under Chinese characters (olive) |
-| Footer links | `#b0aea5` | Footer link text; hover `#e8a387`; headings mustard `#d4a017` |
+| Footer links | `#b0aea5` | Footer link text; hover `#e8a387`; headings ochre `#c8963e` |
 
 ### Accent
 
