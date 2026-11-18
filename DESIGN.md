@@ -223,7 +223,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 
 ### Header
 - Sticky under the banner, cream frosted background (`rgba(255,250,240,0.94)` + blur), dashed bottom border
-- Logo left (72px tall, 44px on phones), button right; the logo tilts slightly on hover and takes you back to the top
+- Logo left (60px tall, 44px on phones), button right; the logo tilts slightly on hover and takes you back to the top
 
 ### Waitlist postcard
 - Two halves: night-market picture and form; stacks on screens 1024px and below
