@@ -28,7 +28,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 
 **Phrase cards**: dark-outlined cards floating in the hero sky band (desktop) or grouped above the picture (below 1024px); characters in terracotta, pinyin in olive `#5f7146`.
 - Desktop: the hero picture height follows the screen width (`max(420px, 29vw + 215px)`) so the cards always sit just above the mountains
-- From 1440px wide the cards move with the picture (positions as a share of the screen width, up to 2400px), so each card sits over the same spot as on the 1440 design: 你好 over the left sky, 吃飽了沒 between the cloud and the sun, 下雨了 above the rain cloud. Below 1440px they stay in a 1280px centre area, which keeps them clear of the drawings on smaller laptops
+- 下雨了 is always centred over Taipei 101 (77.9% of the picture's width) at every computer width. From 1440px wide the other two cards also move with the picture (up to 2400px), so they sit over the same spots as on the 1440 design: 你好 over the left sky, 吃飽了沒 between the cloud and the sun. Below 1440px those two stay in a 1280px centre area, which keeps them clear of the drawings on smaller laptops
 - Below 1024px: cards grouped with 30px between rows and 24px between cards, 44px space above; picture shown at 9:4
 
 **Text and small details**
