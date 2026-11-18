@@ -139,17 +139,16 @@ Headings use Noto Serif and everything else uses Noto Sans. Every size comes fro
 | text-display | 40px / 1.15 | 48px / 1.15 | 60px / 1.15 | One per page (h1) |
 | text-headline | 32px / 1.15 | 40px / 1.15 | 48px / 1.15 | Home section headings |
 | text-postcard | 32px / 1.2 | As computer | 40px / 1.2 | Waitlist heading |
-| text-title | 24px / 1.25 | As computer | 24px / 1.25 | Inner page headings, card titles |
-| text-title-sm | 20px / 1.3 | As computer | 20px / 1.3 | Mission beliefs |
+| text-title | 24px / 1.25 | As computer | 24px / 1.25 | Inner page headings, card titles, Mission beliefs (balanced so no short last line) |
 | text-subtitle | 20px / 1.6 | As computer | 26px / 1.6 | Hero subtitle only |
 | text-lead | 18px / 1.6 | As computer | 20px / 1.6 | Map section, construction page |
-| text-body-lg | 16px / 1.65 | As computer | 18px / 1.65 | Inner page text and the back link (founder decision) |
+| text-body-lg | 16px / 1.65 | As computer | 18px / 1.65 | Inner page text, the back link (founder decision) and the Contact form's labels, boxes, word counter and privacy note |
 | text-button | 19px bold / 1.2 | As computer | 19px bold / 1.2 | Every button, terracotta and olive (founder decision) |
-| text-body | 16px / 1.6 | As computer | 16px / 1.6 | Home text, labels, warnings, word counter, footer |
-| text-small | 14px | As computer | 14px | 'Last updated', copyright, pinyin and 'ALMOST THERE' only. 'ALMOST THERE' is accent-active, never terracotta |
+| text-body | 16px / 1.6 | As computer | 16px / 1.6 | Home text, the waitlist 'Email address' label, warnings, failure messages, 'Last updated', footer |
+| text-small | 14px | As computer | 14px | Copyright, pinyin and 'ALMOST THERE' only. 'ALMOST THERE' is accent-active, never terracotta |
 | text-chinese | 32px | As phone | 40px | Phrase cards. Inside sentences, match the sentence |
 
-- Weights are 400 for text and 500 for headings, banner and pinyin. Buttons, links, labels, warnings and FAQ questions use 700. Load only those (Noto Serif 500, Noto Sans 400, 500 and 700, Noto Sans TC and SC 400).
+- Weights are 400 for text and 500 for headings, banner and pinyin. Buttons, links, labels, warnings and FAQ questions use 700. Only those load (Noto Serif 500, Noto Sans 400, 500 and 700, Noto Sans TC and SC 400).
 - Chinese uses Noto Sans TC first, then SC.
 - Nothing people need to read goes below 16px. The text-small uses above are the only exceptions.
 - A lower heading is never bigger than the one above it.
@@ -268,16 +267,16 @@ Each component has one job and behaves the same wherever it appears.
 | Component | Phone | Tablet | Computer | Rule |
 |---|---|---|---|---|
 | Sticky banner | 60px, scrolls away | As computer | 41px tall, sticks | Sticks only above 760px, where it fits on one line. On short screens (500px tall or less, such as 400% zoom or a phone held sideways) it scrolls away |
-| Header | 79px tall, 152px below 360px | As computer | 87px tall | Logo (section 4) on the left links home, 'Join the waitlist' on the right, at least 16px apart on phone. Sticks under the banner. When space runs short the button's side padding shrinks evenly, never its words. Below 360px the button sits under the logo and the header scrolls away. The button lines up with the logo drawing, not the image box (the file has a 10px transparent edge at 46px tall), and there is 22px of clear space above the drawing, between the drawing and the button, and below the button's shadow. On short screens (500px tall or less) the header scrolls away at every width |
+| Header | 79px tall, 152px below 360px | As computer | 87px tall | Logo (section 4) on the left links home, 'Join the waitlist' on the right, at least 16px apart on phone. Sticks under the banner. When space runs short the button's side padding shrinks evenly, never its words. If the words still do not fit, as with wider text spacing at 360 to 390px, they wrap and the button grows taller instead of spilling out. Normal view keeps one line, so the header stays 79px. Below 360px the button sits under the logo and the header scrolls away. The button lines up with the logo drawing, not the image box (the file has a 10px transparent edge at 46px tall), and there is 22px of clear space above the drawing, between the drawing and the button, and below the button's shadow. On short screens (500px tall or less) the header scrolls away at every width |
 | Button | 48px tall, 16px side padding (space-4) | As computer | 52px tall, 24px side padding (space-5) | text-button. Form buttons fill the width on phone |
-| Text box and Topic | 48px tall | As computer | 52px tall | Match the button height. 16px inside on the left and right (space-4), no padding top or bottom |
+| Text box and Topic | 48px tall | As computer | 52px tall | Match the button height. 16px inside on the left and right (space-4), no padding top or bottom. Contact boxes use text-body-lg on tablet and computer |
 | Message box | 150px tall | As computer | 150px tall | People can drag it taller |
-| Label | As computer | As computer | text-body bold, above the box | Lines up with the text inside the box (18px in, the 2px border plus 16px) |
+| Label | text-body bold | Contact text-body-lg bold, waitlist text-body bold | As tablet | Above the box, 8px gap. Lines up with the text inside the box (18px in, the 2px border plus 16px) |
 | Warning | As computer | As computer | text-body bold, accent-active, under the box | One per box |
-| Word counter | As computer | As computer | text-body, right-aligned under Message | Reads '0 / 500 words' |
+| Word counter | text-body | text-body-lg | text-body-lg | Right-aligned under Message. Reads '0 / 500 words' |
 | FAQ card | 59px closed | As computer | 66px closed, 16px apart | Whole question row opens it |
 | Back link | 46px to tap | As computer | 50px to tap | text-body-lg bold in link colour |
-| Footer link | 44px to tap | As phone | 22px tall | Two columns on phone, four on tablet and computer |
+| Footer link | 44px to tap, LinkedIn icon too | As phone | 22px tall | Two columns on phone, four on tablet and computer |
 
 ### Buttons
 
@@ -328,11 +327,11 @@ Used on the FAQs page. Each question card opens and closes with a click, a tap, 
 
 ### Waitlist postcard
 
-The one place to join. The 'Email address' label sits above the box. The box and button sit side by side on computer and stack on tablet and phone, with the consent line underneath unchanged.
+The one place to join. The 'Email address' label (text-body bold) sits above the box. The box and button sit side by side on computer and stack on tablet and phone, each full width, with the consent line underneath unchanged.
 
 ### Footer, back link and 404
 
-- **Footer** columns are About us, Products, Help (Contact us, FAQs, Privacy, Terms) and Follow us. Headings are footer-heading ochre and never links.
+- **Footer** columns are About us, Products, Help (Contact us, FAQs, Privacy, Terms) and Follow us. Headings are h2, styled in footer-heading ochre at 16px, and never links.
 - **Back link** '← Back to the home page' ends every inner page.
 - **404.html** sends known old addresses to the right page and anything else home, so no visitor meets a dead end.
 
@@ -376,7 +375,7 @@ Warnings say what to do, start with 'Please' and never use words like 'invalid' 
 - If the button is pressed within 3 seconds of the page opening (autofill, a pasted message or a quick person), 'Sending…' stays until 3 seconds have passed and then the message is sent as normal. The 15 seconds start from then. Never show a failure for the time rule.
 - If the hidden box is filled, nothing is sent and 'Thank you!' shows quietly. This is the one case where a success message shows without a send.
 
-**Success.** The waitlist shows 'You're in!' and 'We'll let you know as soon as we're ready.' The contact form shows 'Thank you!' and 'Your message is on its way. We'll reply to you by email.' Both use the same layout, with the heading in fg. The cursor moves to the heading so screen readers announce it.
+**Success.** The waitlist shows 'You're in!' and 'We'll let you know as soon as we're ready.' The contact form shows 'Thank you!' and 'Your message is on its way. We'll reply to you by email.' Both use the same layout, with no tick. A centred 24px heading in fg sits 8px above one line of text, with 24px of space above and below. The cursor moves to the heading so screen readers announce it.
 
 **Failure.** Only a network failure or 15 seconds with no answer counts. Keep the form and what was typed, and the button reads its normal words again. Show 'Something went wrong. Please try again or email us at hello@yaglot.com.' under the button, in a `role="alert"` area so screen readers read it out. hello@yaglot.com is a mailto link (section 7) and stays on one line with 'at'. The message sits 18px under the button on both forms and in text-body bold accent-active. If it is below the screen, as on phones, it scrolls gently into view (at once with reduced motion). Focus stays on the button, or the box where Enter was pressed. Apart from the hidden box above, never show a success message when nothing was sent.
 
@@ -425,20 +424,20 @@ Borders, icons and focus outlines need 3 to 1 against what is next to them (WCAG
 - **Focus visible (2.4.7).** You can always see where the keyboard is. Every link, button, box and FAQ question shows a 3px accent-active outline, 3px away. In the footer the outline is accent-on cream #f7f0e3 only (founder decision).
 - **Focus not obscured (2.4.11).** The focused item must never hide under the sticky banner and header. Set `scroll-padding-top` to the measured sticky height plus 12px. That is 140px from 769px up (128px sticky), 132px at 761 to 768px (120px sticky) and 91px at 360 to 760px (79px sticky). Below 360px, and on screens 500px tall or less (400% zoom, a phone held sideways), the banner and header scroll away, so it is 12px. The header 'Join the waitlist' link uses the same offset and nothing else adds to it.
 - **Keyboard (2.1.1).** Everything works without a mouse, with no traps.
-- **Skip link (2.4.1).** People can jump past repeated parts. Add a 'Skip to main content' link that appears on focus.
+- **Skip link (2.4.1).** People can jump past repeated parts. A 'Skip to main content' link, first in the header, appears on focus and moves focus to `main`.
 - **Target size (2.5.8).** Things you tap are at least 24 by 24px or spaced apart (approximate). Our own rule is 48px buttons and boxes on phone, 52px on tablet and 44px link tap areas on both (section 7).
 
 ### Zoom, reflow and spacing
 
 - **Reflow (1.4.10).** At 320px wide, which equals 400% zoom on a computer, nothing scrolls sideways. Below 360px the header wraps and scrolls away (section 7), which also makes 19px button text fit. On screens 500px tall or less nothing sticks, so the sticky parts never take a third of the screen.
 - **Resize text (1.4.4).** Text zoomed to 200% stays readable with nothing lost.
-- **Text spacing (1.4.12).** Text still fits when readers widen line, letter and word spacing.
+- **Text spacing (1.4.12).** Text still fits when readers widen line, letter and word spacing. On phone the header button's words wrap and the button grows taller rather than spill out (section 7).
 
 ### Structure and wording
 
 - **Page titles (2.4.2).** Each tab names its page.
-- **Headings and landmarks (1.3.1).** One h1, then h2 and h3 in order, inside `header`, `nav`, `main` and `footer`. Footer headings are h2, styled as now. The banner sits inside a landmark.
-- **Link text (2.4.4).** Each link says where it goes. Hide the '←' from screen readers. Add '(opens in a new tab)' to the LinkedIn and ico.org.uk labels.
+- **Headings and landmarks (1.3.1).** One h1, then h2 and h3 in order, inside `header`, `nav`, `main` and `footer`. Footer headings are h2, styled as small ochre headings. The banner is a region landmark named 'Announcement'.
+- **Link text (2.4.4).** Each link says where it goes. The '←' is hidden from screen readers. The LinkedIn and ico.org.uk links say '(opens in a new tab)'.
 - **Alternative text (1.1.1).** Pictures that carry meaning get a short description. Doodles get `alt=""`. The Taiwan map gets one short sentence.
 - **Language (3.1.1 and 3.1.2).** Pages have `lang="en"`. Chinese characters have `lang="zh-Hant-TW"` and pinyin `lang="zh-Latn-pinyin"`, so screen readers pronounce them.
 
@@ -475,41 +474,11 @@ Run in this order on every change, using Chrome's device toolbar for widths.
 
 ## 10. Gaps to fix
 
-Every place where the site does not yet follow the rules, most serious first. Founder decisions stay here until the site is changed.
+Every place where the site does not yet follow the rules, most serious first. Founder decisions stay here until the site is changed. All other gaps found in the 18 November 2026 review were fixed in the final build pass that day.
 
 | Issue | Page and width | Rule | Fix |
 |---|---|---|---|
-| Button text is 16px, so cream on terracotta (4.0 to 1) fails | 'Join the waitlist' on every page, all widths | Sections 3 and 5, WCAG 1.4.3 | Make every button's text text-button (19px bold), olive buttons too. Heights stay 52px and 48px (founder decision) |
 | The hello@yaglot.com link in the failure message stands out from the message only by colour (link #9b4d2f in accent-active #833f26 bold text, about 1.2 to 1, axe 'link-in-text-block') | Home waitlist and Contact failure message, all widths | Sections 7 and 9, WCAG 1.4.1 | Founder decision (18 November 2026): keep it as it is, links underline on hover only. Accepted exception; revisit if users report trouble |
-| Links are terracotta (4.3 to 4.4 to 1), which fails at 16 to 18px | Inner page links, '← Back to the home page', consent lines, FAQ links, all widths | Sections 5 and 7, WCAG 1.4.3 | Use link #9b4d2f, bold, underlined on hover (founder decision) |
-| Footer links are 22px tall and the LinkedIn icon has no tap area beyond its 34px, though tablets are touch screens | All pages at 769 to 1023 | Sections 1, 7 and 9 | Give footer links and the LinkedIn icon the phone's 44px tap areas from 1023px down |
-| Loops ignore reduced motion | Home phrase cards, star and bell. Banner dots on every page. Construction dots, slide-in and progress bar (the rule loses to later styles). Smooth scrolling everywhere | Sections 6 and 9 | Stop every loop completely under reduced motion, with the reduced-motion block last in the styles (founder decision) |
-| Waitlist box has no visible label, only example text that vanishes | Home, all widths | Sections 7 and 9, WCAG 3.3.2 | Add the visible 'Email address' label above the box in text-body bold (founder decision) |
-| Focus outline is 2.4 to 1 on the near-black footer | Footer, all pages | Section 9, WCAG 1.4.11 | Use a 3px accent-on cream outline in the footer (founder decision) |
-| 'ALMOST THERE' is terracotta at 14px (4.4 to 1) | Construction, all widths | Sections 3 and 5, WCAG 1.4.3 | accent-active #833f26 (7.5 to 1), kept at 14px capitals spaced 0.08em |
-| Chinese characters and pinyin are not marked as languages | Home, all widths | Section 9, WCAG 3.1.2 | `lang="zh-Hant-TW"` and `lang="zh-Latn-pinyin"` |
-| Selected boxes get a terracotta glow (4px #b85c38 ring at 25%) | Home waitlist, Contact, all widths | Sections 5 and 7 | Remove the glow and keep only the focus outline |
-| Feature cards lift 6px with a bigger shadow on hover, though they cannot be clicked | Home, all widths | Sections 2, 6 and 7 | Remove the lift and shadow change (founder decision) |
-| Lines are too long. 78 to 84 characters (66ch, 680 to 716px) on inner pages and 87 characters (736px) in the home map text | Privacy, Terms, FAQs and Mission at 1440. Home map text at 768 | Sections 2 and 3 | width-paragraph 34em, at most 75 characters |
-| The home map text is centred and runs 82 characters a line (772px) at 820 and 103 (975px) at 1023 | Home at 769 to 1023 | Sections 2 and 3 | width-paragraph 34em, left-aligned as on phone |
-| The two success messages look different. Only the waitlist has a tick, its heading is smaller and its block is about 190px taller than the form it replaces | Home waitlist, Contact | Section 8 | Give both the same layout. Both headings are already fg |
-| The FAQ answer about schools says 'contact us and choose Schools and businesses' instead of linking | FAQs, all widths | Section 8 | Link to contact?topic=Schools%20and%20businesses |
-| Postcard and map stack while phrase cards float, because they switch at 1024px and the hero at 1023px. A tablet held sideways gets a half-stacked page | Home at 1024 | Section 2 | Computer layout from 1024px. Every tablet rule stops at 1023px |
-| The waitlist box and button stay side by side (box 479px wide at 820) | Home at 769 to 1023 | Section 7 | Stack the box above the button on tablet, as on phone |
-| The footer drops to three columns, leaving 'Follow us' alone on a second row | All pages at 769 to 937 (820 included) | Section 7 | Four columns from 769px up |
-| Feature cards sit in three narrow columns (301px) | Home at 1020 to 1023 | Section 7 | Two columns on tablet |
-| Word counter speaks after every word (`aria-live="polite"`) | Contact, all widths | Sections 7 and 9 | Announce it only when the count goes over 500 |
-| New tabs are not announced and the '←' is read aloud | Footer LinkedIn, Privacy ico.org.uk link, back links | Section 9, WCAG 2.4.4 | Add '(opens in a new tab)' to the labels and hide the '←' from screen readers |
-| Taiwan map has an empty `alt` | Home, all widths | Section 9, WCAG 1.1.1 | One short sentence |
-| Footer headings are h4 after h2, and the banner sits outside any landmark | All pages | Section 9, WCAG 1.3.1 (best practice) | Footer headings as h2 styled as now. Put the banner inside a landmark |
-| No skip link | All pages | Section 9, WCAG 2.4.1 (best practice) | Add 'Skip to main content', shown on focus |
-| Placeholder colour is left to the browser | Contact, Home | Section 5 | Set placeholder #757575 in the page |
-| Feature card text is #5a5048 | Home, all widths | Section 5 | muted #5e5d59 |
-| Inner page sections are 64px / 88px on computer and 44px / 64px on phone | Inner pages at 1440 and 390 | Section 2 | section-inner 64px / 96px, phone 48px / 64px |
-| Feature card column gap is 36px | Home at 1024 and up | Section 2 | gap-cards 40px |
-| Buttons have 26px side padding (18px on phone) and boxes 18px inside | All pages, all widths | Sections 2 and 7 | 24px and 16px for buttons, 16px inside boxes, on the 4px grid |
-| Feature icons 3 and 4 have 3.3px lines | Home, all widths | Section 6 | 2px (icon size divided by 20) |
-| Unused fonts load (Noto Serif 400, 600 and 700 and Noto Sans italic) | All pages | Section 3 | Load only the weights in section 3 |
 
 ## Standards
 
