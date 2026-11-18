@@ -417,7 +417,7 @@ Contrast is how much text stands out from its background. Small text needs 4.5 t
 
 ### Non-text contrast
 
-Borders, icons and focus outlines need 3 to 1 against what is next to them (WCAG 1.4.11, approximate). Ink borders measure 10.5 to 13 to 1 and the LinkedIn square 3.2 to 1. The Instagram, Threads, TikTok and LinkedIn icons are brand logos, recognised by their white glyphs (21 to 1 on black). The accent-active outline passes on light backgrounds (6.3 to 7.5 to 1) but is only 2.4 to 1 on the footer, so the footer uses accent-on (16.3 to 1).
+Borders, icons and focus outlines need 3 to 1 against what is next to them (WCAG 1.4.11, approximate). Ink borders measure 10.5 to 13 to 1 and the LinkedIn square 3.2 to 1. The Instagram, Threads, Facebook, TikTok and LinkedIn icons are brand logos, recognised by their white glyphs (21 to 1 on black). The accent-active outline passes on light backgrounds (6.3 to 7.5 to 1) but is only 2.4 to 1 on the footer, so the footer uses accent-on (16.3 to 1).
 
 ### Focus, keyboard and targets
 
@@ -744,7 +744,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - **Products:** Yaglot Pro, Yaglot Max, For schools, For businesses
   - **Help:** Contact us, FAQs, Privacy, Terms
   - **Follow us:** each network's own official logo, drawn to its official proportions (34px); LinkedIn's blue 'in' square (`#0A66C2`, small rounded corners, white 'in' filling the square as in LinkedIn's own logo) only for now (linkedin.com/company/yaglot)
-  - **Follow us (18 November 2026):** Instagram (@yaglotlabs), Threads (@yaglotlabs), TikTok (@yaglot) and LinkedIn, in that order, each a 34px rounded square in its brand style, 12px apart
+  - **Follow us (18 November 2026):** Instagram (@yaglotlabs), Threads (@yaglotlabs), Facebook (yaglot), TikTok (@yaglot) and LinkedIn, in that order, each a 34px rounded square in its brand style, 12px apart, wrapping onto a second row on phones and tablets
 - Links go to the construction page until their pages exist (Our mission, Our team, Careers, Contact us, FAQs, Privacy and Terms go to their pages; Yaglot Pro, Yaglot Max, For schools and For businesses stay on the construction page for now)
 - Our mission page: intro line, 'Why we're here', 'Starting with Mandarin' and 'What we believe': six beliefs in one column, each with the matching home page feature icon in a soft coloured blob (60px, 48px on phone), a 20px serif title and the text beside it; no boxes
 - Our team page: describes the team's research (PhDs in Cognitive Science and Language Science) without names; people are added later
