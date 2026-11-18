@@ -67,7 +67,7 @@ Warm, playful and hand-made: a sketchbook of Taiwan. Felt-tip doodle scenes sit 
 
 **Key characteristics**
 - Cream and parchment surfaces, never pure white page backgrounds
-- Terracotta (`#b85c38`) for the brand (logo, drawings) and Chinese characters; a slightly darker terracotta (`#a9532f`) for buttons and links so the text is easy to read
+- Terracotta (`#b85c38`) for the brand, buttons and Chinese characters
 - Dark brown ink (`#3a2f2a`) outlines on cards, buttons and drawings
 - Noto Serif for headings, Noto Sans for body text and UI
 - Chunky ink shadows that press down on click
@@ -105,8 +105,7 @@ All values are hex. Neutrals are warm (yellow-brown undertone), never cool grey.
 
 | Token | Value | Usage |
 |---|---|---|
-| `--accent` | `#b85c38` | Logo, characters, drawings, borders |
-| `--accent-text` | `#a9532f` | Button backgrounds, links, 'ALMOST THERE' (meets the WCAG AA contrast standard; `#b85c38` falls just short) |
+| `--accent` | `#b85c38` | Buttons, links, characters, logo |
 | `--accent-on` | `#faf9f5` | Text on terracotta |
 | `--accent-hover` | `#9b4d2f` | Hover |
 | `--accent-active` | `#833f26` | Pressed |
@@ -336,7 +335,7 @@ The construction page uses the same banner, header and footer around the Kenting
 
 A visual designer checked every page at 1440, 1024, 768, 390 and 360. Rules that came out of it:
 
-- **Contrast:** all text meets WCAG AA. Buttons and links use `--accent-text` (`#a9532f`); 'Last updated' is `#6f6e68`
+- **Contrast:** 'Last updated' is `#6f6e68`. Buttons and links stay brand terracotta `#b85c38` by choice (cream on terracotta measures 4.3:1, just under the WCAG AA 4.5:1; a darker `#a9532f` was tried and turned down)
 - **Keyboard focus:** anything you can tab to (links, buttons, boxes, FAQ questions) shows a 3px dark terracotta outline (`--accent-active`), 3px away from it
 - **Tap targets on phone:** footer links, the LinkedIn icon and '← Back to the home page' are at least about 44px tall to tap, without looking bigger
 - **Form boxes:** contact Name, Email and Topic match the buttons: 52px tall (48px on phone)
