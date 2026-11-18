@@ -57,7 +57,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 
 **Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
 - Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
-- Pages live at yaglot.com, yaglot.com/construction (construction.html) and yaglot.com/privacy-notice (privacy-notice.html); 404.html forwards old addresses such as /privacy to the right page
+- Pages live at yaglot.com, yaglot.com/construction (construction.html), yaglot.com/privacy-notice (privacy-notice.html) and yaglot.com/terms (terms.html, terms and conditions); 404.html forwards old addresses such as /privacy to the right page
 
 ---
 
@@ -248,8 +248,9 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - **About us:** Our mission, Our team, Careers
   - **Products:** Yaglot Pro, Yaglot Max, For organisations
   - **Help:** FAQs, Contact us, Privacy notice, Terms
-  - **Follow us:** round social icons; LinkedIn only for now (linkedin.com/company/yaglot)
-- Links go to the construction page until their pages exist (Privacy notice goes to its page)
+  - **Follow us:** each network's own coloured logo (34px, rounded square); LinkedIn blue `#0A66C2` only for now (linkedin.com/company/yaglot)
+- Links go to the construction page until their pages exist (Privacy notice and Terms go to their pages)
+- Under the copyright line, in 12.5px: 'Yaglot Ltd is registered in England and Wales, company number 17220926. Registered office: 13 Freeland Park, Wareham Road, Poole, BH16 6FA, United Kingdom.' (required on a UK company's website)
 - Add back later: Pricing (when Max has a public price), Investors (when fundraising), more social icons (as each account goes live)
 
 ---
