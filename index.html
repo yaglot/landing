@@ -427,7 +427,6 @@
           source: 'landing',
           device: deviceType(),
           referrer: visit.referrer || 'direct',
-          campaign: visit.campaign || '',
           language: navigator.language || '',
           region: (Intl.DateTimeFormat().resolvedOptions().timeZone) || '',
           consent: 'privacy-v1'
@@ -470,8 +469,7 @@
           if (host !== location.hostname.replace(/^www\./, '')) from = host;
         }
         sessionStorage.setItem('yaglotVisit', JSON.stringify({
-          referrer: params.get('utm_source') || from || 'direct',
-          campaign: params.get('utm_campaign') || ''
+          referrer: params.get('utm_source') || from || 'direct'
         }));
       } catch (err) {}
     })();
