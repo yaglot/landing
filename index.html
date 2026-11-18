@@ -246,7 +246,7 @@
       h3 { font-size: 24px; }
       @media (max-width: 768px) {
         footer ul li { margin-bottom: 0; }
-        footer ul li a { display: inline-block; padding: 9px 0; }
+        footer ul li a { display: inline-block; padding: 9px 0; min-height: 44px; }
         footer h4 { margin-bottom: 7px; }
         footer .footer-social a { padding: 5px; margin: -5px; }
         .contact-form input, .contact-form select { height: 48px; }
@@ -279,7 +279,7 @@
       @media (max-width: 768px) {
         nav .btn { height: auto; min-height: 48px; padding: 4px clamp(4px, (100% - 153px - 16px - 155px) / 2, 16px); white-space: normal; text-align: center; }
       }
-      @media (max-width: 374px) { nav .btn { padding-left: clamp(4px, (100% - 136px - 16px - 155px) / 2, 16px); padding-right: clamp(4px, (100% - 136px - 16px - 155px) / 2, 16px); } }
+      @media (max-width: 374px) { nav .btn { padding-left: 8px; padding-right: 8px; } }
       @media (max-width: 359px) { nav .btn { padding-left: 16px; padding-right: 16px; } }
       /* Links on light backgrounds: link colour, bold, underlined on hover */
       main a:not(.btn) { color: var(--link); font-weight: 700; text-decoration: none; }
@@ -319,7 +319,7 @@
       @media (min-width: 769px) { footer .footer-content { grid-template-columns: repeat(4, 1fr); } }
       @media (max-width: 1023px) {
         footer ul li { margin-bottom: 0; }
-        footer ul li a { display: inline-block; padding: 9px 0; }
+        footer ul li a { display: inline-block; padding: 9px 0; min-height: 44px; }
         footer h2 { margin-bottom: 7px; }
         footer .footer-social a { padding: 5px; margin: -5px; }
       }
@@ -345,10 +345,12 @@
       .waitlist-label { display: block; font-size: 16px; font-weight: 700; color: var(--fg); margin: 24px 0 8px; padding-left: 18px; }
       .waitlist-inline { flex-direction: column; margin-top: 0; }
       .waitlist-inline input { flex: none; width: 100%; height: 48px; }
+      .waitlist-inline #waitlist-error { margin: 0; padding-left: 18px; }
       .btn-notify { width: 100%; height: 48px; }
       @media (min-width: 769px) { .waitlist-inline input, .btn-notify { height: 52px; } }
       @media (min-width: 1024px) {
-        .waitlist-inline { flex-direction: row; }
+        .waitlist-inline { flex-direction: row; flex-wrap: wrap; }
+        .waitlist-inline #waitlist-error { order: 3; flex-basis: 100%; }
         .waitlist-inline input { flex: 1; width: auto; }
         .btn-notify { width: auto; }
       }
@@ -490,10 +492,10 @@
             <label class="waitlist-label" for="waitlist-email">Email address</label>
             <div class="waitlist-inline">
               <input id="waitlist-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-describedby="waitlist-error">
+              <p class="form-error" id="waitlist-error" hidden></p>
               <button type="submit" class="btn-notify">Join the waitlist</button>
             </div>
           </form>
-          <p class="form-error" id="waitlist-error" hidden></p>
           <p class="visually-hidden" id="waitlist-status" role="status"></p>
           <p class="form-error" id="waitlist-fail" role="alert" hidden></p>
           <p class="privacy">By joining, you agree to receive emails from Yaglot about our launch and early access. You can unsubscribe at any time. Read our <a href="privacy">privacy notice</a>.</p>

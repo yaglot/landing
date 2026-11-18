@@ -36,7 +36,7 @@ Every Yaglot page should feel friendly, obvious and consistent.
 4. **Same thing, same look.** A button, link or box looks and behaves the same on every page (Nielsen's 'consistency and standards', approximate).
 5. **Always show what is happening.** Pressing a button gives an instant response, then a clear result (Nielsen's 'visibility of system status', approximate).
 6. **Forgive mistakes.** Check forms only when people press the button, say exactly what to fix and never clear what they typed.
-7. **Easy to tap.** On phones every control is at least 48px tall and on tablets 52px. On both every link has at least 44px to tap (Material 48dp and Apple 44pt, both approximate).
+7. **Easy to tap.** On phones every control is at least 48px tall and on tablets 52px. On both every link has at least 44px to tap, except links inside sentences (Material 48dp and Apple 44pt, both approximate).
 8. **Drawings decorate, controls act.** Doodles never look clickable. Only controls move or change when hovered or pressed (section 6).
 
 ### Screen sizes
