@@ -348,4 +348,4 @@ A visual designer checked every page at 1440, 1024, 768, 390 and 360. Rules that
 - **Page titles** use line spacing 1.15 everywhere; intro lines 1.65 like the paragraphs; the base h3 size is 24
 - **Tablet edges:** inner page text lines up with the logo at 768
 - **Map section on phone:** heading, squiggle and text are all left-aligned
-
+- **Links:** terracotta bold with no underline everywhere (the underline only appears on hover), including 'privacy notice' under the waitlist button
