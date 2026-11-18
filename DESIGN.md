@@ -145,7 +145,6 @@ All values are hex. Neutrals are warm (yellow-brown undertone), never cool grey.
 | Chinese characters (phrase cards) | 36px | 26px below 1024px |
 | Pinyin | 16px | 13px below 1024px |
 | Banner | 14px | 12.5px at 520px and below |
-| Construction page: 'ALMOST THERE', email line, back link | 18px | 16px at 480px and below |
 
 ### Principles
 
