@@ -233,7 +233,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - `referrer`: where the visitor came from, worked out at sign-up: the link's `utm_source` tag if it has one; the app name when the page is opened inside an app's browser (`linkedin`, `instagram`, `threads`, `facebook`, `messenger`, `x`, `tiktok`, `snapchat`, `pinterest`, `line`, `wechat`, `telegram`, `youtube`); otherwise the referring site as a short name (`google`, `x`, `youtube`, `reddit`, `bing` and so on; any other site is just its name, for example `github`, `bbc`); or `direct`
   - `language`: the browser language (for example `en-GB`, `zh-TW`)
   - `region`: the time zone (for example `Europe/London`, `Asia/Taipei`)
-  - `consent`: which consent wording the visitor saw. `privacy-v1` = the line under the button ('By joining, you agree to receive emails from Yaglot about our launch and early access. You can unsubscribe at any time. Read our privacy notice.') together with version 1 of the privacy notice. Raise the number whenever either changes, and record the full wording of every version in the 'Yaglot privacy notice versions' document
+  - `consent`: which privacy wording the visitor saw: `privacy-v2` now (version 2 added the contact form to the privacy notice; version 1 was the waitlist only). Raise the number whenever the consent line or privacy notice changes, and record the full wording of every version in the 'Yaglot privacy notice versions' document
 - Nothing is stored on the visitor's device (no cookies or browser storage), so no cookie banner is needed
 - Privacy notice page: `privacy.html` at yaglot.com/privacy (the earlier /privacy-notice address forwards there), linked from the consent line and the footer 'Privacy' link; same banner, header and footer as the construction page
 - Shows 'Sending…' then a thank-you message
@@ -251,7 +251,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - **Follow us:** each network's own coloured logo (34px, rounded square); LinkedIn blue `#0A66C2` only for now (linkedin.com/company/yaglot)
 - Links go to the construction page until their pages exist (Privacy, Terms and Contact us go to their pages)
 - Company details (Yaglot Ltd, England and Wales, company number 17220926, registered office) are on the Terms page, which meets the UK requirement; the footer shows only the copyright line
-- Contact page: intro line and one card with an 'Email us' button (opens the visitor's email app to hello@yaglot.com) and the address written out; no form, so nothing new is collected
+- Contact page: intro line, then a form (Name, Email, Topic dropdown: General question, Schools and businesses, Partnerships, Feedback, Something else; Message) with 'Send message'; a hidden trap field and a 3-second minimum stop robots; sends `form=contact`, name, email, topic, message and `consent` to the same Google Apps Script, saved in the sheet's Contact tab; 'Or email us at hello@yaglot.com' underneath
 - Add back later: Pricing (when Max has a public price), Investors (when fundraising), more social icons (as each account goes live)
 
 ---

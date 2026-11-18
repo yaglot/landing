@@ -108,13 +108,24 @@
 
       /* Contact */
       .legal .lead-in { font-size: 20px; line-height: 1.6; color: var(--muted); margin: 20px 0 32px; }
-      .contact-box { background: var(--surface); border: 2px solid var(--ink); border-radius: var(--wobble-lg); padding: 36px 32px 32px; box-shadow: 0 6px 0 0 rgba(58, 47, 42, 0.85); text-align: center; rotate: -0.4deg; }
-      .contact-box .btn { font-size: 18px; padding: 16px 32px; }
-      .contact-box .contact-address { margin: 18px 0 0; font-size: 16px; }
-      .contact-box .contact-address a { font-weight: 700; text-decoration: none; }
+      .contact-form { background: var(--surface); border: 2px solid var(--ink); border-radius: var(--wobble-lg); padding: 32px 32px 28px; box-shadow: 0 6px 0 0 rgba(58, 47, 42, 0.85); display: grid; gap: 18px; }
+      .contact-form label { display: block; font-size: 16px; font-weight: 700; color: var(--fg); margin-bottom: 6px; }
+      .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 12px 16px; border: 2px solid var(--ink); border-radius: var(--wobble); font-family: var(--font-body); font-size: 16px; background: #fff; color: var(--fg); outline: none; transition: box-shadow 0.2s; }
+      .contact-form textarea { min-height: 150px; resize: vertical; line-height: 1.5; }
+      .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { box-shadow: 0 0 0 4px rgba(184, 92, 56, 0.25); }
+      .contact-form .two-up { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+      .contact-form .trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+      .contact-form .btn { justify-self: start; font-size: 16px; }
+      .contact-form .form-note { font-size: 14px; color: var(--muted); margin: 0; }
+      .contact-form .form-note a { font-weight: 700; }
+      .contact-thanks { text-align: center; padding: 24px 8px; }
+      .contact-thanks h2 { margin: 0 0 8px; color: var(--accent); }
+      .legal .or-email { margin-top: 24px; }
       @media (max-width: 768px) {
         .legal .lead-in { font-size: 18px; }
-        .contact-box { padding: 28px 20px 24px; }
+        .contact-form { padding: 24px 18px 22px; }
+        .contact-form .two-up { grid-template-columns: 1fr; }
+        .contact-form .btn { justify-self: stretch; text-align: center; }
       }
       /* Under construction */
       .uc-wrap { position: relative; background: var(--sky); text-align: center; min-height: 68vh; padding: 72px 24px 0; display: flex; flex-direction: column; align-items: center; }
@@ -207,10 +218,40 @@
         <svg class="squiggle left" viewBox="0 0 120 14" fill="none" aria-hidden="true"><path d="M2 9 q 9 -8 18 0 t 18 0 t 18 0 t 18 0 t 18 0 t 18 0" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>
         <p class="lead-in">We'd love to hear from you, whether you have a question about Yaglot, want to work with us or would like to share feedback.</p>
 
-        <div class="contact-box">
-          <a class="btn btn-primary" href="mailto:hello@yaglot.com">Email us</a>
-          <p class="contact-address">or write to <a href="mailto:hello@yaglot.com">hello@yaglot.com</a></p>
-        </div>
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="two-up">
+            <div>
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div>
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div>
+            <label for="cf-topic">Topic</label>
+            <select id="cf-topic" name="topic">
+              <option>General question</option>
+              <option>Schools and businesses</option>
+              <option>Partnerships</option>
+              <option>Feedback</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div>
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" required></textarea>
+          </div>
+          <div class="trap" aria-hidden="true">
+            <label for="cf-website">Leave this empty</label>
+            <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <p class="form-note">We'll only use your details to reply to you. Read our <a href="privacy">privacy notice</a>.</p>
+          <button class="btn btn-primary" type="submit">Send message</button>
+        </form>
+
+        <p class="or-email">Or email us at <a href="mailto:hello@yaglot.com">hello@yaglot.com</a>.</p>
 
         <p class="uc-back"><a href="./">← Back to the home page</a></p>
       </div>
@@ -260,6 +301,46 @@
   </footer>
 </div>
 
+
+  <script>
+    // Contact form: sends the message to the same Google Apps Script as the waitlist (saved in the sheet's Contact tab)
+    (function () {
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+      var startedAt = Date.now();
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn.disabled) return;
+        var f = form.elements;
+        var name = f['name'].value.trim(), email = f['email'].value.trim(), message = f['message'].value.trim();
+        if (!name || !email || !message || !f['email'].checkValidity()) { form.reportValidity(); return; }
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        // Robots fill the hidden box or send instantly: pretend it worked and send nothing
+        var looksLikeSpam = f['website'].value !== '' || Date.now() - startedAt < 3000;
+        var details = new URLSearchParams({
+          form: 'contact',
+          name: name,
+          email: email,
+          topic: f['topic'].value,
+          message: message,
+          consent: 'privacy-v2'
+        });
+        if (!looksLikeSpam) {
+          fetch('https://script.google.com/macros/s/AKfycbzfAgURxVnNx_jh8BH5Tt2B6gXhl66O7gOMsZhp74ebgQ_dG4Kw8W4I3dPXg3pexwOg9A/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: details.toString()
+          }).catch(function () {});
+        }
+        setTimeout(function () {
+          form.innerHTML = '<div class="contact-thanks"><h2>Thank you!</h2><p>Your message is on its way. We\'ll reply to you by email.</p></div>';
+        }, 1000);
+      });
+    })();
+  </script>
 
   <script>
     // Keep the copyright year current
