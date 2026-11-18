@@ -744,7 +744,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - **Products:** Yaglot Pro, Yaglot Max, For schools, For businesses
   - **Help:** Contact us, FAQs, Privacy, Terms
   - **Follow us:** each network's own official logo, drawn to its official proportions (34px); LinkedIn's blue 'in' square (`#0A66C2`, small rounded corners, white 'in' filling the square as in LinkedIn's own logo) only for now (linkedin.com/company/yaglot)
-  - **Follow us (18 November 2026):** Instagram (@yaglotlabs), Threads (@yaglotlabs), Facebook (yaglot), TikTok (@yaglot) and LinkedIn, in that order, each a 34px rounded square in its brand style, 12px apart, wrapping onto a second row on phones and tablets
+  - **Follow us (18 November 2026):** Instagram (@yaglotlabs), Threads (@yaglotlabs), Facebook (yaglot), TikTok (@yaglot) and LinkedIn, in that order, each a 34px rounded square in its brand style, 12px apart, three to a row so they sit in two rows on every screen
 - Links go to the construction page until their pages exist (Our mission, Our team, Careers, Contact us, FAQs, Privacy and Terms go to their pages; Yaglot Pro, Yaglot Max, For schools and For businesses stay on the construction page for now)
 - Our mission page: intro line, 'Why we're here', 'Starting with Mandarin' and 'What we believe': six beliefs in one column, each with the matching home page feature icon in a soft coloured blob (60px, 48px on phone), a 20px serif title and the text beside it; no boxes
 - Our team page: describes the team's research (PhDs in Cognitive Science and Language Science) without names; people are added later
