@@ -236,6 +236,8 @@
       .btn-olive:active { background: #45532f; }
       .contact-form label, .contact-form .field-error { padding-left: 20px; } /* line up with the text inside the boxes (18px padding + 2px border) */
       .contact-form input, .contact-form select { padding-top: 0; padding-bottom: 0; } /* fixed-height boxes: no vertical padding, so text is never cut off */
+      .contact-form .word-count { font-size: 16px; color: var(--muted); margin: 6px 0 0; padding-left: 20px; }
+      .contact-form .word-count.over { color: var(--accent-active); font-weight: 700; }
   </style>
 </head>
 <body>
@@ -289,7 +291,8 @@
           </div>
           <div>
             <label for="cf-message">Message</label>
-            <textarea id="cf-message" placeholder="What's on your mind?" name="message" required aria-describedby="cf-message-error"></textarea>
+            <textarea id="cf-message" placeholder="What's on your mind?" name="message" required aria-describedby="cf-message-error cf-message-count"></textarea>
+            <p class="word-count" id="cf-message-count" aria-live="polite">0 / 300 words</p>
             <p class="field-error" id="cf-message-error" hidden></p>
           </div>
           <div class="trap" aria-hidden="true">
@@ -357,6 +360,15 @@
       var form = document.getElementById('contact-form');
       if (!form) return;
       var startedAt = Date.now();
+      // Word limit for the message, with a counter under the box
+      var MAX_WORDS = 300;
+      function countWords(t) { return (t.trim().match(/\S+/g) || []).length; }
+      var counter = document.getElementById('cf-message-count');
+      form.elements['message'].addEventListener('input', function () {
+        var n = countWords(this.value);
+        counter.textContent = n + ' / ' + MAX_WORDS + ' words';
+        counter.classList.toggle('over', n > MAX_WORDS);
+      });
       // A link such as contact?topic=Working%20with%20us picks that topic for the visitor
       var wanted = new URLSearchParams(location.search).get('topic');
       if (wanted) {
@@ -380,7 +392,7 @@
           name: !name ? 'Please enter your name.' : '',
           email: !email ? 'Please enter your email address.'
             : !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) ? 'Please enter a valid email address, like name@example.com.' : '',
-          message: !message ? 'Please write your message.' : ''
+          message: !message ? 'Please write your message.' : countWords(message) > MAX_WORDS ? 'Please keep your message under 300 words.' : ''
         };
         var first = null;
         ['name', 'email', 'message'].forEach(function (k) {
