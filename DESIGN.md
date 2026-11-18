@@ -246,11 +246,11 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 - Near-black background, wavy top edge
 - Four columns (two on phones), headings light terracotta, links warm silver:
   - **About us:** Our mission, Our team, Careers
-  - **Products:** Yaglot Pro, Yaglot Max, For organisations
+  - **Products:** Yaglot Pro, Yaglot Max, For schools, For business
   - **Help:** FAQs, Contact us, Privacy, Terms
   - **Follow us:** each network's own coloured logo (34px, rounded square); LinkedIn blue `#0A66C2` only for now (linkedin.com/company/yaglot)
 - Links go to the construction page until their pages exist (Privacy and Terms go to their pages)
-- Under the copyright line, in 12.5px: 'Yaglot Ltd is registered in England and Wales, company number 17220926. Registered office: 13 Freeland Park, Wareham Road, Poole, BH16 6FA, United Kingdom.' (required on a UK company's website)
+- Company details (Yaglot Ltd, England and Wales, company number 17220926, registered office) are on the Terms page, which meets the UK requirement; the footer shows only the copyright line
 - Add back later: Pricing (when Max has a public price), Investors (when fundraising), more social icons (as each account goes live)
 
 ---
