@@ -57,7 +57,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 
 **Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
 - Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
-- Pages live at yaglot.com, yaglot.com/construction (construction.html), yaglot.com/privacy (privacy.html) and yaglot.com/terms (terms.html, terms and conditions); 404.html forwards old addresses such as /privacy to the right page
+- Pages live at yaglot.com, yaglot.com/construction (construction.html), yaglot.com/privacy (privacy.html), yaglot.com/terms (terms.html, terms and conditions) and yaglot.com/contact (contact.html); 404.html forwards old addresses such as /privacy to the right page
 
 ---
 
@@ -249,8 +249,9 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - **Products:** Yaglot Pro, Yaglot Max, For schools, For business
   - **Help:** FAQs, Contact us, Privacy, Terms
   - **Follow us:** each network's own coloured logo (34px, rounded square); LinkedIn blue `#0A66C2` only for now (linkedin.com/company/yaglot)
-- Links go to the construction page until their pages exist (Privacy and Terms go to their pages)
-- Company details (Yaglot Ltd, England and Wales, company number 17220926, registered office) are on the Terms page, which meets the UK requirement; the footer shows only the copyright line
+- Links go to the construction page until their pages exist (Privacy, Terms and Contact us go to their pages)
+- Company details (Yaglot Ltd, England and Wales, company number 17220926, registered office) are on the Terms and Contact pages, which meets the UK requirement; the footer shows only the copyright line
+- Contact page: four cards (Email, LinkedIn, Schools and businesses, Your information) in the doodle card style, then the company details in small print
 - Add back later: Pricing (when Max has a public price), Investors (when fundraising), more social icons (as each account goes live)
 
 ---

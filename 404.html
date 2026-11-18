@@ -5,9 +5,9 @@
   <title>Yaglot</title>
   <meta name="robots" content="noindex">
   <script>
-    // Addresses such as /construction/ go to /construction; /privacy/ and /privacy-notice go to /privacy; /terms/ goes to /terms; anything else goes home
+    // Addresses such as /construction/ go to /construction; /privacy/ and /privacy-notice go to /privacy; /terms/ goes to /terms; /contact/ goes to /contact; anything else goes home
     var path = location.pathname;
-    location.replace(path.indexOf('/construction') === 0 ? '/construction' : path.indexOf('/privacy') === 0 ? '/privacy' : path.indexOf('/terms') === 0 ? '/terms' : '/');
+    location.replace(path.indexOf('/construction') === 0 ? '/construction' : path.indexOf('/privacy') === 0 ? '/privacy' : path.indexOf('/terms') === 0 ? '/terms' : path.indexOf('/contact') === 0 ? '/contact' : '/');
   </script>
 </head>
 <body>
