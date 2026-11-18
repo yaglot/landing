@@ -349,3 +349,4 @@ A visual designer checked every page at 1440, 1024, 768, 390 and 360. Rules that
 - **Tablet edges:** inner page text lines up with the logo at 768
 - **Map section on phone:** heading, squiggle and text are all left-aligned
 - **Links:** terracotta bold with no underline everywhere (the underline only appears on hover), including 'privacy notice' under the waitlist button
+- **Fixed-height boxes** (waitlist email, contact Name, Email and Topic) have no top or bottom padding, so their text is never cut off on phones; the height alone sets the size
