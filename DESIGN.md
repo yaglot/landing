@@ -57,7 +57,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 
 **Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
 - Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
-- Pages live at yaglot.com and yaglot.com/construction (construction.html); 404.html forwards old addresses
+- Pages live at yaglot.com, yaglot.com/construction (construction.html) and yaglot.com/privacy (privacy.html); 404.html forwards old addresses such as /privacy/ to the right page
 
 ---
 
@@ -230,11 +230,12 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - `email`
   - `source`: `landing` (where the form is; other sources may be added later)
   - `device`: `computer`, `tablet` or `phone` (from the browser and screen)
-  - `referrer`: where the visitor came from: the link's `utm_source` tag if it has one; `linkedin`, `instagram` or `facebook` when the page is opened inside those apps (their browsers hide the referrer); otherwise the referring site (for example `google.com`); or `direct`
+  - `referrer`: where the visitor came from, worked out at sign-up: the link's `utm_source` tag if it has one; the app name when the page is opened inside an app's browser (`linkedin`, `instagram`, `threads`, `facebook`, `messenger`, `x`, `tiktok`, `snapchat`, `pinterest`, `line`, `wechat`, `telegram`, `youtube`); otherwise the referring site as a short name (`google`, `x`, `youtube`, `reddit`, `bing` and so on) or its address; or `direct`
   - `language`: the browser language (for example `en-GB`, `zh-TW`)
   - `region`: the time zone (for example `Europe/London`, `Asia/Taipei`)
-  - `consent`: which consent wording the visitor saw. Empty until the consent line and privacy notice go live, which will be `privacy-v1`. Raise the number whenever that wording changes
-- Referrer is taken from the first page of the visit (kept for the visit only), so they survive a click from the construction page to the home page
+  - `consent`: which consent wording the visitor saw. `privacy-v1` = the line under the button ('By joining, you agree to receive emails from Yaglot about our launch and early access. You can unsubscribe at any time. Read our privacy notice.') together with version 1 of the privacy notice. Raise the number whenever either changes
+- Nothing is stored on the visitor's device (no cookies or browser storage), so no cookie banner is needed
+- Privacy notice page: `privacy.html` at yaglot.com/privacy, linked from the consent line and the footer 'Privacy' link; same banner, header and footer as the construction page
 - Shows 'Sending…' then a thank-you message
 
 ### Stealth banner

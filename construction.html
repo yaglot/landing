@@ -245,7 +245,7 @@
             <li><a href="construction">FAQs</a></li>
             <li><a href="construction">Research</a></li>
             <li><a href="construction">Terms</a></li>
-            <li><a href="construction">Privacy</a></li>
+            <li><a href="privacy">Privacy</a></li>
             <li><a href="construction">Contact us</a></li>
           </ul>
         </div>
@@ -269,28 +269,6 @@
 
 
   <script>
-    // Remember where this visit came from, for the waitlist sheet
-    (function () {
-      try {
-        var stored = JSON.parse(sessionStorage.getItem('yaglotVisit') || 'null');
-        var params = new URLSearchParams(location.search);
-        var ua = navigator.userAgent || '';
-        var from = '';
-        if (params.get('utm_source')) from = params.get('utm_source');
-        else if (/LinkedInApp/i.test(ua)) from = 'linkedin';
-        else if (/Instagram/i.test(ua)) from = 'instagram';
-        else if (/FBAN|FBAV|FB_IAB/i.test(ua)) from = 'facebook';
-        else if (document.referrer) {
-          var host = new URL(document.referrer).hostname.replace(/^www\./, '');
-          if (host !== location.hostname.replace(/^www\./, '')) from = host;
-        }
-        // Keep the first answer of the visit, but let a real one replace 'direct'
-        if (!stored || (stored.referrer === 'direct' && from)) {
-          sessionStorage.setItem('yaglotVisit', JSON.stringify({ referrer: from || 'direct' }));
-        }
-      } catch (err) {}
-    })();
-
     // Keep the copyright year current
     document.querySelectorAll('.copyright-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
   </script>

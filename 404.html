@@ -5,8 +5,9 @@
   <title>Yaglot</title>
   <meta name="robots" content="noindex">
   <script>
-    // Old addresses such as /construction/ and /construction/index.html now live at /construction
-    location.replace(location.pathname.indexOf('/construction') === 0 ? '/construction' : '/');
+    // Addresses such as /construction/ or /privacy/index.html go to /construction or /privacy; anything else goes home
+    var path = location.pathname;
+    location.replace(path.indexOf('/construction') === 0 ? '/construction' : path.indexOf('/privacy') === 0 ? '/privacy' : '/');
   </script>
 </head>
 <body>
