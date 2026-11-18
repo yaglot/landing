@@ -80,9 +80,8 @@
       .char-card-2 { top: 41px; right: 6%; rotate: 2.5deg; animation: float 5.5s ease-in-out infinite 0.3s; }
       .char-card-3 { top: 50px; left: 30%; rotate: -1deg; animation: float 5s ease-in-out infinite 0.6s; }
       @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
-      /* Very wide screens: keep the right-hand card clear of the sun */
-      @media (min-width: 2800px) { .char-card-2 { right: -12%; } }
-      @media (min-width: 4200px) { .char-card-2 { right: -22%; } }
+      /* 1440px and wider: cards move with the picture so they sit over the same spots as on the 1440 design */
+      @media (min-width: 1440px) { .cards { max-width: 2400px; } .char-card-1 { left: 10%; } .char-card-2 { right: 10.9%; } .char-card-3 { left: 32.2%; } }
       .char-label { display: flex; gap: 14px; justify-content: center; align-items: flex-start; margin-bottom: 10px; }
       .char-unit { display: flex; flex-direction: column; align-items: center; gap: 8px; }
       .char-symbol { font-family: 'Noto Sans TC', 'Noto Sans SC', sans-serif; font-size: 40px; color: var(--accent); line-height: 1; }
