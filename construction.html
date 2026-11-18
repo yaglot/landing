@@ -269,6 +269,23 @@
 
 
   <script>
+    // Remember where this visit came from (first page of the visit only), for the waitlist sheet
+    (function () {
+      try {
+        if (sessionStorage.getItem('yaglotVisit')) return;
+        var params = new URLSearchParams(location.search);
+        var from = '';
+        if (document.referrer) {
+          var host = new URL(document.referrer).hostname.replace(/^www\./, '');
+          if (host !== location.hostname.replace(/^www\./, '')) from = host;
+        }
+        sessionStorage.setItem('yaglotVisit', JSON.stringify({
+          referrer: params.get('utm_source') || from || 'direct',
+          campaign: params.get('utm_campaign') || ''
+        }));
+      } catch (err) {}
+    })();
+
     // Keep the copyright year current
     document.querySelectorAll('.copyright-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
   </script>

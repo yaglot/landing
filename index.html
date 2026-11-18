@@ -419,12 +419,26 @@
           return 'computer';
         }
 
+        // Details sent with each sign-up (no personal data beyond the email)
+        var visit = {};
+        try { visit = JSON.parse(sessionStorage.getItem('yaglotVisit') || '{}'); } catch (err) {}
+        var details = new URLSearchParams({
+          email: email,
+          source: 'landing',
+          device: deviceType(),
+          referrer: visit.referrer || 'direct',
+          campaign: visit.campaign || '',
+          language: navigator.language || '',
+          region: (Intl.DateTimeFormat().resolvedOptions().timeZone) || '',
+          consent: 'privacy-v1'
+        });
+
         // POST to Google Apps Script
         fetch('https://script.google.com/macros/s/AKfycbzfAgURxVnNx_jh8BH5Tt2B6gXhl66O7gOMsZhp74ebgQ_dG4Kw8W4I3dPXg3pexwOg9A/exec', {
           method: 'POST',
           mode: 'no-cors',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: 'email=' + encodeURIComponent(email) + '&source=' + deviceType()
+          body: details.toString()
         }).catch(function() {
           // no-cors mode means we can't read the response — silently succeed
         });
@@ -445,6 +459,23 @@
   </script>
 
   <script>
+    // Remember where this visit came from (first page of the visit only), for the waitlist sheet
+    (function () {
+      try {
+        if (sessionStorage.getItem('yaglotVisit')) return;
+        var params = new URLSearchParams(location.search);
+        var from = '';
+        if (document.referrer) {
+          var host = new URL(document.referrer).hostname.replace(/^www\./, '');
+          if (host !== location.hostname.replace(/^www\./, '')) from = host;
+        }
+        sessionStorage.setItem('yaglotVisit', JSON.stringify({
+          referrer: params.get('utm_source') || from || 'direct',
+          campaign: params.get('utm_campaign') || ''
+        }));
+      } catch (err) {}
+    })();
+
     // Keep the copyright year current
     document.querySelectorAll('.copyright-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
   </script>
