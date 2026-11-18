@@ -96,8 +96,8 @@ All values are hex. Neutrals are warm (yellow-brown undertone), never cool grey.
 |---|---|---|
 | `--fg` | `#141413` | Headings and main text; footer background |
 | `--ink` | `#3a2f2a` | Outlines and shadows |
-| `--muted` | `#5e5d59` | Body paragraphs |
-| `--meta` | `#87867f` | Small print (privacy note, copyright) |
+| `--muted` | `#5e5d59` | Body paragraphs, consent line under the waitlist button |
+| `--meta` | `#87867f` | Small print (copyright, privacy page date) |
 | Pinyin | `#5f7146` | Pinyin under Chinese characters (olive) |
 | Footer links | `#b0aea5` | Footer link text; headings and hover `#e8a387` |
 
