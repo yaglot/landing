@@ -446,7 +446,10 @@
             [/(^|\.)yahoo\./, 'yahoo'], [/(^|\.)line\.me$/, 'line'], [/(^|\.)whatsapp\.com$/, 'whatsapp']
           ];
           for (var j = 0; j < sites.length; j++) if (sites[j][0].test(host)) return sites[j][1];
-          return host;
+          // Any other site: just its name, for example github.com → github, bbc.co.uk → bbc
+          var parts = host.split('.');
+          if (parts.length > 2 && /^(co|com|org|net|gov|ac|edu)$/.test(parts[parts.length - 2]) && parts[parts.length - 1].length === 2) parts.pop();
+          return parts.length > 1 ? parts[parts.length - 2] : host;
         }
 
                 // Details sent with each sign-up (no personal data beyond the email)

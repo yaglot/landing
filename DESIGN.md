@@ -230,7 +230,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - `email`
   - `source`: `landing` (where the form is; other sources may be added later)
   - `device`: `computer`, `tablet` or `phone` (from the browser and screen)
-  - `referrer`: where the visitor came from, worked out at sign-up: the link's `utm_source` tag if it has one; the app name when the page is opened inside an app's browser (`linkedin`, `instagram`, `threads`, `facebook`, `messenger`, `x`, `tiktok`, `snapchat`, `pinterest`, `line`, `wechat`, `telegram`, `youtube`); otherwise the referring site as a short name (`google`, `x`, `youtube`, `reddit`, `bing` and so on) or its address; or `direct`
+  - `referrer`: where the visitor came from, worked out at sign-up: the link's `utm_source` tag if it has one; the app name when the page is opened inside an app's browser (`linkedin`, `instagram`, `threads`, `facebook`, `messenger`, `x`, `tiktok`, `snapchat`, `pinterest`, `line`, `wechat`, `telegram`, `youtube`); otherwise the referring site as a short name (`google`, `x`, `youtube`, `reddit`, `bing` and so on; any other site is just its name, for example `github`, `bbc`); or `direct`
   - `language`: the browser language (for example `en-GB`, `zh-TW`)
   - `region`: the time zone (for example `Europe/London`, `Asia/Taipei`)
   - `consent`: which consent wording the visitor saw. `privacy-v1` = the line under the button ('By joining, you agree to receive emails from Yaglot about our launch and early access. You can unsubscribe at any time. Read our privacy notice.') together with version 1 of the privacy notice. Raise the number whenever either changes
