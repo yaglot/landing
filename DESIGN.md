@@ -237,6 +237,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 - Nothing is stored on the visitor's device (no cookies or browser storage), so no cookie banner is needed
 - Privacy notice page: `privacy.html` at yaglot.com/privacy (the earlier /privacy-notice address forwards there), linked from the consent line and the footer 'Privacy' link; same banner, header and footer as the construction page
 - Shows 'Sending…' then a thank-you message
+- Empty or wrong email is not sent: a warning shows under the box in dark terracotta (`--accent-active`, 14px bold) and the box gets a terracotta outline: 'Please enter your email address.' or 'Please enter a valid email address, like name@example.com.' The warning disappears as soon as the visitor types
 
 ### Stealth banner
 - Sand stripes, warm grey text, blinking terracotta dot
@@ -251,7 +252,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - **Follow us:** each network's own coloured logo (34px, rounded square); LinkedIn blue `#0A66C2` only for now (linkedin.com/company/yaglot)
 - Links go to the construction page until their pages exist (Privacy, Terms and Contact us go to their pages)
 - Company details (Yaglot Ltd, England and Wales, company number 17220926, registered office) are on the Terms page, which meets the UK requirement; the footer shows only the copyright line
-- Contact page: intro line, then a form (Name, Email, Topic dropdown: General question, Schools and businesses, Partnerships, Feedback, Something else; Message) with 'Send message'; a hidden trap field and a 3-second minimum stop robots; sends `form=contact`, name, email, topic, message and `consent` to the same Google Apps Script, saved in the sheet's Contact tab; 'Or email us at hello@yaglot.com' underneath
+- Contact page: intro line, then a form (Name, Email, Topic dropdown: General question, Schools and businesses, Partnerships, Feedback, Something else; Message) with 'Send message'; a hidden trap field and a 3-second minimum stop robots; sends `form=contact`, name, email, topic, message and `consent` to the same Google Apps Script, saved in the sheet's Contact tab; 'Or email us at hello@yaglot.com' underneath; Name, Email and Message must be filled in, otherwise a warning shows under each missing box ('Please enter your name.', the same email warnings as the waitlist, 'Please write your message.') and nothing is sent
 - Add back later: Pricing (when Max has a public price), Investors (when fundraising), more social icons (as each account goes live)
 
 ---

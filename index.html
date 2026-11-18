@@ -131,6 +131,8 @@
       .waitlist-inline input:focus { box-shadow: 0 0 0 4px rgba(184, 92, 56, 0.25); }
       .btn-notify { height: 54px; padding: 0 24px; background: var(--accent); color: var(--accent-on); border: 2px solid var(--ink); border-radius: var(--wobble); font-family: var(--font-body); font-size: 16px; font-weight: 700; cursor: pointer; white-space: nowrap; box-shadow: 0 5px 0 0 var(--ink); transition: transform 0.15s, box-shadow 0.15s, background 0.2s; }
       .btn-notify:hover { transform: translateY(3px); box-shadow: 0 2px 0 0 var(--ink); }
+      .form-error { color: var(--accent-active); font-size: 14px; font-weight: 700; margin: 10px 0 0; }
+      .waitlist-inline input[aria-invalid="true"] { border-color: var(--accent-active); box-shadow: 0 0 0 4px rgba(131, 63, 38, 0.18); }
       .btn-notify:active { background: var(--accent-active); transform: translateY(5px); box-shadow: none; }
       .privacy { font-size: 14px; color: var(--muted); margin-top: 22px; }
       .privacy a { font-weight: 700; }
@@ -324,10 +326,11 @@
             <img src="images/illustrations/bell.svg" alt="" width="48" height="48" class="bell-animate">
           </h2>
           <div class="postcard-lines" aria-hidden="true"></div>
-          <form id="waitlist-form-main" class="waitlist-inline">
-            <input type="email" name="email" placeholder="you@example.com" aria-label="Email address" autocomplete="email" required>
+          <form id="waitlist-form-main" class="waitlist-inline" novalidate>
+            <input type="email" name="email" placeholder="you@example.com" aria-label="Email address" autocomplete="email" required aria-describedby="waitlist-error">
             <button type="submit" class="btn-notify">Join the waitlist</button>
           </form>
+          <p class="form-error" id="waitlist-error" role="alert" hidden></p>
           <p class="privacy">By joining, you agree to receive emails from Yaglot about our launch and early access. You can unsubscribe at any time. Read our <a href="privacy">privacy notice</a>.</p>
         </div>
       </div>
@@ -390,20 +393,34 @@
     // Handle waitlist form submission
     const waitlistForm = document.getElementById('waitlist-form-main');
     if (waitlistForm) {
+      waitlistForm.querySelector('input[type="email"]').addEventListener('input', function () {
+        this.removeAttribute('aria-invalid');
+        document.getElementById('waitlist-error').hidden = true;
+      });
       waitlistForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
         const btn = waitlistForm.querySelector('.btn-notify');
         if (!btn || btn.disabled) return;
-        btn.disabled = true;
-        btn.textContent = 'Sending…';
 
-        const email = waitlistForm.querySelector('input[type="email"]')?.value;
-        if (!email) {
-          btn.disabled = false;
-          btn.textContent = 'Join the waitlist';
+        // Check the email before sending and show a warning if it's missing or wrong
+        const emailInput = waitlistForm.querySelector('input[type="email"]');
+        const email = (emailInput.value || '').trim();
+        const problem = !email ? 'Please enter your email address.'
+          : !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) ? 'Please enter a valid email address, like name@example.com.' : '';
+        const errorBox = document.getElementById('waitlist-error');
+        if (problem) {
+          errorBox.textContent = problem;
+          errorBox.hidden = false;
+          emailInput.setAttribute('aria-invalid', 'true');
+          emailInput.focus();
           return;
         }
+        errorBox.hidden = true;
+        emailInput.removeAttribute('aria-invalid');
+
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
 
         // Which kind of device the visitor signed up on (sent as 'source')
         function deviceType() {
