@@ -47,7 +47,7 @@
         }
 
   var page = location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/').replace(/(.)\/$/, '$1') || '/';
-  var body = new URLSearchParams({ form: 'visit', page: page, device: deviceType(), from: referrerName() });
+  var body = new URLSearchParams({ form: 'visit', page: page, device: deviceType(), referrer: referrerName() });
   var url = 'https://script.google.com/macros/s/AKfycbzfAgURxVnNx_jh8BH5Tt2B6gXhl66O7gOMsZhp74ebgQ_dG4Kw8W4I3dPXg3pexwOg9A/exec';
   try {
     if (navigator.sendBeacon && navigator.sendBeacon(url, body)) return;
