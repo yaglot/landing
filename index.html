@@ -20,7 +20,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
   <meta name="apple-mobile-web-app-title" content="Yaglot">
   <link rel="manifest" href="/site.webmanifest?v=2">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Sans+SC:wght@400&family=Noto+Sans+TC:wght@400&family=Noto+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+SC:wght@400&family=Noto+Sans+TC:wght@400&family=Noto+Serif:wght@500&display=swap" rel="stylesheet">
   <style>
       :root {
         --bg: #f5f4ed; --surface: #faf9f5; --sand: #efe7d6; --sky: #fffaf0;
@@ -165,7 +165,7 @@
       .footer-bottom { border-top: 1px dashed #3d3d3a; padding-top: 24px; text-align: center; }
       .footer-bottom p { font-size: 14px; color: #87867f; }
   
-      @media (max-width: 1024px) {
+      @media (max-width: 1023px) {
         .focus-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
         .squiggle.left { margin-left: auto; }
         .postcard { grid-template-columns: 1fr; }
@@ -267,16 +267,108 @@
       .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
       /* The thank-you heading takes focus so it is read out, but is not something to press */
       .waitlist-thanks h3:focus { outline: none; }
+
+      /* Final pass (18 November 2026). Phone first: phone values come first, then tablet (769px up) and computer (1024px up) */
+      :root { --link: #9b4d2f; }
+      /* Buttons: text-button, 19px bold, on every button. 48px tall with 16px sides on phone, 52px with 24px from 769px */
+      .btn, .btn-notify, .contact-form .btn { font-size: 19px; font-weight: 700; line-height: 1.2; padding: 0 16px; }
+      @media (min-width: 769px) { .btn, .btn-notify, .contact-form .btn { padding: 0 24px; } }
+      /* Header button on phone: the side padding shrinks evenly when space runs short (the logo is 153px wide, 136px below 375px,
+         16px gap, the words about 149px plus a 2px border each side). If the words still do not fit, as with wider text spacing,
+         they wrap and the button grows taller instead of spilling out. Normal view keeps one line and 48px */
+      @media (max-width: 768px) {
+        nav .btn { height: auto; min-height: 48px; padding: 4px clamp(4px, (100% - 153px - 16px - 155px) / 2, 16px); white-space: normal; text-align: center; }
+      }
+      @media (max-width: 374px) { nav .btn { padding-left: clamp(4px, (100% - 136px - 16px - 155px) / 2, 16px); padding-right: clamp(4px, (100% - 136px - 16px - 155px) / 2, 16px); } }
+      @media (max-width: 359px) { nav .btn { padding-left: 16px; padding-right: 16px; } }
+      /* Links on light backgrounds: link colour, bold, underlined on hover */
+      main a:not(.btn) { color: var(--link); font-weight: 700; text-decoration: none; }
+      main a:not(.btn):hover { text-decoration: underline; }
+      /* Skip link, shown on focus */
+      .skip-link { position: absolute; left: 16px; top: 8px; z-index: 300; background: var(--surface); color: var(--link); font-size: 16px; font-weight: 700; text-decoration: none; padding: 10px 16px; border: 2px solid var(--ink); border-radius: var(--wobble); }
+      .skip-link:not(:focus) { width: 1px; height: 1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+      main:focus { outline: none; }
+      .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+      /* Boxes: 16px inside, placeholder #757575, focus outline only (no glow), accent-active border on error */
+      ::placeholder { color: #757575; opacity: 1; }
+      .waitlist-inline input, .contact-form input, .contact-form select, .contact-form textarea { padding-left: 16px; padding-right: 16px; }
+      .contact-form select { padding-right: 48px; background-position: right 16px center; }
+      .waitlist-inline input:focus, .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus,
+      .waitlist-inline input[aria-invalid="true"], .contact-form [aria-invalid="true"] { box-shadow: none; }
+      .contact-form label { margin-bottom: 8px; }
+      .contact-form label, .contact-form .field-error { padding-left: 18px; } /* lines up with the text in the box: 2px border plus 16px */
+      .contact-form .word-count { padding-right: 18px; }
+      /* Contact on tablet and computer: the form text matches the 18px body */
+      @media (min-width: 769px) {
+        .contact-form label, .contact-form input, .contact-form select, .contact-form textarea, .contact-form .word-count, .contact-form .form-note { font-size: 18px; }
+      }
+      /* Inner pages */
+      .legal { padding: 48px 16px 64px; }
+      @media (min-width: 769px) { .legal { padding: 64px 24px 96px; } }
+      .legal .updated { font-size: 16px; }
+      .legal p, .legal li { max-width: 34em; }
+      .legal .faq p, .legal .values li, .contact-form p { max-width: none; }
+      .legal .belief h3 { font-size: 24px; line-height: 1.25; text-wrap: balance; }
+      .uc-pct { color: var(--accent-active); }
+      /* Thank-you messages: the same layout on both forms */
+      .waitlist-thanks, .contact-thanks { width: 100%; text-align: center; padding: 24px 8px; }
+      .waitlist-thanks h3, .contact-thanks h2 { font-family: var(--font-display); font-weight: 500; font-size: 24px; line-height: 1.25; color: var(--fg); margin: 0 0 8px; }
+      /* Footer: headings are h2 styled as before. Two columns on phone, four from 769px. 44px link tap areas up to 1023px */
+      footer h2 { font-family: var(--font-display); font-weight: 500; font-size: 16px; line-height: 1.6; color: #c8963e; margin-bottom: 16px; }
+      footer .footer-content { grid-template-columns: 1fr 1fr; }
+      @media (min-width: 769px) { footer .footer-content { grid-template-columns: repeat(4, 1fr); } }
+      @media (max-width: 1023px) {
+        footer ul li { margin-bottom: 0; }
+        footer ul li a { display: inline-block; padding: 9px 0; }
+        footer h2 { margin-bottom: 7px; }
+        footer .footer-social a { padding: 5px; margin: -5px; }
+      }
+      footer a:focus-visible { outline-color: var(--accent-on); }
+
+      /* Home */
+      .focus .lead { max-width: 34em; }
+      @media (max-width: 1023px) {
+        .focus-text { width: 100%; max-width: 680px; margin: 0 auto; text-align: left; }
+        .focus h2 { text-align: left; }
+        .focus .squiggle { margin-left: 0; margin-right: auto; }
+        .focus .lead { text-align: left; }
+      }
+      @media (max-width: 768px) { .focus-text { max-width: none; } }
+      .features { gap: 40px; grid-template-columns: 1fr; }
+      @media (min-width: 769px) { .features { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 1024px) { .features { grid-template-columns: repeat(3, 1fr); } }
+      .feature-card, .feature-card:hover { transform: none; box-shadow: var(--chunky); transition: none; }
+      .feature-card p { color: var(--muted); }
+      .feature-icon svg[viewBox="0 0 24 24"] { stroke-width: 1.2; } /* 2px lines at 40px */
+      /* Waitlist: visible label, box above the button on phone and tablet, side by side on computer */
+      .waitlist-label { display: block; font-size: 16px; font-weight: 700; color: var(--fg); margin: 24px 0 8px; padding-left: 18px; }
+      .waitlist-inline { flex-direction: column; margin-top: 0; }
+      .waitlist-inline input { flex: none; width: 100%; height: 48px; }
+      .btn-notify { width: 100%; height: 48px; }
+      @media (min-width: 769px) { .waitlist-inline input, .btn-notify { height: 52px; } }
+      @media (min-width: 1024px) {
+        .waitlist-inline { flex-direction: row; }
+        .waitlist-inline input { flex: 1; width: auto; }
+        .btn-notify { width: auto; }
+      }
+
+      /* Reduced motion: every loop, float, slide-in, progress bar and smooth scroll stops at rest. Kept last so it wins */
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation: none !important; }
+        .m-see-b, .m-hear-b, .m-speak-b { opacity: 0; }
+      }
   </style>
 </head>
 <body>
 <div id="top">
-  <div class="stealth-banner">
+  <div class="stealth-banner" role="region" aria-label="Announcement">
     <span class="stealth-dots" aria-hidden="true"><span class="stealth-dot"></span><span class="stealth-dot sd2"></span><span class="stealth-dot sd3"></span></span>
     We're building our first Mandarin course. Coming soon!
   </div>
 
   <header>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <div class="container">
       <nav>
         <a href="#top" class="logo-link" id="logo-link">
@@ -287,7 +379,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main" tabindex="-1">
   <!-- Hero -->
   <section class="hero">
     <div class="hero-text">
@@ -299,25 +391,25 @@
       <div class="cards">
         <div class="char-card char-card-1">
           <div class="char-label">
-            <div class="char-unit"><div class="char-symbol">你</div><div class="char-pinyin">nǐ</div></div>
-            <div class="char-unit"><div class="char-symbol">好</div><div class="char-pinyin">hǎo</div></div>
+            <div class="char-unit"><div class="char-symbol" lang="zh-Hant-TW">你</div><div class="char-pinyin" lang="zh-Latn-pinyin">nǐ</div></div>
+            <div class="char-unit"><div class="char-symbol" lang="zh-Hant-TW">好</div><div class="char-pinyin" lang="zh-Latn-pinyin">hǎo</div></div>
           </div>
           <p class="char-mean">Hello</p>
         </div>
         <div class="char-card char-card-3">
           <div class="char-label">
-            <div class="char-unit"><div class="char-symbol">吃</div><div class="char-pinyin">chī</div></div>
-            <div class="char-unit"><div class="char-symbol">飽</div><div class="char-pinyin">bǎo</div></div>
-            <div class="char-unit"><div class="char-symbol">了</div><div class="char-pinyin">le</div></div>
-            <div class="char-unit"><div class="char-symbol">沒</div><div class="char-pinyin">méi</div></div>
+            <div class="char-unit"><div class="char-symbol" lang="zh-Hant-TW">吃</div><div class="char-pinyin" lang="zh-Latn-pinyin">chī</div></div>
+            <div class="char-unit"><div class="char-symbol" lang="zh-Hant-TW">飽</div><div class="char-pinyin" lang="zh-Latn-pinyin">bǎo</div></div>
+            <div class="char-unit"><div class="char-symbol" lang="zh-Hant-TW">了</div><div class="char-pinyin" lang="zh-Latn-pinyin">le</div></div>
+            <div class="char-unit"><div class="char-symbol" lang="zh-Hant-TW">沒</div><div class="char-pinyin" lang="zh-Latn-pinyin">méi</div></div>
           </div>
           <p class="char-mean">Have you eaten yet?</p>
         </div>
         <div class="char-card char-card-2">
           <div class="char-label">
-            <div class="char-unit"><div class="char-symbol">下</div><div class="char-pinyin">xià</div></div>
-            <div class="char-unit"><div class="char-symbol">雨</div><div class="char-pinyin">yǔ</div></div>
-            <div class="char-unit"><div class="char-symbol">了</div><div class="char-pinyin">le</div></div>
+            <div class="char-unit"><div class="char-symbol" lang="zh-Hant-TW">下</div><div class="char-pinyin" lang="zh-Latn-pinyin">xià</div></div>
+            <div class="char-unit"><div class="char-symbol" lang="zh-Hant-TW">雨</div><div class="char-pinyin" lang="zh-Latn-pinyin">yǔ</div></div>
+            <div class="char-unit"><div class="char-symbol" lang="zh-Hant-TW">了</div><div class="char-pinyin" lang="zh-Latn-pinyin">le</div></div>
           </div>
           <p class="char-mean">It's raining!</p>
         </div>
@@ -329,8 +421,8 @@
   <!-- Focus -->
   <section class="focus" id="product-focus">
     <div class="container focus-grid">
-      <img class="focus-map" src="images/illustrations/taiwan-map.svg" alt="" aria-hidden="true">
-      <div>
+      <img class="focus-map" src="images/illustrations/taiwan-map.svg" alt="A hand-drawn map of Taiwan.">
+      <div class="focus-text">
         <h2>Starting with Mandarin</h2>
         <svg class="squiggle left" viewBox="0 0 120 14" fill="none" aria-hidden="true"><path d="M2 9 q 9 -8 18 0 t 18 0 t 18 0 t 18 0 t 18 0 t 18 0" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>
         <p class="lead">Our first product is designed to help English speakers learn Mandarin. Both Traditional and Simplified Chinese versions are set to launch soon. Next, we'll expand our mission to help Mandarin speakers learn English, with support for more languages on the way.</p>
@@ -393,9 +485,12 @@
             <img src="images/illustrations/bell.svg" alt="" width="48" height="48" class="bell-animate">
           </h2>
           <div class="postcard-lines" aria-hidden="true"></div>
-          <form id="waitlist-form-main" class="waitlist-inline" novalidate>
-            <input type="email" name="email" placeholder="you@example.com" aria-label="Email address" autocomplete="email" required aria-describedby="waitlist-error">
-            <button type="submit" class="btn-notify">Join the waitlist</button>
+          <form id="waitlist-form-main" class="waitlist-form" novalidate>
+            <label class="waitlist-label" for="waitlist-email">Email address</label>
+            <div class="waitlist-inline">
+              <input id="waitlist-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-describedby="waitlist-error">
+              <button type="submit" class="btn-notify">Join the waitlist</button>
+            </div>
           </form>
           <p class="form-error" id="waitlist-error" hidden></p>
           <p class="visually-hidden" id="waitlist-status" role="status"></p>
@@ -412,7 +507,7 @@
     <div class="container">
       <div class="footer-content">
         <div>
-          <h4>About us</h4>
+          <h2>About us</h2>
           <ul>
             <li><a href="mission">Our mission</a></li>
             <li><a href="team">Our team</a></li>
@@ -420,7 +515,7 @@
           </ul>
         </div>
         <div>
-          <h4>Products</h4>
+          <h2>Products</h2>
           <ul>
             <li><a href="construction">Yaglot Pro</a></li>
             <li><a href="construction">Yaglot Max</a></li>
@@ -429,7 +524,7 @@
           </ul>
         </div>
         <div>
-          <h4>Help</h4>
+          <h2>Help</h2>
           <ul>
             <li><a href="contact">Contact us</a></li>
             <li><a href="faqs">FAQs</a></li>
@@ -438,9 +533,9 @@
           </ul>
         </div>
         <div>
-          <h4>Follow us</h4>
+          <h2>Follow us</h2>
           <div class="footer-social">
-            <a href="https://www.linkedin.com/company/yaglot" target="_blank" rel="noopener" aria-label="Yaglot on LinkedIn"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="2.6" fill="#0A66C2"/><path fill="#fff" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+            <a href="https://www.linkedin.com/company/yaglot" target="_blank" rel="noopener" aria-label="Yaglot on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="2.6" fill="#0A66C2"/><path fill="#fff" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
           </div>
         </div>
       </div>
@@ -455,7 +550,7 @@
     // Logo click scrolls to top smoothly and clears any #waitlist from the address
     document.getElementById('logo-link').addEventListener('click', function(e) {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
       if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     });
 
@@ -594,12 +689,9 @@
           statusBox.textContent = '';
           if (!results[0]) return showFailure();
           waitlistForm.innerHTML = `
-            <div class="waitlist-thanks" style="text-align: center; padding: 40px 20px; width: 100%;">
-              <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">✓</div>
-              <h3 tabindex="-1" style="color: var(--fg); margin-bottom: 12px; font-size: 24px;">You're in!</h3>
-              <p style="color: var(--muted); font-size: 16px; line-height: 1.6;">
-                We'll let you know as soon as we're ready.
-              </p>
+            <div class="waitlist-thanks">
+              <h3 tabindex="-1">You're in!</h3>
+              <p>We'll let you know as soon as we're ready.</p>
             </div>
           `;
           // Move focus to the heading so screen readers read the thank-you once
