@@ -272,7 +272,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 
 | Animation | Timing | Element |
 |---|---|---|
-| Float | 5 to 6s, staggered | Phrase cards (smaller movement below 1024px); on very wide screens (2800px+) the right-hand card moves further right to stay clear of the sun |
+| Float | 5 to 6s, staggered | Phrase cards (smaller movement below 1024px); on very wide screens (2500px+) the right-hand card moves further right to stay clear of the sun |
 | Star pop | 2s | Doodle star in the hero subtitle |
 | Bell ring | 2s | Bell beside the waitlist heading |
 | Banner dot blink | 2s | `.stealth-dot` |

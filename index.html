@@ -77,11 +77,12 @@
       .cards { position: absolute; inset: 0; max-width: 1280px; margin: 0 auto; pointer-events: none; }
       .char-card { position: absolute; pointer-events: auto; background: var(--surface); border: 2px solid var(--ink); border-radius: var(--wobble); padding: 18px 20px 16px; box-shadow: 0 6px 0 0 rgba(58, 47, 42, 0.85); }
       .char-card-1 { top: 45px; left: 5%; rotate: -3deg; animation: float 6s ease-in-out infinite; }
-      .char-card-2 { top: 41px; right: 6%; rotate: 2.5deg; animation: float 5.5s ease-in-out infinite 0.3s; }
+      .char-card-2 { top: 41px; right: 8%; rotate: 2.5deg; animation: float 5.5s ease-in-out infinite 0.3s; }
       .char-card-3 { top: 50px; left: 30%; rotate: -1deg; animation: float 5s ease-in-out infinite 0.6s; }
       @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
-      /* Very wide screens: keep the right-hand card clear of the sun */
-      @media (min-width: 2800px) { .char-card-2 { right: -12%; } }
+      /* 吃飽了沒 sits a little further right where there is room; very wide screens keep 下雨了 clear of the sun */
+      @media (min-width: 1280px) { .char-card-3 { left: 31.5%; } }
+      @media (min-width: 2500px) { .char-card-2 { right: -12%; } }
       @media (min-width: 4200px) { .char-card-2 { right: -22%; } }
       .char-label { display: flex; gap: 14px; justify-content: center; align-items: flex-start; margin-bottom: 10px; }
       .char-unit { display: flex; flex-direction: column; align-items: center; gap: 8px; }
