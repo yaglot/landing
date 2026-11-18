@@ -201,6 +201,14 @@
         .logo-img { height: 52px; }
         header { top: 41px; padding: 12px 0; }
         .btn { height: 48px; padding: 0 18px; }
+        nav { gap: 16px; }
+        nav .btn { min-width: 0; } /* when space runs out the side padding shrinks evenly, the words stay whole and centred */
+        @media (max-width: 359px) {
+          /* 'Join the waitlist' sits under the logo and the header scrolls away */
+          header { position: static; }
+          nav { flex-direction: column; align-items: flex-start; }
+          html { scroll-padding-top: 12px; }
+        }
         .hero { padding-top: 56px; }
         .focus { padding: 48px 0 72px; }
         .features-sec { padding-bottom: 80px; }

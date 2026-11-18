@@ -255,7 +255,7 @@ Each component has one job and behaves the same wherever it appears.
 | Component | Computer | Tablet | Phone | Rule |
 |---|---|---|---|---|
 | Sticky banner | 41px tall, sticks | As computer | 60px, scrolls away | Sticks only above 760px, where it fits on one line |
-| Header | 87px tall | As computer | 79px tall | Logo (section 4) on the left links home, 'Join the waitlist' on the right. Sticks under the banner. Below 360px the button sits under the logo and the header scrolls away |
+| Header | 87px tall | As computer | 79px tall, 141px below 360px | Logo (section 4) on the left links home, 'Join the waitlist' on the right, at least 16px apart on phone. Sticks under the banner. When space runs short the button's side padding shrinks evenly, never its words. Below 360px the button sits 16px under the logo, lined up with the left margin, and the header scrolls away |
 | Button | 52px tall, 24px side padding (space-5) | As computer | 48px tall, 16px side padding (space-4) | text-button. Form buttons fill the width on phone |
 | Text box and Topic | 52px tall | As computer | 48px tall | Match the button height. 16px inside on the left and right (space-4), no padding top or bottom |
 | Message box | 150px tall | As computer | 150px tall | People can drag it taller |
@@ -405,7 +405,7 @@ Borders, icons and focus outlines need 3 to 1 against what is next to them (WCAG
 ### Focus, keyboard and targets
 
 - **Focus visible (2.4.7).** You can always see where the keyboard is. Every link, button, box and FAQ question shows a 3px accent-active outline, 3px away. In the footer the outline is accent-on cream #f7f0e3 only (founder decision).
-- **Focus not obscured (2.4.11).** The focused item must never hide under the sticky banner and header. Set `scroll-padding-top` to the measured sticky height plus 12px. That is 140px from 769px up (128px sticky), 132px at 761 to 768px (120px sticky) and 91px at 760px and below (79px sticky). The header 'Join the waitlist' link uses the same offset.
+- **Focus not obscured (2.4.11).** The focused item must never hide under the sticky banner and header. Set `scroll-padding-top` to the measured sticky height plus 12px. That is 140px from 769px up (128px sticky), 132px at 761 to 768px (120px sticky) and 91px at 360 to 760px (79px sticky). Below 360px the header scrolls away, so it is 12px. The header 'Join the waitlist' link uses the same offset.
 - **Keyboard (2.1.1).** Everything works without a mouse, with no traps.
 - **Skip link (2.4.1).** People can jump past repeated parts. Add a 'Skip to main content' link that appears on focus.
 - **Target size (2.5.8).** Things you tap are at least 24 by 24px or spaced apart (approximate). Our own rule is 48px buttons and boxes on phone, 52px on tablet and 44px link tap areas on both (section 7).
@@ -463,7 +463,6 @@ Every place where the site does not yet follow the rules, most serious first. Fo
 |---|---|---|---|
 | Button text is 16px, so cream on terracotta (4.0 to 1) fails | 'Join the waitlist' on every page, all widths | Sections 3 and 5, WCAG 1.4.3 | Make every button's text text-button (19px bold), olive buttons too. Heights stay 52px and 48px (founder decision) |
 | Links are terracotta (4.3 to 4.4 to 1), which fails at 16 to 18px | Inner page links, '← Back to the home page', consent lines, FAQ links, all widths | Sections 5 and 7, WCAG 1.4.3 | Use link #9b4d2f, bold, underlined on hover (founder decision) |
-| Page scrolls sideways because the header button sticks out 21px. It also spills by 6px at 390 and 18px at 360 with wider text spacing | All nine pages at 320. All pages at 390 and 360 with text spacing | Sections 2 and 7, WCAG 1.4.10 and 1.4.12 | Below 360px put 'Join the waitlist' on its own line under the logo and let the header scroll away |
 | Footer links are 22px tall and the LinkedIn icon has no tap area beyond its 34px, though tablets are touch screens | All pages at 769 to 1023 | Sections 1, 7 and 9 | Give footer links and the LinkedIn icon the phone's 44px tap areas from 1023px down |
 | Loops ignore reduced motion | Home phrase cards, star and bell. Banner dots on every page. Construction dots, slide-in and progress bar (the rule loses to later styles). Smooth scrolling everywhere | Sections 6 and 9 | Stop every loop completely under reduced motion, with the reduced-motion block last in the styles (founder decision) |
 | Waitlist box has no visible label, only example text that vanishes | Home, all widths | Sections 7 and 9, WCAG 3.3.2 | Add the visible 'Email address' label above the box in text-body bold (founder decision) |
