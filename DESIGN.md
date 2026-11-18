@@ -57,7 +57,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 
 **Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
 - Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
-- Pages live at yaglot.com, yaglot.com/construction (construction.html) and yaglot.com/privacy-notice (privacy-notice.html); 404.html forwards old addresses such as /privacy to the right page
+- Pages live at yaglot.com, yaglot.com/construction (construction.html), yaglot.com/privacy (privacy.html) and yaglot.com/terms (terms.html, terms and conditions); 404.html forwards old addresses such as /privacy to the right page
 
 ---
 
@@ -233,9 +233,9 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - `referrer`: where the visitor came from, worked out at sign-up: the link's `utm_source` tag if it has one; the app name when the page is opened inside an app's browser (`linkedin`, `instagram`, `threads`, `facebook`, `messenger`, `x`, `tiktok`, `snapchat`, `pinterest`, `line`, `wechat`, `telegram`, `youtube`); otherwise the referring site as a short name (`google`, `x`, `youtube`, `reddit`, `bing` and so on; any other site is just its name, for example `github`, `bbc`); or `direct`
   - `language`: the browser language (for example `en-GB`, `zh-TW`)
   - `region`: the time zone (for example `Europe/London`, `Asia/Taipei`)
-  - `consent`: which consent wording the visitor saw. `privacy-v1` = the line under the button ('By joining, you agree to receive emails from Yaglot about our launch and early access. You can unsubscribe at any time. Read our privacy notice.') together with version 1 of the privacy notice. Raise the number whenever either changes
+  - `consent`: which consent wording the visitor saw. `privacy-v1` = the line under the button ('By joining, you agree to receive emails from Yaglot about our launch and early access. You can unsubscribe at any time. Read our privacy notice.') together with version 1 of the privacy notice. Raise the number whenever either changes, and record the full wording of every version in the 'Yaglot privacy notice versions' document
 - Nothing is stored on the visitor's device (no cookies or browser storage), so no cookie banner is needed
-- Privacy notice page: `privacy-notice.html` at yaglot.com/privacy-notice (old /privacy links forward there), linked from the consent line and the footer 'Privacy' link; same banner, header and footer as the construction page
+- Privacy notice page: `privacy.html` at yaglot.com/privacy (the earlier /privacy-notice address forwards there), linked from the consent line and the footer 'Privacy' link; same banner, header and footer as the construction page
 - Shows 'Sending…' then a thank-you message
 
 ### Stealth banner
@@ -244,8 +244,14 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 
 ### Footer
 - Near-black background, wavy top edge
-- Four columns (two on phones): headings light terracotta, links warm silver
-- LinkedIn opens linkedin.com/company/yaglot; other links go to the construction page until those pages exist
+- Four columns (two on phones), headings light terracotta, links warm silver:
+  - **About us:** Our mission, Our team, Careers
+  - **Products:** Yaglot Pro, Yaglot Max, For schools, For business
+  - **Help:** FAQs, Contact us, Privacy, Terms
+  - **Follow us:** each network's own coloured logo (34px, rounded square); LinkedIn blue `#0A66C2` only for now (linkedin.com/company/yaglot)
+- Links go to the construction page until their pages exist (Privacy and Terms go to their pages)
+- Company details (Yaglot Ltd, England and Wales, company number 17220926, registered office) are on the Terms page, which meets the UK requirement; the footer shows only the copyright line
+- Add back later: Pricing (when Max has a public price), Investors (when fundraising), more social icons (as each account goes live)
 
 ---
 
