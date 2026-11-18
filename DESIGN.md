@@ -57,7 +57,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 
 **Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
 - Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
-- Pages live at yaglot.com, yaglot.com/construction (construction.html), yaglot.com/privacy (privacy.html), yaglot.com/terms (terms.html, terms and conditions), yaglot.com/contact (contact.html) and yaglot.com/faqs (faqs.html); 404.html forwards old addresses such as /privacy to the right page
+- Pages live at yaglot.com, yaglot.com/construction (construction.html), yaglot.com/privacy (privacy.html), yaglot.com/terms (terms.html, terms and conditions), yaglot.com/contact (contact.html), yaglot.com/faqs (faqs.html), yaglot.com/mission (mission.html), yaglot.com/team (team.html) and yaglot.com/careers (careers.html); 404.html forwards old addresses such as /privacy to the right page
 
 ---
 
@@ -253,7 +253,10 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - **Products:** Yaglot Pro, Yaglot Max, For schools, For businesses
   - **Help:** Contact us, FAQs, Privacy, Terms
   - **Follow us:** each network's own coloured logo (34px, rounded square); LinkedIn blue `#0A66C2` only for now (linkedin.com/company/yaglot)
-- Links go to the construction page until their pages exist (Contact us, FAQs, Privacy and Terms go to their pages)
+- Links go to the construction page until their pages exist (Our mission, Our team, Careers, Contact us, FAQs, Privacy and Terms go to their pages; Yaglot Pro, Yaglot Max, For schools and For businesses stay on the construction page for now)
+- Our mission page: intro line, 'Why we're here', 'Starting with Mandarin', 'What we believe' (six cards based on the home page feature cards) and a 'Join the waitlist' button
+- Our team page: describes the team's research (PhDs in Cognitive Science and Language Science) without names; people are added later
+- Careers page: 'We're not hiring right now, but we'd love to hear from you' and a 'Get in touch' button that opens the contact form with 'Working with us' already picked (contact?topic=Working%20with%20us)
 - FAQs page: intro line ('Answers to the questions we hear most. Can't find yours? Contact us.'), then questions in five groups (About Yaglot; Launch and the waitlist; Plans and prices; Schools and businesses; Your privacy). Each question is a card that opens and closes (the same ink border, wobbly corners and chevron as the Topic dropdown); questions 18 bold, answers 18 (16 on phone). Never mention how Max works or any prices. Versions are named faqs-vYY.N (faqs-v26.1 now); record the full wording of every version in the 'Yaglot FAQs versions' document
 - Company details (Yaglot Ltd, England and Wales, company number 17220926, registered office) are on the Terms page, which meets the UK requirement; the footer shows only the copyright line
 - Contact page: intro line, then a form (Name, Email, Topic dropdown: General question, Feedback or a problem, Schools and businesses, Working with us, Something else; Message) with 'Send message'; a hidden trap field and a 3-second minimum stop robots; sends `form=contact`, name, email, topic, message and `consent` to the same Google Apps Script, saved in the sheet's 'contact' tab (waitlist sign-ups go to the 'waitlist' tab; the script picks each tab by name and creates it if it's missing); 'Or email us at hello@yaglot.com' underneath; Name, Email and Message must be filled in, otherwise a warning shows under each missing box ('Please enter your name.', the same email warnings as the waitlist, 'Please write your message.') and nothing is sent; the Topic dropdown uses our own arrow (a rounded ink-coloured chevron) instead of the browser's
