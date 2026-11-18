@@ -143,8 +143,8 @@ Nine text sizes: 14, 16, 18, 20, 24, 32, 40, 48, 60 (plus the hero subtitle at 2
 | Waitlist heading | 40 | 40 | 32 |
 | Feature card titles | 24 | 24 | 24 |
 | Hero subtitle | 26 | 26 | 20 |
-| Lead text (map section, construction description) | 20 | 20 | 18 |
-| Body text (paragraphs, feature cards, banner, consent line, form notes and warnings, footer links, construction email line and back link) | 16 | 16 | 16 |
+| Lead text (map section, construction description, contact intro, 'Or email us' line, '← Back to the home page') | 20 | 20 | 18 |
+| Body text (paragraphs, feature cards, banner, consent line, form notes and warnings, footer links, construction email line) | 16 | 16 | 16 |
 | Buttons, footer headings | 16 | 16 | 16 |
 | Small text, only for labels people don't need to read closely ('ALMOST THERE', 'Last updated', copyright) | 14 | 14 | 14 |
 | Chinese characters on phrase cards | 40 | 32 | 32 |
