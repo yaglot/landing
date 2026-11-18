@@ -57,7 +57,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 
 **Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
 - Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
-- Pages live at yaglot.com, yaglot.com/construction (construction.html), yaglot.com/privacy (privacy.html), yaglot.com/terms (terms.html, terms and conditions) and yaglot.com/contact (contact.html); 404.html forwards old addresses such as /privacy to the right page
+- Pages live at yaglot.com, yaglot.com/construction (construction.html), yaglot.com/privacy (privacy.html), yaglot.com/terms (terms.html, terms and conditions), yaglot.com/contact (contact.html) and yaglot.com/faqs (faqs.html); 404.html forwards old addresses such as /privacy to the right page
 
 ---
 
@@ -156,7 +156,7 @@ Nine text sizes: 14, 16, 18, 20, 24, 32, 40, 48, 60 (plus the hero subtitle at 2
 
 | Element | Computer | Phone |
 |---|---|---|
-| Logo height | 72 | 44 |
+| Logo height | 60 | 44 |
 | Doodle star beside the subtitle | 42 | 32 |
 | Bell beside the waitlist heading | 50 | 40 |
 | Monkey tiles (all three equal) | 140 | 112 (88 at 480px and below) |
@@ -209,6 +209,8 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 
 ### Buttons
 - Terracotta background, cream text, 2px ink border, `--wobble` corners, weight 700, 16px
+- One button size everywhere (header, waitlist, contact form): 52px tall on computer and tablet, 48px on phone; the waitlist email box matches the button height
+- Header: logo 60px tall on computer (44px on phone) with 12px above and below; the button keeps 5px of room underneath for its shadow, so the visible space above and below is equal (14px on computer, with 13px of padding underneath; 12px on phone). The bar is 87px tall on computer and 79px on phone
 - Text: 'Join the waitlist'
 
 ### Phrase cards (hero)
@@ -221,7 +223,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 
 ### Header
 - Sticky under the banner, cream frosted background (`rgba(255,250,240,0.94)` + blur), dashed bottom border
-- Logo left (72px tall, 44px on phones), button right; the logo tilts slightly on hover and takes you back to the top
+- Logo left (60px tall, 44px on phones), button right; the logo tilts slightly on hover and takes you back to the top
 
 ### Waitlist postcard
 - Two halves: night-market picture and form; stacks on screens 1024px and below
@@ -249,9 +251,10 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 - Four columns (two on phones), headings light terracotta, links warm silver:
   - **About us:** Our mission, Our team, Careers
   - **Products:** Yaglot Pro, Yaglot Max, For schools, For businesses
-  - **Help:** FAQs, Contact us, Privacy, Terms
+  - **Help:** Contact us, FAQs, Privacy, Terms
   - **Follow us:** each network's own coloured logo (34px, rounded square); LinkedIn blue `#0A66C2` only for now (linkedin.com/company/yaglot)
-- Links go to the construction page until their pages exist (Privacy, Terms and Contact us go to their pages)
+- Links go to the construction page until their pages exist (Contact us, FAQs, Privacy and Terms go to their pages)
+- FAQs page: intro line ('Answers to the questions we hear most. Can't find yours? Contact us.'), then questions in five groups (About Yaglot; Launch and the waitlist; Plans and prices; Schools and businesses; Your privacy). Each question is a card that opens and closes (the same ink border, wobbly corners and chevron as the Topic dropdown); questions 18 bold, answers 18 (16 on phone). Never mention how Max works or any prices
 - Company details (Yaglot Ltd, England and Wales, company number 17220926, registered office) are on the Terms page, which meets the UK requirement; the footer shows only the copyright line
 - Contact page: intro line, then a form (Name, Email, Topic dropdown: General question, Feedback or a problem, Schools and businesses, Working with us, Something else; Message) with 'Send message'; a hidden trap field and a 3-second minimum stop robots; sends `form=contact`, name, email, topic, message and `consent` to the same Google Apps Script, saved in the sheet's 'contact' tab (waitlist sign-ups go to the 'waitlist' tab; the script picks each tab by name and creates it if it's missing); 'Or email us at hello@yaglot.com' underneath; Name, Email and Message must be filled in, otherwise a warning shows under each missing box ('Please enter your name.', the same email warnings as the waitlist, 'Please write your message.') and nothing is sent; the Topic dropdown uses our own arrow (a rounded ink-coloured chevron) instead of the browser's
 - Add back later: Pricing (when Max has a public price), Investors (when fundraising), more social icons (as each account goes live)

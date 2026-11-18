@@ -54,12 +54,13 @@
       @keyframes stealth-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
       @media (max-width: 760px) { .stealth-banner { position: static; text-wrap: balance; } header { top: 0 !important; } }
       @media (max-width: 520px) { .stealth-banner { position: static; font-size: 16px; padding: 8px 12px; line-height: 22px; text-wrap: balance; } header { top: 0 !important; } }
-      header { position: sticky; top: 41px; z-index: 100; background: rgba(255, 250, 240, 0.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 2px dashed #e2d3b8; padding: 20px 0; }
+      header { position: sticky; top: 41px; z-index: 100; background: rgba(255, 250, 240, 0.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 2px dashed #e2d3b8; padding: 12px 0 13px; }
       nav { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+      nav .btn { margin-bottom: 5px; } /* room for the button shadow, so the space above and below looks equal */
       .logo-link { display: flex; align-items: center; text-decoration: none; transition: transform 0.2s; }
       .logo-link:hover { transform: rotate(-2deg) translateY(2px); }
-      .logo-img { height: 72px; width: auto; display: block; }
-      .btn { display: inline-block; padding: 14px 28px; border-radius: var(--wobble); font-weight: 700; font-size: 16px; border: 2px solid var(--ink); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, background 0.2s; text-decoration: none; font-family: var(--font-body); white-space: nowrap; }
+      .logo-img { height: 60px; width: auto; display: block; }
+      .btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 52px; padding: 0 26px; border-radius: var(--wobble); font-weight: 700; font-size: 16px; border: 2px solid var(--ink); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, background 0.2s; text-decoration: none; font-family: var(--font-body); white-space: nowrap; }
       .btn-primary { background: var(--accent); color: var(--accent-on); box-shadow: 0 5px 0 0 var(--ink); }
       .btn-primary:hover { color: var(--accent-on); transform: translateY(3px); box-shadow: 0 2px 0 0 var(--ink); }
       .btn-primary:active { background: var(--accent-active); transform: translateY(5px); box-shadow: none; }
@@ -127,9 +128,9 @@
       @keyframes bell-ring { 0%, 100% { transform: rotate(0deg); } 10%, 30% { transform: rotate(12deg); } 20% { transform: rotate(-8deg); } }
       .postcard-lines { height: 2px; background: repeating-linear-gradient(90deg, #d8c9ad 0 10px, transparent 10px 18px); margin: 20px 0 4px; }
       .waitlist-inline { display: flex; gap: 12px; margin-top: 24px; }
-      .waitlist-inline input { flex: 1; min-width: 0; padding: 14px 18px; border: 2px solid var(--ink); border-radius: var(--wobble); font-family: var(--font-body); font-size: 16px; height: 54px; background: #fff; color: var(--fg); outline: none; transition: box-shadow 0.2s; }
+      .waitlist-inline input { flex: 1; min-width: 0; padding: 14px 18px; border: 2px solid var(--ink); border-radius: var(--wobble); font-family: var(--font-body); font-size: 16px; height: 52px; background: #fff; color: var(--fg); outline: none; transition: box-shadow 0.2s; }
       .waitlist-inline input:focus { box-shadow: 0 0 0 4px rgba(184, 92, 56, 0.25); }
-      .btn-notify { height: 54px; padding: 0 24px; background: var(--accent); color: var(--accent-on); border: 2px solid var(--ink); border-radius: var(--wobble); font-family: var(--font-body); font-size: 16px; font-weight: 700; cursor: pointer; white-space: nowrap; box-shadow: 0 5px 0 0 var(--ink); transition: transform 0.15s, box-shadow 0.15s, background 0.2s; }
+      .btn-notify { height: 52px; padding: 0 26px; background: var(--accent); color: var(--accent-on); border: 2px solid var(--ink); border-radius: var(--wobble); font-family: var(--font-body); font-size: 16px; font-weight: 700; cursor: pointer; white-space: nowrap; box-shadow: 0 5px 0 0 var(--ink); transition: transform 0.15s, box-shadow 0.15s, background 0.2s; }
       .btn-notify:hover { transform: translateY(3px); box-shadow: 0 2px 0 0 var(--ink); }
       .form-error { color: var(--accent-active); font-size: 16px; font-weight: 700; margin: 10px 0 0; }
       .waitlist-inline input[aria-invalid="true"] { border-color: var(--accent-active); box-shadow: 0 0 0 4px rgba(131, 63, 38, 0.18); }
@@ -188,8 +189,8 @@
         .hero .lead picture img { width: 32px; height: 32px; vertical-align: -6px; }
         .container { padding: 0 16px; }
         .logo-img { height: 44px; }
-        header { top: 41px; padding: 14px 0; }
-        .btn { padding: 10px 16px; }
+        header { top: 41px; padding: 12px 0; }
+        .btn { height: 48px; padding: 0 18px; }
         .hero { padding-top: 56px; }
         .focus { padding: 48px 0 72px; }
         .features-sec { padding-bottom: 80px; }
@@ -199,6 +200,7 @@
         .stamp { width: 48px; height: 58px; top: 14px; right: 14px; }
         .waitlist-inline { flex-direction: column; }
         .btn-notify { width: 100%; }
+        .btn-notify, .waitlist-inline input { height: 48px; }
         .waitlist-sec { padding-bottom: 80px; }
       }
   </style>
@@ -214,7 +216,7 @@
     <div class="container">
       <nav>
         <a href="#top" class="logo-link" id="logo-link">
-          <img src="images/brand/yaglot_name_with_symbol.png" alt="Yaglot" class="logo-img" height="72">
+          <img src="images/brand/yaglot_name_with_symbol.png" alt="Yaglot" class="logo-img" height="60">
         </a>
         <a href="#waitlist" class="btn btn-primary">Join the waitlist</a>
       </nav>
@@ -362,8 +364,8 @@
         <div>
           <h4>Help</h4>
           <ul>
-            <li><a href="construction">FAQs</a></li>
             <li><a href="contact">Contact us</a></li>
+            <li><a href="faqs">FAQs</a></li>
             <li><a href="privacy">Privacy</a></li>
             <li><a href="terms">Terms</a></li>
           </ul>
