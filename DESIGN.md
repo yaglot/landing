@@ -24,7 +24,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 - Hero background sky `#d6eaf5`; paper `#fffaf0`; sand section `#efe7d6`
 - Cards and buttons: 2px ink border, wobbly radius (`18px 22px 16px 24px / 22px 16px 24px 18px`), chunky ink shadow (`0 5px 0 0` ink), slight tilt (no more than 0.5° on text cards)
 - Wavy SVG edges between sections; squiggle under headings; postcard-style waitlist with stamp
-- Banner: soft sand stripes (`#eadcbc` / `#e2d1ab`), warm grey text `#57534e`, terracotta pulsing dot; text 'We're building our first Mandarin course. Coming soon!'; stays at the top while scrolling on screens wider than 760px (where it fits on one line), scrolls away below that
+- Banner: soft sand stripes (`#eadcbc` / `#e2d1ab`), warm grey text `#57534e`, three blinking dots (9px, yellow, orange, terracotta, one after another, centred on the text) like the 'Reach out to us at' box on the construction page; text 'We're building our first Mandarin course. Coming soon!'; stays at the top while scrolling on screens wider than 760px (where it fits on one line), scrolls away below that
 
 **Phrase cards**: dark-outlined cards floating in the hero sky band (desktop) or grouped above the picture (below 1024px); characters in terracotta, pinyin in olive `#5f7146`.
 - Desktop: the hero picture height follows the screen width (`max(420px, 29vw + 215px)`) so the cards always sit just above the mountains
@@ -106,7 +106,7 @@ All values are hex. Neutrals are warm (yellow-brown undertone), never cool grey.
 | Token | Value | Usage |
 |---|---|---|
 | `--accent` | `#b85c38` | Buttons, links, characters, logo |
-| `--accent-on` | `#faf9f5` | Text on terracotta |
+| `--accent-on` | `#f7f0e3` | Button text (a warm cream, slightly creamier than the page cream) |
 | `--accent-hover` | `#9b4d2f` | Hover |
 | `--accent-active` | `#833f26` | Pressed |
 
