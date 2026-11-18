@@ -134,22 +134,40 @@ All values are hex. Neutrals are warm (yellow-brown undertone), never cool grey.
 
 ### Sizes
 
-| Element | Computer | Phone (768px and below) |
+Nine text sizes: 14, 16, 18, 20, 24, 32, 40, 48, 60 (plus the hero subtitle at 26). Headings use fixed steps per screen size so a lower level is never bigger than the one above it.
+
+| Role | Computer (1024px+) | Tablet (769 to 1023px) | Phone (768px and below) |
+|---|---|---|---|
+| Main heading (hero and construction page) | 60 | 48 | 40 |
+| Section headings | 48 | 40 | 32 |
+| Waitlist heading | 40 | 40 | 32 |
+| Feature card titles | 24 | 24 | 24 |
+| Hero subtitle | 26 | 26 | 20 |
+| Lead text (map section, construction description) | 20 | 20 | 18 |
+| Body text (paragraphs, feature cards, construction email line and back link) | 16 | 16 | 16 |
+| Buttons, footer headings | 16 | 16 | 16 |
+| Small text (banner, privacy note, 'ALMOST THERE', footer links, copyright) | 14 | 14 | 14 |
+| Chinese characters on phrase cards | 40 | 32 | 32 |
+| Pinyin | 14 | 14 | 14 |
+| Phrase-card meaning | 16 | 14 | 14 |
+
+### Visual sizes
+
+| Element | Computer | Phone |
 |---|---|---|
-| Hero heading | `clamp(34px, 5vw, 66px)` | same |
-| h2 section titles | 52px | 34px |
-| Waitlist heading | 36px | 28px |
-| Feature card titles | 24px | 24px |
-| Hero subtitle | 26px | 20px |
-| Body text | 16px (feature cards 15.5px) | same |
-| Chinese characters (phrase cards) | 36px | 26px below 1024px |
-| Pinyin | 16px | 13px below 1024px |
-| Banner | 14px | 12.5px at 520px and below |
+| Logo height | 72 | 44 |
+| Doodle star beside the subtitle | 42 | 32 |
+| Bell beside the waitlist heading | 50 | 40 |
+| Monkey tiles (all three equal) | 140 | 112 (88 at 480px and below) |
+| Feature icon in its blob | 40 in 76 | same |
+| Stamp box and heart | 64×76, 30×28 | 48×58, 24×22 |
+| Squiggle under headings | 120×14 | 96×12 |
+| Wavy section edges | 72 tall | 40 tall |
 
 ### Principles
 
-- Headings at weight 500, tight line height (1.1 to 1.2)
-- Body line height 1.6 (feature cards 1.7)
+- Headings at weight 500, tight line height (1.1 to 1.25)
+- Body line height 1.6 (feature cards 1.65)
 - Long headings use balanced wrapping so lines stay even
 
 ---
@@ -254,7 +272,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 
 | Animation | Timing | Element |
 |---|---|---|
-| Float | 5 to 6s, staggered | Phrase cards (smaller movement below 1024px) |
+| Float | 5 to 6s, staggered | Phrase cards (smaller movement below 1024px); on very wide screens (2800px+) the right-hand card moves further right to stay clear of the sun |
 | Star pop | 2s | Doodle star in the hero subtitle |
 | Bell ring | 2s | Bell beside the waitlist heading |
 | Banner dot blink | 2s | `.stealth-dot` |
