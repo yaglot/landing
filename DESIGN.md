@@ -46,13 +46,24 @@ Check every change at 1440, 1024, 820, 768, 390, 360 and 320px. Also check it at
 
 ### Changing the design
 
-Every design change goes through the three design roles, in this order. No change goes live until all three have signed it off.
+Every design change goes through 'the team'. Each role has its own instructions in `.claude/agents/`.
 
-1. **Visual Designer** checks layout, spacing, type, logo, colour, illustration and motion (sections 2 to 6).
-2. **Experience Designer** checks components, states, page patterns, forms and on-page wording (sections 1, 7 and 8).
-3. **Accessibility Designer** checks the change against WCAG 2.2 AA and runs the testing routine (section 9).
-4. Each designer reviews the other two's work. Disagreements and anything touching a founder decision go to the founder.
-5. The change is shown on the canvas first (computer, tablet and phone boards), then made on the site, then recorded here and in Design versions with a new design version number when a rule's meaning changes.
+| Step | Roles, working at the same time | What they do |
+|---|---|---|
+| 1. Brief | Strategy Designer, Service Designer | Goal, audience and success measure. The whole journey behind the page: forms, the Google Sheet, emails and replies |
+| 2. Advice | Cognitive Scientist, Language Scientist | How people learn and pay attention. Mandarin accuracy: characters, pinyin, tones and learning claims |
+| 3. Make | Content Designer, Experience Designer, Visual Designer | The words, the behaviour and states, and the look |
+| 4. Check | Accessibility Designer, with one quick look from the others | Final pass against WCAG 2.2 AA (section 9) |
+
+To keep it fast:
+
+- Size the team to the change. Small (a colour, a word, a size): only the roles it touches plus the Accessibility Designer. Medium (a component or form): steps 3 and 4. Large (a new page or feature): the whole team.
+- Roles in the same step work at the same time.
+- Measure once. One script takes the screenshots and numbers at every width and all roles use them.
+- Each role reads only its own sections here and returns at most 5 findings.
+- One combined fix pass, then one quick re-check.
+- Founder decisions are never changed without asking the founder.
+- Changes go on the canvas first (computer, tablet and phone boards), then on the site, then into this file and Design versions.
 
 ### Adding a page
 
@@ -467,6 +478,7 @@ Every place where the site does not yet follow the rules, most serious first. Fo
 | Issue | Page and width | Rule | Fix |
 |---|---|---|---|
 | Button text is 16px, so cream on terracotta (4.0 to 1) fails | 'Join the waitlist' on every page, all widths | Sections 3 and 5, WCAG 1.4.3 | Make every button's text text-button (19px bold), olive buttons too. Heights stay 52px and 48px (founder decision) |
+| The hello@yaglot.com link in the failure message stands out from the message only by colour (link #9b4d2f in accent-active #833f26 bold text, about 1.2 to 1, axe 'link-in-text-block') | Home waitlist and Contact failure message, all widths | Sections 7 and 9, WCAG 1.4.1 | Ask the founder. Either underline this one link all the time, or set the message text in fg #141413 (3.1 to 1 against the link) |
 | Links are terracotta (4.3 to 4.4 to 1), which fails at 16 to 18px | Inner page links, '← Back to the home page', consent lines, FAQ links, all widths | Sections 5 and 7, WCAG 1.4.3 | Use link #9b4d2f, bold, underlined on hover (founder decision) |
 | Footer links are 22px tall and the LinkedIn icon has no tap area beyond its 34px, though tablets are touch screens | All pages at 769 to 1023 | Sections 1, 7 and 9 | Give footer links and the LinkedIn icon the phone's 44px tap areas from 1023px down |
 | Loops ignore reduced motion | Home phrase cards, star and bell. Banner dots on every page. Construction dots, slide-in and progress bar (the rule loses to later styles). Smooth scrolling everywhere | Sections 6 and 9 | Stop every loop completely under reduced motion, with the reduced-motion block last in the styles (founder decision) |
