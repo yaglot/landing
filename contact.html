@@ -63,6 +63,8 @@
       header { position: sticky; top: 41px; z-index: 100; background: rgba(255, 250, 240, 0.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 2px dashed #e2d3b8; padding: 6px 0 7px; }
       nav { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
       nav .btn { margin-bottom: 5px; } /* room for the button shadow, so the space above and below looks equal */
+      /* Short screens (under 500px tall, such as 400% zoom or a phone held sideways): the banner and header scroll away */
+      @media (max-height: 500px) { .stealth-banner, header { position: static; } html { scroll-padding-top: 12px; } }
       .logo-link { display: flex; align-items: center; text-decoration: none; transition: transform 0.2s; }
       .logo-link:hover { transform: rotate(-2deg) translateY(2px); }
       .logo-img { height: 72px; width: auto; display: block; }
@@ -98,9 +100,12 @@
         nav .btn { min-width: 0; } /* when space runs out the side padding shrinks evenly, the words stay whole and centred */
         @media (max-width: 359px) {
           /* 'Join the waitlist' sits under the logo and the header scrolls away */
-          header { position: static; }
-          nav { flex-direction: column; align-items: flex-start; }
+          header { position: static; padding: 12px 0 22px; }
+          nav { flex-direction: column; align-items: flex-start; gap: 17px; }
           html { scroll-padding-top: 12px; }
+          /* The logo file has a 10px transparent edge at 46px tall, so the button moves in 10px to line up with the drawing.
+             22px of clear space above the drawing, between the drawing and the button, and below the button's shadow */
+          nav .btn { margin-left: 10px; }
         }
       }
 
@@ -141,7 +146,7 @@
       .contact-form .field-error { color: var(--accent-active); font-size: 16px; font-weight: 700; margin: 6px 0 0; }
       .contact-form [aria-invalid="true"] { border-color: var(--accent-active); box-shadow: 0 0 0 4px rgba(131, 63, 38, 0.18); }
       .contact-thanks { text-align: center; padding: 24px 8px; }
-      .contact-thanks h2 { margin: 0 0 8px; color: var(--accent); }
+      .contact-thanks h2 { margin: 0 0 8px; color: var(--fg); }
       .legal .or-email { font-size: 18px; line-height: 1.6; margin-top: 40px; }
       @media (max-width: 768px) {
         .legal .lead-in { font-size: 16px; }
@@ -252,11 +257,15 @@
       .contact-form .word-count.over { color: var(--accent-active); font-weight: 700; }
       @media (max-width: 374px) { .logo-img { height: 46px; } }
       /* While sending, the button reads 'Sending…' and stays still with its normal colour, shadow and an arrow cursor */
-      .btn-olive:disabled, .btn-olive:disabled:hover, .btn-olive:disabled:active { cursor: default; transform: none; background: #5f7146; box-shadow: 0 5px 0 0 var(--ink); }
+      /* aria-disabled, not disabled, so the button keeps focus while sending */
+      .btn-olive[aria-disabled="true"], .btn-olive[aria-disabled="true"]:hover, .btn-olive[aria-disabled="true"]:active { cursor: default; transform: none; background: #5f7146; box-shadow: 0 5px 0 0 var(--ink); }
       /* Read by screen readers only */
       .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
       /* Failure message under the button */
-      .contact-form .form-fail { color: var(--accent-active); font-size: 16px; font-weight: 700; margin: 0; }
+      .contact-form .form-fail { color: var(--accent-active); font-size: 16px; font-weight: 700; margin: 0; text-wrap: pretty; scroll-margin-bottom: 16px; } /* when it scrolls into view it stops 16px above the screen edge */
+      /* The email address in the failure message is a link and never wraps on its own */
+      .contact-form .form-fail a { color: #9b4d2f; font-weight: 700; text-decoration: none; white-space: nowrap; }
+      .contact-form .form-fail a:hover { text-decoration: underline; }
       /* The thank-you heading takes focus so it is read out, but is not something to press */
       .contact-thanks h2:focus { outline: none; }
   </style>
@@ -292,12 +301,12 @@
             <div>
               <label for="cf-name">Name</label>
               <input id="cf-name" placeholder="John Doe" name="name" type="text" autocomplete="name" required aria-describedby="cf-name-error">
-              <p class="field-error" id="cf-name-error" role="alert" hidden></p>
+              <p class="field-error" id="cf-name-error" hidden></p>
             </div>
             <div>
               <label for="cf-email">Email</label>
               <input id="cf-email" placeholder="you@example.com" name="email" type="email" autocomplete="email" required aria-describedby="cf-email-error">
-              <p class="field-error" id="cf-email-error" role="alert" hidden></p>
+              <p class="field-error" id="cf-email-error" hidden></p>
             </div>
           </div>
           <div>
@@ -314,7 +323,7 @@
             <label for="cf-message">Message</label>
             <textarea id="cf-message" placeholder="What's on your mind?" name="message" required aria-describedby="cf-message-error cf-message-count"></textarea>
             <p class="word-count" id="cf-message-count" aria-live="polite">0 / 500 words</p>
-            <p class="field-error" id="cf-message-error" role="alert" hidden></p>
+            <p class="field-error" id="cf-message-error" hidden></p>
           </div>
           <div class="trap" aria-hidden="true">
             <label for="cf-website">Leave this empty</label>
@@ -395,7 +404,8 @@
       // A link such as contact?topic=Working%20with%20us picks that topic for the visitor
       var wanted = new URLSearchParams(location.search).get('topic');
       if (wanted) {
-        Array.prototype.forEach.call(form.elements['topic'].options, function (o) { if (o.text === wanted) form.elements['topic'].value = o.text; });
+        // Capital letters do not matter, so working%20with%20us also picks 'Working with us'
+        Array.prototype.forEach.call(form.elements['topic'].options, function (o) { if (o.text.toLowerCase() === wanted.trim().toLowerCase()) form.elements['topic'].value = o.text; });
       }
       // Clear a box's warning as soon as the visitor starts typing in it
       ['name', 'email', 'message'].forEach(function (k) {
@@ -407,7 +417,8 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         var btn = form.querySelector('button[type="submit"]');
-        if (btn.disabled) return;
+        // While sending the button is aria-disabled (it keeps focus), so further presses do nothing
+        if (btn.getAttribute('aria-disabled') === 'true') return;
         var f = form.elements;
         var name = f['name'].value.trim(), email = f['email'].value.trim(), message = f['message'].value.trim();
         // Show a warning under each box that's missing or wrong, and don't send
@@ -425,18 +436,24 @@
           if (problems[k]) { f[k].setAttribute('aria-invalid', 'true'); if (!first) first = f[k]; }
           else f[k].removeAttribute('aria-invalid');
         });
-        if (first) { first.focus(); return; }
+        // Moving focus to the first box with a problem reads its warning once (through aria-describedby).
+        // The warnings have no role="alert", so nothing is read twice. If the cursor is already there, leave and come back
+        if (first) { if (document.activeElement === first) first.blur(); first.focus(); return; }
         // Show 'Sending…' on the button and tell screen readers, and hide any earlier failure message
         var statusBox = document.getElementById('cf-status');
         var failBox = document.getElementById('cf-fail');
         failBox.hidden = true;
         failBox.textContent = '';
-        btn.disabled = true;
+        // Keep the button's width so it does not shrink while 'Sending…' shows
+        btn.style.minWidth = btn.offsetWidth + 'px';
+        btn.setAttribute('aria-disabled', 'true');
         btn.textContent = 'Sending…';
         statusBox.textContent = 'Sending…';
-        // Robots fill the hidden box or send within 3 seconds of the page opening. Nothing is sent then,
-        // so the visitor sees the failure message and keeps what they typed, never 'Thank you!'
-        var looksLikeSpam = f['website'].value !== '' || Date.now() - startedAt < 3000;
+        // Robots fill the hidden box: send nothing and quietly show 'Thank you!'
+        var trapFilled = f['website'].value !== '';
+        // Robots also send within 3 seconds of the page opening. A person who is that quick
+        // (autofill, a pasted message) keeps seeing 'Sending…' until 3 seconds have passed, then it sends as normal
+        var wait = Math.max(0, 3000 - (Date.now() - startedAt));
         var details = new URLSearchParams({
           form: 'contact',
           name: name,
@@ -446,24 +463,27 @@
           consent: 'privacy-v26.2'
         });
         // With 'no-cors' the answer cannot be read, so only a network failure
-        // or no answer within 15 seconds counts as a failed send
+        // or no answer within 15 seconds of sending counts as a failed send
         var controller = window.AbortController ? new AbortController() : null;
         var timer;
-        var send = looksLikeSpam ? Promise.reject(new Error('not sent')) : Promise.race([
-          fetch('https://script.google.com/macros/s/AKfycbzfAgURxVnNx_jh8BH5Tt2B6gXhl66O7gOMsZhp74ebgQ_dG4Kw8W4I3dPXg3pexwOg9A/exec', {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: details.toString(),
-            signal: controller ? controller.signal : undefined
-          }),
-          new Promise(function (resolve, reject) {
-            timer = setTimeout(function () {
-              if (controller) controller.abort();
-              reject(new Error('timeout'));
-            }, 15000);
-          })
-        ]);
+        var send = new Promise(function (resolve) { setTimeout(resolve, wait); }).then(function () {
+          if (trapFilled) return;
+          return Promise.race([
+            fetch('https://script.google.com/macros/s/AKfycbzfAgURxVnNx_jh8BH5Tt2B6gXhl66O7gOMsZhp74ebgQ_dG4Kw8W4I3dPXg3pexwOg9A/exec', {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: details.toString(),
+              signal: controller ? controller.signal : undefined
+            }),
+            new Promise(function (resolve, reject) {
+              timer = setTimeout(function () {
+                if (controller) controller.abort();
+                reject(new Error('timeout'));
+              }, 15000);
+            })
+          ]);
+        });
         // Show the result after about one second at the earliest, so 'Sending…' does not flash
         var atLeastOneSecond = new Promise(function (resolve) { setTimeout(resolve, 1000); });
         // Wait for both, even when the send fails at once
@@ -475,12 +495,16 @@
             // Move focus to the heading so screen readers read the thank-you once
             form.querySelector('h2').focus();
           } else {
-            // Nothing reached us: keep the form and what was typed, let them try again and say what to do
-            btn.disabled = false;
+            // Nothing reached us: keep the form and what was typed, let them try again and say what to do.
+            // Focus stays where it was (the button or the box they pressed Enter in)
+            btn.removeAttribute('aria-disabled');
             btn.textContent = 'Send message';
+            btn.style.minWidth = '';
+            failBox.innerHTML = 'Something went wrong. Please try again or email us at&nbsp;<a href="mailto:hello@yaglot.com">hello@yaglot.com</a>.';
             failBox.hidden = false;
-            failBox.textContent = 'Something went wrong. Please try again or email us at hello@yaglot.com.';
-            if (document.activeElement === document.body || document.activeElement === btn) btn.focus();
+            // On phones the message can sit below the screen: bring it into view, without sliding under reduced motion
+            var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            failBox.scrollIntoView({ block: 'nearest', behavior: still ? 'auto' : 'smooth' });
           }
         });
       });

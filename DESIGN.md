@@ -254,8 +254,8 @@ Each component has one job and behaves the same wherever it appears.
 
 | Component | Computer | Tablet | Phone | Rule |
 |---|---|---|---|---|
-| Sticky banner | 41px tall, sticks | As computer | 60px, scrolls away | Sticks only above 760px, where it fits on one line |
-| Header | 87px tall | As computer | 79px tall, 141px below 360px | Logo (section 4) on the left links home, 'Join the waitlist' on the right, at least 16px apart on phone. Sticks under the banner. When space runs short the button's side padding shrinks evenly, never its words. Below 360px the button sits 16px under the logo, lined up with the left margin, and the header scrolls away |
+| Sticky banner | 41px tall, sticks | As computer | 60px, scrolls away | Sticks only above 760px, where it fits on one line. On short screens (500px tall or less, such as 400% zoom or a phone held sideways) it scrolls away |
+| Header | 87px tall | As computer | 79px tall, 152px below 360px | Logo (section 4) on the left links home, 'Join the waitlist' on the right, at least 16px apart on phone. Sticks under the banner. When space runs short the button's side padding shrinks evenly, never its words. Below 360px the button sits under the logo and the header scrolls away. The button lines up with the logo drawing, not the image box (the file has a 10px transparent edge at 46px tall), and there is 22px of clear space above the drawing, between the drawing and the button, and below the button's shadow. On short screens (500px tall or less) the header scrolls away at every width |
 | Button | 52px tall, 24px side padding (space-5) | As computer | 48px tall, 16px side padding (space-4) | text-button. Form buttons fill the width on phone |
 | Text box and Topic | 52px tall | As computer | 48px tall | Match the button height. 16px inside on the left and right (space-4), no padding top or bottom |
 | Message box | 150px tall | As computer | 150px tall | People can drag it taller |
@@ -276,7 +276,7 @@ Buttons do things and links go to pages.
 | Hover | Moves down 3px, shadow 2px. The colour does not change | Same |
 | Pressed | Darkens to accent-active, moves down 5px, no shadow | Darkens to olive-pressed, same movement |
 | Focus | 3px accent-active outline, 3px away. In the footer the outline is accent-on | Same |
-| Disabled | Reads 'Sending…', keeps its normal colour and 5px shadow, stays still on hover, normal arrow cursor | Same |
+| Sending | Reads 'Sending…' and keeps its width, so nothing next to it moves. Keeps its normal colour and 5px shadow, stays still on hover, normal arrow cursor. Uses `aria-disabled="true"`, not `disabled`, so it keeps keyboard focus, and presses do nothing until the result | Same |
 | Error | Buttons never show errors. The boxes do | Same |
 
 Button words start with a verb and use three words at most, such as 'Send message'.
@@ -285,6 +285,7 @@ Button words start with a verb and use three words at most, such as 'Send messag
 
 - Links on light backgrounds are link #9b4d2f and bold, with no underline (founder decision). This covers links inside sentences and standalone links such as '← Back to the home page'.
 - They underline on hover and show the focus outline (section 9).
+- The address hello@yaglot.com in a failure message (section 8) is a mailto link in the same style. It never wraps on its own, so 'at hello@yaglot.com.' stays together on one line.
 - Footer links are footer-link #b0aea5 and turn #e8a387 on hover. Their focus outline is accent-on.
 - Links that leave yaglot.com open in a new tab and have a spoken label such as 'Yaglot on LinkedIn (opens in a new tab)'.
 
@@ -338,13 +339,13 @@ Every page follows one of two shapes, asks for one thing and speaks plainly.
 
 ### One main action per screen
 
-Count only the page content, not the header. A screen shows at most one filled button. If a page needs a second action, make it a link. The header 'Join the waitlist' goes to the postcard (#waitlist) and stops below the sticky banner and header, using the scroll padding in section 9.
+Count only the page content, not the header. A screen shows at most one filled button. If a page needs a second action, make it a link. The header 'Join the waitlist' goes to the postcard's words and form (#waitlist) and stops below the sticky banner and header, using only the scroll padding in section 9 (no extra scroll margin). The email box is then on screen at every width, 320 by 568 included. On tablet and phone the postcard picture sits above, out of view. Coming from another page, the home page aims again once its fonts have loaded, unless the visitor has already scrolled.
 
 ### Form flows
 
 **When we check.** Only when the visitor presses the button. Never while typing or when they leave a box (GOV.UK pattern, approximate).
 
-**What happens on a problem.** Nothing is sent. Every problem shows at once, each warning under its own box. The cursor jumps to the first one. A warning disappears as soon as the visitor types in that box.
+**What happens on a problem.** Nothing is sent. Every problem shows at once, each warning under its own box. The cursor jumps to the first one, which reads its warning out (section 9). A warning disappears as soon as the visitor types in that box.
 
 | Box | Problem | Warning |
 |---|---|---|
@@ -356,11 +357,15 @@ Count only the page content, not the header. A screen shows at most one filled b
 
 Warnings say what to do, start with 'Please' and never use words like 'invalid' or 'error'.
 
-**Sending.** The button reads 'Sending…' and cannot be pressed again. A `role="status"` area says 'Sending…' to screen readers. After about one second the form is replaced by its success message.
+**Sending.** The button reads 'Sending…', keeps its width and focus and cannot be pressed again (section 7). A `role="status"` area says 'Sending…' to screen readers. The result shows after one second at the earliest, so 'Sending…' never flashes. With 'no-cors' we cannot read the answer, so the send counts as done unless the network fails or there is no answer within 15 seconds.
+
+**Robot checks (Contact).** Robots fill the hidden 'Leave this empty' box or send within 3 seconds of the page opening.
+- If the button is pressed within 3 seconds of the page opening (autofill, a pasted message or a quick person), 'Sending…' stays until 3 seconds have passed and then the message is sent as normal. The 15 seconds start from then. Never show a failure for the time rule.
+- If the hidden box is filled, nothing is sent and 'Thank you!' shows quietly. This is the one case where a success message shows without a send.
 
 **Success.** The waitlist shows 'You're in!' and 'We'll let you know as soon as we're ready.' The contact form shows 'Thank you!' and 'Your message is on its way. We'll reply to you by email.' Both use the same layout, with the heading in fg. The cursor moves to the heading so screen readers announce it.
 
-**Failure.** If the message cannot reach us, keep the form and what was typed. Show 'Something went wrong. Please try again or email us at hello@yaglot.com.' under the button, in a `role="alert"` area so screen readers read it out. Never show a success message when nothing was sent.
+**Failure.** Only a network failure or 15 seconds with no answer counts. Keep the form and what was typed, and the button reads its normal words again. Show 'Something went wrong. Please try again or email us at hello@yaglot.com.' under the button, in a `role="alert"` area so screen readers read it out. hello@yaglot.com is a mailto link (section 7) and stays on one line with 'at'. The message sits 18px under the button on both forms and in text-body bold accent-active. If it is below the screen, as on phones, it scrolls gently into view (at once with reduced motion). Focus stays on the button, or the box where Enter was pressed. Apart from the hidden box above, never show a success message when nothing was sent.
 
 ### Links that pick a topic
 
@@ -405,14 +410,14 @@ Borders, icons and focus outlines need 3 to 1 against what is next to them (WCAG
 ### Focus, keyboard and targets
 
 - **Focus visible (2.4.7).** You can always see where the keyboard is. Every link, button, box and FAQ question shows a 3px accent-active outline, 3px away. In the footer the outline is accent-on cream #f7f0e3 only (founder decision).
-- **Focus not obscured (2.4.11).** The focused item must never hide under the sticky banner and header. Set `scroll-padding-top` to the measured sticky height plus 12px. That is 140px from 769px up (128px sticky), 132px at 761 to 768px (120px sticky) and 91px at 360 to 760px (79px sticky). Below 360px the header scrolls away, so it is 12px. The header 'Join the waitlist' link uses the same offset.
+- **Focus not obscured (2.4.11).** The focused item must never hide under the sticky banner and header. Set `scroll-padding-top` to the measured sticky height plus 12px. That is 140px from 769px up (128px sticky), 132px at 761 to 768px (120px sticky) and 91px at 360 to 760px (79px sticky). Below 360px, and on screens 500px tall or less (400% zoom, a phone held sideways), the banner and header scroll away, so it is 12px. The header 'Join the waitlist' link uses the same offset and nothing else adds to it.
 - **Keyboard (2.1.1).** Everything works without a mouse, with no traps.
 - **Skip link (2.4.1).** People can jump past repeated parts. Add a 'Skip to main content' link that appears on focus.
 - **Target size (2.5.8).** Things you tap are at least 24 by 24px or spaced apart (approximate). Our own rule is 48px buttons and boxes on phone, 52px on tablet and 44px link tap areas on both (section 7).
 
 ### Zoom, reflow and spacing
 
-- **Reflow (1.4.10).** At 320px wide, which equals 400% zoom on a computer, nothing scrolls sideways. Below 360px the header wraps and scrolls away (section 7), which also makes 19px button text fit.
+- **Reflow (1.4.10).** At 320px wide, which equals 400% zoom on a computer, nothing scrolls sideways. Below 360px the header wraps and scrolls away (section 7), which also makes 19px button text fit. On screens 500px tall or less nothing sticks, so the sticky parts never take a third of the screen.
 - **Resize text (1.4.4).** Text zoomed to 200% stays readable with nothing lost.
 - **Text spacing (1.4.12).** Text still fits when readers widen line, letter and word spacing.
 
@@ -429,8 +434,8 @@ Borders, icons and focus outlines need 3 to 1 against what is next to them (WCAG
 - **Labels (3.3.2).** Every box has a visible label, the waitlist's 'Email address' included (section 7).
 - **Required fields (3.3.2).** Name, Email and Message use `required`. Topic always has an answer, so its label stays 'Topic'.
 - **Autocomplete (1.3.5).** Name and email boxes use `autocomplete="name"` and `autocomplete="email"`.
-- **Errors (3.3.1 and 3.3.3).** Problems are explained in words. Both forms set `aria-invalid`, link warnings with `aria-describedby` and focus the first problem. Every warning is announced when it appears, so each contact warning has `role="alert"` like the waitlist warning.
-- **Status messages (4.1.3).** Put 'Sending…' in a `role="status"` area. When the thank-you appears, move focus to its heading (`tabindex="-1"`) and leave it out of the live area, so it is read once. The failure message uses `role="alert"`.
+- **Errors (3.3.1 and 3.3.3).** Problems are explained in words. Both forms set `aria-invalid`, link warnings with `aria-describedby` and move focus to the first problem, which reads its warning once. Warnings have no `role="alert"`, so nothing is read twice and several warnings never cut each other off. If the cursor is already in that box (Enter pressed there), it leaves and comes back so the warning is read. Other warnings are read when people reach their boxes.
+- **Status messages (4.1.3).** Put 'Sending…' in a `role="status"` area. The button uses `aria-disabled`, not `disabled`, so focus never drops to the page while sending. When the thank-you appears, move focus to its heading (`tabindex="-1"`) and leave it out of the live area, so it is read once. The failure message uses `role="alert"`, is shown and filled in one step and leaves focus where it was.
 
 ### Motion
 
@@ -470,12 +475,10 @@ Every place where the site does not yet follow the rules, most serious first. Fo
 | 'ALMOST THERE' is terracotta at 14px (4.4 to 1) | Construction, all widths | Sections 3 and 5, WCAG 1.4.3 | accent-active #833f26 (7.5 to 1), kept at 14px capitals spaced 0.08em |
 | Chinese characters and pinyin are not marked as languages | Home, all widths | Section 9, WCAG 3.1.2 | `lang="zh-Hant-TW"` and `lang="zh-Latn-pinyin"` |
 | Selected boxes get a terracotta glow (4px #b85c38 ring at 25%) | Home waitlist, Contact, all widths | Sections 5 and 7 | Remove the glow and keep only the focus outline |
-| 'You're in!' heading is terracotta | Home, all widths | Section 5 | Make it fg #141413 |
 | Feature cards lift 6px with a bigger shadow on hover, though they cannot be clicked | Home, all widths | Sections 2, 6 and 7 | Remove the lift and shadow change (founder decision) |
 | Lines are too long. 78 to 84 characters (66ch, 680 to 716px) on inner pages and 87 characters (736px) in the home map text | Privacy, Terms, FAQs and Mission at 1440. Home map text at 768 | Sections 2 and 3 | width-paragraph 34em, at most 75 characters |
 | The home map text is centred and runs 82 characters a line (772px) at 820 and 103 (975px) at 1023 | Home at 769 to 1023 | Sections 2 and 3 | width-paragraph 34em, left-aligned as on phone |
-| '?topic=' only matches the exact capitals, so 'working%20with%20us' falls back to General question | Contact, all widths | Section 8 | Ignore capital letters when matching |
-| The two success messages look different. Only the waitlist has a tick and its heading is smaller | Home waitlist, Contact | Section 8 | Give both the same layout |
+| The two success messages look different. Only the waitlist has a tick, its heading is smaller and its block is about 190px taller than the form it replaces | Home waitlist, Contact | Section 8 | Give both the same layout. Both headings are already fg |
 | The FAQ answer about schools says 'contact us and choose Schools and businesses' instead of linking | FAQs, all widths | Section 8 | Link to contact?topic=Schools%20and%20businesses |
 | Postcard and map stack while phrase cards float, because they switch at 1024px and the hero at 1023px. A tablet held sideways gets a half-stacked page | Home at 1024 | Section 2 | Computer layout from 1024px. Every tablet rule stops at 1023px |
 | The waitlist box and button stay side by side (box 479px wide at 820) | Home at 769 to 1023 | Section 7 | Stack the box above the button on tablet, as on phone |

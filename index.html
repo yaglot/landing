@@ -65,6 +65,8 @@
       header { position: sticky; top: 41px; z-index: 100; background: rgba(255, 250, 240, 0.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 2px dashed #e2d3b8; padding: 6px 0 7px; }
       nav { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
       nav .btn { margin-bottom: 5px; } /* room for the button shadow, so the space above and below looks equal */
+      /* Short screens (under 500px tall, such as 400% zoom or a phone held sideways): the banner and header scroll away */
+      @media (max-height: 500px) { .stealth-banner, header { position: static; } html { scroll-padding-top: 12px; } }
       .logo-link { display: flex; align-items: center; text-decoration: none; transition: transform 0.2s; }
       .logo-link:hover { transform: rotate(-2deg) translateY(2px); }
       .logo-img { height: 72px; width: auto; display: block; }
@@ -125,7 +127,7 @@
       .feature-icon svg[viewBox="0 0 24 24"] { stroke-width: 2; }
   
       /* Waitlist postcard */
-      .waitlist-sec { background: var(--bg); padding: 24px 0 112px; scroll-margin-top: 140px; }
+      .waitlist-sec { background: var(--bg); padding: 24px 0 112px; }
       .postcard { position: relative; display: grid; grid-template-columns: 1fr 1fr; background: var(--surface); border: 2px solid var(--ink); border-radius: var(--wobble-lg); box-shadow: 0 8px 0 0 rgba(58, 47, 42, 0.85); overflow: hidden; rotate: -0.5deg; }
       .postcard-art { width: 100%; height: 100%; min-height: 360px; object-fit: cover; object-position: 50% 60%; background: #2d3561; display: block; border-right: 2px dashed #d8c9ad; }
       .postcard-body { padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; position: relative; }
@@ -205,9 +207,12 @@
         nav .btn { min-width: 0; } /* when space runs out the side padding shrinks evenly, the words stay whole and centred */
         @media (max-width: 359px) {
           /* 'Join the waitlist' sits under the logo and the header scrolls away */
-          header { position: static; }
-          nav { flex-direction: column; align-items: flex-start; }
+          header { position: static; padding: 12px 0 22px; }
+          nav { flex-direction: column; align-items: flex-start; gap: 17px; }
           html { scroll-padding-top: 12px; }
+          /* The logo file has a 10px transparent edge at 46px tall, so the button moves in 10px to line up with the drawing.
+             22px of clear space above the drawing, between the drawing and the button, and below the button's shadow */
+          nav .btn { margin-left: 10px; }
         }
         .hero { padding-top: 56px; }
         .focus { padding: 48px 0 72px; }
@@ -252,7 +257,12 @@
       }
       @media (max-width: 374px) { .logo-img { height: 46px; } }
       /* While sending, the button reads 'Sending…' and stays still with its normal colour, shadow and an arrow cursor */
-      .btn-notify:disabled, .btn-notify:disabled:hover, .btn-notify:disabled:active { cursor: default; transform: none; background: var(--accent); box-shadow: 0 5px 0 0 var(--ink); }
+      /* aria-disabled, not disabled, so the button keeps focus while sending */
+      .btn-notify[aria-disabled="true"], .btn-notify[aria-disabled="true"]:hover, .btn-notify[aria-disabled="true"]:active { cursor: default; transform: none; background: var(--accent); box-shadow: 0 5px 0 0 var(--ink); }
+      /* Failure message: the same 18px gap under the button as on Contact. The email address never wraps on its own */
+      #waitlist-fail { margin-top: 18px; text-wrap: pretty; scroll-margin-bottom: 16px; }
+      .form-error a { color: #9b4d2f; font-weight: 700; text-decoration: none; white-space: nowrap; }
+      .form-error a:hover { text-decoration: underline; }
       /* Read by screen readers only */
       .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
       /* The thank-you heading takes focus so it is read out, but is not something to press */
@@ -371,11 +381,12 @@
 
   <!-- Waitlist -->
   <svg class="wave" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true" style="background: #efe7d6;"><path d="M0 30 C 220 64 420 6 660 34 S 1060 66 1260 30 S 1400 24 1440 34 V72 H0 Z" fill="#f5f4ed"></path></svg>
-  <section class="waitlist-sec" id="waitlist">
+  <section class="waitlist-sec">
     <div class="container">
       <div class="postcard">
         <img class="postcard-art" src="images/illustrations/night-market.svg" alt="" aria-hidden="true">
-        <div class="postcard-body">
+        <!-- #waitlist is the postcard's words and form, so the header link stops with the email box on screen, even at 320 by 568 -->
+        <div class="postcard-body" id="waitlist">
           <div class="stamp" aria-hidden="true"><svg width="30" height="28" viewBox="0 0 30 28" fill="currentColor"><path d="M15 27 C 6 20 1 15 1 9 C 1 4 5 1 9 1 C 12 1 14 3 15 5 C 16 3 18 1 21 1 C 25 1 29 4 29 9 C 29 15 24 20 15 27 Z"></path></svg></div>
           <h2>
             <span>Get early access at an exclusive price</span>
@@ -386,7 +397,7 @@
             <input type="email" name="email" placeholder="you@example.com" aria-label="Email address" autocomplete="email" required aria-describedby="waitlist-error">
             <button type="submit" class="btn-notify">Join the waitlist</button>
           </form>
-          <p class="form-error" id="waitlist-error" role="alert" hidden></p>
+          <p class="form-error" id="waitlist-error" hidden></p>
           <p class="visually-hidden" id="waitlist-status" role="status"></p>
           <p class="form-error" id="waitlist-fail" role="alert" hidden></p>
           <p class="privacy">By joining, you agree to receive emails from Yaglot about our launch and early access. You can unsubscribe at any time. Read our <a href="privacy">privacy notice</a>.</p>
@@ -448,6 +459,17 @@
       if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     });
 
+    // Arriving from another page's 'Join the waitlist' (./#waitlist): the browser aims before the fonts arrive, and the
+    // page then grows, so it can stop short. Aim again once the fonts are in, unless the visitor has scrolled or pressed a key
+    if (location.hash === '#waitlist' && document.fonts) {
+      let moved = false;
+      ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function(ev) { addEventListener(ev, function() { moved = true; }, { once: true, passive: true }); });
+      document.fonts.ready.then(function() {
+        const target = document.getElementById('waitlist');
+        if (!moved && target) target.scrollIntoView({ block: 'start' });
+      });
+    }
+
     // Handle waitlist form submission
     const waitlistForm = document.getElementById('waitlist-form-main');
     if (waitlistForm) {
@@ -459,7 +481,8 @@
         e.preventDefault();
 
         const btn = waitlistForm.querySelector('.btn-notify');
-        if (!btn || btn.disabled) return;
+        // While sending the button is aria-disabled (it keeps focus), so further presses do nothing
+        if (!btn || btn.getAttribute('aria-disabled') === 'true') return;
 
         // Check the email before sending and show a warning if it's missing or wrong
         const emailInput = waitlistForm.querySelector('input[type="email"]');
@@ -471,6 +494,9 @@
           errorBox.textContent = problem;
           errorBox.hidden = false;
           emailInput.setAttribute('aria-invalid', 'true');
+          // Moving focus to the box reads its warning once (through aria-describedby).
+          // If the cursor is already there, leave and come back so it is read again
+          if (document.activeElement === emailInput) emailInput.blur();
           emailInput.focus();
           return;
         }
@@ -482,7 +508,9 @@
         const failBox = document.getElementById('waitlist-fail');
         failBox.hidden = true;
         failBox.textContent = '';
-        btn.disabled = true;
+        // Keep the button's width so the email box does not jump while 'Sending…' shows
+        btn.style.minWidth = btn.offsetWidth + 'px';
+        btn.setAttribute('aria-disabled', 'true');
         btn.textContent = 'Sending…';
         statusBox.textContent = 'Sending…';
 
@@ -568,7 +596,7 @@
           waitlistForm.innerHTML = `
             <div class="waitlist-thanks" style="text-align: center; padding: 40px 20px; width: 100%;">
               <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">✓</div>
-              <h3 tabindex="-1" style="color: var(--accent); margin-bottom: 12px; font-size: 24px;">You're in!</h3>
+              <h3 tabindex="-1" style="color: var(--fg); margin-bottom: 12px; font-size: 24px;">You're in!</h3>
               <p style="color: var(--muted); font-size: 16px; line-height: 1.6;">
                 We'll let you know as soon as we're ready.
               </p>
@@ -580,11 +608,14 @@
 
         // Nothing reached us: keep the form and the email, let them try again and say what to do
         function showFailure() {
-          btn.disabled = false;
+          btn.removeAttribute('aria-disabled');
           btn.textContent = 'Join the waitlist';
+          btn.style.minWidth = '';
+          failBox.innerHTML = 'Something went wrong. Please try again or email us at&nbsp;<a href="mailto:hello@yaglot.com">hello@yaglot.com</a>.';
           failBox.hidden = false;
-          failBox.textContent = 'Something went wrong. Please try again or email us at hello@yaglot.com.';
-          if (document.activeElement === document.body || document.activeElement === btn) btn.focus();
+          // Bring the message into view if it is below the screen, without sliding under reduced motion
+          const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          failBox.scrollIntoView({ block: 'nearest', behavior: still ? 'auto' : 'smooth' });
         }
       });
     }

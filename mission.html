@@ -63,6 +63,8 @@
       header { position: sticky; top: 41px; z-index: 100; background: rgba(255, 250, 240, 0.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 2px dashed #e2d3b8; padding: 6px 0 7px; }
       nav { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
       nav .btn { margin-bottom: 5px; } /* room for the button shadow, so the space above and below looks equal */
+      /* Short screens (under 500px tall, such as 400% zoom or a phone held sideways): the banner and header scroll away */
+      @media (max-height: 500px) { .stealth-banner, header { position: static; } html { scroll-padding-top: 12px; } }
       .logo-link { display: flex; align-items: center; text-decoration: none; transition: transform 0.2s; }
       .logo-link:hover { transform: rotate(-2deg) translateY(2px); }
       .logo-img { height: 72px; width: auto; display: block; }
@@ -98,9 +100,12 @@
         nav .btn { min-width: 0; } /* when space runs out the side padding shrinks evenly, the words stay whole and centred */
         @media (max-width: 359px) {
           /* 'Join the waitlist' sits under the logo and the header scrolls away */
-          header { position: static; }
-          nav { flex-direction: column; align-items: flex-start; }
+          header { position: static; padding: 12px 0 22px; }
+          nav { flex-direction: column; align-items: flex-start; gap: 17px; }
           html { scroll-padding-top: 12px; }
+          /* The logo file has a 10px transparent edge at 46px tall, so the button moves in 10px to line up with the drawing.
+             22px of clear space above the drawing, between the drawing and the button, and below the button's shadow */
+          nav .btn { margin-left: 10px; }
         }
       }
 
