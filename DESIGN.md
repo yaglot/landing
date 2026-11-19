@@ -65,7 +65,7 @@ To keep it fast:
 - One round for everything: all agreed fixes go into a single build pass.
 - One combined fix pass, then one quick re-check.
 - Founder decisions are never changed without asking the founder.
-- Changes go on the canvas first (computer, tablet and phone boards), then on the site, then into this file and Design versions.
+- Changes go on the canvas first (computer and phone boards; tablet sizes are still checked on the site at 820 and 768px), then on the site, then into this file and Design versions.
 
 ### Adding a page
 
