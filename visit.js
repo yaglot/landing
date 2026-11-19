@@ -128,11 +128,23 @@
     }, true);
   }
 
+  // Social media links clicked: the network's name, for example 'instagram|youtube'
+  var SOCIAL = { 'instagram.com': 'instagram', 'threads.com': 'threads', 'threads.net': 'threads',
+    'facebook.com': 'facebook', 'youtube.com': 'youtube', 'tiktok.com': 'tiktok',
+    'linkedin.com': 'linkedin', 'x.com': 'x', 'twitter.com': 'x' };
+  var social = [];
+  document.addEventListener('click', function (event) {
+    var link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
+    if (!link || !link.hostname) return;
+    var name = SOCIAL[link.hostname.replace(/^www\./, '')];
+    if (name && social.indexOf(name) === -1) social.push(name);
+  }, true);
+
   // Send the latest totals whenever the page is hidden or left. It may be sent several times.
   var lastSent = '';
   function sendUpdate() {
     measureScroll();
-    var body = new URLSearchParams({ form: 'visits-update', id: id, seconds: String(seconds()), scroll: String(scroll), faqs: faqs.join('|') });
+    var body = new URLSearchParams({ form: 'visits-update', id: id, seconds: String(seconds()), scroll: String(scroll), faqs: faqs.join('|'), social: social.join('|') });
     var text = body.toString();
     if (text === lastSent) return;
     lastSent = text;
