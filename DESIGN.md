@@ -65,7 +65,7 @@ To keep it fast:
 - One round for everything: all agreed fixes go into a single build pass.
 - One combined fix pass, then one quick re-check.
 - Founder decisions are never changed without asking the founder.
-- Changes go on the canvas first (computer, tablet and phone boards), then on the site, then into this file and Design versions.
+- Changes go on the canvas first (computer and phone boards; tablet sizes are still checked on the site at 820 and 768px), then on the site, then into this file and Design versions.
 
 ### Adding a page
 
@@ -744,7 +744,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
   - **Products:** Yaglot Pro, Yaglot Max, For schools, For businesses
   - **Help:** Contact us, FAQs, Privacy, Terms
   - **Follow us:** each network's own official logo, drawn to its official proportions (34px); LinkedIn's blue 'in' square (`#0A66C2`, small rounded corners, white 'in' filling the square as in LinkedIn's own logo) only for now (linkedin.com/company/yaglot)
-  - **Follow us (18 November 2026):** seven icons in one colour (footer link grey #b0aea5, light terracotta #e8a387 on hover), 24px, grouped by what they are for: Instagram, Threads and Facebook (social); YouTube and TikTok (video); LinkedIn and X (news and work). Handles: Instagram, Threads, Facebook and X yaglotlabs; YouTube and TikTok yaglot. 44px to tap on phones and tablets
+  - **Follow us (19 November 2026):** seven icons in one colour (footer link grey #b0aea5, light terracotta #e8a387 on hover), 24px, grouped by what they are for: Threads, Instagram and Facebook (social); YouTube and TikTok (video); LinkedIn and X (news and work). Handles: Instagram, Threads, Facebook and X yaglotlabs; YouTube and TikTok yaglot. 44px to tap on phones and tablets
 - Links go to the construction page until their pages exist (Our mission, Our team, Careers, Contact us, FAQs, Privacy and Terms go to their pages; Yaglot Pro, Yaglot Max, For schools and For businesses stay on the construction page for now)
 - Our mission page: intro line, 'Why we're here', 'Starting with Mandarin' and 'What we believe': six beliefs in one column, each with the matching home page feature icon in a soft coloured blob (60px, 48px on phone), a 20px serif title and the text beside it; no boxes
 - Our team page: describes the team's research (PhDs in Cognitive Science and Language Science) without names; people are added later
