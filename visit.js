@@ -140,11 +140,25 @@
     if (name && social.indexOf(name) === -1) social.push(name);
   }, true);
 
+  // Where people click or tap, for the click heatmap: across as a % of the page width, down as a % of the
+  // page height, for example '52,12.5|8,90.1'. Only the position, never what was clicked or typed. At most 40.
+  var clicks = [];
+  document.addEventListener('click', function (event) {
+    if (clicks.length >= 40 || typeof event.pageX !== 'number') return;
+    var doc = document.documentElement;
+    var width = doc.clientWidth || window.innerWidth;
+    var height = Math.max(doc.scrollHeight, document.body ? document.body.scrollHeight : 0);
+    if (!width || !height || (event.pageX === 0 && event.pageY === 0)) return;
+    var x = Math.max(0, Math.min(100, Math.round(event.pageX / width * 100)));
+    var y = Math.max(0, Math.min(100, Math.round(event.pageY / height * 1000) / 10));
+    clicks.push(x + ',' + y);
+  }, true);
+
   // Send the latest totals whenever the page is hidden or left. It may be sent several times.
   var lastSent = '';
   function sendUpdate() {
     measureScroll();
-    var body = new URLSearchParams({ form: 'visits-update', id: id, seconds: String(seconds()), scroll: String(scroll), faqs: faqs.join('|'), social: social.join('|') });
+    var body = new URLSearchParams({ form: 'visits-update', id: id, seconds: String(seconds()), scroll: String(scroll), faqs: faqs.join('|'), social: social.join('|'), clicks: clicks.join('|') });
     var text = body.toString();
     if (text === lastSent) return;
     lastSent = text;
