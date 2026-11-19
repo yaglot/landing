@@ -75,7 +75,7 @@
   var id = randomId();
 
   send(new URLSearchParams({
-    form: 'visit', page: page, device: deviceType(), referrer: referrerName(),
+    form: 'visits', page: page, device: deviceType(), referrer: referrerName(),
     region: (Intl.DateTimeFormat().resolvedOptions().timeZone || '').slice(0, 60),
     language: (navigator.language || '').slice(0, 20),
     id: id
@@ -132,7 +132,7 @@
   var lastSent = '';
   function sendUpdate() {
     measureScroll();
-    var body = new URLSearchParams({ form: 'visit-update', id: id, seconds: String(seconds()), scroll: String(scroll), faqs: faqs.join('|') });
+    var body = new URLSearchParams({ form: 'visits-update', id: id, seconds: String(seconds()), scroll: String(scroll), faqs: faqs.join('|') });
     var text = body.toString();
     if (text === lastSent) return;
     lastSent = text;
