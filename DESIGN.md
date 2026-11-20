@@ -47,25 +47,7 @@ Check every change on phone first (390, 360 and 320px), then tablet (820 and 768
 
 ### Changing the design
 
-Every design change goes through 'the team'. Each role has its own instructions in `.claude/agents/`.
-
-| Step | Roles, working at the same time | What they do |
-|---|---|---|
-| 1. Brief | Strategy Designer, Service Designer | Goal, audience and success measure. The whole journey behind the page: forms, the Google Sheet, emails and replies |
-| 2. Advice | Cognitive Scientist, Language Scientist | How people learn and pay attention. Mandarin accuracy: characters, pinyin, tones and learning claims |
-| 3. Make | Content Designer, Experience Designer, Visual Designer | The words, the behaviour and states, and the look |
-| 4. Check | Accessibility Designer, with one quick look from the others | Final pass against WCAG 2.2 AA (section 9) |
-
-To keep it fast:
-
-- Size the team to the change. Small (a colour, a word, a size): only the roles it touches plus the Accessibility Designer. Medium (a component or form): steps 3 and 4. Large (a new page or feature): the whole team.
-- Roles in the same step work at the same time.
-- Measure once. One script takes the screenshots and numbers at every width and all roles use them.
-- Each role reads only its own sections here and returns at most 5 findings.
-- One round for everything: all agreed fixes go into a single build pass.
-- One combined fix pass, then one quick re-check.
-- Founder decisions are never changed without asking the founder.
-- Changes go on the canvas first (computer and phone boards; tablet sizes are still checked on the site at 820 and 768px), then on the site, then into this file and Design versions.
+How the team works on a change, step by step, is set out once in `CLAUDE.md`. Each role's own instructions are in `.claude/agents/`.
 
 ### Adding a page
 
