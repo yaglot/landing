@@ -32,7 +32,7 @@ Every Yaglot page should feel friendly, obvious and consistent.
 
 1. **Phone first.** Yaglot is a mobile-first company. Design every page for the phone first, then let it grow for tablet and computer. Keep words short and every screen easy to use with one thumb. This follows who visits today. If computer or tablet visitors become clearly more common, the founder may switch the focus, and this rule changes then.
 2. **One clear next step.** Each screen asks for one main action. 'Join the waitlist' is the only terracotta button and every other button is olive.
-3. **Plain words.** Write the way a friendly teacher talks, with no jargon.
+3. **Plain words.** Write the way a friendly teacher talks, with no jargon. Call what learners use a 'course', not a 'product' (the footer's 'Products' menu is the only exception).
 4. **Same thing, same look.** A button, link or box looks and behaves the same on every page (Nielsen's 'consistency and standards', approximate).
 5. **Always show what is happening.** Pressing a button gives an instant response, then a clear result (Nielsen's 'visibility of system status', approximate).
 6. **Forgive mistakes.** Check forms only when people press the button, say exactly what to fix and never clear what they typed.
