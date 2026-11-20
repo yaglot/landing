@@ -278,7 +278,7 @@ Button words start with a verb and use three words at most, such as 'Send messag
 ### Links
 
 - Links on light backgrounds are link #9b4d2f and bold, with no underline (founder decision). This covers links inside sentences and standalone links such as '← Back to the home page'.
-- They underline on hover and show the focus outline (section 9).
+- They underline on hover, in olive #5f7146 (founder decision, 20 November 2026), and show the focus outline (section 9).
 - The address hello@yaglot.com in a failure message (section 8) is a mailto link in the same style. It never wraps on its own, so 'at hello@yaglot.com.' stays together on one line.
 - Footer links are footer-link #b0aea5 and turn #e8a387 on hover. Their focus outline is accent-on.
 - Links that leave yaglot.com open in a new tab and have a spoken label such as 'Yaglot on LinkedIn (opens in a new tab)'.
