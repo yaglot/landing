@@ -345,9 +345,11 @@
       .feature-card p { color: var(--muted); }
       .privacy { max-width: 34em; } /* consent line, 45 to 75 characters a line */
       .feature-icon svg[viewBox="0 0 24 24"] { stroke-width: 1.2; } /* 2px lines at 40px */
-      /* Feature cards stay still (they are not links); only the icon gives one small wiggle on hover */
-      @keyframes icon-wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-8deg); } 60% { transform: rotate(6deg); } 85% { transform: rotate(-2deg); } }
-      @media (hover: hover) and (prefers-reduced-motion: no-preference) { .feature-card:hover .feature-icon { animation: icon-wiggle 0.5s ease-in-out; } }
+      /* Founder's choice: feature cards lift a little on hover (computer only, off with reduced motion) */
+      @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+        .feature-card { transition: transform 0.25s, box-shadow 0.25s; }
+        .feature-card:hover { transform: translateY(-6px); box-shadow: 0 12px 0 0 #dccfb6; }
+      }
       /* Waitlist: visible label, box above the button on phone and tablet, side by side on computer */
       .waitlist-label { display: block; font-size: 16px; font-weight: 700; color: var(--fg); margin: 24px 0 8px; padding-left: 18px; }
       .waitlist-inline { flex-direction: column; margin-top: 0; }
