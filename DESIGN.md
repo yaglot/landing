@@ -143,7 +143,7 @@ Buttons use 19px bold because WCAG counts 19px bold as large text, which lets cr
 
 The logo is the oracle bone tree symbol beside 'Yaglot' in Noto Serif Bold, both accent #b85c38.
 
-The nine logo files live in images/brand and are listed in Part B (Logo). The header uses yaglot_name_with_symbol.png (648 by 220px, with 48px of transparent space on every side). On a computer the whole logo hops once when hovered (up 10px with a 5-degree tilt, a small second bounce, then it lands, 0.7s); it is off with reduced motion. A symbol-only twirl was tried and turned down.
+The nine logo files live in images/brand and are listed in Part B (Logo). The header uses yaglot_name_with_symbol.png (648 by 220px, with 48px of transparent space on every side). On a computer the whole logo wiggles once when hovered (tilts 7 degrees left, 6 right, then smaller swings until it settles, 0.7s); it is off with reduced motion. A symbol-only twirl and a hop were tried and turned down.
 
 | Token | Phone | Tablet | Computer | Rule |
 |---|---|---|---|---|
@@ -696,7 +696,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 
 ##### Header
 - Sticky under the banner, cream frosted background (`rgba(255,250,240,0.94)` + blur), dashed bottom border
-- Logo left (72px tall, 52px on phones, 46px under 375px wide), button right; the logo hops on hover and takes you back to the top
+- Logo left (72px tall, 52px on phones, 46px under 375px wide), button right; the logo wiggles on hover and takes you back to the top
 
 ##### Waitlist postcard
 - Two halves: night-market picture and form; stacks on screens 1024px and below
