@@ -7,7 +7,7 @@
   1. **Brief**: Strategy Designer (goal, audience, success measure), Service Designer (the whole journey: page, forms, Google Sheet, emails) and Growth and Search (how people find the site and join the waitlist), at the same time.
   2. **Advice**: Cognitive Scientist (learning, attention, mental load) and Language Scientist (Mandarin, pinyin, tones, learning claims), at the same time.
   3. **Make**: Content Designer (words), Experience Designer (behaviour and states), Visual Designer (look), Accessibility Designer (accessible from the start) and Web Engineer (builds it), at the same time.
-  4. **Check**: Accessibility Designer gives the final pass, Web Engineer tests it, Language Scientist rechecks the finished words, and the others each give one quick look.
+  4. **Check**: Accessibility Designer gives the final pass, Web Engineer tests it, Language Scientist rechecks the finished words, Growth and Search checks titles, link previews and the sign-up path, and the others each give one quick look.
   - **Legal Advisor**, at any step, whenever a change touches the privacy notice, terms, consent, forms or what the site collects.
 - To keep it fast:
   - Size the team to the change. Small (a colour, a word, a size): only the roles it touches plus the Accessibility Designer and Web Engineer. Medium (a component or form): steps 3 and 4. Large (a new page or feature): the whole team.
