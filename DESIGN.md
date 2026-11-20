@@ -514,7 +514,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 - Icon shape: a terracotta circle with the cream symbol, used for the browser tab icons (`favicon.ico`, `favicon.svg`, `favicon-96x96.png`) and `images/brand/yaglot_circle.png` (the circle on a transparent background)
 - Phone home-screen and app icons (`apple-touch-icon.png`, `web-app-manifest-*.png`) stay full squares, because phones cut them into their own rounded or circle shape
 - Icon links (in `index.html`, `construction.html` and `site.webmanifest`) end in a version tag, currently `?v=2`. Raise the number whenever an icon file changes, so browsers fetch the new icons instead of showing their saved copies
-- Social preview picture: `images/social_preview.png` (1200 × 630): the logo and 'Languages, reimagined!' above the hero scene; not a logo file
+- Social preview picture: `images/social_preview.png` (1200 × 630): the logo and 'Language learning, reimagined!' above the hero scene; not a logo file
 - The nine logo files, all in `images/brand/` (names use underscores, `_`):
   - `yaglot_name_with_symbol.png`: terracotta symbol and name, transparent (the header logo)
   - `yaglot_circle.png`: the circle on its own, transparent
@@ -528,7 +528,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 - Only these nine are logos. Any logo file added, changed, renamed or removed must be reported to the founder, with the updated files, so their local logo folder stays in step
 
 **Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
-- Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
+- Home tab title: 'Languages, reimagined!' (the short version, tab only; Google usually shows this as the search title too). Search description, link preview and share picture: 'Language learning, reimagined!', with the description 'Founded by a language and cognitive scientist, Yaglot is building its first Mandarin course. Coming soon!' (20 November 2026). The site name 'Yaglot' is given to Google by a WebSite tag in the Home page head. Construction page: 'Yaglot is coming soon!'
 - Pages live at yaglot.com, yaglot.com/construction (construction.html), yaglot.com/privacy (privacy.html), yaglot.com/terms (terms.html, terms and conditions), yaglot.com/contact (contact.html), yaglot.com/faqs (faqs.html), yaglot.com/mission (mission.html), yaglot.com/team (team.html) and yaglot.com/careers (careers.html); 404.html forwards old addresses such as /privacy to the right page
 
 ---
