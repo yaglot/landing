@@ -143,7 +143,7 @@ Buttons use 19px bold because WCAG counts 19px bold as large text, which lets cr
 
 The logo is the oracle bone tree symbol beside 'Yaglot' in Noto Serif Bold, both accent #b85c38.
 
-The nine logo files live in images/brand and are listed in Part B (Logo). The header uses yaglot_name_with_symbol.png (648 by 220px, with 48px of transparent space on every side). On hover (and on keyboard focus) a hand-drawn terracotta squiggle, the same shape as the heading squiggles, draws itself under the logo in 0.5s; with reduced motion it appears at once. A symbol twirl, a hop and a bigger wiggle were tried first.
+The nine logo files live in images/brand and are listed in Part B (Logo). The header uses yaglot_name_with_symbol.png (648 by 220px, with 48px of transparent space on every side). On hover (and on keyboard focus) a hand-drawn olive (#5f7146) squiggle, the same shape as the heading squiggles, draws itself under the logo in 0.5s; with reduced motion it appears at once. A symbol twirl, a hop and a bigger wiggle were tried first.
 
 | Token | Phone | Tablet | Computer | Rule |
 |---|---|---|---|---|
