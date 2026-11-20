@@ -207,7 +207,7 @@ Icon tints #fbe0d6, #dcedf6 and #fbecc4 sit only behind icons.
 Hand-drawn doodles sit behind the page, and flat outlined elements sit on top.
 
 - Doodles are felt-tip style (rough.js), with wobbly lines and scribbled fills. Doodles are never flat with an ink border.
-- Among flat items with one fill and a 2px ink border, only controls move or change when hovered or pressed. Reading cards (phrase cards, feature cards and the construction 'Reach out' box) stay still. The one exception (founder's choice, 20 November 2026): on a computer, feature cards lift 6px on hover, with a deeper shadow (12px), over 0.25s; it is off with reduced motion. An icon-only wiggle was tried and found too subtle.
+- Among flat items with one fill and a 2px ink border, only controls move or change when hovered or pressed. Reading cards (phrase cards, feature cards and the construction 'Reach out' box) stay still. The one exception (founder's choice, 20 November 2026): the feature cards themselves stay still, but on a computer each card's icon bounces and wiggles while the card is hovered (up 8px, a tilt of up to 12 degrees and a 15% grow, settling within 0.7s and repeating every 1.4s); it is off with reduced motion. A single small wiggle was too subtle, and a card lift was turned down.
 - Outlines are ink, 1.4 to 2.2px wide at full artwork size. Wood and trunks may use #7a5236.
 - Drawings stay at least 12px from text, buttons, other lines and picture edges on computer and tablet, 8px on phone. They never touch.
 - The illustration palette is sky #d6eaf5, sea #a9d2e6, leaf #8cc084, deep green #5a9a5f, yellow #f6c453, persimmon #d9573b, orange #ef9a4a, sand #eadcbc and night #2d3561.
