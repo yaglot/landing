@@ -528,7 +528,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 - Only these nine are logos. Any logo file added, changed, renamed or removed must be reported to the founder, with the updated files, so their local logo folder stays in step
 
 **Titles and addresses** (full details in the 'yaglot.com: behind the scenes' document)
-- Home tab and social preview title: 'Languages, reimagined!'; construction page: 'Yaglot is coming soon!'
+- Home tab, search and social preview title: 'Language learning, reimagined!', with the description 'Founded by a language and cognitive scientist, Yaglot is building its first Mandarin course. Coming soon!' (20 November 2026). The site name 'Yaglot' is given to Google by a WebSite tag in the Home page head. Construction page: 'Yaglot is coming soon!'
 - Pages live at yaglot.com, yaglot.com/construction (construction.html), yaglot.com/privacy (privacy.html), yaglot.com/terms (terms.html, terms and conditions), yaglot.com/contact (contact.html), yaglot.com/faqs (faqs.html), yaglot.com/mission (mission.html), yaglot.com/team (team.html) and yaglot.com/careers (careers.html); 404.html forwards old addresses such as /privacy to the right page
 
 ---
