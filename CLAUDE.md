@@ -18,6 +18,6 @@
   - One combined fix pass, then one quick re-check. No second full review unless something must be fixed.
 - Show changes on the canvas first (computer and phone boards), then change the site. The site still works on tablets, checked at 820 and 768px.
 - Check every change at 390, 360 and 320px first, then 820 and 768px, then 1024 and 1440px.
-- After a change, update DESIGN.md and the 'Yaglot design guide' document, and say which documents were updated.
+- After a change, update DESIGN.md and the 'Design versions' document, and say which documents were updated.
 - This repository is public. Never add confidential product details, prices or patent information.
 - Writing style: British English, single quotation marks, no em dashes, no unnecessary Oxford commas or colons.
