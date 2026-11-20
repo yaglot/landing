@@ -143,7 +143,7 @@ Buttons use 19px bold because WCAG counts 19px bold as large text, which lets cr
 
 The logo is the oracle bone tree symbol beside 'Yaglot' in Noto Serif Bold, both accent #b85c38.
 
-The nine logo files live in images/brand and are listed in Part B (Logo). The header uses yaglot_name_with_symbol.png (648 by 220px, with 48px of transparent space on every side), cut at 158px into logo_symbol_part.png and logo_name_part.png so the symbol can move on its own; side by side they look exactly like the full file. On a computer the symbol twirls once (a full turn with a small overshoot, 0.8s) when the logo is hovered, while the name stays still; it is off with reduced motion.
+The nine logo files live in images/brand and are listed in Part B (Logo). The header uses yaglot_name_with_symbol.png (648 by 220px, with 48px of transparent space on every side). On a computer the whole logo hops once when hovered (up 10px with a 5-degree tilt, a small second bounce, then it lands, 0.7s); it is off with reduced motion. A symbol-only twirl was tried and turned down.
 
 | Token | Phone | Tablet | Computer | Rule |
 |---|---|---|---|---|
@@ -516,8 +516,7 @@ The site uses a hand-drawn, felt-tip doodle style. This section is the summary; 
 - Icon links (in `index.html`, `construction.html` and `site.webmanifest`) end in a version tag, currently `?v=2`. Raise the number whenever an icon file changes, so browsers fetch the new icons instead of showing their saved copies
 - Social preview picture: `images/social_preview.png` (1200 × 630): the logo and 'Language learning, reimagined!' above the hero scene; not a logo file
 - The nine logo files, all in `images/brand/` (names use underscores, `_`):
-  - `yaglot_name_with_symbol.png`: terracotta symbol and name, transparent (the source of the header logo)
-  - `logo_symbol_part.png` and `logo_name_part.png`: the header logo cut in two, used side by side in the header
+  - `yaglot_name_with_symbol.png`: terracotta symbol and name, transparent (the header logo)
   - `yaglot_circle.png`: the circle on its own, transparent
   - `yaglot_circle_with_name.png`: circle and terracotta name, transparent
   - `yaglot_name_on_terracotta_with_symbol.png`: cream symbol and name on terracotta
@@ -697,7 +696,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 
 ##### Header
 - Sticky under the banner, cream frosted background (`rgba(255,250,240,0.94)` + blur), dashed bottom border
-- Logo left (72px tall, 52px on phones, 46px under 375px wide), button right; the logo's symbol twirls on hover and the logo takes you back to the top
+- Logo left (72px tall, 52px on phones, 46px under 375px wide), button right; the logo hops on hover and takes you back to the top
 
 ##### Waitlist postcard
 - Two halves: night-market picture and form; stacks on screens 1024px and below
