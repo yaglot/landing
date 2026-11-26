@@ -41,9 +41,9 @@ Every Yaglot page should feel friendly, obvious and consistent.
 
 ### Screen sizes
 
-'Computer' means 1024px wide and up. 'Phone' means 768px and down. Between the two is 'tablet' (769 to 1023px), such as an iPad held upright (820px). Tablets held sideways (1024px and wider) get the computer layout and an iPad mini held upright (744px) gets the phone layout. Tablet pages stack like a phone but keep computer spacing and control sizes. Headings use the tablet sizes in section 3.
+There are four layouts (founder decision, 26 November 2026). 'Phone' means 768px and down. 'Tablet upright' means 769 to 1023px, such as an iPad held upright (820px); its pages stack like a phone but keep computer spacing and control sizes, and headings use the tablet sizes in section 3. 'Tablet sideways' means a touch screen 1024px and wider (hover: none and pointer: coarse), such as an iPad held sideways; it uses the computer layout with tablet tap sizes (44px footer links) and the feature cards in two columns. 'Computer' means 1024px and up with a mouse or trackpad. An iPad mini held upright (744px) gets the phone layout. Tablet boards are not drawn on the canvas; both tablet layouts are checked on the site.
 
-Check every change on phone first (390, 360 and 320px), then tablet (820 and 768px), then computer (1024 and 1440px). Also check it at 200% browser zoom.
+Check every change on phone first (390, 360 and 320px), then tablet upright (820 and 768px), then tablet sideways (1180 and 1024px, touch), then computer (1024 and 1440px). Also check it at 200% browser zoom.
 
 ### Changing the design
 
@@ -65,6 +65,7 @@ Every page uses the same three layouts, one spacing scale and a small set of cor
 |---|---|---|---|---|
 | bp-computer | | | 1024px and up | Computer rules start at 1024px. Phone and tablet rules stop at 1023px |
 | bp-tablet | | 769 to 1023px | | Stacks like a phone with computer spacing, control sizes and side margins. Tablet heading sizes (section 3) |
+| bp-tablet-sideways | | Touch, 1024px and up | | Computer layout with tablet tap sizes (44px footer links) and two-column feature cards. Matched by hover: none and pointer: coarse, so laptops keep the computer layout |
 | bp-phone | 768px and down | | | Smaller text, one column |
 | Smallest width | 320px | | | No sideways scrolling |
 | width-page | Full width | As phone | 1200px | Centred, includes side margins |
@@ -72,7 +73,7 @@ Every page uses the same three layouts, one spacing scale and a small set of cor
 | width-paragraph | 34em (544px) | As computer | 34em (612px) | Caps every paragraph and list at 45 to 75 characters a line |
 | margin-side | 16px | As computer | 24px | Every page, every section |
 
-An iPad held upright (820px) is a tablet. Tablets held sideways (1024px and wider) get the computer layout and an iPad mini held upright (744px) gets the phone layout.
+An iPad held upright (820px) is tablet upright. A touch screen 1024px and wider, such as an iPad held sideways, is tablet sideways: the computer layout with tablet tap sizes and two-column feature cards. An iPad mini held upright (744px) gets the phone layout.
 
 Small tweaks stay at 760px (the banner stops sticking), 520px (smaller banner text) and 374px (smaller logo). Below 360px the header button moves under the logo and the header scrolls away (section 7). Add no breakpoint without a measured reason. Material 3 switches at 600 and 840px and GOV.UK at 641 and 769px (approximate).
 
