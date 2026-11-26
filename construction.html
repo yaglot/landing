@@ -51,10 +51,10 @@
 
       /* Banner + header */
       .stealth-banner { background: repeating-linear-gradient(-45deg, #eadcbc 0 7px, #e2d1ab 7px 9px); color: #57534e; text-align: center; padding: 10px 16px; font-size: 16px; font-weight: 500; line-height: 21px; letter-spacing: 0.02em; position: sticky; top: 0; z-index: 200; }
-      .stealth-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 1.5px solid var(--ink); display: inline-block; margin-right: 6px; vertical-align: -1px; animation: stealth-pulse 2s ease-in-out infinite; }
+      .stealth-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 1.5px solid var(--ink); display: inline-block; margin-right: 6px; vertical-align: -1px; animation: stealth-pulse 2s ease-in-out 3; }
       @keyframes stealth-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
       .stealth-dots { display: inline-flex; gap: 5px; margin-right: 8px; vertical-align: 1px; }
-      .stealth-dots .stealth-dot { width: 9px; height: 9px; margin: 0; background: #f6c453; animation: stealth-pulse 1.4s ease-in-out infinite; }
+      .stealth-dots .stealth-dot { width: 9px; height: 9px; margin: 0; background: #f6c453; animation: stealth-pulse 1.4s ease-in-out 3; }
       .stealth-dots .sd2 { background: #ef9a4a; animation-delay: 0.2s; }
       .stealth-dots .sd3 { background: var(--accent); animation-delay: 0.4s; }
       @media (max-width: 760px) { .stealth-banner { position: static; text-wrap: balance; } header { top: 0 !important; } }
@@ -64,7 +64,7 @@
       nav { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
       nav .btn { margin-bottom: 5px; } /* room for the button shadow, so the space above and below looks equal */
       /* Short screens (under 500px tall, such as 400% zoom or a phone held sideways): the banner and header scroll away */
-      @media (max-height: 500px) { .stealth-banner, header { position: static; } html { scroll-padding-top: 12px; } }
+      @media (max-height: 600px) { .stealth-banner, header { position: static; } html { scroll-padding-top: 12px; } }
       .logo-link { display: flex; align-items: center; text-decoration: none; transition: transform 0.2s; }
       /* A hand-drawn squiggle draws itself under the logo on hover or keyboard focus (appears at once with reduced motion) */
       .logo-link { position: relative; }
@@ -76,7 +76,7 @@
       .logo-img { height: 72px; width: auto; display: block; }
       .btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 52px; padding: 0 26px; border-radius: var(--wobble); font-weight: 700; font-size: 16px; border: 2px solid var(--ink); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, background 0.2s; text-decoration: none; font-family: var(--font-body); white-space: nowrap; }
       .btn-primary { background: var(--accent); color: var(--accent-on); box-shadow: 0 5px 0 0 var(--ink); }
-      .btn-primary:hover { color: var(--accent-on); transform: translateY(3px); box-shadow: 0 2px 0 0 var(--ink); }
+      @media (hover: hover) { .btn-primary:hover { color: var(--accent-on); transform: translateY(3px); box-shadow: 0 2px 0 0 var(--ink); } }
       .btn-primary:active { background: var(--accent-active); transform: translateY(5px); box-shadow: none; }
 
       /* Footer */
@@ -87,13 +87,13 @@
       footer ul { list-style: none; }
       footer ul li { margin-bottom: 12px; }
       footer ul li a { font-size: 16px; color: #b0aea5; text-decoration: none; }
-      footer ul li a:hover { color: #e8a387; }
+      @media (hover: hover) { footer ul li a:hover { color: #e8a387; } }
       footer .footer-social { display: flex; flex-direction: column; gap: 14px; }
       footer .social-row { display: flex; gap: 18px; } /* rows of 3, 2 and 2 icons */
       footer .footer-social a { color: #b0aea5; } /* one colour, like the footer links */
-      footer .footer-social a:hover { color: #e8a387; opacity: 1; }
+      @media (hover: hover) { footer .footer-social a:hover { color: #e8a387; opacity: 1; } }
       footer .footer-social a { display: inline-flex; border-radius: 6px; transition: transform 0.2s, opacity 0.2s; }
-      footer .footer-social a:hover { transform: translateY(-2px); opacity: 0.9; }
+      @media (hover: hover) { footer .footer-social a:hover { transform: translateY(-2px); opacity: 0.9; } }
       .footer-bottom { border-top: 1px dashed #3d3d3a; padding-top: 24px; text-align: center; }
       .footer-bottom p { font-size: 14px; color: #87867f; }
 
@@ -124,24 +124,25 @@
       .monkey { position: relative; display: block; width: 140px; height: 140px; background: var(--surface); border: 2px solid var(--ink); border-radius: var(--wobble-lg); padding: 10px; box-shadow: 0 5px 0 0 rgba(58, 47, 42, 0.85); }
       .monkey:nth-child(1) { rotate: -4deg; }
       .monkey:nth-child(3) { rotate: 4deg; }
-      .monkey-inner { position: relative; display: block; width: 100%; height: 100%; animation: monkey-bob 3s ease-in-out infinite; }
+      .monkey-inner { position: relative; display: block; width: 100%; height: 100%; animation: monkey-bob 3s ease-in-out 3; }
       .monkey:nth-child(2) .monkey-inner { animation-delay: 0.4s; }
       .monkey:nth-child(3) .monkey-inner { animation-delay: 0.8s; }
       .monkey img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-      .m-see-a { animation: see-a 2.2s steps(1) infinite; } .m-see-b { animation: see-b 2.2s steps(1) infinite; }
-      .m-see-hl { animation: see-hl 2.2s ease-in-out infinite; } .m-see-hr { animation: see-hr 2.2s ease-in-out infinite; }
+      .m-see-b, .m-hear-b, .m-speak-b { opacity: 0; } /* at rest after the loops end */
+      .m-see-a { animation: see-a 2.2s steps(1) 3; } .m-see-b { animation: see-b 2.2s steps(1) 3; }
+      .m-see-hl { animation: see-hl 2.2s ease-in-out 3; } .m-see-hr { animation: see-hr 2.2s ease-in-out 3; }
       @keyframes see-a { 0%, 32% { opacity: 1; } 33%, 84% { opacity: 0; } 85%, 100% { opacity: 1; } }
       @keyframes see-b { 0%, 32% { opacity: 0; } 33%, 84% { opacity: 1; } 85%, 100% { opacity: 0; } }
       @keyframes see-hl { 0%, 25% { transform: translate(0, 0); } 36%, 80% { transform: translate(-18%, 5%); } 90%, 100% { transform: translate(0, 0); } }
       @keyframes see-hr { 0%, 25% { transform: translate(0, 0); } 36%, 80% { transform: translate(18%, 5%); } 90%, 100% { transform: translate(0, 0); } }
-      .m-hear-a { animation: hear-a 2.1s steps(1) infinite; } .m-hear-b { animation: hear-b 2.1s steps(1) infinite; }
-      .m-hear-hl { animation: hear-hl 2.1s ease-in-out infinite; } .m-hear-hr { animation: hear-hr 2.1s ease-in-out infinite; }
+      .m-hear-a { animation: hear-a 2.1s steps(1) 3; } .m-hear-b { animation: hear-b 2.1s steps(1) 3; }
+      .m-hear-hl { animation: hear-hl 2.1s ease-in-out 3; } .m-hear-hr { animation: hear-hr 2.1s ease-in-out 3; }
       @keyframes hear-a { 0%, 32% { opacity: 1; } 33%, 100% { opacity: 0; } }
       @keyframes hear-b { 0%, 32% { opacity: 0; } 33%, 100% { opacity: 1; } }
       @keyframes hear-hl { 0%, 30%, 100% { transform: translateX(0); } 40%, 60%, 80% { transform: translateX(3%); } 50%, 70%, 90% { transform: translateX(0); } }
       @keyframes hear-hr { 0%, 30%, 100% { transform: translateX(0); } 40%, 60%, 80% { transform: translateX(-3%); } 50%, 70%, 90% { transform: translateX(0); } }
-      .m-speak-a { animation: speak-a 2.25s steps(1) infinite; } .m-speak-b { animation: speak-b 2.25s steps(1) infinite; }
-      .m-speak-hl { animation: speak-hl 2.25s ease-in-out infinite; } .m-speak-hr { animation: speak-hr 2.25s ease-in-out infinite; }
+      .m-speak-a { animation: speak-a 2.25s steps(1) 3; } .m-speak-b { animation: speak-b 2.25s steps(1) 3; }
+      .m-speak-hl { animation: speak-hl 2.25s ease-in-out 3; } .m-speak-hr { animation: speak-hr 2.25s ease-in-out 3; }
       @keyframes speak-a { 0%, 30% { opacity: 1; } 31%, 84% { opacity: 0; } 85%, 100% { opacity: 1; } }
       @keyframes speak-b { 0%, 30% { opacity: 0; } 31%, 84% { opacity: 1; } 85%, 100% { opacity: 0; } }
       @keyframes speak-hl { 0%, 20% { transform: translate(0, 0); } 32%, 80% { transform: translate(-15%, -5%); } 92%, 100% { transform: translate(0, 0); } }
@@ -158,13 +159,13 @@
       .uc-notify { display: inline-flex; align-items: center; gap: 10px; background: var(--surface); border: 2px solid var(--ink); border-radius: 999px; padding: 10px 20px; box-shadow: 0 4px 0 0 rgba(58, 47, 42, 0.85); }
       .uc-notify span { font-size: 16px; color: var(--muted); }
       .uc-dots { display: flex; gap: 5px; align-items: center; }
-      .dot { width: 9px; height: 9px; background: #f6c453; border: 1.5px solid var(--ink); border-radius: 50%; display: inline-block; animation: blink 1.4s ease-in-out infinite; }
+      .dot { width: 9px; height: 9px; background: #f6c453; border: 1.5px solid var(--ink); border-radius: 50%; display: inline-block; animation: blink 1.4s ease-in-out 3; }
       .dot2 { animation-delay: 0.2s; background: #ef9a4a; }
       .dot3 { animation-delay: 0.4s; background: var(--accent); }
       @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
       .uc-back { margin-top: 28px; }
       .uc-back a { font-size: 18px; font-weight: 700; text-decoration: none; }
-      .uc-back a:hover { text-decoration: underline; }
+      @media (hover: hover) { .uc-back a:hover { text-decoration: underline; } }
       .uc-art { display: block; width: 100%; max-width: 1400px; height: auto; margin: 40px auto 0; }
       @media (max-width: 1023px) { .uc-heading { font-size: 48px; } }
       @media (max-width: 768px) {
@@ -196,7 +197,7 @@
       .postcard h2 { padding-right: 48px; }
       .faq summary { text-wrap: balance; }
       .faq { transition: background 0.2s; }
-      .faq:hover { background: #f3efe6; }
+      @media (hover: hover) { .faq:hover { background: #f3efe6; } }
       .values { margin: 16px 0 0 !important; gap: 16px; }
       .hero h1, .legal h1, .uc-heading { line-height: 1.15; }
       h3 { font-size: 24px; }
@@ -228,7 +229,7 @@
       @media (max-width: 359px) { nav .btn { padding-left: 16px; padding-right: 16px; } }
       /* Links on light backgrounds: link colour, bold, underlined on hover */
       main a:not(.btn) { color: var(--link); font-weight: 700; text-decoration: none; }
-      main a:not(.btn):hover { text-decoration: underline; text-decoration-color: #5f7146; }
+      @media (hover: hover) { main a:not(.btn):hover { text-decoration: underline; text-decoration-color: #5f7146; } }
       /* Skip link, shown on focus */
       .skip-link { position: absolute; left: 16px; top: 8px; z-index: 300; background: var(--surface); color: var(--link); font-size: 16px; font-weight: 700; text-decoration: none; padding: 10px 16px; border: 2px solid var(--ink); border-radius: var(--wobble); }
       .skip-link:not(:focus) { width: 1px; height: 1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -262,21 +263,17 @@
       footer h2 { font-family: var(--font-display); font-weight: 500; font-size: 16px; line-height: 1.6; color: #c8963e; margin-bottom: 16px; }
       footer .footer-content { grid-template-columns: 1fr 1fr; }
       @media (min-width: 769px) { footer .footer-content { grid-template-columns: repeat(4, 1fr); } }
-      @media (max-width: 1023px) {
+      @media (max-width: 1023px), (any-pointer: coarse) {
         footer ul li { margin-bottom: 0; }
         footer ul li a { display: inline-block; padding: 9px 0; min-height: 44px; }
         footer h2 { margin-bottom: 7px; }
         footer .footer-social a { padding: 10px; margin: -10px; }
       }
       footer a:focus-visible { outline-color: var(--accent-on); }
-      /* Tablet sideways: touch screens 1024px and wider. The computer layout with tablet tap sizes (44px links in the footer) */
-      @media (min-width: 1024px) and (hover: none) and (pointer: coarse) {
-        footer ul li { margin-bottom: 0; }
-        footer ul li a { display: inline-block; padding: 9px 0; min-height: 44px; }
-        footer h2 { margin-bottom: 7px; }
-        footer .footer-social a { padding: 10px; margin: -10px; }
-      }
 
+      /* Four layouts, team check (26 November 2026) */
+      @media (max-width: 359px) { h1, .hero h1, .legal h1, .uc-heading { font-size: 36px; } } /* smallest phones: the heading takes fewer lines */
+      @media (min-width: 769px) and (max-width: 1023px) { .legal-inner { max-width: none; } } /* tablet upright: inner pages use the full width */
       /* Reduced motion: every loop, float, slide-in, progress bar and smooth scroll stops at rest. Kept last so it wins */
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
@@ -285,7 +282,7 @@
       }
   </style>
 </head>
-<body>
+<body ontouchstart="">
 <div id="top">
   <div class="stealth-banner" role="region" aria-label="Announcement">
     <span class="stealth-dots" aria-hidden="true"><span class="stealth-dot"></span><span class="stealth-dot sd2"></span><span class="stealth-dot sd3"></span></span>

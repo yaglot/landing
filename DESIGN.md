@@ -37,7 +37,7 @@ Every Yaglot page should feel friendly, obvious and consistent.
 5. **Always show what is happening.** Pressing a button gives an instant response, then a clear result (Nielsen's 'visibility of system status', approximate).
 6. **Forgive mistakes.** Check forms only when people press the button, say exactly what to fix and never clear what they typed.
 7. **Easy to tap.** On phones every control is at least 48px tall and on tablets 52px. On both every link has at least 44px to tap, except links inside sentences (Material 48dp and Apple 44pt, both approximate).
-8. **Drawings decorate, controls act.** Doodles never look clickable. Only controls move or change when hovered or pressed (section 6).
+8. **Drawings decorate, controls act.** Doodles never look clickable. Only controls move or change when hovered or pressed (section 6). Hover effects apply only with a mouse or trackpad, so nothing stays 'hovered' after a tap; a tap shows the pressed look.
 
 ### Screen sizes
 
@@ -70,8 +70,8 @@ Every page uses four layouts (phone, tablet upright, tablet sideways and compute
 | columns-features | 1 | 2 | 2 | 3 | Feature cards on the home page |
 | Smallest width | 320px | | | | No sideways scrolling |
 | width-page | Full width | Full width | 1200px | 1200px | Centred, includes side margins |
-| width-reading | Full width | 720px | 720px | 720px | Inner page column |
-| width-paragraph | 34em (544px) | 34em (612px) | 34em (612px) | 34em (612px) | Caps every paragraph and list at 45 to 75 characters a line |
+| width-reading | Full width | Full width | 720px | 720px | Inner page column |
+| width-paragraph | 34em (544px) | 34em (612px) | 34em (612px) | 34em (612px) | Caps every paragraph and list at 45 to 75 characters a line (35 to 75 on phones below 360px) |
 | margin-side | 16px | 24px | 24px | 24px | Every page, every section |
 
 An iPad held upright (820px) is tablet upright. A touch screen 1024px and wider, such as an iPad held sideways, is tablet sideways: the computer layout with tablet tap sizes and two-column feature cards. An iPad mini held upright (744px) gets the phone layout.
@@ -120,23 +120,23 @@ Headings use Noto Serif and everything else uses Noto Sans. Every size comes fro
 
 | Token | Phone | Tablet upright | Tablet sideways | Computer | Rule |
 |---|---|---|---|---|---|
-| text-display | 40px / 1.15 | 48px / 1.15 | 60px / 1.15 | 60px / 1.15 | One per page (h1) |
+| text-display | 40px / 1.15 (36px below 360px) | 48px / 1.15 | 60px / 1.15 | 60px / 1.15 | One per page (h1) |
 | text-headline | 32px / 1.15 | 40px / 1.15 | 48px / 1.15 | 48px / 1.15 | Home section headings |
 | text-postcard | 32px / 1.2 | 40px / 1.2 | 40px / 1.2 | 40px / 1.2 | Waitlist heading |
 | text-title | 24px / 1.25 | 24px / 1.25 | 24px / 1.25 | 24px / 1.25 | Inner page headings, card titles, Mission beliefs (balanced so no short last line) |
 | text-subtitle | 20px / 1.6 | 26px / 1.6 | 26px / 1.6 | 26px / 1.6 | Hero subtitle only |
 | text-lead | 18px / 1.6 | 20px / 1.6 | 20px / 1.6 | 20px / 1.6 | Map section, construction page |
-| text-body-lg | 16px / 1.65 | 18px / 1.65 | 18px / 1.65 | 18px / 1.65 | Inner page text, the back link (founder decision) and the Contact form's labels, boxes, word counter and privacy note |
+| text-body-lg | 16px / 1.65 | 18px / 1.65 | 18px / 1.65 | 18px / 1.65 | Home feature card text from tablet upright up (team check, 26 November 2026), inner page text, the back link (founder decision) and the Contact form's labels, boxes, word counter and privacy note |
 | text-button | 19px bold / 1.2 | 19px bold / 1.2 | 19px bold / 1.2 | 19px bold / 1.2 | Every button, terracotta and olive (founder decision) |
 | text-body | 16px / 1.6 | 16px / 1.6 | 16px / 1.6 | 16px / 1.6 | Home text, the waitlist 'Email address' label, warnings, failure messages, 'Last updated', footer |
 | text-small | 14px | 14px | 14px | 14px | Copyright, pinyin and 'ALMOST THERE' only. 'ALMOST THERE' is accent-active, never terracotta |
-| text-chinese | 32px | 32px | 40px | 40px | Phrase cards. Inside sentences, match the sentence |
+| text-chinese | 32px | 36px | 40px | 40px | Phrase cards. Inside sentences, match the sentence |
 
 - Weights are 400 for text and 500 for headings, banner and pinyin. Buttons, links, labels, warnings and FAQ questions use 700. Only those load (Noto Serif 500, Noto Sans 400, 500 and 700, Noto Sans TC and SC 400).
 - Chinese uses Noto Sans TC first, then SC.
 - Nothing people need to read goes below 16px. The text-small uses above are the only exceptions.
 - A lower heading is never bigger than the one above it.
-- Lines run 45 to 75 characters, spaces included (width-paragraph, section 2).
+- Lines run 45 to 75 characters, spaces included (width-paragraph, section 2). On phones below 360px, 35 to 75.
 - Sentence case everywhere. Capitals only for 14px labels, spaced 0.08em.
 
 Buttons use 19px bold because WCAG counts 19px bold as large text, which lets cream on terracotta pass (section 5). For comparison, Material 3 body large is 16px on a 24px line and display large 57px. Apple's body text is 17pt. GOV.UK body is 19px on computers and 16px on phones, close to our 18 (computer and tablet) and 16. All three are approximate.
@@ -240,7 +240,7 @@ Durations match on every device. Phrase cards float 14px on computer and 8px on 
 | motion-progress | 4s | 4s | 4s | 4s | Progress bar, once |
 | motion-float | 5 to 6s | 5 to 6s | 5 to 6s | 5 to 6s | Phrase cards, staggered |
 
-Loops use ease-in-out and single moves use ease. No loop runs faster than 1.4s. Loops run normally, and with reduced motion nothing loops, floats or slides in (section 9).
+Loops use ease-in-out and single moves use ease. No loop runs faster than 1.4s. Loops play three rounds and then stop at rest (WCAG 2.2.2, founder decision 26 November 2026), and with reduced motion nothing loops, floats or slides in (section 9). The feature icon bounce runs only while a mouse hovers.
 
 ## 7. Components
 
@@ -250,8 +250,8 @@ Each component has one job and behaves the same wherever it appears.
 
 | Component | Phone | Tablet upright | Tablet sideways | Computer | Rule |
 |---|---|---|---|---|---|
-| Sticky banner | 60px, scrolls away | 41px tall, sticks | 41px tall, sticks | 41px tall, sticks | Sticks only above 760px, where it fits on one line. On short screens (500px tall or less, such as 400% zoom or a phone held sideways) it scrolls away |
-| Header | 79px tall, 152px below 360px | 87px tall | 87px tall | 87px tall | Logo (section 4) on the left links home, 'Join the waitlist' on the right, at least 16px apart on phone. Sticks under the banner. When space runs short the button's side padding shrinks evenly, never its words. If the words still do not fit, as with wider text spacing at 360 to 390px, they wrap and the button grows taller instead of spilling out. Normal view keeps one line, so the header stays 79px. Below 360px the button sits under the logo and the header scrolls away. The button lines up with the logo drawing, not the image box (the file has a 10px transparent edge at 46px tall), and there is 22px of clear space above the drawing, between the drawing and the button, and below the button's shadow. On short screens (500px tall or less) the header scrolls away at every width |
+| Sticky banner | 60px, scrolls away | 41px tall, sticks | 41px tall, sticks | 41px tall, sticks | Sticks only above 760px, where it fits on one line. On short screens (600px tall or less, such as 400% zoom, a phone held sideways) it scrolls away |
+| Header | 79px tall, 152px below 360px | 87px tall | 87px tall | 87px tall | Logo (section 4) on the left links home, 'Join the waitlist' on the right, at least 16px apart on phone. Sticks under the banner. When space runs short the button's side padding shrinks evenly, never its words. If the words still do not fit, as with wider text spacing at 360 to 390px, they wrap and the button grows taller instead of spilling out. Normal view keeps one line, so the header stays 79px. Below 360px the button sits under the logo and the header scrolls away. The button lines up with the logo drawing, not the image box (the file has a 10px transparent edge at 46px tall), and there is 22px of clear space above the drawing, between the drawing and the button, and below the button's shadow. On short screens (600px tall or less) the header scrolls away at every width |
 | Button | 48px tall, 16px side padding (space-4) | 52px tall, 24px side padding (space-5) | 52px tall, 24px side padding (space-5) | 52px tall, 24px side padding (space-5) | text-button. Form buttons fill the width on phone |
 | Text box and Topic | 48px tall | 52px tall | 52px tall | 52px tall | Match the button height. 16px inside on the left and right (space-4), no padding top or bottom. Contact boxes use text-body-lg on tablet and computer |
 | Message box | 150px tall | 150px tall | 150px tall | 150px tall | People can drag it taller |
@@ -260,7 +260,7 @@ Each component has one job and behaves the same wherever it appears.
 | Word counter | text-body | text-body-lg | text-body-lg | text-body-lg | Right-aligned under Message. Reads '0 / 500 words' |
 | FAQ card | 59px closed | 66px closed, 16px apart | 66px closed, 16px apart | 66px closed, 16px apart | Whole question row opens it |
 | Back link | 46px to tap | 50px to tap | 50px to tap | 50px to tap | text-body-lg bold in link colour |
-| Footer link | 44px to tap, social icons too | 44px to tap, social icons too | 44px to tap, social icons too | 22px tall | Two columns on phone, four on tablet and computer |
+| Footer link | 44px to tap, social icons too | 44px to tap, social icons too | 44px to tap, social icons too | 22px tall, 44px on any touch screen | Two columns on phone, four on tablet and computer |
 
 ### Buttons
 
@@ -311,7 +311,7 @@ Used on the FAQs page. Each question card opens and closes with a click, a tap, 
 
 ### Waitlist postcard
 
-The one place to join. The 'Email address' label (text-body bold) sits above the box. The box and button sit side by side on computer and stack on tablet and phone, each full width, with the consent line underneath unchanged.
+The one place to join. The 'Email address' label (text-body bold) sits above the box. The box and button sit side by side on computer and tablet sideways and stack on tablet upright and phone, each full width, with the consent line underneath unchanged.
 
 ### Footer, back link and 404
 
@@ -409,11 +409,11 @@ Borders, icons and focus outlines need 3 to 1 against what is next to them (WCAG
 - **Focus not obscured (2.4.11).** The focused item must never hide under the sticky banner and header. Set `scroll-padding-top` to the measured sticky height plus 12px. That is 140px from 769px up (128px sticky), 132px at 761 to 768px (120px sticky) and 91px at 360 to 760px (79px sticky). Below 360px, and on screens 500px tall or less (400% zoom, a phone held sideways), the banner and header scroll away, so it is 12px. The header 'Join the waitlist' link uses the same offset and nothing else adds to it.
 - **Keyboard (2.1.1).** Everything works without a mouse, with no traps.
 - **Skip link (2.4.1).** People can jump past repeated parts. A 'Skip to main content' link, first in the header, appears on focus and moves focus to `main`.
-- **Target size (2.5.8).** Things you tap are at least 24 by 24px or spaced apart (approximate). Our own rule is 48px buttons and boxes on phone, 52px on tablet and 44px link tap areas on both (section 7).
+- **Target size (2.5.8).** Things you tap are at least 24 by 24px or spaced apart (approximate). Our own rule is 48px buttons and boxes on phone, 52px on tablet upright, tablet sideways and computer, and 44px link tap areas on phone, both tablets and any touch screen (section 7).
 
 ### Zoom, reflow and spacing
 
-- **Reflow (1.4.10).** At 320px wide, which equals 400% zoom on a computer, nothing scrolls sideways. Below 360px the header wraps and scrolls away (section 7), which also makes 19px button text fit. On screens 500px tall or less nothing sticks, so the sticky parts never take a third of the screen.
+- **Reflow (1.4.10).** At 320px wide, which equals 400% zoom on a computer, nothing scrolls sideways. Below 360px the header wraps and scrolls away (section 7), which also makes 19px button text fit. On screens 600px tall or less nothing sticks, so the sticky parts never take a third of the screen.
 - **Resize text (1.4.4).** Text zoomed to 200% stays readable with nothing lost.
 - **Text spacing (1.4.12).** Text still fits when readers widen line, letter and word spacing. On phone the header button's words wrap and the button grows taller rather than spill out (section 7).
 
@@ -435,7 +435,7 @@ Borders, icons and focus outlines need 3 to 1 against what is next to them (WCAG
 
 ### Motion
 
-Nothing may flash more than three times a second (2.3.1). Looping animations run normally. With reduced motion (`prefers-reduced-motion`) they stop completely on every page, the home page and the banner dots included (founder decision). There is no 5-second stop. WCAG 2.2.2 (approximate) asks for a way to pause loops that last over 5 seconds, and the reduced-motion setting is the way we offer.
+Nothing may flash more than three times a second (2.3.1). Looping animations play three rounds and then stop. With reduced motion (`prefers-reduced-motion`) they stop completely on every page, the home page and the banner dots included (founder decision). There is no 5-second stop. WCAG 2.2.2 (approximate) asks for a way to pause loops that last over 5 seconds, and the reduced-motion setting is the way we offer.
 
 - With reduced motion, stop the phrase-card float, star, bell, banner dots, 'Reach out' dots, monkeys, heading slide-in, progress bar and smooth scrolling. Each stops at rest, never mid-move. Phrase cards sit at their starting place and dots and the star stay fully visible.
 - The button press may stay. It is short and only happens when people press.
@@ -445,7 +445,7 @@ Nothing may flash more than three times a second (2.3.1). Looping animations run
 
 Run in this order on every change, using Chrome's device toolbar for widths.
 
-- [ ] Run axe DevTools or Lighthouse (free browser tools) on each changed page at 1440, 820 and 390. Check any new colour pair against section 5.
+- [ ] Run axe DevTools or Lighthouse (free browser tools) on each changed page at 1440, 1180 (touch, tablet sideways), 820 and 390. Check any new colour pair against section 5.
 - [ ] At 1440, use only the keyboard. Tab and Shift+Tab through the page. Check the outline shows, is cream in the footer and is never under the header.
 - [ ] Open and close each FAQ with Enter and with Space. The chevron points down when closed and up when open.
 - [ ] Block script.google.com first, so no real message is sent. Submit both forms empty, with a bad email and with 501 words in Message. Check each warning sits under its own box and clears when you type there. Check nothing typed is lost.
