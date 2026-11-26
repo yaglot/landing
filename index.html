@@ -67,7 +67,7 @@
       nav { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
       nav .btn { margin-bottom: 5px; } /* room for the button shadow, so the space above and below looks equal */
       /* Short screens (under 500px tall, such as 400% zoom or a phone held sideways): the banner and header scroll away */
-      @media (max-height: 500px) { .stealth-banner, header { position: static; } html { scroll-padding-top: 12px; } }
+      @media (max-height: 600px) { .stealth-banner, header { position: static; } html { scroll-padding-top: 12px; } }
       .logo-link { display: flex; align-items: center; text-decoration: none; transition: transform 0.2s; }
       /* A hand-drawn squiggle draws itself under the logo on hover or keyboard focus (appears at once with reduced motion) */
       .logo-link { position: relative; }
@@ -79,7 +79,7 @@
       .logo-img { height: 72px; width: auto; display: block; }
       .btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 52px; padding: 0 26px; border-radius: var(--wobble); font-weight: 700; font-size: 16px; border: 2px solid var(--ink); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, background 0.2s; text-decoration: none; font-family: var(--font-body); white-space: nowrap; }
       .btn-primary { background: var(--accent); color: var(--accent-on); box-shadow: 0 5px 0 0 var(--ink); }
-      .btn-primary:hover { color: var(--accent-on); transform: translateY(3px); box-shadow: 0 2px 0 0 var(--ink); }
+      @media (hover: hover) { .btn-primary:hover { color: var(--accent-on); transform: translateY(3px); box-shadow: 0 2px 0 0 var(--ink); } }
       .btn-primary:active { background: var(--accent-active); transform: translateY(5px); box-shadow: none; }
   
       /* Hero */
@@ -123,7 +123,7 @@
       .feature-card:nth-child(3n+1) { rotate: -0.5deg; }
       .feature-card:nth-child(3n+2) { rotate: 0.4deg; }
       .feature-card:nth-child(3n) { rotate: -0.2deg; }
-      .feature-card:hover { transform: translateY(-6px); box-shadow: 0 12px 0 0 #dccfb6; }
+      @media (hover: hover) { .feature-card:hover { transform: translateY(-6px); box-shadow: 0 12px 0 0 #dccfb6; } }
       .feature-icon { width: 76px; height: 76px; display: flex; align-items: center; justify-content: center; border-radius: 46% 54% 42% 58% / 55% 44% 56% 45%; margin-bottom: 22px; color: var(--accent); line-height: 0; }
       .feature-card:nth-child(3n+1) .feature-icon { background: var(--tint-clay); }
       .feature-card:nth-child(3n+2) .feature-icon { background: var(--tint-sage); }
@@ -148,13 +148,13 @@
       .waitlist-inline input { flex: 1; min-width: 0; padding: 14px 18px; border: 2px solid var(--ink); border-radius: var(--wobble); font-family: var(--font-body); font-size: 16px; height: 52px; background: #fff; color: var(--fg); outline: none; transition: box-shadow 0.2s; }
       .waitlist-inline input:focus { box-shadow: 0 0 0 4px rgba(184, 92, 56, 0.25); }
       .btn-notify { height: 52px; padding: 0 26px; background: var(--accent); color: var(--accent-on); border: 2px solid var(--ink); border-radius: var(--wobble); font-family: var(--font-body); font-size: 16px; font-weight: 700; cursor: pointer; white-space: nowrap; box-shadow: 0 5px 0 0 var(--ink); transition: transform 0.15s, box-shadow 0.15s, background 0.2s; }
-      .btn-notify:hover { transform: translateY(3px); box-shadow: 0 2px 0 0 var(--ink); }
+      @media (hover: hover) { .btn-notify:hover { transform: translateY(3px); box-shadow: 0 2px 0 0 var(--ink); } }
       .form-error { color: var(--accent-active); font-size: 16px; font-weight: 700; margin: 10px 0 0; }
       .waitlist-inline input[aria-invalid="true"] { border-color: var(--accent-active); box-shadow: 0 0 0 4px rgba(131, 63, 38, 0.18); }
       .btn-notify:active { background: var(--accent-active); transform: translateY(5px); box-shadow: none; }
       .privacy { font-size: 16px; color: var(--muted); margin-top: 22px; }
       .privacy a { font-weight: 700; text-decoration: none; }
-      .privacy a:hover { text-decoration: underline; }
+      @media (hover: hover) { .privacy a:hover { text-decoration: underline; } }
       .waitlist-inline input { padding-top: 0; padding-bottom: 0; } /* fixed height: no vertical padding, so text is never cut off */
   
       /* Footer */
@@ -165,13 +165,13 @@
       footer ul { list-style: none; }
       footer ul li { margin-bottom: 12px; }
       footer ul li a { font-size: 16px; color: #b0aea5; text-decoration: none; }
-      footer ul li a:hover { color: #e8a387; }
+      @media (hover: hover) { footer ul li a:hover { color: #e8a387; } }
       footer .footer-social { display: flex; flex-direction: column; gap: 14px; }
       footer .social-row { display: flex; gap: 18px; } /* rows of 3, 2 and 2 icons */
       footer .footer-social a { color: #b0aea5; } /* one colour, like the footer links */
-      footer .footer-social a:hover { color: #e8a387; opacity: 1; }
+      @media (hover: hover) { footer .footer-social a:hover { color: #e8a387; opacity: 1; } }
       footer .footer-social a { display: inline-flex; border-radius: 6px; transition: transform 0.2s, opacity 0.2s; }
-      footer .footer-social a:hover { transform: translateY(-2px); opacity: 0.9; }
+      @media (hover: hover) { footer .footer-social a:hover { transform: translateY(-2px); opacity: 0.9; } }
       .footer-bottom { border-top: 1px dashed #3d3d3a; padding-top: 24px; text-align: center; }
       .footer-bottom p { font-size: 14px; color: #87867f; }
   
@@ -250,7 +250,7 @@
       .postcard h2 { padding-right: 48px; }
       .faq summary { text-wrap: balance; }
       .faq { transition: background 0.2s; }
-      .faq:hover { background: #f3efe6; }
+      @media (hover: hover) { .faq:hover { background: #f3efe6; } }
       .values { margin: 16px 0 0 !important; gap: 16px; }
       .hero h1, .legal h1, .uc-heading { line-height: 1.15; }
       h3 { font-size: 24px; }
@@ -272,7 +272,7 @@
       /* Failure message: the same 18px gap under the button as on Contact. The email address never wraps on its own */
       #waitlist-fail { margin-top: 18px; text-wrap: pretty; scroll-margin-bottom: 16px; }
       .form-error a { color: #9b4d2f; font-weight: 700; text-decoration: none; white-space: nowrap; }
-      .form-error a:hover { text-decoration: underline; }
+      @media (hover: hover) { .form-error a:hover { text-decoration: underline; } }
       /* Read by screen readers only */
       .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
       /* The thank-you heading takes focus so it is read out, but is not something to press */
@@ -293,7 +293,7 @@
       @media (max-width: 359px) { nav .btn { padding-left: 16px; padding-right: 16px; } }
       /* Links on light backgrounds: link colour, bold, underlined on hover */
       main a:not(.btn) { color: var(--link); font-weight: 700; text-decoration: none; }
-      main a:not(.btn):hover { text-decoration: underline; text-decoration-color: #5f7146; }
+      @media (hover: hover) { main a:not(.btn):hover { text-decoration: underline; text-decoration-color: #5f7146; } }
       /* Skip link, shown on focus */
       .skip-link { position: absolute; left: 16px; top: 8px; z-index: 300; background: var(--surface); color: var(--link); font-size: 16px; font-weight: 700; text-decoration: none; padding: 10px 16px; border: 2px solid var(--ink); border-radius: var(--wobble); }
       .skip-link:not(:focus) { width: 1px; height: 1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -327,20 +327,13 @@
       footer h2 { font-family: var(--font-display); font-weight: 500; font-size: 16px; line-height: 1.6; color: #c8963e; margin-bottom: 16px; }
       footer .footer-content { grid-template-columns: 1fr 1fr; }
       @media (min-width: 769px) { footer .footer-content { grid-template-columns: repeat(4, 1fr); } }
-      @media (max-width: 1023px) {
+      @media (max-width: 1023px), (any-pointer: coarse) {
         footer ul li { margin-bottom: 0; }
         footer ul li a { display: inline-block; padding: 9px 0; min-height: 44px; }
         footer h2 { margin-bottom: 7px; }
         footer .footer-social a { padding: 10px; margin: -10px; }
       }
       footer a:focus-visible { outline-color: var(--accent-on); }
-      /* Tablet sideways: touch screens 1024px and wider. The computer layout with tablet tap sizes (44px links in the footer) */
-      @media (min-width: 1024px) and (hover: none) and (pointer: coarse) {
-        footer ul li { margin-bottom: 0; }
-        footer ul li a { display: inline-block; padding: 9px 0; min-height: 44px; }
-        footer h2 { margin-bottom: 7px; }
-        footer .footer-social a { padding: 10px; margin: -10px; }
-      }
 
       /* Home */
       .focus .lead { max-width: 34em; }
@@ -384,6 +377,11 @@
         .btn-notify { width: auto; }
       }
 
+      /* Four layouts, team check (26 November 2026) */
+      @media (max-width: 359px) { h1, .hero h1, .legal h1, .uc-heading { font-size: 36px; } } /* smallest phones: the heading takes fewer lines */
+      @media (min-width: 769px) and (max-width: 1023px) { .legal-inner { max-width: none; } } /* tablet upright: inner pages use the full width */
+      @media (min-width: 769px) { .feature-card p { font-size: 18px; } } /* tablet and computer: home text matches the inner pages */
+      @media (min-width: 769px) and (max-width: 1023px) { .char-symbol { font-size: 36px; } } /* tablet upright: bigger Chinese on the phrase cards */
       /* Reduced motion: every loop, float, slide-in, progress bar and smooth scroll stops at rest. Kept last so it wins */
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
@@ -393,7 +391,7 @@
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Yaglot","url":"https://yaglot.com/"}</script>
 </head>
-<body>
+<body ontouchstart="">
 <div id="top">
   <div class="stealth-banner" role="region" aria-label="Announcement">
     <span class="stealth-dots" aria-hidden="true"><span class="stealth-dot"></span><span class="stealth-dot sd2"></span><span class="stealth-dot sd3"></span></span>
