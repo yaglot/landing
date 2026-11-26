@@ -334,6 +334,13 @@
         footer .footer-social a { padding: 10px; margin: -10px; }
       }
       footer a:focus-visible { outline-color: var(--accent-on); }
+      /* Tablet sideways: touch screens 1024px and wider. The computer layout with tablet tap sizes (44px links in the footer) */
+      @media (min-width: 1024px) and (hover: none) and (pointer: coarse) {
+        footer ul li { margin-bottom: 0; }
+        footer ul li a { display: inline-block; padding: 9px 0; min-height: 44px; }
+        footer h2 { margin-bottom: 7px; }
+        footer .footer-social a { padding: 10px; margin: -10px; }
+      }
 
       /* Home */
       .focus .lead { max-width: 34em; }
@@ -347,6 +354,7 @@
       .features { gap: 40px; grid-template-columns: 1fr; }
       @media (min-width: 769px) { .features { grid-template-columns: repeat(2, 1fr); } }
       @media (min-width: 1024px) { .features { grid-template-columns: repeat(3, 1fr); } }
+      @media (min-width: 1024px) and (hover: none) and (pointer: coarse) { .features { grid-template-columns: repeat(2, 1fr); } } /* tablet sideways: two columns */
       .feature-card, .feature-card:hover { transform: none; box-shadow: var(--chunky); transition: none; }
       .feature-card p { color: var(--muted); }
       .privacy { max-width: 34em; } /* consent line, 45 to 75 characters a line */

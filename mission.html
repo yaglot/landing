@@ -309,6 +309,13 @@
         footer .footer-social a { padding: 10px; margin: -10px; }
       }
       footer a:focus-visible { outline-color: var(--accent-on); }
+      /* Tablet sideways: touch screens 1024px and wider. The computer layout with tablet tap sizes (44px links in the footer) */
+      @media (min-width: 1024px) and (hover: none) and (pointer: coarse) {
+        footer ul li { margin-bottom: 0; }
+        footer ul li a { display: inline-block; padding: 9px 0; min-height: 44px; }
+        footer h2 { margin-bottom: 7px; }
+        footer .footer-social a { padding: 10px; margin: -10px; }
+      }
 
       /* Reduced motion: every loop, float, slide-in, progress bar and smooth scroll stops at rest. Kept last so it wins */
       @media (prefers-reduced-motion: reduce) {
