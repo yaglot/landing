@@ -240,7 +240,7 @@ Durations match on every device. Phrase cards float 14px on computer and 8px on 
 | motion-progress | 4s | 4s | 4s | 4s | Progress bar, once |
 | motion-float | 5 to 6s | 5 to 6s | 5 to 6s | 5 to 6s | Phrase cards, staggered |
 
-Loops use ease-in-out and single moves use ease. No loop runs faster than 1.4s. Loops play three rounds and then stop at rest (WCAG 2.2.2, founder decision 26 November 2026), and with reduced motion nothing loops, floats or slides in (section 9). The feature icon bounce runs only while a mouse hovers.
+Loops use ease-in-out and single moves use ease. No loop runs faster than 1.4s. Loops keep running (founder decision, 26 November 2026: no stop after three rounds and no pause button; accepted exception to WCAG 2.2.2, see section 9), and with reduced motion nothing loops, floats or slides in (section 9). The feature icon bounce runs only while a mouse hovers.
 
 ## 7. Components
 
@@ -435,7 +435,7 @@ Borders, icons and focus outlines need 3 to 1 against what is next to them (WCAG
 
 ### Motion
 
-Nothing may flash more than three times a second (2.3.1). Looping animations play three rounds and then stop. With reduced motion (`prefers-reduced-motion`) they stop completely on every page, the home page and the banner dots included (founder decision). There is no 5-second stop. WCAG 2.2.2 (approximate) asks for a way to pause loops that last over 5 seconds, and the reduced-motion setting is the way we offer.
+Nothing may flash more than three times a second (2.3.1). Looping animations keep running (founder decision, 26 November 2026; accepted exception to WCAG 2.2.2, pause stop hide). With reduced motion (`prefers-reduced-motion`) they stop completely on every page, the home page and the banner dots included (founder decision). There is no 5-second stop. WCAG 2.2.2 (approximate) asks for a way to pause loops that last over 5 seconds, and the reduced-motion setting is the way we offer.
 
 - With reduced motion, stop the phrase-card float, star, bell, banner dots, 'Reach out' dots, monkeys, heading slide-in, progress bar and smooth scrolling. Each stops at rest, never mid-move. Phrase cards sit at their starting place and dots and the star stay fully visible.
 - The button press may stay. It is short and only happens when people press.
