@@ -9,7 +9,7 @@
     // Near-miss addresses go straight to the right page: /privacy/ and /privacy-notice to /privacy, /organisation to /organisations, and so on.
     // Anything else stays here and shows 'Page not found'. /blog is left alone until the blog is live.
     (function () {
-      var p = location.pathname.toLowerCase(), map = [['/construction', '/construction'], ['/privacy', '/privacy'], ['/terms', '/terms'], ['/contact', '/contact'], ['/faq', '/faqs'], ['/mission', '/mission'], ['/team', '/team'], ['/careers', '/careers'], ['/organisation', '/organisations']];
+      var p = location.pathname.toLowerCase(), map = [['/construction', '/construction'], ['/privacy', '/privacy'], ['/terms', '/terms'], ['/contact', '/contact'], ['/faq', '/faqs'], ['/mission', '/mission'], ['/team', '/team/'], ['/careers', '/careers'], ['/organisation', '/organisations']];
       for (var i = 0; i < map.length; i++) {
         if (p.indexOf(map[i][0]) === 0 && location.pathname !== map[i][1]) { location.replace(map[i][1]); return; }
       }
@@ -356,7 +356,7 @@
           <h2>About us</h2>
           <ul>
             <li><a href="/mission">Our mission</a></li>
-            <li><a href="/team">Our team</a></li>
+            <li><a href="/team/">Our team</a></li>
             <li><a href="/careers">Careers</a></li>
           </ul>
         </div>
