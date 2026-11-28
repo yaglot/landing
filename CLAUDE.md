@@ -16,7 +16,7 @@
   - Each role reads only its own DESIGN.md sections and returns at most 5 findings.
   - One round for everything: fix all agreed items in a single build pass, never split work into several rounds.
   - One combined fix pass, then one quick re-check. No second full review unless something must be fixed.
-- Show changes on the canvas first (computer and phone boards), then change the site. Tablets have their own layouts (upright and sideways) but no canvas boards; they are checked on the site.
+- Show changes on the canvas first (computer and phone boards), then change the site. Tablets have their own layouts (upright and sideways) but no canvas boards; they are checked on the site. Blog articles have no canvas boards: the canvas keeps only the Blog and Article templates, and each new article is shown as phone and computer screenshots with its pull request. A change to the blog's design goes on the canvas first.
 - Check every change at 390, 360 and 320px first, then tablet upright at 820 and 768px, then tablet sideways at 1180 and 1024px (touch), then computer at 1024 and 1440px.
 - After a change, update DESIGN.md and the 'Landing design versions' document, and say which documents were updated.
 - This repository is public. Never add confidential product details, prices or patent information.
