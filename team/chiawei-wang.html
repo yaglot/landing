@@ -313,8 +313,9 @@
         .m-see-b, .m-hear-b, .m-speak-b { opacity: 0; }
       }
       /* Profile page */
-      .profile-head { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
-      @media (min-width: 769px) { .profile-head { flex-direction: row; align-items: center; gap: 32px; } }
+      /* Header centred on every layout (founder decision, 28 November 2026); the text below stays left-aligned */
+      .profile-head { display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+      .legal .profile-head .squiggle { margin-left: auto; margin-right: auto; }
       .portrait { flex: none; width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--ink); box-shadow: 0 4px 0 0 rgba(58, 47, 42, 0.85); overflow: hidden; }
       @media (min-width: 769px) { .portrait { width: 160px; height: 160px; } }
       .portrait img { display: block; width: 100%; height: 100%; object-fit: cover; }
@@ -360,11 +361,11 @@
           <div class="portrait"><picture><source srcset="/images/team/chiawei-wang.webp" type="image/webp"><img src="/images/team/chiawei-wang.jpg" alt="Dr Chiawei Wang" width="440" height="440"></picture></div>
           <div>
             <h1>Dr Chiawei Wang</h1>
-            <svg class="squiggle left" viewBox="0 0 120 14" fill="none" aria-hidden="true"><path d="M2 9 q 9 -8 18 0 t 18 0 t 18 0 t 18 0 t 18 0 t 18 0" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>
+            <svg class="squiggle" viewBox="0 0 120 14" fill="none" aria-hidden="true"><path d="M2 9 q 9 -8 18 0 t 18 0 t 18 0 t 18 0 t 18 0 t 18 0" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>
             <p class="profile-role">Founder and CEO</p>
           </div>
         </div>
-        <p class="lead-in" style="margin-top:32px">Chiawei is an Applied Language Scientist with a PhD in Linguistics from the University of Edinburgh, where he trained to find out how language works in our brains and in the world around us.</p>
+        <p class="lead-in" style="margin-top:24px">Chiawei is an Applied Language Scientist with a PhD in Linguistics from the University of Edinburgh, where he trained to find out how language works in our brains and in the world around us.</p>
         <p>He founded Yaglot to put that science to work, so learning a language feels natural and fun from day one.</p>
         <h2 class="profile-sec-h">A few fun facts</h2>
         <div class="profile-facts">
