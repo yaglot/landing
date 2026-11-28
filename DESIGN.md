@@ -315,9 +315,9 @@ The one place to join. The 'Email address' label (text-body bold) sits above the
 
 ### Footer, back link and 404
 
-- **Footer** columns are About us (Our mission, Our team, Blog, Careers), Products, Help (Contact us, FAQs, Privacy, Terms) and Follow us. The footer is the only link to the Blog for now (founder decision, 28 November 2026). Headings are h2, styled in footer-heading ochre at 16px, and never links.
+- **Footer** columns are About us (Our mission, Our team, Blog, Careers), Products, Help (Contact us, FAQs, Privacy notice, Terms and conditions; founder decision, 28 November 2026) and Follow us. The footer is the only link to the Blog for now (founder decision, 28 November 2026). Headings are h2, styled in footer-heading ochre at 16px, and never links.
 - **Back link** '← Back to the home page' ends every inner page.
-- **404.html** sends known old addresses to the right page and anything else home, so no visitor meets a dead end.
+- **404.html** (28 November 2026) is a friendly 'Page not found' page in the construction page style: the three monkeys, h1 'Page not found', 'This page has moved or doesn't exist. Let's get you back on track.', an olive 'Go to the home page' button and 'Or try our FAQs or contact us.', with the normal banner, header and footer. GitHub Pages serves it at any unknown address, so every link and file path in it starts with '/'. It has noindex and no canonical. Near-miss addresses still go straight to the right page before it shows: /construction…, /privacy… (including /privacy-notice), /terms…, /contact…, /faq… (to /faqs), /mission…, /team…, /careers… and /organisation… (to /organisations). Anything else shows the page instead of quietly going home, so visitors know the link was wrong.
 
 ### Blog
 
@@ -738,7 +738,7 @@ Buttons press down on hover (`translateY(3px)`, shadow 2px) and fully on click (
 - Four columns (two on phones), headings light terracotta (superseded, see section 5), links warm silver:
   - **About us:** Our mission, Our team, Careers
   - **Products:** Yaglot Pro, Yaglot Max, For organisations (one link, founder decision 28 November 2026; was For schools and For businesses)
-  - **Help:** Contact us, FAQs, Privacy, Terms
+  - **Help:** Contact us, FAQs, Privacy notice, Terms and conditions
   - **Follow us:** each network's own official logo, drawn to its official proportions (34px); LinkedIn's blue 'in' square (`#0A66C2`, small rounded corners, white 'in' filling the square as in LinkedIn's own logo) only for now (linkedin.com/company/yaglot)
   - **Follow us (19 November 2026):** seven icons in one colour (footer link grey #b0aea5, light terracotta #e8a387 on hover), 24px, grouped by what they are for: Threads, Instagram and Facebook (social); YouTube and TikTok (video); LinkedIn and X (news and work). Handles: Instagram, Threads, Facebook and X yaglotlabs; YouTube and TikTok yaglot. 44px to tap on phones and tablets
 - Links go to the construction page until their pages exist (Our mission, Our team, Careers, Contact us, FAQs, Privacy and Terms go to their pages; For organisations goes to its page; Yaglot Pro and Yaglot Max stay on the construction page for now)
