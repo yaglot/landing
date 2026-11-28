@@ -1,6 +1,6 @@
 # Yaglot design rules
 
-This is the single design rulebook for yaglot.com.
+This is the single design rulebook for yaglot.com. It is also the home of Yaglot's brand rules: colours, fonts, logo, illustration and accessibility.
 The rules come first in Part A and the decision history follows in Part B.
 When a rule and the site disagree, the rule wins and the gap is listed in section 10.
 
