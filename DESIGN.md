@@ -317,7 +317,7 @@ The one place to join. The 'Email address' label (text-body bold) sits above the
 
 - **Footer** columns are About us, Products, Help (Contact us, FAQs, Privacy, Terms) and Follow us. Headings are h2, styled in footer-heading ochre at 16px, and never links.
 - **Back link** '← Back to the home page' ends every inner page.
-- **404.html** sends known old addresses to the right page and anything else home, so no visitor meets a dead end.
+- **404.html** (28 November 2026) is a friendly 'Page not found' page in the construction page style: the three monkeys, h1 'Page not found', 'This page has moved or doesn't exist. Let's get you back on track.', an olive 'Go to the home page' button and 'Or try our FAQs or contact us.', with the normal banner, header and footer. GitHub Pages serves it at any unknown address, so every link and file path in it starts with '/'. It has noindex and no canonical. Near-miss addresses still go straight to the right page before it shows: /construction…, /privacy… (including /privacy-notice), /terms…, /contact…, /faq… (to /faqs), /mission…, /team…, /careers… and /organisation… (to /organisations). Anything else shows the page instead of quietly going home, so visitors know the link was wrong.
 
 ## 8. Page patterns and content
 
