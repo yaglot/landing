@@ -70,8 +70,8 @@ Every page uses four layouts (phone, tablet upright, tablet sideways and compute
 | columns-features | 1 | 2 | 2 | 3 | Feature cards on the home page |
 | Smallest width | 320px | | | | No sideways scrolling |
 | width-page | Full width | Full width | 1200px | 1200px | Centred, includes side margins |
-| width-reading | Full width | Full width | 720px | 720px | Inner page column |
-| width-paragraph | 34em (544px) | 34em (612px) | 34em (612px) | 34em (612px) | Caps every paragraph and list at 45 to 75 characters a line (35 to 75 on phones below 360px) |
+| width-reading | Full width | Full width | 960px | 960px | Inner page column (founder decision, 28 November 2026; was 720px) |
+| width-paragraph | Full width (40em cap) | 40em (720px) | 40em (720px) | 40em (720px) | Caps every paragraph and list at about 78 characters a line (founder decision, 28 November 2026; was 34em). The home page consent line keeps 34em |
 | margin-side | 16px | 24px | 24px | 24px | Every page, every section |
 
 An iPad held upright (820px) is tablet upright. A touch screen 1024px and wider, such as an iPad held sideways, is tablet sideways: the computer layout with tablet tap sizes and two-column feature cards. An iPad mini held upright (744px) gets the phone layout.
