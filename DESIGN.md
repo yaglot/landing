@@ -315,9 +315,21 @@ The one place to join. The 'Email address' label (text-body bold) sits above the
 
 ### Footer, back link and 404
 
-- **Footer** columns are About us, Products, Help (Contact us, FAQs, Privacy notice, Terms and conditions; founder decision, 28 November 2026) and Follow us. Headings are h2, styled in footer-heading ochre at 16px, and never links.
+- **Footer** columns are About us (Our mission, Our team, Blog, Careers), Products, Help (Contact us, FAQs, Privacy notice, Terms and conditions; founder decision, 28 November 2026) and Follow us. The footer is the only link to the Blog for now (founder decision, 28 November 2026). Headings are h2, styled in footer-heading ochre at 16px, and never links.
 - **Back link** '← Back to the home page' ends every inner page.
 - **404.html** (28 November 2026) is a friendly 'Page not found' page in the construction page style: the three monkeys, h1 'Page not found', 'This page has moved or doesn't exist. Let's get you back on track.', an olive 'Go to the home page' button and 'Or try our FAQs or contact us.', with the normal banner, header and footer. GitHub Pages serves it at any unknown address, so every link and file path in it starts with '/'. It has noindex and no canonical. Near-miss addresses still go straight to the right page before it shows: /construction…, /privacy… (including /privacy-notice), /terms…, /contact…, /faq… (to /faqs), /mission…, /team…, /careers… and /organisation… (to /organisations). Anything else shows the page instead of quietly going home, so visitors know the link was wrong.
+
+### Blog
+
+The Blog lives at /blog/ (founder decision, 28 November 2026: called 'Blog', linked from the footer only). Its pages share /blog/blog.css (the inner-page styles, the home waitlist postcard and the blog cards) and /blog/waitlist.js.
+
+- **Blog page:** h1 'Blog' with the squiggle, the intro line 'Stories about Mandarin, culture and how to learn, from the Yaglot team.', then article cards newest first. One column on phone and tablet upright, two on tablet sideways and computer (1024px and up), in a 1040px column.
+- **Article card:** the whole card is one link, in the wobbly card style with shadow-soft and a slight tilt. It holds a 16:9 hand-drawn picture in the illustration palette (never a photo), the theme label, the title (text-title), the date (text-small, #6f6e68) and a one-line summary (text-body, muted). On hover the title underlines in olive.
+- **Theme labels:** Language, Culture, How to learn or News. A pill of text-small bold #4a5a36 on #e8edda (6.3 to 1).
+- **Article page:** '← Back to the blog', the theme label, the h1 title, the byline 'By Dr Chiawei Wang' (links to his LinkedIn in a new tab) · the date, one 16:9 picture with alt text, then the body in the 34em reading column at text-body-lg with short h2 subheads. Articles are 600 to 900 words in short paragraphs. The header button jumps to the waitlist on the same page.
+- **End of each article:** the home waitlist postcard with the same fields and consent line (no new data), then 'More from the blog' with two or three related article cards once there are others.
+- **For Google and sharing:** each page has its own title, description, canonical link, Open Graph and Twitter tags and preview picture. Articles carry BlogPosting structured data (author, date, picture, publisher) and the Blog page carries Blog structured data. Every page is in sitemap.xml and every article is in the RSS feed at /blog/feed.xml.
+- **Adding an article:** no canvas board (the canvas keeps only the Blog and Article templates; founder decision, 28 November 2026). The founder sees phone and computer screenshots with the pull request. one small pull request with the new page in /blog/, its card at the top of the Blog page (and in its structured data), its sitemap entry and its feed item. Before it goes live, the facts, Mandarin and pinyin are checked and nothing confidential appears.
 
 ## 8. Page patterns and content
 
